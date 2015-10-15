@@ -1,12 +1,12 @@
 # README #
 
-LabPetri
+Lab Petri
 
-Repository and Version Control for LabPetri Website
+Repository and Version Control for Lab Petri Website
 
 Administrators:
 
-   - Nghia Nguyen email: 
+   - Nghia Nguyen email: megamanxu@gmail.com
                   
    - Brian Nguyen email: briantruongnguyen@gmail.com
                   
