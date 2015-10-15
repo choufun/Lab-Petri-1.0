@@ -1,0 +1,38 @@
+
+/* PROFILE PROPERTIES
+*****************************************************************************/
+img.image
+{
+   border-radius: 50%;
+   border: 3px solid white;
+   width: 160px;
+   height: 160px;
+}
+.name
+{
+   padding-bottom: 25px;
+}
+.profile
+{
+    padding-top: 25px;
+}
+.account_info
+{
+   padding-left: 25px;
+}
+.index-content
+{
+   margin-left: 25px;
+   margin-right: 25px;
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+._link
+{
+	background: none;
+	border: none;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+   outline: none;
+}
