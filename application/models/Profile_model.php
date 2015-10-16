@@ -28,13 +28,19 @@ class Profile_model extends CI_Model
 ************************************************************************************/
    public function is_userfile($filename)
    {
-      $this->db->where('user_id', $this->session->user_id);
       $this->db->where('filename', $filename);
       $query = $this->db->get('files');
       
-      if ($query->num_rows() == 1)
+      if ($query->num_rows() >= 1)
       {
-         return TRUE;
+         if ($query->row('user_id') == $this->session->user_id)
+         {
+            return TRUE;
+         }
+         else
+         {
+            return FALSE;
+         }
       }
       else
       {
