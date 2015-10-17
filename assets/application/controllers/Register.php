@@ -7,7 +7,6 @@ class Register extends CI_Controller {
     {
        parent::__construct(); 
        $this->load->model('register_model');
-	   $this->load->model('login_model');
        $this->load->helper(array('form', 'url'));
        $this->load->library('form_validation');
     }
@@ -32,9 +31,10 @@ class Register extends CI_Controller {
       else
       {
          $this->register();
-		 $this->login_model->login_user($this->input->post('email'));
+         $data['options'] = $this->register_model->load_majors();
+         $data['schools'] = $this->register_model->load_schools();
          $this->load->view('templates/header');
-         $this->load->view('setprofilepic');
+         $this->load->view('register', $data);
          $this->load->view('templates/footer');
       }
 	}

@@ -31,7 +31,7 @@ class Profile_model extends CI_Model
       $this->db->where('user_id', $this->session->user_id);
       $query = $this->db->get('files');
       
-      if ($query->num_rows() >= 1) return TRUE;
+      if ($query->num_rows() == 0) return FALSE;
       else return TRUE;
    }
    

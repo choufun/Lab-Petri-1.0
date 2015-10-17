@@ -36,3 +36,9 @@ img.image
 	padding: 0;
    outline: none;
 }
+
+.logo
+{
+   padding-top: 5px;
+   padding-right: 8px;
+}

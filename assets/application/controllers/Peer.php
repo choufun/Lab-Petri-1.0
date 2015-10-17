@@ -7,15 +7,15 @@ class Peer extends CI_Controller
 {
     function __construct()
     {
-       parent:: __construct();
+      parent:: __construct();
        $this->load->model('peer_model');
     }
     
     public function index()
     {
-       $this->load->view('templates/header');
-       $this->load->view('peer');
-       $this->load->view('templates/footer');
+         $this->load->view('templates/header');
+         $this->load->view('peer');
+         $this->load->view('templates/footer');
     }
 /* PEER PSEUDO FUNCTIONS
 ************************************************************************************/

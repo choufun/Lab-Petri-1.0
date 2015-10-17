@@ -29,6 +29,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <!--// echo form_open('register');--> <!-- calls register->index() -->
       <form method="post" accept-charset="utf-8" action="register">
 		  
+	  <div class="row">
+         <div class="input-field col s5">
+            <label class="active" for ='firstname'> First Name: </label>
+            <input type="text" name="firstname">
+         </div>
+
+         <div class="input-field col s5">
+            <label class="active" for ='lastname'> Last Name: </label>
+            <input type="text" name="lastname">
+         </div>
+      </div>
       
 <!-- FIRST AND LAST NAME
 --------------------------------------------------------------------------------------------->
