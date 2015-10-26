@@ -13,6 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <link type="text/css" rel="stylesheet" href="assets/css/materialize.css" media="screen,projection"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+   
       <link href="../../assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link href="assets/css/custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
       <link rel="icon" href="assets/img/favicon.ico" type="image/gif" sizes="16x16"> 

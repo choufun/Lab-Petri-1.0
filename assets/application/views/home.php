@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   gap between students and professors in order to help start
                   new and revive stalled research projects.
                   We aim to further the educational and professional goals of students
-                  in the STEM fields, as well as help further research started by research
+                  in the STEM fields, as well as help further the continuation of research started by
                   professionals and professors.
                </p>
             </div>

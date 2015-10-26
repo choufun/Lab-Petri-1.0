@@ -137,6 +137,30 @@ class Profile extends CI_Controller
       return $result;
    }
    
+/* DO UPLOAD PROFILE PICTURE
+************************************************************************************/
+	public function do_upload_pic()
+	{
+      $config['upload_path'] = './files/profile_picture';
+      $config['allowed_types'] = 'jpg|png|jpeg';
+      $config['max_size']	= '1000';
+      $config['max_width']  = '1024';
+      $config['max_height']  = '768';
+
+      $this->load->library('upload', $config);
+
+      if ( !$this->upload->do_upload())
+      {
+         $error = array('error' => $this->upload->display_errors());
+         redirect("profile/");         
+      }
+      else
+      {
+         $data = array('upload_data' => $this->upload->data());
+         redirect("profile/");
+      }
+	}
+   
 /* DO UPLOAD
 ************************************************************************************/
 	public function do_upload()
@@ -149,7 +173,7 @@ class Profile extends CI_Controller
 
       $this->load->library('upload', $config);
 
-      if ( ! $this->upload->do_upload())
+      if ( !$this->upload->do_upload())
       {
          $error = array('error' => $this->upload->display_errors());
          redirect("profile/");         

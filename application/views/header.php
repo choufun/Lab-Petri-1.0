@@ -36,8 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <!--The Header's style sheet -->
     
-        
-
+    
   </head>
     
 <body>

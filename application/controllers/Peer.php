@@ -5,18 +5,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ************************************************************************************/
 class Peer extends CI_Controller
 {
-    function __construct()
-    {
-       parent:: __construct();
-       $this->load->model('peer_model');
-    }
-    
-    public function index()
-    {
-       $this->load->view('templates/header');
-       $this->load->view('peer');
-       $this->load->view('templates/footer');
-    }
+   function __construct()
+   {
+      parent:: __construct();
+      $this->load->model('peer_model');
+      $this->peer_model->load_users();
+   }
+
+   public function index()
+   {
+      $data = array(
+         'users' => $this->user_list()
+      );
+      $this->load->view('templates/header');
+      $this->load->view('peer', $data);
+      $this->load->view('templates/footer');
+   }
+   
+   public function user_list()
+   {
+      $users = $this->peer_model->get_users();
+      $result = "";
+      $result .= '<ul>';
+      foreach ($users as $user)
+      {
+         $result.= '
+            <li>
+               <div class="card index-content">
+                  <div align="center" class="card-content">
+                     <div>
+                        PROFILE PICTURE
+                     </div>
+                     <div>
+                        '.$user->firstname.' '.$user->lastname.'
+                     </div>
+                     <div>
+                        email : '.$user->email.'
+                     </div>
+                     <div>
+                        research: '.$user->major.'
+                     </div>
+                  </div>
+               </div>
+            </li>
+         ';
+      }
+      $result.= '</ul>';
+      return $result;
+   }
+   
 /* PEER PSEUDO FUNCTIONS
 ************************************************************************************/
 /*
