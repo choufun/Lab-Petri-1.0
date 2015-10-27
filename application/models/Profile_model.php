@@ -118,5 +118,17 @@ class Profile_model extends CI_Model
          $this->major = "No Specified Major";
       }
    }
+   
+/* INSERT PROFILE PICTURE
+************************************************************************************/
+   public function insert_profile_picture($picture)
+   {
+      $data = array(
+         'filename' => $picture,
+         'user_id'  => $this->session->user_id,
+      );
+      
+      $this->db->insert('profile_picture', $data);
+   }
 }
 ?>

@@ -157,6 +157,8 @@ class Profile extends CI_Controller
       else
       {
          $data = array('upload_data' => $this->upload->data());
+         $picture = $this->upload->data('file_name');
+         $this->profile_model->insert_profile_picture($picture);
          redirect("profile/");
       }
 	}
@@ -181,6 +183,9 @@ class Profile extends CI_Controller
       else
       {
          $data = array('upload_data' => $this->upload->data());
+         /* DEBUGGING USE
+         ***************************************************************************/
+         /* $this->session->set_userdata('data', $this->upload->data('file_name'));*/
          redirect("profile/");
       }
 	}

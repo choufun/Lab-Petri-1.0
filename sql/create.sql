@@ -74,3 +74,8 @@ CREATE TABLE IF NOT EXISTS files (
    user_id int(11) NOT NULL
 ) ENGINE = MYISAM;
 
+/* PROFILE PICTURE */
+CREATE TABLE IF NOT EXISTS profile_picture (
+   filename varchar(255) NOT NULL,
+   user_id int(11) NOT NULL
+) ENGINE = MYISAM;
