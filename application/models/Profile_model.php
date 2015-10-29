@@ -8,6 +8,7 @@ class Profile_model extends CI_Model
    private $email;
    private $major;
    private $university;
+   private $pictures;
 
 /* CONSTRUCTOR
 ************************************************************************************/
@@ -123,12 +124,57 @@ class Profile_model extends CI_Model
 ************************************************************************************/
    public function insert_profile_picture($picture)
    {
+      $this->db->set('default_picture', 0);
+      $this->db->where('user_id', $this->session->user_id);
+      $this->db->where('default_picture', 1);
+      $this->db->update('profile_picture');
+      
       $data = array(
          'filename' => $picture,
          'user_id'  => $this->session->user_id,
+         'default_picture' => 1,
       );
       
       $this->db->insert('profile_picture', $data);
+   }
+
+/* GET PROFILE PICTURE
+************************************************************************************/
+   public function get_profile_picture()
+   {
+      $this->db->where('user_id', $this->session->user_id);
+      $this->db->where('default_picture', 1);
+      $query = $this->db->get('profile_picture');
+      
+      if ($query->num_rows() == 1)
+      {
+         return $query->row('filename');
+      }
+      else
+      {
+         return "no default profile picture";
+      }
+   }
+
+/* GET PICTURES
+************************************************************************************/
+   public function get_pictures() { return $this->pictures; }
+   
+/* LOAD PICTURES
+************************************************************************************/
+   public function load_pictures()
+   {
+      $this->db->where('user_id', $this->session->user_id);
+      $query = $this->db->get('profile_picture');
+      
+      if ($query->num_rows() >= 1)
+      {
+         $this->pictures = $query->result();
+      }
+      else
+      {
+         $this->pictures = "no pictures";
+      }
    }
 }
 ?>

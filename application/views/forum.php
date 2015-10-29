@@ -119,60 +119,55 @@ jQuery.noConflict();
   </div>
 </div>
 
-
 <div class="container">
 	<div class="row">
 		<div class="col s12 l10">
 			<?php foreach($forum as $row){ ?>
-			<div class="card" style="display:none;">
+			<a href="<?php echo "http://www.labpetri.com/forum/comments/". $row->post_id; ?>"><div class="card-panel hoverable small forum-border">
+				
 				<div class="row">
-					<div class="col s3 l1">
-						<img class="responsive-img circle" src="/assets/profile_pic/profile.jpg">
+					<div class="col s2 l2 grey lighten-2">
+						<img class="responsive-img circle" src="files/profile_picture/<?php echo $pic; ?>">
+						<h6><b><center><?php echo " " . $row->firstname . " " . $row->lastname;?></center></b></h6>
+						<h6><center><?php echo " " . $row->school;?></center></h6>
 					</div>
-					<div class="col s9 l11">
-						<b><?php echo $row->title;?></b>
+					<div class="col s9 l8 white">
+						<a href="<?php echo "http://www.labpetri.com/forum/comments/". $row->post_id; ?>"><h6><b><?php echo $row->title;?></b></h6></a>
+						<i><?php echo "In " . $row->topic ?></i>
 						<div class="divider"></div>
-						<h6><?php echo "Posted by: " . $row->firstname . " " . $row->lastname . " from " . $row->school;?></h6>
-						<h6><?php echo "Topic Area: " . $row->topic ?></h6>
-						<div class="divider"></div>
+					</div>
+					<div class="col s1 l2 white">
+						<span class="blue-text text-darken-2"><center><h5><b>+100</b></h5></center></span>
 
 					</div>
 
 				</div>
-				<div class="col s12 l12">
-					<a href="#">Endorsed by 5000 People | </a>
-					<a href="#">5000 Comments</a>
-					<div class="divider"></div>
-
-				</div>
-
-
-				<div class="row">
-					<div class="col s3 l2 offset-l6 ">
-						<a href="#"><i class="tiny material-icons">thumb_up</i>Endorse</a>
-					</div>
-					<div class="col s3 l2">
-						<a href="<?php echo "http://www.labpetri.com/forum/comments/". $row->post_id; ?>"><i class="tiny material-icons">forum</i>View Post</a>
-					</div>
-					<div class="col s3 l2">
-						<a href="#"><i class="tiny material-icons">share</i>Share</a>
-					</div>
-				</div>
+			
 			</div>
 
 
 
 
 
-
 			<?php } ?>
-
 		</div>
-		<div class="col l2 hide-on-med-and-down">
+		<div class="col l2">
 			<div class="card center">
 				<div class="card-content center">
 					<span class="card-title">Card Title</span>
 					<p>News</p>
+				</div>
+				<div class="card-content">
+					<span class="card-title">Card Title</span>
+					<p>ADS</p>
+				</div>
+				<div class="card-content">
+					<span class="card-title">Card Title</span>
+					<p>ADS</p>
+				</div>
+				<div class="card-content">
+					<span class="card-title">Card Title</span>
+					<p>ADS</p>
 				</div>
 				<div class="card-content">
 					<span class="card-title">Card Title</span>

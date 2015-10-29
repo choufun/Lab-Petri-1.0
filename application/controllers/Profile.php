@@ -17,6 +17,7 @@ class Profile extends CI_Controller
       $this->load->model('profile_model');
       $this->profile_model->load_major();
       $this->profile_model->load_university();
+      $this->profile_model->load_pictures();
       $this->load->helper(array('form', 'url'));
       //$this->load->helper('simple_html_dom');
    }
@@ -29,6 +30,8 @@ class Profile extends CI_Controller
          'major' => $this->profile_model->get_major(),
          'university' => $this->profile_model->get_university(),
          'files' => $this->get_files(),
+         'profile_picture' => $this->profile_model->get_profile_picture(),
+         'pictures' => $this->list_pictures(),
          'error' => $this->error
       );
       
@@ -90,12 +93,18 @@ class Profile extends CI_Controller
                {
                   $result.='
                       <li>
-                        <div id="'.$this->filename.'" class="card index-content">
+                        <div id="'.$this->filename.'" class="card index-content card-border">
                            <div class="card-content">
-                              <span class="card-title activator blue-text text-darken-2">
+                              <span class="card-title activator">
                                  <h5 class="blue-text text-darken-2">
+                                    <strong>
+                                       <span class="title grey-text text-darken-2">
+                                          <!-- <i class="material-icons">subject</i> -->
+                                          File: 
+                                       </span>
+                                    </strong>
                                     <strong>'.$this->remove_extension($file).'</strong>
-                                    <i class="material-icons right">more_vert</i>
+                                    <i class="material-icons right light-blue-text">more_vert</i>
                                  </h5>
                               </span>
                               <object data="'.$file.'" type="application/pdf" width="100%" height="100%">
@@ -118,9 +127,12 @@ class Profile extends CI_Controller
                                     <i class="material-icons right">close</i>
                                  </h5>
                               </span>
-                              <p>
-                                 <strong>Summary: This is a sample test.</strong>
-                              </p>
+                              <h6>
+                                 <strong>Abstract:</strong>
+                              </h6>
+                              <h6>
+                                 <small>This is a sample test.</small>
+                              </h6>
                            </div>
                         </div>
                      </li>
@@ -137,6 +149,21 @@ class Profile extends CI_Controller
       return $result;
    }
    
+/* LIST PICTURES
+************************************************************************************/
+   public function list_pictures()
+   {
+      $result = $this->profile_model->get_pictures();
+      $pictures = "";
+      foreach ($result as $row)
+      {
+         $pictures.='<img class="col s3" src="files/profile_picture/'.$row->filename.'"
+                      height="40" width="40">';
+      }
+      
+      return $pictures;
+   }
+   
 /* DO UPLOAD PROFILE PICTURE
 ************************************************************************************/
 	public function do_upload_pic()
@@ -144,8 +171,8 @@ class Profile extends CI_Controller
       $config['upload_path'] = './files/profile_picture';
       $config['allowed_types'] = 'jpg|png|jpeg';
       $config['max_size']	= '1000';
-      $config['max_width']  = '1024';
-      $config['max_height']  = '768';
+      $config['max_width']  = '10240';
+      $config['max_height']  = '7680';
 
       $this->load->library('upload', $config);
 
@@ -157,8 +184,7 @@ class Profile extends CI_Controller
       else
       {
          $data = array('upload_data' => $this->upload->data());
-         $picture = $this->upload->data('file_name');
-         $this->profile_model->insert_profile_picture($picture);
+         $this->profile_model->insert_profile_picture($this->upload->data('file_name'));
          redirect("profile/");
       }
 	}

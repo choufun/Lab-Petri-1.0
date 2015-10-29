@@ -8,6 +8,25 @@ class Forum_model extends CI_Model
       parent::__construct();
    }
    
+/* GET PROFILE PICTURE
+************************************************************************************/
+   public function get_profile_picture()
+   {
+      $this->db->where('user_id', $this->session->user_id);
+      $this->db->where('default_picture', 1);
+      $query = $this->db->get('profile_picture');
+      
+      if ($query->num_rows() == 1)
+      {
+         return $query->row('filename');
+      }
+      else
+      {
+         return "no default profile picture";
+      }
+   }
+ /**********************************************************************************/
+   
    public function load_forum()
    {
       $query = $this->db->query("SELECT * FROM  posts INNER JOIN users ON posts.user_id=users.user_id;");

@@ -26,6 +26,8 @@ class Forum extends CI_Controller
        {
             $data['forum'] = $this->forum_model->load_forum();
       		$data['options'] = $this->register_model->load_majors();
+            //'profile_picture' => $this->profile_model->get_profile_picture()
+            $data['pic'] = $this->forum_model->get_profile_picture();
       		$this->load->view('templates/header');
       		$this->load->view('forum', $data);
        }
@@ -34,6 +36,7 @@ class Forum extends CI_Controller
 		   $this->post();
             $data['forum'] = $this->forum_model->load_forum();
       		$data['options'] = $this->register_model->load_majors();
+            $data['pic'] = $this->forum_model->get_profile_picture();
       		$this->load->view('templates/header');
       		$this->load->view('forum', $data);
        }
