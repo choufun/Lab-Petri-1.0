@@ -67,6 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- SIDE NAV
 ----------------------------------------------------------------------------------->
             <ul id="slide-out" class="side-nav">
+               <br>
                <li>
                   <a class="modal-trigger blue white-text waves-effect"
                      href="#profile_picture" onclick="close_side_nav()">
@@ -288,6 +289,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                            </small>
                         </h5>
                         <h5 class="blue-text text-darken-2">
+                           <strong>Degree: </strong>
+                           <small>
+                              <span class="black-text">
+                              </span>
+                           </small>
+                        </h5>
+                        <h5 class="blue-text text-darken-2">
                            <strong>Major: </strong>
                            <small>
                               <span class="black-text">
@@ -310,6 +318,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                            </small>
                         </h5>
                      </div>
+                  </div>
+                  <div align="right" class="icon-border">
+                     <span>
+                        <i class="blue-text small material-icons">subject</i>                     
+                     </span>
                   </div>
                </div>
                
@@ -340,6 +353,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </h5>
                      </div>
                   </div>
+                  <div align="right" class="icon-border">
+                     <span>
+                        <i class="blue-text small material-icons">subject</i>                     
+                     </span>
+                  </div>
                </div>
                
                <div class="divider blue lighten-4"></div>
@@ -362,6 +380,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                </div>
             </div>
+            <div class="index-content">
+               <div align="right" class="icon-border">
+                  <span>
+                     <i class="blue-text small material-icons">subject</i>                     
+                  </span>
+               </div>
+            </div>
          </div>
       
          <div class="divider"></div>
@@ -380,14 +405,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <strong>Summary</strong>
                </h5>
                <div class="index-content">
+                  <div >
+                     <h5 class="blue-text text-darken-2">
+                        <strong>Research Goal: </strong>
+                        <small>
+                           <span class="black-text">
+                           </span>
+                        </small>
+                     </h5>
+                  </div>
                   <div class="index-content">
                      <h5 class="blue-text text-darken-2">
                         <strong>Interests: </strong>
+                        <small>
+                           <span class="black-text">
+                           </span>
+                        </small>
                      </h5>
                      <h5 class="blue-text text-darken-2">
                         <strong>Expertise: </strong>
+                        <small>
+                           <span class="black-text">
+                           </span>
+                        </small>
                      </h5>
                   </div>
+               </div>
+               <div align="right" class="icon-border">
+                  <span>
+                     <i class="blue-text small material-icons">subject</i>                     
+                  </span>
                </div>
             </div>
             <div class="index-content blue lighten-5">
@@ -415,6 +462,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                <h5 class="black-text">
                   <strong>My Contributions</strong>
                </h5>
+               <div class="grey-text text-darken-2 index-content">
+                  <h5><strong>California State University, East Bay</strong></h5>
+                  <h5><strong>California State University, Los Angeles</strong></h5>
+                  <h5><strong>University of California, Santa Cruz</strong></h5>
+                  <h5><strong>University of California, San Diego</strong></h5>
+               </div>
+            </div>
+            <div class="index-content">
+               <div align="right" class="icon-border">
+                  <span>
+                     <i class="blue-text small material-icons">subject</i>                     
+                  </span>
+               </div>
             </div>
          </div>
 

@@ -104,7 +104,7 @@ class Profile extends CI_Controller
                                        </span>
                                     </strong>
                                     <strong>'.$this->remove_extension($file).'</strong>
-                                    <i class="material-icons right light-blue-text">more_vert</i>
+                                    <i class="material-icons right light-blue-text">import_export</i>
                                  </h5>
                               </span>
                               <object data="'.$file.'" type="application/pdf" width="100%" height="100%">
