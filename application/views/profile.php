@@ -319,12 +319,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </h5>
                      </div>
                   </div>
-                  <div align="right" class="icon-border">
-                     <span>
-                        <i class="blue-text small material-icons">subject</i>                     
-                     </span>
-                  </div>
                </div>
+               <div align="right" class="icon-border">
+                  <span>
+                     <i class="blue-text small material-icons">subject</i>                     
+                  </span>
+               </div><br>
                
                <div class="divider blue lighten-4"></div>
                <div class="divider blue lighten-4"></div>
@@ -358,6 +358,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <i class="blue-text small material-icons">subject</i>                     
                      </span>
                   </div>
+                  <br>
                </div>
                
                <div class="divider blue lighten-4"></div>

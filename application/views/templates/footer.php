@@ -16,14 +16,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
  	  <!-- SCRIPTS -->
 	   <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+      <!-- <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script> -->
   		<script src="assets/js/materialize.js"></script>
       <script src="js/materialize.min.js"></script>
-  		<script src="assets/js/init.js"></script>
-
+  		<script src="assets/js/init.js"></script>      
 
       <script src="assets/js/custom.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+      
+      <!-- <script src="assets/js/flip.js"></script> -->
+      
 
       <!-- GOOGLE ANALYTICS
       ------------------------------------------------------------------------------------------------------>

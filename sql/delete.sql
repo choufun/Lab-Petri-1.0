@@ -8,4 +8,4 @@ DELETE FROM table_name
 WHERE some_column=some_value;
 */
 
-DELETE FROM users WHERE firstname = 'Kevin';
+DELETE FROM users WHERE email = 'stschou@ucsc.edu';

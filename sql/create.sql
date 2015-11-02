@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
    school VARCHAR(255) NOT NULL,
    occupation VARCHAR(255),
    experience VARCHAR(255),
-   PRIMARY KEY (user_id), UNIQUE (email)
+   PRIMARY KEY (user_id)
 ) ENGINE = MYISAM;
 
 /* SCHOOLS */
@@ -63,9 +63,8 @@ CREATE TABLE IF NOT EXISTS majors
 /*  EMAIL EXTENSIONS */
 CREATE TABLE IF NOT EXISTS ext
 (
-   id int(11) NOT NULL AUTO_INCREMENT,
    email VARCHAR(255) NOT NULL,
-   PRIMARY KEY (id), UNIQUE (email)
+   UNIQUE (email)
 ) ENGINE = MYISAM;
 
 /* FILES */

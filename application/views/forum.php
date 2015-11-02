@@ -121,36 +121,44 @@ jQuery.noConflict();
 
 <div class="container">
 	<div class="row">
-		<div class="col s12 l10">
+		<div class="col s12 m12 l10"
+		<div class="card"
 			<?php foreach($forum as $row){ ?>
-			<a href="<?php echo "http://www.labpetri.com/forum/comments/". $row->post_id; ?>"><div class="card-panel hoverable small forum-border">
+			<a href="<?php echo "http://www.labpetri.com/forum/comments/". $row->post_id; ?>"><div class="card-panel hoverable small left-align forum-border">
 				
 				<div class="row">
-					<div class="col s2 l2 grey lighten-2">
-						<img class="responsive-img circle" src="files/profile_picture/<?php echo $pic; ?>">
-						<h6><b><center><?php echo " " . $row->firstname . " " . $row->lastname;?></center></b></h6>
+					<div class="col s12 m2 l2 grey lighten-2">
+						<div align="center" style="padding-top:17px;">
+							<img class="circle responsive-img" src="files/profile_picture/<?php echo $pic; ?>">
+						</div>
+						
+						<h5><b><center class="flow-text"><?php echo " " . $row->firstname . " " . $row->lastname;?></center></b></h5>
 						<h6><center><?php echo " " . $row->school;?></center></h6>
 					</div>
-					<div class="col s9 l8 white">
+					<div class="col s12 m9 l9 white">
 						<a href="<?php echo "http://www.labpetri.com/forum/comments/". $row->post_id; ?>"><h6><b><?php echo $row->title;?></b></h6></a>
 						<i><?php echo "In " . $row->topic ?></i>
 						<div class="divider"></div>
+						<div class="container-fluid">
+						<p class="flow-text"><textarea style="max-width: 100%; height:150px; border: none; resize: none;"><?php echo $row->abstract?></textarea></p>
+						</div>
 					</div>
-					<div class="col s1 l2 white">
-						<span class="blue-text text-darken-2"><center><h5><b>+100</b></h5></center></span>
-
+					
+					<div class="col s12 m1 l1 white">
+						<span class="blue-text text-darken-2 flow-text"><center><b>+100</b></center></span>
+						<span class="blue-text text-darken-2"><center><b><h6>12 comments</h6></b></center></span>
 					</div>
 
 				</div>
 			
-			</div>
+		</div>
 
 
 
 
 
 			<?php } ?>
-		</div>
+	</div>
 		<div class="col l2">
 			<div class="card center">
 				<div class="card-content center">

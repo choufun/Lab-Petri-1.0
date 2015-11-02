@@ -1,49 +1,79 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-/************************************************************************
-   REGISTRATION_MODEL
-   ------------------
-      function check_unique_email()
-            : checks if email is unique
-                  - traverses through all elements in users table
-            query
-                  - SELECT * FROM users WHERE email = 'email';
-                  
-      function register
-            : register user registration form
-                  - store form data into mysql
-            object
-                  - firstname, lastname, email, password
-                  
-************************************************************************/
+
 class Register_model extends CI_Model
 {
+/* FIELD
+****************************************************************************/ 
    private $options = "";
    private $schools = "";
+   private $email_extension = "";
 
+/* CONSTRUCTOR
+****************************************************************************/ 
    function __construct()
    {
       parent::__construct();
    }
+   
 /* REGISTER
-****************************************************************************/  
-    function register($data){
-        $this->db->insert('users',$data);
-    }
-/* CHECK UNIQUE EMAIL
+****************************************************************************/ 
+   function register($data)
+   {
+      $this->db->insert('users',$data);
+   }
+
+/* GET EMAIL EXTENSION
+****************************************************************************/ 
+   private function email_extension($email)
+   {
+      $i;
+      for ($i = (strlen($email)-1); $i >= 0; $i--)
+      {
+         if ($email[$i] == '@') break;
+      }
+      return substr($email, $i+1, strlen($email)-1);
+   }
+   
+/* GET SCHOOL EXTENSION
+****************************************************************************/ 
+   private function school_extension($email)
+   {
+      $i;
+      for ($i = 0; $i <= strlen($email)-1; $i++)
+      {
+         if ($email[$i] == ':') break;
+      }
+      return substr($email, 0, $i);
+   }
+ 
+/* CHECK SCHOOL EMAIL EXTENSION
 ****************************************************************************/   
-    public function check_unique_email ($email)
-    {
-        $this->db->where('email', $email);
-        $query = $this->db->get('users');
-       
-        if($query->num_rows() == 1){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
+   public function is_school_email ($email)
+   {
+      $query = $this->db->get('ext');
+      if ($query->num_rows() > 0)
+      {
+         foreach($query->result() as $row)
+         {
+            if ($this->school_extension($row->email) == $this->email_extension($email))
+            {
+               $this->email_extension = $this->email_extension($email);
+               return TRUE;
+            }
+         }
+         return FALSE;
+      }
+      else
+      {
+         return FALSE;
+      }
+   }
+   
+/* GET MAJORS
+****************************************************************************/
+   public function get_majors() { return $this->options; }
+   
 /* LOAD MAJORS
 ****************************************************************************/
    public function load_majors()
@@ -56,14 +86,25 @@ class Register_model extends CI_Model
          {
             $this->options.= '<option value="'.$row->major.'">'.$row->major.'</option>/n';
          }
-         return $this->options;
-      }
-      else
-      {
-         return $this->options;
       }
    }
-/* LOAD UNIVERSITIES
+
+/* GET SCHOOLS
+****************************************************************************/
+   public function get_schools() { return $this->schools; }
+
+/* REMOVE EXTENSION
+****************************************************************************/
+   private function remove_ext($school)
+   {
+      $i;
+      for ($i = (strlen($school)-1); $i >= 0; $i--)
+      {
+         if ($school[$i] == '(') break;
+      }
+      return substr($school, 0, $i-1);
+   }
+/* LOAD SCHOOLS
 ****************************************************************************/
    public function load_schools()
    {
@@ -72,15 +113,35 @@ class Register_model extends CI_Model
       {
          foreach($query->result() as $row)
          {
-            $this->schools.= '<option value="'.$row->name.'">'.$row->name.'</option>/n';
+            //$this->schools.= '<option value="'.$row->name.'">'.$row->name.'</option>/n';
+            $this->schools.=
+               '<option value="'.$row->name.'">'.$this->remove_ext($row->name).'</option>/n';
          }
-         return $this->schools;
-      }
-      else
-      {
-         return $this->schools;
       }
    }
-}
 
+/* GET UNIVERSITY EXTENSION
+****************************************************************************/ 
+   private function extension($school)
+   {
+      $i;
+      for ($i = (strlen($school)-1); $i >= 0; $i--)
+      {
+         if ($school[$i] == '(') break;
+      }
+      return substr($school, $i+1, -1);
+   }
+   
+/* MATCHING EMAIL AND SCHOOL
+****************************************************************************/
+   public function school_match($school)
+   {
+      if ($this->extension($school) == $this->email_extension)
+      {
+         unset($this->email_extension);
+         return TRUE;
+      }
+      else { return FALSE; }
+   }
+}
 ?>

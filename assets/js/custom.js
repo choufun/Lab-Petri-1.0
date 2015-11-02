@@ -16,3 +16,6 @@ function open_side_nam()
    // forces the side nav to upon upon clicking a side nav element
    $('.button-collapse').sideNav('show');
 }
+
+/* LOGIN : REGISTER
+************************************************************************************/

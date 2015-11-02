@@ -18,17 +18,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col s12">
           <div class="card">
             <div class="card-content black-text">
-              <h2 class="hide-on-med-and-down"><?php echo $post->title?></h2>
-			  <h4 class="hide-on-large-only"><?php echo $post->title?></h4>
+              <h3 class="hide-on-med-and-down"><?php echo $post->title?></h3>
+			  <h5 class="hide-on-large-only"><?php echo $post->title?></h5>
 			  <h5><?php echo "Posted by: ". $post->firstname . " " . $post->lastname?></h5>
 			  <h6><?php echo "Submitted Under: ". $post->topic;?></h6>
 
-			  <div class="divider"></div>
-			  <p class="flow-text"><?php echo $post->abstract?></p>
-			  <div class="divider"></div>
-			  <p class="flow-text"><?php echo $post->additional_info?></p>
+		
+				<p class="flow-text"><textarea style="max-width: 100%; height:600px; border:none;"><?php echo $post->abstract?></textarea></p>
+				
+				<div class="divider"></div>
+			  <h6><i><?php echo $post->additional_info?></i></h6>
+				  
 			  <a href="http://www.labpetri.com/files/research_paper/<?php echo $post->file_path?>">
-				<h4>View Attached File</h4>
+				<h5><center>View Attached File</center></h6>
+				 
 			  </a>
 		   </div>
 			</div>

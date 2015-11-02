@@ -1,45 +1,165 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<center>
+<?php
+   //print_r($_SESSION);
+   var_dump($_SESSION);
+?>
+</center>
 <div class="row">
    <div class = "container">
-      <div class="center col s12 l6 offset-l3"> 
-         <div class = "card hover">
+      <div align="center" class="col s12 m6 l6 offset-l3">
+         <div class = "card card-border">
+            
+<!-- HEADER LOGO
+--------------------------------------------------------------------------------------------->
             <div class = "card-content blue white-text">
-               <h5 align="center"><strong>Login</strong></h5>
+               <img class="logo2" src="assets/img/Logo.png">
             </div>
+            
             <div class="divider"></div>
-            <div class = "card-content">
-               <div class ="left-align">
-                  <h6 class="red-text">
+            <div class="divider"></div>
+            <div class="divider"></div>
+            <div class="divider"></div>
+
+<!-- LOGIN
+--------------------------------------------------------------------------------------------->
+            <div id="front">
+               <div class = "card-content login-border">
+                  <div class = "container-fluid">
                      <?php echo validation_errors(); ?>
-                     <?php echo form_open('Login'); ?> 
-                  </h6>
-               </div>
-               <div class = "container">
-                  <div class="row">
-                     <i class="large material-icons">perm_identity</i>
-                  </div>
-                  <div class="row">
-                     <div class="input-field">
-                        <input name="email" type="email" class="validate">
-                        <label for="email">Email</label>
+                     <?php echo form_open('Login'); ?>
+                        <!-- EMAIL
+                        ---------------------------------------------------------------------->
+                        <div class="row">
+                           <div class="input-field">
+                              <input name="email" type="email" class="validate">
+                              <label for="email">Email</label>
+                           </div>
+                        </div>
+                        <!-- PASSWORD
+                        ---------------------------------------------------------------------->
+                        <div class="row">
+                           <div class="input-field">
+                              <input name="password" type="password" class="validate">
+                              <label for="password">Password</label>
+                           </div>
+                        </div>
+                        <input type="hidden" name="login" value="login">
+                        <!-- LOGIN
+                        ---------------------------------------------------------------------->
+                        <div class="row"> 
+                           <button class="btn waves-effect blue darken-1" type="submit" name="action">
+                              <strong>LOGIN</strong>
+                           </button>
+                        </div>
+                     </form>
+                     <!-- REGISTER LINK
+                     ------------------------------------------------------------------------->
+                     <div class="register_adj" align="right">
+                        <a class="reg_log waves-effect" onclick="return show('back','front');">Register</a>
                      </div>
                   </div>
-                  <div class="row">
-                     <div class="input-field">
-                        <input name="password" type="password" class="validate">
-                        <label for="password">Password</label>
+               </div>
+            </div>
+
+<!-- REGISTER
+--------------------------------------------------------------------------------------------->         
+            <div id="back" style="display:none">
+               <div class = "card-content login-border">
+                  <div align="center" class = "container-fluid">
+                     
+                     <form method="post" accept-charset="utf-8" action="login">
+                        <!-- FIRST AND LAST NAME
+                        ---------------------------------------------------------------------->
+                        <div class="row">
+                           <div class="input-field col s6">
+                              <label class="active" for ='firstname'> First Name: </label>
+                              <input type="text" name="firstname">
+                           </div>
+
+                           <div class="input-field col s6">
+                              <label class="active" for ='lastname'> Last Name: </label>
+                              <input type="text" name="lastname">
+                           </div>
+                        </div>
+                        <!-- EMAIL
+                        ---------------------------------------------------------------------->
+                        <div class="row">
+                           <div class="input-field col s12">
+                              <label class="active" for ='email'> Email: </label>
+                              <input type="text" name="email">
+                           </div>
+                        </div>
+                        <!-- PASSWORD
+                        ---------------------------------------------------------------------->
+                        <div class="row">
+                           <div class="input-field col s12">
+                              <label class="active" for ='email'> Password: </label>
+                              <input type="password" name="password">
+                           </div>
+                        </div>
+                        <!-- PASSWORD CONFIRMATION
+                        ---------------------------------------------------------------------->
+                        <div class="row">
+                           <div class="input-field col s12">
+                              <label class="active" for ='passwordconf'> Password Confirmation: </label>
+                              <input type="password" name="passwordconf">
+                           </div>
+                        </div>
+                        <!-- UNIVERSITY
+                        ---------------------------------------------------------------------->
+                        <div class="row">
+                           <div class="input-field col s12">
+                              <label class="active" for="university"> University: </label><br>
+                              <select class="browser-default" name="university">
+                                 <option selected disabled>-- Please Select One --</option>
+                                 <?php echo $schools;?>
+                              </select>
+                           </div>
+                        </div>
+                        <!-- MAJOR
+                        ---------------------------------------------------------------------->
+                        <div class="input-field col s12">
+                           <div class="row">
+                              <label class="active" for="major"> Major: </label><br>
+                              <select class="browser-default" name="major">
+                                 <option selected disabled>-- Please Select One --</option>
+                                 <?php echo $options;?>
+                              </select>
+                           </div>
+                        </div>
+                        <input type="hidden" name="register" value="register">
+                        <!-- REGISTER
+                        ---------------------------------------------------------------------->
+                        <div class="row"> 
+                           <button class="btn waves-effect blue darken-1" type="submit" name="action">
+                              <strong>REGISTER</strong>
+                           </button>
+                        </div>
+                     </form>
+                     <!-- LOGIN LINK
+                     ------------------------------------------------------------------------->
+                     <div class="register_adj" align="right">
+                        <a class="reg_log waves-effect" onclick="return show('front','back');">Login</a>
                      </div>
                   </div>
-                  <div class="row"> 
-                     <button class="btn waves-effect waves-light blue" type="submit" name="action">Login
-                     </button>
-                  </div>
                </div>
-               </form>
+            </div>
+<!-------------------------------------------------------------------------------------------> 
          </div>
       </div>
    </div>
 </div>
-</div>
+
+<!-- JAVASCRIPT
+--------------------------------------------------------------------------------------------->
+<script type="text/javascript">
+   function show(current, hidden)
+   {
+      document.getElementById(current).style.display='block';
+      document.getElementById(hidden).style.display='none';
+      return false;
+   }
+</script>
