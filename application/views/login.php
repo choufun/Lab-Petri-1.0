@@ -1,27 +1,55 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<!-- JAVASCRIPT
+--------------------------------------------------------------------------------------------->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+   $(document).ready(function(){
+      $("button.front").click(function(){
+         $("#front").slideUp("slow");
+         $("div.progress").fadeIn("slow");
+      });
+      
+      $("button.back").click(function(){
+         $("#back").slideUp("slow");
+         $("div.progress").fadeIn("slow");
+      });
+   });
+</script>
+
+<!-- DEBUGGING PURPOSES
+--------------------------------------------------------------------------------------------->
 <center>
 <?php
    //print_r($_SESSION);
    //var_dump($_SESSION);
 ?>
 </center>
+
+<!-- PRELOADER : BAR
+--------------------------------------------------------------------------------------------->
+<div class="progress green lighten-1" id="bar" style="display:none">
+   <div class="indeterminate blue lighten-1"></div>
+</div>
+
 <div class="row">
    <div class = "container">
+
+<!-- CARD
+--------------------------------------------------------------------------------------------->      
       <div align="center" class="col s12 m6 l6 offset-l3">
          <div class = "card card-border">
             
 <!-- HEADER LOGO
 --------------------------------------------------------------------------------------------->
-            <div class = "card-content blue white-text">
+            <div id="header" class ="card-content blue white-text">
                <img class="logo2" src="assets/img/Logo.png">
             </div>
-            
             <div class="divider"></div>
             <div class="divider"></div>
             <div class="divider"></div>
-            <div class="divider"></div>
+            <div class="divider"></div>        
 
 <!-- LOGIN
 --------------------------------------------------------------------------------------------->
@@ -50,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- LOGIN
                         ---------------------------------------------------------------------->
                         <div class="row"> 
-                           <button class="btn waves-effect blue darken-1" type="submit" name="action">
+                           <button class="front btn waves-effect blue darken-1" type="submit" name="action">
                               <strong>LOGIN</strong>
                            </button>
                         </div>
@@ -69,7 +97,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="back" style="display:none">
                <div class = "card-content login-border">
                   <div align="center" class = "container-fluid">
-                     
                      <form method="post" accept-charset="utf-8" action="login">
                         <!-- FIRST AND LAST NAME
                         ---------------------------------------------------------------------->
@@ -134,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- REGISTER
                         ---------------------------------------------------------------------->
                         <div class="row"> 
-                           <button class="btn waves-effect blue darken-1" type="submit" name="action">
+                           <button class="back btn waves-effect blue darken-1" type="submit" name="action">
                               <strong>REGISTER</strong>
                            </button>
                         </div>
@@ -155,7 +182,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- JAVASCRIPT
 --------------------------------------------------------------------------------------------->
-<script type="text/javascript">
+<script type="text/javascript">   
    function show(current, hidden)
    {
       document.getElementById(current).style.display='block';

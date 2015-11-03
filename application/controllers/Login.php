@@ -25,14 +25,14 @@ class Login extends CI_Controller
 ************************************************************************************/
    public function index()
    {
-      /* LOGIN FORM VERIFICATIONS
+      /* LOGIN FORM VALIDATIONS
       ******************************************************************************/
       if ($this->input->post('login') == 'login')
       {
          $this->form_validation->set_rules('email','email','trim|required|valid_email');
          $this->form_validation->set_rules('password','password','required|callback_valid_login');
       }
-      /* REGISTRATION FORM VERFICATIONS
+      /* REGISTRATION FORM VALIDATIONS
       ******************************************************************************/
       if ($this->input->post('register') == 'register')
       {
@@ -115,9 +115,9 @@ class Login extends CI_Controller
       {
          $this->form_validation->set_message('verify_email',
          '<center>
-            This not is a school email.
+            This not is a university email.
             <br>
-            Please use a valid school email address.
+            Please use your university email address.
           </center><br>');
          return FALSE;
       }

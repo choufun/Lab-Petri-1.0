@@ -35,6 +35,18 @@ jQuery.noConflict();
 
 </script>
 
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+    </ul>
+  </div>
+	
 	
 <!--This manages the posting feature -->
 <div class="container">
@@ -147,8 +159,8 @@ jQuery.noConflict();
 
 					<div class="col s4 m1 l1" style="padding-top: 4px";>
 						<span class="blue-text text-darken-2"><h5><center><b><i class=" tiny material-icons">add</i>100</b></center></h5></span>
-											<div class="col s12 hide-on-small-only divider grey lighten-2"></div>
-
+						<div class="col s12 hide-on-small-only divider grey lighten-2"></div>
+						
 					</div>
 					
 			
@@ -160,9 +172,12 @@ jQuery.noConflict();
 					<div class="col s4 hide-on-med-and-up" style="padding-top: 4px">
 					<span class="grey-text text-darken-2 flow_text"><b><center><h5><i class="tiny material-icons">comment</i> 11</b></h5></center></span>
 					</div>
-				
+					
+					
+					
+
 				</div>
-			
+							
 		</div>
 
 
@@ -172,6 +187,7 @@ jQuery.noConflict();
 			<?php } ?>
 	</div>
 		<div class="col l2">
+
 			<div class="card center">
 				<div class="card-content center">
 					<span class="card-title">Card Title</span>
@@ -203,11 +219,12 @@ jQuery.noConflict();
 				</div>
 			</div>
 		</div>
-
+</div>
 	</div>
 
 </div>
 
+  		<script src="assets/js/materialize.js"></script>
 
 </body>
 </html>

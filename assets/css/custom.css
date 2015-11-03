@@ -1,5 +1,24 @@
 /* LOGO PROPERTIES
 *****************************************************************************/
+#bar
+{
+   margin-bottom: -2px
+}
+
+#preloader
+{
+   height: 150px;
+   width: 150px;
+}
+
+#preloader-border
+{
+   margin-top: -200px;
+   position: relative;
+   right: 150px;
+   bottom: -200px;   
+}
+
 .login-border
 {
    margin-left: 25px;
@@ -93,4 +112,5 @@ img.image
 {
 	border: 2px solid #bdbdbd;
 }
+
 
