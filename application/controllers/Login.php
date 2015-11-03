@@ -38,7 +38,6 @@ class Login extends CI_Controller
          $this->form_validation->set_rules('password','password','required|min_length[8]');
          $this->form_validation->set_rules('passwordconf','Password Confirmation','required|matches[password]');
          $this->form_validation->set_rules('university','University','callback_verify_school|required');
-         //$this->form_validation->set_rules('university','University','required');
          $this->form_validation->set_rules('major','Major','required');
       }
 
@@ -79,9 +78,6 @@ class Login extends CI_Controller
          'school'=>$this->input->post('university'),
          'major'=>$this->input->post('major')
       );
-      
-      $this->session->set_userdata('school', $this->input->post('university'));
-      
       $this->register_model->register($data);
    }
 
@@ -106,7 +102,7 @@ class Login extends CI_Controller
 **********************************************************************************************/
    public function verify_email($email)
    {
-      if ($this->register_model->is_school_email($email) == false)
+      if ($this->register_model->is_school_email($email) == FALSE)
       {
          $this->form_validation->set_message('verify_email',
          '<center>
@@ -114,9 +110,17 @@ class Login extends CI_Controller
             <br>
             Please use a valid school email address.
           </center><br>');
-         return false;
+         return FALSE;
       }
-      else { return true; }
+      else if ($this->register_model->username_unique($email) == FALSE)
+      {
+         $this->form_validation->set_message('verify_email',
+         '<center>
+            This user is already registered.
+          </center><br>');
+         return FALSE;
+      }
+      else { return TRUE; }
    }
 
 /* VALIDATE LOGIN

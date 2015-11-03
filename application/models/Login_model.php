@@ -17,8 +17,10 @@ class Login_model extends CI_Model
          "SELECT * FROM  `users` WHERE email =  '".$email."' AND PASSWORD =  '".$password."';"
       );
 
-      if ($query->num_rows() == 1) { return true; }
-      else { return false; }
+      if ($query->num_rows() == 1)
+         return true;
+      else
+         return false;
    }
    
 /* LOGIN USER

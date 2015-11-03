@@ -127,7 +127,7 @@ jQuery.noConflict();
 			<a href="<?php echo "http://www.labpetri.com/forum/comments/". $row->post_id; ?>"><div class="card-panel hoverable small left-align forum-border">
 				
 				<div class="row">
-					<div class="col s12 m2 l2 grey lighten-2">
+					<div class="col s12 m2 l2 blue-grey lighten-5">
 						<div align="center" style="padding-top:17px;">
 							<img class="circle responsive-img" src="files/profile_picture/<?php echo $pic; ?>">
 						</div>
@@ -144,11 +144,24 @@ jQuery.noConflict();
 						</div>
 					</div>
 					
-					<div class="col s12 m1 l1 white">
-						<span class="blue-text text-darken-2 flow-text"><center><b>+100</b></center></span>
-						<span class="blue-text text-darken-2"><center><b><h6>12 comments</h6></b></center></span>
-					</div>
+					<div class="col s12 hide-on-med-and-up divider grey"></div>
 
+					<div class="col s4 m1 l1" style="padding-top: 4px";>
+						<span class="blue-text text-darken-2"><h5><center><b><i class=" tiny material-icons">add</i>100</b></center></h5></span>
+											<div class="col s12 hide-on-small-only divider grey lighten-2"></div>
+
+					</div>
+					
+			
+					
+					<div class="col m1 l1 hide-on-med-and-down">
+					<span class="grey-text text-darken-2 flow_text"><b><center><h6><i class="tiny material-icons">comment</i> 11</b></h6></center></span>
+					</div>
+					
+					<div class="col s4 hide-on-med-and-up" style="padding-top: 4px">
+					<span class="grey-text text-darken-2 flow_text"><b><center><h5><i class="tiny material-icons">comment</i> 11</b></h5></center></span>
+					</div>
+				
 				</div>
 			
 		</div>

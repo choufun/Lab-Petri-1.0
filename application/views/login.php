@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <center>
 <?php
    //print_r($_SESSION);
-   var_dump($_SESSION);
+   //var_dump($_SESSION);
 ?>
 </center>
 <div class="row">

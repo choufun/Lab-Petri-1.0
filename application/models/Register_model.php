@@ -11,14 +11,14 @@ class Register_model extends CI_Model
 
 /* CONSTRUCTOR
 ****************************************************************************/ 
-   function __construct()
+   public function __construct()
    {
       parent::__construct();
    }
    
 /* REGISTER
 ****************************************************************************/ 
-   function register($data)
+   public function register($data)
    {
       $this->db->insert('users',$data);
    }
@@ -104,6 +104,7 @@ class Register_model extends CI_Model
       }
       return substr($school, 0, $i-1);
    }
+   
 /* LOAD SCHOOLS
 ****************************************************************************/
    public function load_schools()
@@ -142,6 +143,19 @@ class Register_model extends CI_Model
          return TRUE;
       }
       else { return FALSE; }
+   }
+   
+/* IS USERNAME UNIQUE
+****************************************************************************/
+   public function username_unique($email)
+   {
+      $this->db->where('email', $email);
+      $query = $this->db->get('users');
+      
+      if ($query->num_rows() == 0)
+         return TRUE;
+      else
+         return FALSE;
    }
 }
 ?>
