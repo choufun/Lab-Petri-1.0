@@ -25,11 +25,15 @@ class Login extends CI_Controller
 ************************************************************************************/
    public function index()
    {
+      /* LOGIN FORM VERIFICATIONS
+      ******************************************************************************/
       if ($this->input->post('login') == 'login')
       {
          $this->form_validation->set_rules('email','email','trim|required|valid_email');
          $this->form_validation->set_rules('password','password','required|callback_valid_login');
       }
+      /* REGISTRATION FORM VERFICATIONS
+      ******************************************************************************/
       if ($this->input->post('register') == 'register')
       {
          $this->form_validation->set_rules('firstname','First name','trim|required');
@@ -40,7 +44,8 @@ class Login extends CI_Controller
          $this->form_validation->set_rules('university','University','callback_verify_school|required');
          $this->form_validation->set_rules('major','Major','required');
       }
-
+      /* PROCESS FORM
+      ******************************************************************************/
       if ($this->form_validation->run() === FALSE)
       {
          $data['options'] = $this->register_model->get_majors();
@@ -51,12 +56,16 @@ class Login extends CI_Controller
       }
       else
       {
+         /* SUCCESSFUL LOGIN
+         ***************************************************************************/
          if ($this->input->post('login') == 'login')
          {
             $email = $this->input->post('email');
             $this->login_model->login_user($email);
             redirect('');
          }
+         /* SUCCESSFUL REGISTRATION
+         ***************************************************************************/
          if ($this->input->post('register') == 'register')
          {
             $this->register();
@@ -66,8 +75,8 @@ class Login extends CI_Controller
       }
    }
    
-/* REGISTER
-**********************************************************************************************/    
+/* REGISTER USER : LOADS DATA
+************************************************************************************/    
    public function register()
    {       
       $data = array (
@@ -82,7 +91,7 @@ class Login extends CI_Controller
    }
 
 /* VERIFY SCHOOL
-**********************************************************************************************/
+************************************************************************************/
    public function verify_school($university)
    {
       if ($this->register_model->school_match($university) == FALSE)
@@ -99,7 +108,7 @@ class Login extends CI_Controller
    }
    
 /* VERIFY EMAIL
-**********************************************************************************************/
+************************************************************************************/
    public function verify_email($email)
    {
       if ($this->register_model->is_school_email($email) == FALSE)
@@ -129,13 +138,9 @@ class Login extends CI_Controller
    {
       $password = $this->input->post('password');
       $email = $this->input->post('email');
-
       $validLogin = $this->login_model->verify_login($email,$password);
 
-      if( $validLogin == true)
-      {
-         return true;
-      }
+      if( $validLogin == true) { return true; }
       else
       {
          $this->form_validation->set_message('valid_login',

@@ -35,7 +35,6 @@ jQuery.noConflict();
 
 </script>
 
-
 	
 <!--This manages the posting feature -->
 <div class="container">

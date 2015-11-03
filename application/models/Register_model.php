@@ -16,7 +16,7 @@ class Register_model extends CI_Model
       parent::__construct();
    }
    
-/* REGISTER
+/* REGISTER USER
 ****************************************************************************/ 
    public function register($data)
    {
