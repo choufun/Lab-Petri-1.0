@@ -20,10 +20,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- BODY
 --------------------------------------------------------------------------------------------->
 <body class="avoid-fout page-blue">
-
+<div class="navbar-fixed">
+   
 <!-- NAV
 --------------------------------------------------------------------------------------------->
-   <nav class="blue" role ="navigation">
+   <nav class="blue darken-1" role ="navigation">
       <div class="nav-wrapper container">
          <a href="#" data-activates="mobile-demo" class="button-collapse">
             <i class="material-icons">menu</i>
@@ -123,3 +124,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
          </ul>
       </div>
    </nav>
+</div>
