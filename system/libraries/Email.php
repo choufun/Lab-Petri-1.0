@@ -1802,6 +1802,7 @@ class CI_Email {
 		}
 
 		if ($this->_safe_mode === TRUE)
+      //if ($this->_safe_mode === FALSE)
 		{
 			return mail($this->_recipients, $this->_subject, $this->_finalbody, $this->_header_str);
 		}

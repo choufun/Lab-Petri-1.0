@@ -51,12 +51,11 @@ class Contact extends CI_Controller {
         
         
         //Send the mail     
-        $this->email->from($email, $firstname . " ". $middlename . " ". $lastname);
-        $this->email->to('grow@labpetri.com');
+        $this->email->to('choufun69@gmail.com');
         $this->email->subject($subject);
         $this->email->message($message);
         $this->email->send();
-    
+        //mail('choufun69@gmail.com', 'hi', 'test');
         echo "Email successfully sent. Thank you for your interest.";
     }
     
