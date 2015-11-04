@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                </p>
             </div>
             <div class="col l3 s12">
-               <h5 class="white-text">Founders</h5>
+               <h5 class="white-text">Co-Founders</h5>
                <ul>
                   <li><a class="white-text" href="#!">Nghia Nguyen</a></li>
                   <li><a class="white-text" href="#!">Kevin Shum</a></li>

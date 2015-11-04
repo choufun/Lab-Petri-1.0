@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <!-- JAVASCRIPT
 --------------------------------------------------------------------------------------------->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
    $(document).ready(function(){
       $("button.front").click(function(){
