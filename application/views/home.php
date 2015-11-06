@@ -1,13 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-   <!-- 
-      <div style="height: 90vh;
-         background-image:url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/V0TZGGJNLH.jpg');
-         background-size: 100% 100%" id="#">
-   -->
-<!-- HEADER
---------------------------------------------------------------------------------------------->
    <div class="responsive-img" id="home-background">
       <div class="row">
          <div class="container-fluid">

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends CI_Controller
 {
 /* FIELD
-****************************************************************************/ 
+************************************************************************************/ 
    private $options = "";
    private $schools = "";
    
@@ -44,7 +44,7 @@ class Login extends CI_Controller
          $this->form_validation->set_rules('university','University','callback_verify_school|required');
          $this->form_validation->set_rules('major','Major','required');
       }
-      /* PROCESS FORM
+      /* PROCESS(RUN) FORM
       ******************************************************************************/
       if ($this->form_validation->run() === FALSE)
       {
