@@ -35,6 +35,7 @@ jQuery.noConflict();
 
 </script>
 
+	
   <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
     <a class="btn-floating btn-large red">
       <i class="large material-icons">mode_edit</i>
@@ -61,6 +62,10 @@ jQuery.noConflict();
 				<div class="container">
 					<div class="row">
 
+<!-- This is collapsible paper uploading top piece *********************************
+*************************************************************************************
+**************************************************************************************
+*********************************************************************-->
 
 						<div class="input-field col s12">
 							<input name="title" type="text" class="validate" length="75">
@@ -115,7 +120,10 @@ jQuery.noConflict();
 </ul>
 </form>
 
-<!--This manages the posts themselves -->
+
+
+<!-- This is the loading bar -->
+<!--*********************************************************************************************************************-->
 <div class="center-align">
  <div class="preloader-wrapper big active">
     <div class="spinner-layer spinner-blue-only">
@@ -129,6 +137,11 @@ jQuery.noConflict();
     </div>
   </div>
 </div>
+<!-- END OF LOADING BAR -->
+
+
+
+<!--This manages the posts themselves -->
 
 <div class="container">
 	<div class="row">
@@ -137,6 +150,9 @@ jQuery.noConflict();
 			<?php foreach($forum as $row){ ?>
 			<a href="<?php echo "http://www.labpetri.com/forum/comments/". $row->post_id; ?>"><div class="card-panel hoverable small left-align forum-border">
 				
+<!-- This manages within the individual cards on the forum -->
+<!--******************************8******************************8******************************8******************************8******************************8-->
+<!--******************************8******************************8******************************8******************************8-->
 				<div class="row">
 					<div class="col s12 m2 l2 blue-grey lighten-5">
 						<div align="center" style="padding-top:17px;">
@@ -157,13 +173,18 @@ jQuery.noConflict();
 					
 					<div class="col s12 hide-on-med-and-up divider grey"></div>
 
-					<div class="col s4 m1 l1" style="padding-top: 4px";>
+<!-- PLEASE ADD VIEW COUNTER TO CODE BELOW -->
+					
+					<div class="col s4 m1 l1" style="padding-top: 3px";>
 						<span class="blue-text text-darken-2"><h5><center><b><i class=" tiny material-icons">add</i>100</b></center></h5></span>
 						<div class="col s12 hide-on-small-only divider grey lighten-2"></div>
 						
 					</div>
 					
-			
+<!--******************************8******************************8******************************8******************************8******************************8-->
+
+<!-- PLEASE ADD COMMENT COUNTER TO CODE BELOW -->
+
 					
 					<div class="col m1 l1 hide-on-med-and-down">
 					<span class="grey-text text-darken-2 flow_text"><b><center><h6><i class="tiny material-icons">comment</i> 11</b></h6></center></span>
@@ -172,9 +193,21 @@ jQuery.noConflict();
 					<div class="col s4 hide-on-med-and-up" style="padding-top: 4px">
 					<span class="grey-text text-darken-2 flow_text"><b><center><h5><i class="tiny material-icons">comment</i> 11</b></h5></center></span>
 					</div>
+
+<!--******************************8******************************8******************************8******************************8******************************8-->
+
+<!-- PLEASE ADD AMOUNT OF BOOKMARKED COUNTER TO CODE BELOW -->
+
+					<div class="col m1 l1 hide-on-small-only" style="padding-top: 110px";>
+						<span class="grey-text text-darken-2" style="vertical-align:middle"><h5><center><b><i class=" tiny material-icons">bookmark</i>1</b></center></h6></span>
+					</div>
 					
-					
-					
+					<div class="col s4 hide-on-med-and-up" style="padding-top: 4px";>
+						<span class="grey-text text-darken-2" style="vertical-align:middle"><h5><center><b><i class=" tiny material-icons">bookmark</i>1</b></center></h6></span>
+							</div>
+
+<!--******************************8******************************8******************************8******************************8******************************8-->
+
 
 				</div>
 							
@@ -182,6 +215,7 @@ jQuery.noConflict();
 
 
 
+<!-- PLEASE ADD ADSENSE google ads TO CODE BELOW -->
 
 
 			<?php } ?>

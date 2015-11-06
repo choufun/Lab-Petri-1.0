@@ -1,9 +1,7 @@
 /* init.js
 ************************************************************************************/
-(function($)
-{
-   $(function()
-   {
+(function($) {
+   $(function() {
       $('.button-collapse').sideNav();
    }); // end of document ready
 })(jQuery); // end of jQuery name space
@@ -22,11 +20,8 @@ function close_side_nav()
    $('.button-collapse').sideNav('hide');
 }
 
-function open_side_nam()
+function open_side_nav()
 {
    // forces the side nav to upon upon clicking a side nav element
    $('.button-collapse').sideNav('show');
 }
-
-/* LOGIN : REGISTER
-************************************************************************************/

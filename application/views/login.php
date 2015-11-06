@@ -55,7 +55,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="front">
                <div class = "card-content login-border">
                   <div class = "container-fluid">
-                     <?php echo validation_errors(); ?>
+                     <span class="red-text">
+                        <?php echo validation_errors(); ?>
+                     </span>
                      <?php echo form_open('Login'); ?>
                         <!-- EMAIL
                         ---------------------------------------------------------------------->
@@ -96,6 +98,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="back" style="display:none">
                <div class = "card-content login-border">
                   <div align="center" class = "container-fluid">
+                     <span class="red-text">
+                        <?php echo validation_errors(); ?>
+                     </span>
                      <form method="post" accept-charset="utf-8" action="login">
                         <!-- FIRST AND LAST NAME
                         ---------------------------------------------------------------------->

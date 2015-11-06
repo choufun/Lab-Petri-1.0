@@ -1,17 +1,48 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-   <div style="height: 90vh; background-image:url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/V0TZGGJNLH.jpg'); background-size: 100% 100%" id="#">
-      <br><br>
-      <h1 class="header center white-text">Welcome to Lab Petri</h1>
-      <div class="row center">
-         <h5 class="header col s12 light blue-text"><strong>Where Creativity and Innovations Grow</strong></h5>
+   <!-- 
+      <div style="height: 90vh;
+         background-image:url('https://snap-photos.s3.amazonaws.com/img-thumbs/960w/V0TZGGJNLH.jpg');
+         background-size: 100% 100%" id="#">
+   -->
+<!-- HEADER
+--------------------------------------------------------------------------------------------->
+   <div class="responsive-img" id="home-background">
+      <div class="row">
+         <div class="container-fluid">
+            <div align="center" class="header">
+               <h1 id="section-1" class="white-text">
+                  <strong>
+                     Welcome to Lab Petri
+                  </strong>
+               </h1>
+            </div>
+
+            <div align="center" class="header">
+               <h5 class="blue-text text-darken-2">
+                  <strong>
+                     Where Creativity and Innovations Grow
+                  </strong>
+               </h5>
+            </div>
+
+            <div align="center" class="header">
+               <div>
+                  <a href="login" class="btn-large waves-effect waves-teal green">Get Started</a>
+               </div>
+               <br>
+               <div>
+                  <a href="forum" class="btn-large waves-effect waves-teal green">Start Research</a>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class="row center">
-         <a href="forum" class="btn-large waves-effect waves-teal green">Get Started</a>
-      </div>
-      <br><br>
+<!------------------------------------------------------------------------------------------->
    </div>
+
+<!-- BODY
+--------------------------------------------------------------------------------------------->
    <div class="container">
       <div class="section">
          <!--   Icon Section   -->
@@ -40,7 +71,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
          </div>
       </div>
-      <br><br>
+      <br>
+      <br>
    </div>
    <footer class="page-footer blue darken-3">
       <div class="container">
@@ -48,22 +80,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col l6 s12">
                <h5 class="white-text">About Us</h5>
                <p class="grey-text text-lighten-4">
-                  LabPetri is a start up based in Fremont, California.
-                  We are a social media site meant to help bridge the
-                  gap between students and professors in order to help start
-                  new and revive stalled research projects.
-                  We aim to further the educational and professional goals of students
-                  in the STEM fields, as well as help further the continuation of research started by
-                  professionals and professors.
+                  LabPetri is a start up based in Fremont, California. We are a social media site meant to help bridge the gap between students and professors in order to help start new and revive stalled research projects. We aim to further the educational and professional
+                  goals of students in the STEM fields, as well as help further the continuation of research started by professionals and professors.
                </p>
             </div>
             <div class="col l3 s12">
-               <h5 class="white-text">Co-Founders</h5>
+               <h5 class="white-text">Company</h5>
                <ul>
-                  <li><a class="white-text" href="#!">Nghia Nguyen</a></li>
-                  <li><a class="white-text" href="#!">Kevin Shum</a></li>
-                  <li><a class="white-text" href="#!">Steven Chou</a></li>
-                  <li><a class="white-text" href="#!">Brian Nguyen</a></li>
+                  <li><a class="white-text" href="#!">FAQs</a></li>
+                  <li><a class="white-text" href="#!">Copyrights Policy</a></li>
                </ul>
             </div>
             <div class="col l3 s12">

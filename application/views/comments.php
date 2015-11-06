@@ -18,11 +18,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col s12">
           <div class="card">
             <div class="card-content black-text">
-              <h3 class="hide-on-med-and-down"><?php echo $post->title?></h3>
-			  <h5 class="hide-on-large-only"><?php echo $post->title?></h5>
-			  <h5><?php echo "Posted by: ". $post->firstname . " " . $post->lastname?></h5>
-			  <h6><?php echo "Submitted Under: ". $post->topic;?></h6>
-
+				<b><center><h4><?php echo $post->title?></h4></b></center>
+			  <center><h5><?php echo "Posted by: ". $post->firstname . " " . $post->lastname?></h5></center>
+			 <i> <b><center><h6><?php echo "Submitted Under: ". $post->topic;?></h6></b></center></i>
+				<div class="white divider" style=" padding-top:30px";></div>
 		
 				<p class="flow-text"><textarea style="max-width: 100%; height:600px; border:none;"><?php echo $post->abstract?></textarea></p>
 				
