@@ -1,6 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
 <head>
    
@@ -8,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 --------------------------------------------------------------------------------------------->
    <title>Lab Petri</title>
    <link rel="icon" href="assets/img/favicon.ico">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1.0;"/>
 
 <!-- CSS
 --------------------------------------------------------------------------------------------->
@@ -25,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- NAV
 --------------------------------------------------------------------------------------------->
-      <nav class="blue darken-1" role ="navigation">
+      <nav class="blue darken-1 z-depth-1" role ="navigation">
          <div class="nav-wrapper container">
             <a href="#" data-activates="mobile-demo" class="button-collapse">
                <i class="material-icons">menu</i>
@@ -111,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      echo
                      '
                         <li class="tab">
-                           <a href="forum">The Petri Dish</a>
+                           <a href="forum">Petri Dish</a>
                         </li>
                         <li class="tab">
                            <a href="company">Company</a>

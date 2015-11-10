@@ -26,6 +26,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    </body>
    <footer>
       <!-- <p class="center"> Lab Petri &copy; 2015, A Nonprofit Organizatio</p> -->
-      <p class="center"> Lab Petri &copy; 2015, A Nonprofit Venture</p>
+      <p class="center"> Lab Petri &copy; 2015, All Rights Reserved</p>
    </footer>
 </html>

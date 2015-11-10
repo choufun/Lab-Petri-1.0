@@ -1,104 +1,198 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-   <div class="responsive-img" id="home-background">
-      <div class="row">
-         <div class="container-fluid">
-            <div align="center" class="header">
-               <h1 id="section-1" class="white-text">
-                  <strong>
-                     Welcome to Lab Petri
-                  </strong>
-               </h1>
-            </div>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-            <div align="center" class="header">
-               <h5 class="blue-text text-darken-2">
-                  <strong>
-                     Where Creativity and Innovations Grow
-                  </strong>
-               </h5>
-            </div>
-
-            <div align="center" class="header">
-               <div>
-                  <a href="login" class="btn-large waves-effect waves-teal green">Get Started</a>
-               </div>
-               <br>
-               <div>
-                  <a href="forum" class="btn-large waves-effect waves-teal green">Start Research</a>
-               </div>
-            </div>
-         </div>
-      </div>
-<!------------------------------------------------------------------------------------------->
+<!-- HEADER
+------------------------------------------------------------------------------------------->
+<div class="row z-depth-2 responsive-img" id="home-background">
+   <div class="container-fluid" id="scale-height">
+       <!-- HEADER 1
+       ------------------------------------------------------------------------------------>
+       <div class="row">
+          <div class="container-fluid">
+             <div class="col s12 m6 l6 offset-l3">
+                <div align="center" id="section-1">
+                   <h2 class="grey-text text-lighten-3">
+                      <strong>Welcome to Lab Petri</strong>
+                   </h2>
+                </div>
+             </div>
+          </div>
+       </div>
+       <!-- HEADER 2
+       ------------------------------------------------------------------------------------>
+       <div class="row">
+          <div class="container-fluid">
+             <div class="col s12 m6 l6 offset-l3">
+                <div align="center" id="section-2">
+                   <h5 class="blue-text text-darken-3">
+                      <strong>Where Creativity and Innovations Grow</strong>
+                   </h5>
+                </div>
+             </div>
+          </div>
+       </div>
+       <!-- GET STARTED BORDER
+       ------------------------------------------------------------------------------------>
+       <div class="row">
+          <div class="container-fluid">
+             <div class="col s12 m6 l6 offset-l3">
+                <div align="center" id="get-started">
+                   <!-- BUTTONS
+                   ------------------------------------------------------------------------>           
+                   <a href="login" id="get-started-border"
+                      class="btn-large waves-effect green darken-1 z-depth-5">
+                      <strong class="yellow-text text-lighten-4">Let's Get Started</strong>
+                   </a>
+                   <a href="forum" id="get-started-border"
+                      class="btn-large waves-effect green darken-1 z-depth-5">
+                      <strong class="yellow-text text-lighten-4">Start My Research</strong>
+                   </a>
+                </div>
+             </div>
+          </div>
+       </div>
+   <!------------------------------------------------------------------------------------->
    </div>
+</div>
 
 <!-- BODY
---------------------------------------------------------------------------------------------->
-   <div class="container">
-      <div class="section">
-         <!--   Icon Section   -->
-         <div class="row">
-            <div class="col s12 m4">
-               <div class="icon-block">
-                  <h2 class="center light-blue-text"><img class="responsive-img" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/E2C46B6D49.jpg"></h2>
-                  <h5 class="center">Shine New Light On Stalling Research</h5>
-
-                  <p class="light">Lab Petri is the perfect platform for researchers to add to existing or abandoned research. Stop wasting time on research that is already done and move on to the research that truly matters!</p>
+------------------------------------------------------------------------------------------>
+<div class="row" id="body-border">
+   <div class="container-fluid" align="center">
+      
+      <!-- THUMBNAIL 1
+       ------------------------------------------------------------------------------------>
+      <div class="container-fluid">
+         <div class="col s12 m4 l4">
+            <div class="row">
+               <div class="container-fluid">
+                  <img class="responsive-img z-depth-2 circle"
+                       src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/E2C46B6D49.jpg">
                </div>
-            </div>
-            <div class="col s12 m4">
-               <div class="icon-block">
-                  <h2 class="center light-blue-text"><img class="responsive-img" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/YF7YOYCMKN.jpg"></h2>
-                  <h5 class="center">Connect and Share Your Ideas</h5>
-                  <p class="light">Lab Petri offers a vast platform so that intellectuals from around the world can connect and discuss their ideas. Speak to those that have similar ideas as you, and who knows, together, you can change our world!</p>
-               </div>
-            </div>
-            <div class="col s12 m4">
-               <div class="icon-block">
-                  <h2 class="center light-blue-text"><img class="responsive-img" src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/VQXYE2ZEHC.jpg"></h2>
-                  <h5 class="center">Divide and Conquer Your Research</h5>
-                  <p class="light">Nobody likes to work alone. Look for ongoing research hosted on this site and ask to join! Alternatively, post your ongoing research and open it up to others that are interested.</p>
+               <div class="row">
+                  <div class="container-fluid">
+                     <h4 class="blue-text text-darken-4"><strong>Learn and Discover</strong></h4>
+                     <div class="container">
+                        <p align="justify">
+                           When it comes to learning and discovering, Lab Petri provide
+                           the most advanced and informative research done by astonishing
+                           professors, scholars, staffs and academics seeking for higher
+                           learning. Start your journey here at the Petri Dish.
+                        </p>
+                     </div>
+                  </div>
                </div>
             </div>
          </div>
       </div>
-      <br>
-      <br>
+      
+      <!-- THUMBNAIL 2
+      ------------------------------------------------------------------------------------>
+      <div class="container-fluid">
+         <div class="col s12 m4 l4">
+            <div class="row">
+               <div class="container-fluid">
+                  <img class="responsive-img z-depth-2 circle"
+                       src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/YF7YOYCMKN.jpg">
+               </div>
+            </div>
+            <div class="row">
+               <div class="container-fluid">
+                  <h4 class="blue-text text-darken-4"><strong>Connect and Branch</strong></h4>
+                  <div class="container">
+                     <p align="justify">
+                        Building up strong and resilient connections can be difficult.
+                        Lab Petri has the reliable tools to allow everyone to easily
+                        utilize to connect and network among each other. Start by logging in
+                        and look for your Research Buddies.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+      <!-- THUMBNAIL 3
+      ------------------------------------------------------------------------------------>
+      <div class="container-fluid">
+         <div class="col s12 m4 l4">
+            <div class="row">
+               <div class="container-fluid">
+                  <img class="responsive-img z-depth-2 circle"
+                       src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/VQXYE2ZEHC.jpg">
+               </div>
+            </div>
+            <div class="row">
+               <div class="container-fluid">
+                  <h4 class="blue-text text-darken-4"><strong>Divide and Conquer</strong></h4>
+                  <div class="container">
+                     <p align="justify">
+                        Collaboration can help solve even the most stenuous problems.
+                        Lab Petri encourages teamwork and aims to have everyone work together.
+                        Start by inviting others to support your research or assisting
+                        ongoing ones and strive to make a difference.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      
+   <!------------------------------------------------------------------------------------->
    </div>
-   <footer class="page-footer blue darken-3">
-      <div class="container">
-         <div class="row">
-            <div class="col l6 s12">
-               <h5 class="white-text">About Us</h5>
-               <p class="grey-text text-lighten-4">
-                  LabPetri is a start up based in Fremont, California. We are a social media site meant to help bridge the gap between students and professors in order to help start new and revive stalled research projects. We aim to further the educational and professional
-                  goals of students in the STEM fields, as well as help further the continuation of research started by professionals and professors.
+</div>
+
+<!-- FOOTER
+------------------------------------------------------------------------------------------->
+   <div class="row blue darken-3 z-depth-1" id="footer-1">
+      <div class="container-fluid" id="footer-border">
+         
+         <!-- FOOTER 1
+         ---------------------------------------------------------------------------------->
+         <div class="col s12 m6 l6">
+            <div class="container-fluid">
+               <h5 class="grey-text text-lighten-4 text-border"><strong>Mission Statement:</strong></h5>
+               <p class="white-text footer-body" align="justify">
+                  <!-- LabPetri is a start up based in Fremont, California.-->
+                  Lab Petri is a social media site dedicated to help bridge the gap between students and
+                  professors in order to help start new and revive stalled research projects.
+                  In such a way that will accelerate educational and professional purposes,
+                  as well as aid the continuances and breakthroughs done by scholars and professionals.
+                  <!--
+                  Our mission is simple: connect the world's professionals to make them more productive and successful.
+                  When you join LinkedIn, you get access to people, jobs, news, updates, and insights that help you be great at what you do.
+                  -->
                </p>
             </div>
-            <div class="col l3 s12">
-               <h5 class="white-text">Company</h5>
+         </div>
+         
+         <!-- FOOTER 2
+         ---------------------------------------------------------------------------------->
+         <div class="col s12 m3 l3">
+            <div class="container-fluid" >
+               <h5 class="grey-text text-lighten-4 text-border"><strong>Resources</strong></h5>
                <ul>
+                  <li><a class="white-text" href="#!">News</a></li>
+                  <li><a class="white-text" href="#!">Career</a></li>
+                  <li><a class="white-text" href="#!">Policy</a></li>
                   <li><a class="white-text" href="#!">FAQs</a></li>
-                  <li><a class="white-text" href="#!">Copyrights Policy</a></li>
                </ul>
             </div>
-            <div class="col l3 s12">
-               <h5 class="white-text">Connect With Us</h5>
+         </div>
+                  
+         <!-- FOOTER 3
+         ---------------------------------------------------------------------------------->
+         <div class="col s12 m3 l3">
+            <div class="container-fluid" >
+               <h5 class="grey-text text-lighten-4 text-border"><strong>Connect with Us</strong></h5>
                <ul>
                   <li><a class="white-text" href="http://www.facebook.com/labpetri">Facebook</a></li>
+                  <li><a class="white-text" href="#!">LinkedIn</a></li>
                   <li><a class="white-text" href="#!">Instagram</a></li>
                   <li><a class="white-text" href="#!">Twitter</a></li>
-                  <li><a class="white-text" href="#!">LinkedIn</a></li>
-                  <li><a class="white-text" href="mailto:grow@labpetri.com">Email</a></li>
+                  <li><a class="white-text" href="mailto:grow@labpetri.com">Email Us</a></li>
                </ul>
             </div>
          </div>
+      
       </div>
-      <div class="footer-copyright">
-         <div class="container">
-            Made by <a class="orange-text text-lighten-3" href="#">Lab Petri Nerds</a>
-         </div>
-      </div>
-   </footer>
+   </div>
