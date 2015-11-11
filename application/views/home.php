@@ -2,7 +2,7 @@
 
 <!-- HEADER
 ------------------------------------------------------------------------------------------->
-<div class="row z-depth-2 responsive-img" id="home-background">
+<div class="row z-depth-3 responsive-img" id="home-background">
    <div class="container-fluid" id="scale-height">
        <!-- HEADER 1
        ------------------------------------------------------------------------------------>
@@ -39,11 +39,11 @@
                    <!-- BUTTONS
                    ------------------------------------------------------------------------>           
                    <a href="login" id="get-started-border"
-                      class="btn-large waves-effect green darken-1 z-depth-5">
+                      class="btn-large waves-effect green darken-1 z-depth-5 get-started-border">
                       <strong class="yellow-text text-lighten-4">Let's Get Started</strong>
                    </a>
                    <a href="forum" id="get-started-border"
-                      class="btn-large waves-effect green darken-1 z-depth-5">
+                      class="btn-large waves-effect green darken-1 z-depth-5 get-started-border">
                       <strong class="yellow-text text-lighten-4">Start My Research</strong>
                    </a>
                 </div>
@@ -62,10 +62,11 @@
       <!-- THUMBNAIL 1
        ------------------------------------------------------------------------------------>
       <div class="container-fluid">
-         <div class="col s12 m4 l4">
+         <div class="col s12 m4">
             <div class="row">
                <div class="container-fluid">
-                  <img class="responsive-img z-depth-2 circle"
+                  <img class="responsive-img z-depth-3 circle"
+                       style="height: 200px; width: 200px;"
                        src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/E2C46B6D49.jpg">
                </div>
                <div class="row">
@@ -88,10 +89,11 @@
       <!-- THUMBNAIL 2
       ------------------------------------------------------------------------------------>
       <div class="container-fluid">
-         <div class="col s12 m4 l4">
+         <div class="col s12 m4">
             <div class="row">
                <div class="container-fluid">
-                  <img class="responsive-img z-depth-2 circle"
+                  <img class="responsive-img z-depth-3 circle"
+                       style="height: 200px; width: 200px;"
                        src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/YF7YOYCMKN.jpg">
                </div>
             </div>
@@ -114,10 +116,11 @@
       <!-- THUMBNAIL 3
       ------------------------------------------------------------------------------------>
       <div class="container-fluid">
-         <div class="col s12 m4 l4">
+         <div class="col s12 m4">
             <div class="row">
                <div class="container-fluid">
-                  <img class="responsive-img z-depth-2 circle"
+                  <img class="responsive-img z-depth-3 circle"
+                       style="height: 200px; width: 200px;"
                        src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/VQXYE2ZEHC.jpg">
                </div>
             </div>
@@ -148,15 +151,15 @@
          
          <!-- FOOTER 1
          ---------------------------------------------------------------------------------->
-         <div class="col s12 m6 l6">
+         <div class="col s12 m6">
             <div class="container-fluid">
                <h5 class="grey-text text-lighten-4 text-border"><strong>Mission Statement:</strong></h5>
                <p class="white-text footer-body" align="justify">
                   <!-- LabPetri is a start up based in Fremont, California.-->
-                  Lab Petri is a social media site dedicated to help bridge the gap between students and
-                  professors in order to help start new and revive stalled research projects.
-                  In such a way that will accelerate educational and professional purposes,
-                  as well as aid the continuances and breakthroughs done by scholars and professionals.
+                  Lab Petri is a social media site dedicated to help bridge the gap between learning and
+                  developing in order for students and professors to start new and revive stalled research
+                  projects. In such a way that will accelerate educational and professional purposes,
+                  as well as aid developing research and successful breakthroughs.
                   <!--
                   Our mission is simple: connect the world's professionals to make them more productive and successful.
                   When you join LinkedIn, you get access to people, jobs, news, updates, and insights that help you be great at what you do.
@@ -167,7 +170,7 @@
          
          <!-- FOOTER 2
          ---------------------------------------------------------------------------------->
-         <div class="col s12 m3 l3">
+         <div class="col s12 m3">
             <div class="container-fluid" >
                <h5 class="grey-text text-lighten-4 text-border"><strong>Resources</strong></h5>
                <ul>
@@ -181,7 +184,7 @@
                   
          <!-- FOOTER 3
          ---------------------------------------------------------------------------------->
-         <div class="col s12 m3 l3">
+         <div class="col s12 m3">
             <div class="container-fluid" >
                <h5 class="grey-text text-lighten-4 text-border"><strong>Connect with Us</strong></h5>
                <ul>
@@ -189,7 +192,8 @@
                   <li><a class="white-text" href="#!">LinkedIn</a></li>
                   <li><a class="white-text" href="#!">Instagram</a></li>
                   <li><a class="white-text" href="#!">Twitter</a></li>
-                  <li><a class="white-text" href="mailto:grow@labpetri.com">Email Us</a></li>
+                  <li><a class="white-text" href="#!">Google+</a></li>
+                  <!--<li><a class="white-text" href="mailto:grow@labpetri.com">Email Us</a></li>-->
                </ul>
             </div>
          </div>
