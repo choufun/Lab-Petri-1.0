@@ -1,4 +1,3 @@
-
 /* HEADER
 *****************************************************************************/
 .logo
@@ -27,7 +26,7 @@
 #section-1
 {
    padding-top: 60px;
-	text-shadow: 4px 4px 4px black;
+	 text-shadow: 4px 4px 4px black;
    width: 100%;
 }
 
@@ -35,22 +34,22 @@
 {
 	 margin-top: -20px;
 	 text-shadow: 4px 4px 8px ghostwhite;
-    width: 100%;
+   width: 100%;
 }
 
 #get-started
 {
-	margin-top: 10px;
-	padding-top: 40px;
+	 margin-top: 10px;
+	 padding-top: 40px;
    padding-bottom: 40px;
    width: 100%;
 }
 
 #get-started-border
 {
-	/*border: 1px solid #fff9c4;*/
-	margin-left: 25px;
-	margin-right: 25px;
+	 /*border: 1px solid #fff9c4;*/
+	 margin-left: 25px;
+	 margin-right: 25px;
 }
 
 #body-border
@@ -121,44 +120,55 @@ img.logo2
 
 /* PROFILE PROPERTIES
 *****************************************************************************/
-img.responsive-img
+#card-border
 {
-   width: 100px;
-   height: 100px;
+	border: 2px solid #cfd8dc;
 }
 
-img.image
+#profile-padding
+{
+   padding-top: 25px;
+}
+
+#profile-image
 {
    border-radius: 50%;
    border: 3px solid white;
-   width: 160px;
-   height: 160px;
+   width: 200px;
+   height: 200px;
 }
-.name
+
+#username
 {
-   padding-bottom: 25px;
+	text-shadow: 2px 2px 4px #212121;
 }
-.profile
+
+.icon-border
 {
-    padding-top: 25px;
+   padding-top: 25px;
+   margin-top: -50px;
+   padding-right: 35px;
 }
-.account_info
+
+#info-border
 {
    padding-left: 25px;
    padding-right: 25px;
 }
-.index-content
+
+.content-border
 {
    margin-left: 25px;
    margin-right: 25px;
    margin-top: 25px;
    margin-bottom: 25px;
 }
+
 ._link
 {
-	background: none;
+   background: none;
 	border: none;
-	font-size: 1em;
+ 	font-size: 1em;
 	margin: 0;
 	padding: 0;
    outline: none;
@@ -166,11 +176,7 @@ img.image
 
 /* ICON PROPERTIES
 *****************************************************************************/
-.icon-border
-{
-   margin-top: -50px;
-   padding-right: 15px;
-}
+
 .inner-border
 {
    border: 1px solid;
@@ -178,10 +184,6 @@ img.image
 
 /* RESEARCH PROPERTIES
 *****************************************************************************/
-.card-border
-{
-	border: 2px solid #cfd8dc;
-}
 .forum-border
 {
 	border: 2px solid #bdbdbd;

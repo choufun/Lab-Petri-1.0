@@ -60,26 +60,24 @@
    <div class="container-fluid" align="center">
       
       <!-- THUMBNAIL 1
-       ------------------------------------------------------------------------------------>
-      <div class="container-fluid">
-         <div class="col s12 m4">
+      ------------------------------------------------------------------------------------>
+      <div class="col s12 m4">
+         <div class="row">
+            <div class="container-fluid">
+               <img class="responsive-img z-depth-3 circle"
+                    style="height: 200px; width: 200px;"
+                    src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/E2C46B6D49.jpg">
+            </div>
             <div class="row">
                <div class="container-fluid">
-                  <img class="responsive-img z-depth-3 circle"
-                       style="height: 200px; width: 200px;"
-                       src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/E2C46B6D49.jpg">
-               </div>
-               <div class="row">
-                  <div class="container-fluid">
-                     <h4 class="blue-text text-darken-4"><strong>Learn and Discover</strong></h4>
-                     <div class="container">
-                        <p align="justify">
-                           When it comes to learning and discovering, Lab Petri provide
-                           the most advanced and informative research done by astonishing
-                           professors, scholars, staffs and academics seeking for higher
-                           learning. Start your journey here at the Petri Dish.
-                        </p>
-                     </div>
+                  <h4 class="blue-text text-darken-4"><strong>Learn and Discover</strong></h4>
+                  <div class="container">
+                     <p align="justify">
+                        When it comes to learning and discovering, Lab Petri provide
+                        the most advanced and informative research done by astonishing
+                        professors, scholars, staffs and academics seeking for higher
+                        learning. Start your journey here at the Petri Dish.
+                     </p>
                   </div>
                </div>
             </div>
@@ -88,26 +86,24 @@
       
       <!-- THUMBNAIL 2
       ------------------------------------------------------------------------------------>
-      <div class="container-fluid">
-         <div class="col s12 m4">
-            <div class="row">
-               <div class="container-fluid">
-                  <img class="responsive-img z-depth-3 circle"
-                       style="height: 200px; width: 200px;"
-                       src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/YF7YOYCMKN.jpg">
-               </div>
+      <div class="col s12 m4">
+         <div class="row">
+            <div class="container-fluid">
+               <img class="responsive-img z-depth-3 circle"
+                    style="height: 200px; width: 200px;"
+                    src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/YF7YOYCMKN.jpg">
             </div>
-            <div class="row">
-               <div class="container-fluid">
-                  <h4 class="blue-text text-darken-4"><strong>Connect and Branch</strong></h4>
-                  <div class="container">
-                     <p align="justify">
-                        Building up strong and resilient connections can be difficult.
-                        Lab Petri has the reliable tools to allow everyone to easily
-                        utilize to connect and network among each other. Start by logging in
-                        and look for your Research Buddies.
-                     </p>
-                  </div>
+         </div>
+         <div class="row">
+            <div class="container-fluid">
+               <h4 class="blue-text text-darken-4"><strong>Connect and Branch</strong></h4>
+               <div class="container">
+                  <p align="justify">
+                     Building up strong and resilient connections can be difficult.
+                     Lab Petri has the reliable tools to allow everyone to easily
+                     utilize to connect and network among each other. Start by logging in
+                     and look for your Research Buddies.
+                  </p>
                </div>
             </div>
          </div>
@@ -115,26 +111,24 @@
       
       <!-- THUMBNAIL 3
       ------------------------------------------------------------------------------------>
-      <div class="container-fluid">
-         <div class="col s12 m4">
-            <div class="row">
-               <div class="container-fluid">
-                  <img class="responsive-img z-depth-3 circle"
-                       style="height: 200px; width: 200px;"
-                       src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/VQXYE2ZEHC.jpg">
-               </div>
+      <div class="col s12 m4">
+         <div class="row">
+            <div class="container-fluid">
+               <img class="responsive-img z-depth-3 circle"
+                    style="height: 200px; width: 200px;"
+                    src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/VQXYE2ZEHC.jpg">
             </div>
-            <div class="row">
-               <div class="container-fluid">
-                  <h4 class="blue-text text-darken-4"><strong>Divide and Conquer</strong></h4>
-                  <div class="container">
-                     <p align="justify">
-                        Collaboration can help solve even the most stenuous problems.
-                        Lab Petri encourages teamwork and aims to have everyone work together.
-                        Start by inviting others to support your research or assisting
-                        ongoing ones and strive to make a difference.
-                     </p>
-                  </div>
+         </div>
+         <div class="row">
+            <div class="container-fluid">
+               <h4 class="blue-text text-darken-4"><strong>Divide and Conquer</strong></h4>
+               <div class="container">
+                  <p align="justify">
+                     Collaboration can help solve even the most stenuous problems.
+                     Lab Petri encourages teamwork and aims to have everyone work together.
+                     Start by inviting others to support your research or assisting
+                     ongoing ones and strive to make a difference.
+                  </p>
                </div>
             </div>
          </div>
