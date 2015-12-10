@@ -78,3 +78,23 @@ CREATE TABLE IF NOT EXISTS profile_picture (
    filename varchar(255) NOT NULL,
    user_id int(11) NOT NULL
 ) ENGINE = MYISAM;
+
+/* CONTACT INFORMATION
+***********************************************************************/
+CREATE TABLE IF NOT EXIST contact_information (
+   user_id int(11) NOT NULL,
+   email VARCHAR(255) NOT NULL,
+   phone varchar(255) NOT NULL,
+   linkedin varchar(255) NOT NULL,
+) ENGINE = MYISAM;
+
+/* EDUCATION INFORMATION
+***********************************************************************/
+CREATE TABLE IF NOT EXISTS education (
+   user_id int(11) NOT NULL,
+   university varchar(255) NOT NULL,
+   degree varchar(255) NOT NULL,
+   major varchar(255) NOT NULL,
+   minor varchar(255) NOT NULL,
+   cetifications varchar(255) NOT NULL
+) ENGINE = MYISAM;

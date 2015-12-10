@@ -1,6 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Profile_model extends CI_Model
 {
 /* FIELD
@@ -142,18 +141,22 @@ class Profile_model extends CI_Model
 ************************************************************************************/
    public function get_profile_picture()
    {
-      $this->db->where('user_id', $this->session->user_id);
-      $this->db->where('default_picture', 1);
-      $query = $this->db->get('profile_picture');
-      
-      if ($query->num_rows() == 1)
+      if ($this->session->logged_in == TRUE)
       {
-         return $query->row('filename');
+         $this->db->where('user_id', $this->session->user_id);
+         $this->db->where('default_picture', 1);
+         $query = $this->db->get('profile_picture');
+
+         if ($query->num_rows() == 1)
+         {
+            return $query->row('filename');
+         }
+         else
+         {
+            return "default.png";
+         }
       }
-      else
-      {
-         return "no default profile picture";
-      }
+      else { return "default.png"; }
    }
 
 /* GET PICTURES

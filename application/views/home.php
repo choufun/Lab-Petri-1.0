@@ -4,19 +4,24 @@
 ------------------------------------------------------------------------------------------->
 <div class="row z-depth-3 responsive-img" id="home-background">
    <div class="container-fluid" id="scale-height">
+      
        <!-- HEADER 1
        ------------------------------------------------------------------------------------>
        <div class="row">
           <div class="container-fluid">
              <div class="col s12 m6 l6 offset-l3">
                 <div align="center" id="section-1">
-                   <h2 class="grey-text text-lighten-3">
+                   <h2 class="grey-text text-lighten-3 hide-on-small-and-down">
                       <strong>Welcome to Lab Petri</strong>
                    </h2>
+                   <h3 class="grey-text text-lighten-3 hide-on-med-and-up">
+                      <strong>Welcome to Lab Petri</strong>
+                   </h3>
                 </div>
              </div>
           </div>
        </div>
+      
        <!-- HEADER 2
        ------------------------------------------------------------------------------------>
        <div class="row">
@@ -30,21 +35,33 @@
              </div>
           </div>
        </div>
+      
        <!-- GET STARTED BORDER
        ------------------------------------------------------------------------------------>
        <div class="row">
           <div class="container-fluid">
              <div class="col s12 m6 l6 offset-l3">
                 <div align="center" id="get-started">
+                   
                    <!-- BUTTONS
                    ------------------------------------------------------------------------>           
                    <a href="login" id="get-started-border"
                       class="btn-large waves-effect green darken-1 z-depth-5 get-started-border">
-                      <strong class="yellow-text text-lighten-4">Let's Get Started</strong>
+                      <strong class="yellow-text text-lighten-4 hide-on-small-and-down">
+                         Let's Get Started
+                      </strong>
+                      <small class="yellow-text text-lighten-4 hide-on-med-and-up">
+                         Let's Get Started
+                      </small>
                    </a>
                    <a href="forum" id="get-started-border"
                       class="btn-large waves-effect green darken-1 z-depth-5 get-started-border">
-                      <strong class="yellow-text text-lighten-4">Start My Research</strong>
+                      <strong class="yellow-text text-lighten-4 hide-on-small-and-down">
+                         Start My Research
+                      </strong>
+                      <small class="yellow-text text-lighten-4 hide-on-med-and-up">
+                         Start My Research
+                      </small>
                    </a>
                 </div>
              </div>
@@ -124,7 +141,7 @@
                <h4 class="blue-text text-darken-4"><strong>Divide and Conquer</strong></h4>
                <div class="container">
                   <p align="justify">
-                     Collaboration can help solve even the most stenuous problems.
+                     Collaboration can help solve even the most strenuous problems.
                      Lab Petri encourages teamwork and aims to have everyone work together.
                      Start by inviting others to support your research or assisting
                      ongoing ones and strive to make a difference.
@@ -133,64 +150,62 @@
             </div>
          </div>
       </div>
-      
    <!------------------------------------------------------------------------------------->
    </div>
 </div>
 
 <!-- FOOTER
 ------------------------------------------------------------------------------------------->
-   <div class="row blue darken-3 z-depth-1" id="footer-1">
-      <div class="container-fluid" id="footer-border">
-         
-         <!-- FOOTER 1
-         ---------------------------------------------------------------------------------->
-         <div class="col s12 m6">
-            <div class="container-fluid">
-               <h5 class="grey-text text-lighten-4 text-border"><strong>Mission Statement:</strong></h5>
-               <p class="white-text footer-body" align="justify">
-                  <!-- LabPetri is a start up based in Fremont, California.-->
-                  Lab Petri is a social media site dedicated to help bridge the gap between learning and
-                  developing in order for students and professors to start new and revive stalled research
-                  projects. In such a way that will accelerate educational and professional purposes,
-                  as well as aid developing research and successful breakthroughs.
-                  <!--
-                  Our mission is simple: connect the world's professionals to make them more productive and successful.
-                  When you join LinkedIn, you get access to people, jobs, news, updates, and insights that help you be great at what you do.
-                  -->
-               </p>
-            </div>
+<div class="row blue darken-3 z-depth-1" id="footer-1">
+   <div class="container-fluid" id="footer-border">
+
+      <!-- FOOTER 1
+      ---------------------------------------------------------------------------------->
+      <div class="col s12 m6">
+         <div class="container-fluid">
+            <h5 class="grey-text text-lighten-4 text-border"><strong>Mission Statement:</strong></h5>
+            <p class="white-text footer-body" align="justify">
+               <!-- LabPetri is a start up based in Fremont, California.-->
+               Lab Petri is a social media site dedicated to help bridge the gap between learning and
+               developing in order for students and professors to start new and revive stalled research
+               projects. In such a way that will accelerate educational and professional purposes,
+               as well as aid developing research and successful breakthroughs.
+               <!--
+               Our mission is simple: connect the world's professionals to make them more productive and successful.
+               When you join LinkedIn, you get access to people, jobs, news, updates, and insights that help you be great at what you do.
+               -->
+            </p>
          </div>
-         
-         <!-- FOOTER 2
-         ---------------------------------------------------------------------------------->
-         <div class="col s12 m3">
-            <div class="container-fluid" >
-               <h5 class="grey-text text-lighten-4 text-border"><strong>Resources</strong></h5>
-               <ul>
-                  <li><a class="white-text" href="#!">News</a></li>
-                  <li><a class="white-text" href="#!">Career</a></li>
-                  <li><a class="white-text" href="#!">Policy</a></li>
-                  <li><a class="white-text" href="#!">FAQs</a></li>
-               </ul>
-            </div>
+      </div>
+
+      <!-- FOOTER 2
+      ---------------------------------------------------------------------------------->
+      <div class="col s12 m3">
+         <div class="container-fluid" >
+            <h5 class="grey-text text-lighten-4 text-border"><strong>Resources</strong></h5>
+            <ul>
+               <li><a class="white-text" href="#!">News</a></li>
+               <li><a class="white-text" href="#!">Career</a></li>
+               <li><a class="white-text" href="#!">Policy</a></li>
+               <li><a class="white-text" href="#!">FAQs</a></li>
+            </ul>
          </div>
-                  
-         <!-- FOOTER 3
-         ---------------------------------------------------------------------------------->
-         <div class="col s12 m3">
-            <div class="container-fluid" >
-               <h5 class="grey-text text-lighten-4 text-border"><strong>Connect with Us</strong></h5>
-               <ul>
-                  <li><a class="white-text" href="http://www.facebook.com/labpetri">Facebook</a></li>
-                  <li><a class="white-text" href="#!">LinkedIn</a></li>
-                  <li><a class="white-text" href="#!">Instagram</a></li>
-                  <li><a class="white-text" href="#!">Twitter</a></li>
-                  <li><a class="white-text" href="#!">Google+</a></li>
-                  <!--<li><a class="white-text" href="mailto:grow@labpetri.com">Email Us</a></li>-->
-               </ul>
-            </div>
+      </div>
+
+      <!-- FOOTER 3
+      ---------------------------------------------------------------------------------->
+      <div class="col s12 m3">
+         <div class="container-fluid" >
+            <h5 class="grey-text text-lighten-4 text-border"><strong>Connect with Us</strong></h5>
+            <ul>
+               <li><a class="white-text" href="http://www.facebook.com/labpetri">Facebook</a></li>
+               <li><a class="white-text" href="#!">LinkedIn</a></li>
+               <li><a class="white-text" href="#!">Instagram</a></li>
+               <li><a class="white-text" href="#!">Twitter</a></li>
+               <li><a class="white-text" href="#!">Google+</a></li>
+               <!--<li><a class="white-text" href="mailto:grow@labpetri.com">Email Us</a></li>-->
+            </ul>
          </div>
-      
       </div>
    </div>
+</div>

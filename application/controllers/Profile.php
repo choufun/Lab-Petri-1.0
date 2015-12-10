@@ -1,5 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
 /* PROFILE CONTROLLER
 ************************************************************************************/
 class Profile extends CI_Controller
@@ -31,7 +31,7 @@ class Profile extends CI_Controller
          'university' => $this->profile_model->get_university(),
          'files' => $this->get_files(),
          'profile_picture' => $this->profile_model->get_profile_picture(),
-         'pictures' => $this->list_pictures(),
+         /*'pictures' => $this->list_pictures(),*/
          'error' => $this->error
       );
       
@@ -92,8 +92,8 @@ class Profile extends CI_Controller
                if ($this->profile_model->is_userfile($this->filename))
                {
                   $result.='
-                      <li>
-                        <div id="'.$this->filename.'" class="card index-content card-border">
+                     <li>
+                        <div id="'.$this->filename.'" class="card card-border">
                            <div class="card-content">
                               <span class="card-title activator">
                                  <h5 class="blue-text text-darken-2">
@@ -107,7 +107,8 @@ class Profile extends CI_Controller
                                     <i class="material-icons right light-blue-text">import_export</i>
                                  </h5>
                               </span>
-                              <object data="'.$file.'" type="application/pdf" width="100%" height="100%">
+                              <!--<object data="'.$file.'" type="application/pdf" width="100%" height="100%">-->
+                              <embed src="'.$file.'" type="application/pdf" width="100%" height="100%">
                                  <div align="right">
                                     <strong>
                                        <a class="light-blue-text" href="files/uploads/'.$file.'" target="_blank">
@@ -115,10 +116,13 @@ class Profile extends CI_Controller
                                        </a>
                                     </strong>
                                     <strong>
-                                       <script type="text/javascript">delete_link();</script>
+                                       <script type="text/javascript">
+                                          delete_link();
+                                       </script>
                                     </strong>
                                  </div>
-                              </object>
+                              </embed>
+                              <!--</object>-->
                            </div>
                            <div class="card-reveal">
                               <span class="card-title activator blue-text text-darken-2">
@@ -139,10 +143,7 @@ class Profile extends CI_Controller
                   ';
                   $result.='</ul>';
                }
-               else
-               {
-                  continue;
-               } 
+               else { continue; } 
             }
          }
       }
@@ -151,7 +152,7 @@ class Profile extends CI_Controller
    
 /* LIST PICTURES
 ************************************************************************************/
-   public function list_pictures()
+/*   public function list_pictures()
    {
       $result = $this->profile_model->get_pictures();
       $pictures = "";
@@ -163,7 +164,8 @@ class Profile extends CI_Controller
       
       return $pictures;
    }
-   
+*/
+	
 /* DO UPLOAD PROFILE PICTURE
 ************************************************************************************/
 	public function do_upload_pic()

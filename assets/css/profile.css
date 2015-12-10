@@ -1,44 +1,23 @@
-/* PROFILE PROPERTIES
+/* FORM PROPERTIES
 *****************************************************************************/
-img.responsive-img
-{
-   width: 100px;
-   height: 100px;
-}
 
-img.image
+::-webkit-input-placeholder
 {
-   border-radius: 50%;
-   border: 3px solid white;
-   width: 200px;
-   height: 200px;
+   color: #000000;
+   font-weight: bold;
 }
-.name
-{
-   padding-bottom: 25px;
+:-moz-placeholder
+{ /* older Firefox*/
+   color: #000000;
+   font-weight: bold;
 }
-.profile
-{
-    padding-top: 25px;
-}
-.account_info
-{
-   padding-left: 25px;
-   padding-right: 25px;
-}
-.index-content
-{
-   margin-left: 25px;
-   margin-right: 25px;
-   margin-top: 25px;
-   margin-bottom: 25px;
-}
-._link
-{
-	background: none;
-	border: none;
-	font-size: 1em;
-	margin: 0;
-	padding: 0;
-   outline: none;
+::-moz-placeholder
+{ /* Firefox 19+ */ 
+   color: #000000;
+   font-weight: bold;
+} 
+:-ms-input-placeholder
+{ 
+   color: #000000;
+   font-weight: bold;
 }
