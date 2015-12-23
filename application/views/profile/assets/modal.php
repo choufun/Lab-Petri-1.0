@@ -11,7 +11,7 @@
                </a>
                <center>
                   <!-- <img class="image" src="assets/profile_pic/profile.jpg" alt="Profile Picture"> -->
-                  <img class="image" src="files/profile_picture/<?php echo $profile_picture; ?>"
+                  <img class="image" src="/files/profile_picture/<?php echo $profile_picture; ?>"
                        alt="Profile Picture">
                </center>
                <span class="title">

@@ -29,7 +29,9 @@ class Forum_model extends CI_Model
    
    public function load_forum()
    {
-      $query = $this->db->query("SELECT * FROM  posts INNER JOIN users ON posts.user_id=users.user_id;");
+      $query = $this->db->query("SELECT * FROM  posts 
+				 INNER JOIN profile_picture ON posts.user_id = profile_picture.user_id
+				 INNER JOIN users ON posts.user_id=users.user_id;");
       return $query->result();
    }
 

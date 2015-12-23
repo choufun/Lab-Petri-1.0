@@ -50,10 +50,10 @@
                      echo
                      '
                         <li class="tab">
-                           <a href="profile/">'.$this->session->firstname.' '.$this->session->lastname.'</a>
+                           <a href="profile">'.$this->session->firstname.' '.$this->session->lastname.'</a>
                         </li>
                         <li class="tab">
-                           <a href="peer/">Research Buddies</a>
+                           <a href="peer">Research Buddies</a>
                         </li>
                         <li class="tab">
                            <a href="login/logout">Logout</a>
@@ -93,10 +93,10 @@
                      echo
                      '
                         <li class="tab">
-                           <a href="profile/">'.$this->session->firstname.' '.$this->session->lastname.'</a>
+                           <a href="profile">'.$this->session->firstname.' '.$this->session->lastname.'</a>
                         </li>
                         <li class="tab">
-                           <a href="peer/">Research Buddies</a>
+                           <a href="peer">Research Buddies</a>
                         </li>
                         <li class="tab">
                            <a href="login/logout">Logout</a>

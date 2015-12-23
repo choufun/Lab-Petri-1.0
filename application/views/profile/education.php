@@ -1,7 +1,7 @@
 <div id="education_show">
    <div class="row">
       <div class="container-fluid">
-         <h5><strong>Education</strong></h5>
+         <h5><strong>Education Record</strong></h5>
       </div>
    </div>
    <div class="row">

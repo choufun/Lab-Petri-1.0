@@ -1,5 +1,5 @@
 /**SCHOOL EMAILS**/
-/******************************************************************************************
+/**
 INSERT INTO schools (name) VALUES ('Abilene Christian University (acu.edu)');
 INSERT INTO schools (name) VALUES ('Adelphi University (adelphi.edu)');
 INSERT INTO schools (name) VALUES ('Agnes Scott College (scottlan.edu)');
@@ -765,7 +765,7 @@ INSERT INTO schools (name) VALUES ('University of Arkansas - Fayetteville (uark.
 INSERT INTO schools (name) VALUES ('University of Arkansas - Monticello (uamont.edu)');
 INSERT INTO schools (name) VALUES ('University of Baltimore (ubalt.edu)');
 INSERT INTO schools (name) VALUES ('University of Bridgeport (bridgeport.edu)');
-INSERT INTO schools (name) VALUES ('.University of California, Berkeley (berkeley.edu)');
+INSERT INTO schools (name) VALUES ('University of California, Berkeley (berkeley.edu)');
 INSERT INTO schools (name) VALUES ('University of California, Irvine (uci.edu)');
 INSERT INTO schools (name) VALUES ('University of California, Los Angeles (ucla.edu)');
 INSERT INTO schools (name) VALUES ('University of California, San Diego (ucsd.edu)');
@@ -996,7 +996,7 @@ INSERT INTO schools (name) VALUES ('Yale University (yale.edu)');
 INSERT INTO schools (name) VALUES ('Yeshiva University (yu.edu)');
 INSERT INTO schools (name) VALUES ('York College of Pennsylvania (ycp.edu)');
 **/
-/**SCHOOL EMAIL LIST
+/**SCHOOL EMAIL LIST **/
 /**
 INSERT INTO ext (email) VALUES ('aamu.edu: Alabama A&M University');
 INSERT INTO ext (email) VALUES ('ab.edu: Alderson Broaddus University');
@@ -1918,8 +1918,8 @@ INSERT INTO ext (email) VALUES ('yale.edu: Yale University');
 INSERT INTO ext (email) VALUES ('ycp.edu: York College of Pennsylvania');
 INSERT INTO ext (email) VALUES ('ysu.edu: Youngstown State University');
 INSERT INTO ext (email) VALUES ('yu.edu: Yeshiva University');
-**/
 
+**/
 
 
 

@@ -82,7 +82,7 @@ class Profile extends CI_Controller
             {
                if ('.' === $file) continue;
                else if ('..' === $file) continue;
-               else if (is_dir('./files/'.$file)) continue;
+               else if (is_dir('./../files/'.$file)) continue;
                else
                {
                   $this->filename = $file;
@@ -170,7 +170,7 @@ class Profile extends CI_Controller
 ************************************************************************************/
 	public function do_upload_pic()
 	{
-      $config['upload_path'] = './files/profile_picture';
+      $config['upload_path'] = './../var/www/html/files/profile_picture';
       $config['allowed_types'] = 'jpg|png|jpeg';
       $config['max_size']	= '1000';
       $config['max_width']  = '10240';
@@ -181,13 +181,13 @@ class Profile extends CI_Controller
       if ( !$this->upload->do_upload())
       {
          $error = array('error' => $this->upload->display_errors());
-         redirect("profile/");         
+         redirect("profile");         
       }
       else
       {
          $data = array('upload_data' => $this->upload->data());
          $this->profile_model->insert_profile_picture($this->upload->data('file_name'));
-         redirect("profile/");
+         redirect("profile");
       }
 	}
    
@@ -195,7 +195,7 @@ class Profile extends CI_Controller
 ************************************************************************************/
 	public function do_upload()
 	{
-      $config['upload_path'] = './files/uploads';
+      $config['upload_path'] = './../var/www/html/files/uploads';
       $config['allowed_types'] = 'jpg|png|jpeg|pdf';
       $config['max_size']	= '1000';
       $config['max_width']  = '1024';
@@ -206,7 +206,7 @@ class Profile extends CI_Controller
       if ( !$this->upload->do_upload())
       {
          $error = array('error' => $this->upload->display_errors());
-         redirect("profile/");         
+         redirect("profile");         
       }
       else
       {
@@ -214,7 +214,7 @@ class Profile extends CI_Controller
          /* DEBUGGING USE
          ***************************************************************************/
          /* $this->session->set_userdata('data', $this->upload->data('file_name'));*/
-         redirect("profile/");
+         redirect("profile");
       }
 	}
    

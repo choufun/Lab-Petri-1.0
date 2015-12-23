@@ -27,7 +27,7 @@ class Register_model extends CI_Model
 ****************************************************************************/ 
    private function email_extension($email)
    {
-      $i;
+      $i; 
       for ($i = (strlen($email)-1); $i >= 0; $i--)
       {
          if ($email[$i] == '@') break;

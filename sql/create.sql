@@ -1,82 +1,41 @@
-/* USE   
-*********************************************************************/
-USE labpetri_com
-
 /* CREATE
 *********************************************************************/
-/* USERS */
+
+/* USE   
+*********************************************************************/
+USE labpetri
+
+/* PROFILE ***********************************************************************/
+/* USERS
+*********************************************************************/
 CREATE TABLE IF NOT EXISTS users (
    user_id int(11) NOT NULL AUTO_INCREMENT,
    firstname VARCHAR(255) NOT NULL,
    lastname VARCHAR(255) NOT NULL,
    email VARCHAR(255) NOT NULL,
    password VARCHAR(255) NOT NULL,
-   major VARCHAR(255) NOT NULL,
-   school VARCHAR(255) NOT NULL,
-   occupation VARCHAR(255),
-   experience VARCHAR(255),
+   PRIMARY KEY (user_id), UNIQUE(email)
+) ENGINE = MYISAM;
+
+/* PROFILE PICTURES
+***********************************************************************/
+CREATE TABLE IF NOT EXISTS profile_pictures (
+   user_id int(11) NOT NULL,
+   default_picture int(1),
+   filename varchar(255) NOT NULL,
    PRIMARY KEY (user_id)
 ) ENGINE = MYISAM;
 
-/* SCHOOLS */
-CREATE TABLE IF NOT EXISTS schools (
-   id int(11) NOT NULL AUTO_INCREMENT,
-   name VARCHAR(255) NOT NULL,
-   PRIMARY KEY (id), UNIQUE (name)
-) ENGINE = MYISAM;
-
-/* SESSIONS */
-CREATE TABLE IF NOT EXISTS ci_sessions (
-   session_id varchar(40) DEFAULT '0' NOT NULL,
-   ip_address varchar(45) DEFAULT '0' NOT NULL,
-   user_agent varchar(120) NOT NULL,
-   last_activity int(10) unsigned DEFAULT 0 NOT NULL,
-   user_data text NOT NULL,
-   PRIMARY KEY (session_id),
-   KEY last_activity_idx (last_activity)
-);
-
-/* POSTS */
-CREATE TABLE IF NOT EXISTS posts (
-   post_id int(11) NOT NULL AUTO_INCREMENT,
-   user_id int(11) NOT NULL,
-   title VARCHAR(255) NOT NULL,
-   abstract TEXT,
-   topic VARCHAR(255) NOT NULL,
-   additional_info TEXT,
-   file_path TEXT,   
-   month VARCHAR(9) NOT NULL,
-   day int(2) NOT NULL,
-   yr  int(4) NOT NULL,
-   initial_time TIME NOT NULL,
-   PRIMARY KEY (post_id)
-) ENGINE = MYISAM;
-
-/* MAJORS */
-CREATE TABLE IF NOT EXISTS majors
-(
-   id int(11) NOT NULL AUTO_INCREMENT,
-   major VARCHAR(255) NOT NULL,
-   PRIMARY KEY (id)
-) ENGINE = MYISAM;
-
-/*  EMAIL EXTENSIONS */
-CREATE TABLE IF NOT EXISTS ext
-(
-   email VARCHAR(255) NOT NULL,
-   UNIQUE (email)
-) ENGINE = MYISAM;
-
-/* FILES */
-CREATE TABLE IF NOT EXISTS files (
-   filename varchar(255) NOT NULL,
+/* EDUCATION RECORD
+***********************************************************************/
+CREATE TABLE IF NOT EXIST education_records (
    user_id int(11) NOT NULL
-) ENGINE = MYISAM;
-
-/* PROFILE PICTURE */
-CREATE TABLE IF NOT EXISTS profile_picture (
-   filename varchar(255) NOT NULL,
-   user_id int(11) NOT NULL
+   university varchar(255) NOT NULL,
+   degree varchar(255) NOT NULL,
+   major varchar(255) NOT NULL,
+   minor varchar(255) NOT NULL,
+   certifications varchar(255) NOT NULL,
+   PRIMARY KEY (user_id)
 ) ENGINE = MYISAM;
 
 /* CONTACT INFORMATION
@@ -86,15 +45,53 @@ CREATE TABLE IF NOT EXIST contact_information (
    email VARCHAR(255) NOT NULL,
    phone varchar(255) NOT NULL,
    linkedin varchar(255) NOT NULL,
+   PRIMARY KEY (user_id)
 ) ENGINE = MYISAM;
 
-/* EDUCATION INFORMATION
+/* WORK EXPERIENCE
 ***********************************************************************/
-CREATE TABLE IF NOT EXISTS education (
+CREATE TABLE IF NOT EXIST work_experiences (
    user_id int(11) NOT NULL,
-   university varchar(255) NOT NULL,
-   degree varchar(255) NOT NULL,
-   major varchar(255) NOT NULL,
-   minor varchar(255) NOT NULL,
-   cetifications varchar(255) NOT NULL
+   position varchar(255) NOT NULL,
+   company varchar(255) NOT NULL,
+   location varchar(255) NOT NULL,
+   details varchar(255) NOT NULL,
+   reference varchar(255) NOT NULL,
+   PRIMARY KEY (user_id)
 ) ENGINE = MYISAM;
+
+/* RESEARCH PROFILE
+***********************************************************************/
+CREATE TABLE IF NOT EXISTS lab_notebook (
+   user_id int(11) NOT NULL,
+   goal varchar(255) NOT NULL,
+   interest varchar(255) NOT NULL,
+   expertise varchar(255) NOT NULL,
+   PRIMARY KEY (user_id)
+) ENGINE = MYISAM;
+
+/* FILES
+***********************************************************************/
+CREATE TABLE IF NOT EXISTS research_files (
+   user_id int(11) NOT NULL,
+   filename varchar(255) NOT NULL,
+   PRIMARY KEY (user_id)
+) ENGINE = MYISAM;
+
+/* LOGIN, REGISTRATION  ***********************************************************************/
+/* MAJORS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS majors (
+   id int(11) NOT NULL AUTO_INCREMENT,
+   major varchar(255) NOT NULL,
+   PRIMARY KEY (id), UNIQUE (major)
+) ENGINE = MYISAM;
+
+/* UNIVERSITIES
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS universities (
+   id int(11) NOT NULL AUTO_INCREMENT,
+   university VARCHAR(255) NOT NULL,
+   PRIMARY KEY (id), UNIQUE (name)
+) ENGINE = MYISAM;
+

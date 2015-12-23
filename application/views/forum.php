@@ -84,7 +84,7 @@ jQuery.noConflict();
 							<label class="active" for="topic">Topic Area:</label>
 							<select name="topic" class="browser-default">
 								<option selected disabled>-- Please Select One --</option>
-								<?php echo $options;?>
+								<option selected>Topic</option>
 							</select>
 						</div>
 
