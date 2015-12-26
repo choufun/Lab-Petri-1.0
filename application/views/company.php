@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	
 <div align="center">
-	<h1 class="black-text" style="padding-top:100px; padding-bottom:px"50;> Hello There! Want to know who we are?	</h1>
+	<h1 class="black-text" style="padding-top:50px; padding-bottom:px"50;> Hello There! Want to know who we are?	</h1>
 	</div>
 
 		<div align="center">
@@ -17,63 +17,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 	
 	
-<!-- PARALLAX #1 
-<div class="parallax-container" style="padding-top: 455px">
-<div class="parallax"></div>
-	<div class="section white">
-		<div class="row container">	
-	 		<div class="col m6 s6 l6">
-      	<h2 class="header">A New Way To Do Research</h2>
-      		<p class="grey-text text-darken-3 lighten-3"><h5>What if there was a way for students and professionals across the world to get together and create new research? Social media has linked the world together. 
-							Lab Petri is an educational social media platform that is a tool for research development. We aim to bring student researchesers, teachers, and professors together in order to spark innovation!</h5></p>
-		 				
-			</div>
-			
-			<div class="col m6 s6 l6">
-				<img src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/HN6OJPDCXD.jpg">
-		</div>
-	</div>
-	</div>
-	</div>
-	
-<img src="https://images.unsplash.com/photo-1434064511983-18c6dae20ed5?ixlib=rb-0.3.5&q=80&fm=jpg&s=4fab730295da970a7d639733809c8052">
-
-<!-- PARALLAX #2 
-    <div class="parallax"><img src="images/parallax1.jpg"></div>
-  		<div class="section white">
-    		<div class="row container">
-					<div class="col l6">
-      			<h2 class="header">Share and Collaborate</h2>
-      			<p class="grey-text text-darken-2 lighten-2"><h5>LabPetri is simple. Make an account with your school email address, select your interests, complete your profile and you’re done! Now you’re ready to meet other students and professors who share your academic interests! Want to contribute to the community? Upload your own academic papers! Generate interest in your research! Whether you need help or just an extra set of eyes to go over your ideas, LabPetri is there for your research and academic needs. </p>
-						</h5>
-					</div>
-					<div class="col l6">
-					 <img src="../../assets/img/forum.png" alt="Smiley face" height="800" width="900">
-					</div>
-				</div>
-			</div>
-	</div>
-			
--->
-	
 <div class="row" id="body-border">
    <div class="container-fluid" align="center">
       
 		 
-	      <!-- THUMBNAIL 1
+	      <!-- THUMBNAIL 1 our vision
       ------------------------------------------------------------------------------------>
-      <div class="col s12 m4">
+      <div class="col s12 m4 l4">
          <div class="row">
+				<div class="card-panel white">
             <div class="container-fluid">
                <img class="responsive-img z-depth-3 circle"
-                    style="height: 400px; width: 400px;"
+                    style="height: 200px; width: 200px;"
                     src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/VQXYE2ZEHC.jpg">
             </div>
-         </div>
-         <div class="row">
-            <div class="container-fluid">
-               <h4 class="blue-text text-darken-4"><strong>Our Vision</strong></h4>
-               <div class="container">
+       			  <div class="row">
+            		<div class="container-fluid">
+               		<h4 class="blue-text text-darken-4"><strong>Our Vision</strong></h4>
+               	<div class="container">
                   <p align="justify">
                     Frustrated by the inability to connect with students and professors at other colleges and 
 
@@ -83,19 +44,21 @@ research development as well as help on existing research. LabPetri is the produ
 
 hard work and we are excited to share our platform to the world.
                   </p>
-               </div>
-            </div>
-         </div>
-      </div>	 
-		 
+               	</div>
+            		</div>
+         			</div>
+      		</div>	 
+				</div>
+		 </div>
       <!-- THUMBNAIL 2 -->
-      <div class="col s12 m4">
+      <div class="col s12 m4 l4">
          <div class="row">
-            <div class="container-fluid">
-               <img class="responsive-img z-depth-3 circle"
-                    style="height: 400px; width: 400px;"
-                    src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/HN6OJPDCXD.jpg">
-            </div>
+				<div class="card-panel white">
+						<div class="container-fluid">
+              <img class="responsive-img z-depth-3 circle"
+                    style="height: 200px; width: 200px;"
+										src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/HN6OJPDCXD.jpg"></div>
+    
             <div class="row">
                <div class="container-fluid">
                   <h4 class="blue-text text-darken-4"><strong>Learn and Discover</strong></h4>
@@ -108,17 +71,18 @@ hard work and we are excited to share our platform to the world.
             </div>
          </div>
       </div>
-      
+		 </div>
+	
       <!-- THUMBNAIL 3
       ------------------------------------------------------------------------------------>
-      <div class="col s12 m4">
+      <div class="col s12 m4 l4">
          <div class="row">
-            <div class="container-fluid">
-               <img class="responsive-img z-depth-3 circle"
-                    style="height: 400px; width: 400px;"
-                     src="../../assets/img/forum.png" alt="Smiley face" height="800" width="900">
-            </div>
-         </div>
+				<div class="card-panel white">
+					 <div class="card-fluid">
+						   <img class="responsive-img z-depth-3 circle"
+                    style="height: 200px; width: 200px;"
+										src="../../assets/img/forum.png">
+     
          <div class="row">
             <div class="container-fluid">
                <h4 class="blue-text text-darken-4"><strong>Share and Collaborate</strong></h4>
@@ -131,17 +95,17 @@ hard work and we are excited to share our platform to the world.
             </div>
          </div>
       </div>
-      
-
+		</div>
+		 </div>
+	</div>
    <!------------------------------------------------------------------------------------->
-   </div>
-</div>
-
+	</div>  
+		</div>
 		
 		
 		
 <div align="center">
-	<h1 class="black-text" style="padding-top:100px; padding-bottom: 100px";> The Team </h1>
+	<h1 class="black-text" style="padding-top:75px; padding-bottom: 75px";> The Team </h1>
 	</div>		
 		
 		
@@ -150,18 +114,19 @@ hard work and we are excited to share our platform to the world.
    <div class="container-fluid" align="center">
       
       <!-- THUMBNAIL 1 -->
-     <div class="col s12 m6 l6">
-         <div class="row">
+      <div class="col s12 m6 l6">
+         <div class="row" style="padding-left: 50px; padding-right:50px">
+				<div class="card-panel deep-purple lighten-5">
             <div class="container-fluid">
                <img class="responsive-img z-depth-3 circle"
                     style="height: 400px; width: 400px;"
                     src="../../assets/img/steven.jpg">
             </div>
-            <div class="row">
-               <div class="container-fluid">
+       			  <div class="row">
+            		<div class="container-fluid">
                   <h4 class="blue-text text-darken-4"><strong>Steven Chou</strong></h4>
                   <div class="container">
-                     <p align="justify">
+                    <p align="justify" style="padding-left: 50px; padding-right:50px">
 A graduate of UC Santa Cruz, Steven is passionate about computer science. In his free time, 
 
 Steven enjoys pursuing his other passion, art. Steven feels that art helps channel a person’s creativity.
@@ -171,19 +136,21 @@ Steven enjoys pursuing his other passion, art. Steven feels that art helps chann
             </div>
          </div>
       </div>
+		 </div>
+	
       
       <!-- THUMBNAIL 2
       ------------------------------------------------------------------------------------>
-       <div class="col s12 m6 l6">
-         <div class="row">
+        <div class="col s12 m6 l6">
+         <div class="row" style="padding-left: 50px; padding-right:50px">
+				<div class="card-panel teal lighten-5">
             <div class="container-fluid">
                <img class="responsive-img z-depth-3 circle"
                     style="height: 400px; width: 400px;"
                     src="../../assets/img/Kevin.jpg">
             </div>
-         </div>
-         <div class="row">
-            <div class="container-fluid">
+       			  <div class="row">
+            		<div class="container-fluid">
                <h4 class="blue-text text-darken-4"><strong>Kevin Shum</strong></h4>
                <div class="container">
                   <p align="justify">
@@ -201,22 +168,24 @@ pitches, Kevin can be found online playing League of Legends or hiking with his 
             </div>
          </div>
       </div>
+					</div>
+		 </div>
       
       <!-- THUMBNAIL 3
       ------------------------------------------------------------------------------------>
     <div class="col s12 m6 l6">
-         <div class="row">
+      <div class="row" style="padding-left: 50px; padding-right:50px">
+				<div class="card-panel white">
             <div class="container-fluid">
                <img class="responsive-img z-depth-3 circle"
                     style="height: 400px; width: 400px;"
                     src="../../assets/img/brian.jpg">
             </div>
-         </div>
-         <div class="row">
-            <div class="container-fluid">
+       			  <div class="row">
+            		<div class="container-fluid">
                <h4 class="blue-text text-darken-4"><strong>Brian Nguyen</strong></h4>
                <div class="container">
-                  <p align="justify">
+                 <p align="justify" style="padding-left: 50px; padding-right:50px">
                      Collaboration can help solve even the most strenuous problems.
                      Lab Petri encourages teamwork and aims to have everyone work together.
                      Start by inviting others to support your research or assisting
@@ -226,27 +195,26 @@ pitches, Kevin can be found online playing League of Legends or hiking with his 
             </div>
          </div>
       </div>
+			</div>
+		 </div>
    <!------------------------------------------------------------------------------------->
 		 
       <!-- THUMBNAIL 4
       ------------------------------------------------------------------------------------>
     <div class="col s12 m6 l6">
-         <div class="row">
+        <div class="row" style="padding-left: 50px; padding-right:50px">
+				<div class="card-panel blue lighten-5">
             <div class="container-fluid">
                <img class="responsive-img z-depth-3 circle"
                     style="height: 400px; width: 400px;"
                     src="../../assets/img/nghia.jpg">
             </div>
-         </div>
-         <div class="row">
-            <div class="container-fluid">
+       			  <div class="row">
+            		<div class="container-fluid">
                <h4 class="blue-text text-darken-4"><strong>Nghia Nguyen</strong></h4>
                <div class="container">
-                  <p align="justify">
-                     Collaboration can help solve even the most strenuous problems.
-                     Lab Petri encourages teamwork and aims to have everyone work together.
-                     Start by inviting others to support your research or assisting
-                     ongoing ones and strive to make a difference.
+               <p align="justify">
+                     As a biochemistry major graduate. Nghia knows the importance of gaining invaluable laboratory experience prior to entering industry. Even though he has obtained over 2 years of research experience at his institution he understands that research do not come readily and easily. He hope, by participating with the inception and development of LabPetri, he can help fellow students obtain the necessary experience, preparing them for industry, as well as facilitate and incubate new ideas and innovations.
                   </p>
                </div>
             </div>
@@ -255,6 +223,8 @@ pitches, Kevin can be found online playing League of Legends or hiking with his 
    <!------------------------------------------------------------------------------------->
    </div>
 </div>
+	</div>
+	</div>
 
 <!-- FOOTER
 ------------------------------------------------------------------------------------------->
@@ -283,12 +253,14 @@ pitches, Kevin can be found online playing League of Legends or hiking with his 
       ---------------------------------------------------------------------------------->
       <div class="col s12 m3">
          <div class="container-fluid" >
-            <h5 class="grey-text text-lighten-4 text-border"><strong>Resources</strong></h5>
+            <h5 class="grey-text text-lighten-4 text-border"><strong>Contact</strong></h5>
             <ul>
-               <li><a class="white-text" href="#!">News</a></li>
-               <li><a class="white-text" href="#!">Career</a></li>
-               <li><a class="white-text" href="#!">Policy</a></li>
-               <li><a class="white-text" href="#!">FAQs</a></li>
+							
+               <li><a class="white-text" href="#!">Drop us a line!</a></li>
+               <li><a class="white-text" href="#!">Phone: (812) 610-1001</a></li>
+               <li><a class="white-text" href="#!">Email: Labpetri.com@gmail.com</a></li>
+               <li><a class="white-text" href="#!"></a></li>
+               <li><a class="white-text" href="#!"></a></li>
             </ul>
          </div>
       </div>

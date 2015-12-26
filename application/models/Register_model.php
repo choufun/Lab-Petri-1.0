@@ -11,18 +11,18 @@ class Register_model extends CI_Model
 
 /* CONSTRUCTOR
 ****************************************************************************/ 
-   public function __construct()
-   {
-      parent::__construct();
-   }
-   
+   public function __construct() { parent::__construct(); }
+
+/****************************************************************************
+- REGISTRATION - callback() for login.register()
+****************************************************************************/
 /* REGISTER USER
 ****************************************************************************/ 
-   public function register($data)
-   {
-      $this->db->insert('users',$data);
-   }
+   public function register($data) { $this->db->insert('users',$data); }
 
+/****************************************************************************
+- VERIFYING EMAIL INPUT
+****************************************************************************/
 /* GET EMAIL EXTENSION
 ****************************************************************************/ 
    private function email_extension($email)
@@ -34,7 +34,6 @@ class Register_model extends CI_Model
       }
       return substr($email, $i+1, strlen($email)-1);
    }
-   
 /* GET SCHOOL EXTENSION
 ****************************************************************************/ 
    private function school_extension($email)
@@ -46,17 +45,16 @@ class Register_model extends CI_Model
       }
       return substr($email, 0, $i);
    }
- 
-/* CHECK SCHOOL EMAIL EXTENSION
+/* CHECK SCHOOL EMAIL EXTENSION - callback() for login.verify_email()
 ****************************************************************************/   
    public function is_school_email ($email)
    {
-      $query = $this->db->get('ext');
+      $query = $this->db->get('university_extensions');
       if ($query->num_rows() > 0)
       {
          foreach($query->result() as $row)
          {
-            if ($this->school_extension($row->email) == $this->email_extension($email))
+            if ($this->school_extension($row->extension) == $this->email_extension($email))
             {
                $this->email_extension = $this->email_extension($email);
                return TRUE;
@@ -64,16 +62,15 @@ class Register_model extends CI_Model
          }
          return FALSE;
       }
-      else
-      {
-         return FALSE;
-      }
+      else { return FALSE; }
    }
    
+/****************************************************************************
+- UNIVERSITY MAJOR OPTIONS
+****************************************************************************/
 /* GET MAJORS
 ****************************************************************************/
    public function get_majors() { return $this->options; }
-   
 /* LOAD MAJORS
 ****************************************************************************/
    public function load_majors()
@@ -84,18 +81,24 @@ class Register_model extends CI_Model
       {         
          foreach ($query->result() as $row)
          {
-            $this->options.= '<option value="'.$row->major.'">'.$row->major.'</option>/n';
+            $this->options.= '
+               <option value="'.$row->major.'">'
+                  .$row->major.
+               '</option>/n
+            ';
          }
       }
    }
 
+/****************************************************************************
+- UNIVERSITY OPTIONS
+****************************************************************************/
 /* GET SCHOOLS
 ****************************************************************************/
    public function get_schools() { return $this->schools; }
-
 /* REMOVE EXTENSION
 ****************************************************************************/
-   private function remove_ext($school)
+   private function remove_extension($school)
    {
       $i;
       for ($i = (strlen($school)-1); $i >= 0; $i--)
@@ -104,23 +107,27 @@ class Register_model extends CI_Model
       }
       return substr($school, 0, $i-1);
    }
-   
 /* LOAD SCHOOLS
 ****************************************************************************/
    public function load_schools()
    {
-      $query = $this->db->get('schools');
+      $query = $this->db->get('universities');
       if($query->num_rows() > 0)
       {
          foreach($query->result() as $row)
          {
-            //$this->schools.= '<option value="'.$row->name.'">'.$row->name.'</option>/n';
-            $this->schools.=
-               '<option value="'.$row->name.'">'.$this->remove_ext($row->name).'</option>/n';
+            $this->schools.= '
+               <option value="'.$row->university.'">'
+                  .$this->remove_extension($row->university).
+               '</option>/n
+            ';
          }
       }
    }
 
+/****************************************************************************
+- MATCHING EMAIL AND SCHOOL
+****************************************************************************/
 /* GET UNIVERSITY EXTENSION
 ****************************************************************************/ 
    private function extension($school)
@@ -132,8 +139,7 @@ class Register_model extends CI_Model
       }
       return substr($school, $i+1, -1);
    }
-   
-/* MATCHING EMAIL AND SCHOOL
+/* MATCHING EMAIL AND SCHOOL - callback() for login.verify_school()
 ****************************************************************************/
    public function school_match($school)
    {
@@ -144,7 +150,10 @@ class Register_model extends CI_Model
       }
       else { return FALSE; }
    }
-   
+
+/****************************************************************************
+- USERNAME
+****************************************************************************/
 /* IS USERNAME UNIQUE
 ****************************************************************************/
    public function username_unique($email)

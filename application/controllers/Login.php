@@ -25,6 +25,9 @@ class Login extends CI_Controller
 ************************************************************************************/
    public function index()
    {
+      /******************************************************************************
+      - LOGIN FORM
+      ******************************************************************************/
       /* LOGIN FORM VALIDATIONS
       ******************************************************************************/
       if ($this->input->post('login') == 'login')
@@ -32,6 +35,9 @@ class Login extends CI_Controller
          $this->form_validation->set_rules('email','email','trim|required|valid_email');
          $this->form_validation->set_rules('password','password','required|callback_valid_login');
       }
+      /******************************************************************************
+      - REGISTRATION FORM
+      ******************************************************************************/
       /* REGISTRATION FORM VALIDATIONS
       ******************************************************************************/
       if ($this->input->post('register') == 'register')
@@ -44,7 +50,10 @@ class Login extends CI_Controller
          $this->form_validation->set_rules('university','University','callback_verify_school|required');
          $this->form_validation->set_rules('major','Major','required');
       }
-      /* PROCESS(RUN) FORM
+      /******************************************************************************
+      - PROCESS FORMS
+      ******************************************************************************/
+      /* RUN
       ******************************************************************************/
       if ($this->form_validation->run() === FALSE)
       {
@@ -56,6 +65,9 @@ class Login extends CI_Controller
       }
       else
       {
+         /***************************************************************************
+         - PROCESS RESULTS
+         ***************************************************************************/
          /* SUCCESSFUL LOGIN
          ***************************************************************************/
          if ($this->input->post('login') == 'login')

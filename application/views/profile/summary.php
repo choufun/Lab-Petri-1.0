@@ -1,3 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <div id="summary_show">
    <div class="row">
       <div class="container-fluid">

@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS profile_pictures (
 
 /* EDUCATION RECORD
 ***********************************************************************/
-CREATE TABLE IF NOT EXIST education_records (
-   user_id int(11) NOT NULL
+CREATE TABLE IF NOT EXISTS education_records (
+   user_id int(11) NOT NULL,
    university varchar(255) NOT NULL,
    degree varchar(255) NOT NULL,
    major varchar(255) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXIST education_records (
 
 /* CONTACT INFORMATION
 ***********************************************************************/
-CREATE TABLE IF NOT EXIST contact_information (
+CREATE TABLE IF NOT EXISTS contact_information (
    user_id int(11) NOT NULL,
    email VARCHAR(255) NOT NULL,
    phone varchar(255) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXIST contact_information (
 
 /* WORK EXPERIENCE
 ***********************************************************************/
-CREATE TABLE IF NOT EXIST work_experiences (
+CREATE TABLE IF NOT EXISTS work_experiences (
    user_id int(11) NOT NULL,
    position varchar(255) NOT NULL,
    company varchar(255) NOT NULL,
@@ -92,6 +92,14 @@ CREATE TABLE IF NOT EXISTS majors (
 CREATE TABLE IF NOT EXISTS universities (
    id int(11) NOT NULL AUTO_INCREMENT,
    university VARCHAR(255) NOT NULL,
-   PRIMARY KEY (id), UNIQUE (name)
+   PRIMARY KEY (id), UNIQUE (university)
+) ENGINE = MYISAM;
+
+/* UNIVERSITY EXTENSIONS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS university_extensions (
+   id int(11) NOT NULL AUTO_INCREMENT,
+   extension VARCHAR(255) NOT NULL,
+   PRIMARY KEY (id), UNIQUE (extension)
 ) ENGINE = MYISAM;
 

@@ -1,3 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <!-- DISPLAY INFORMATION
 --------------------------------------------------------------------------------------------->
 <div id="contact_show">

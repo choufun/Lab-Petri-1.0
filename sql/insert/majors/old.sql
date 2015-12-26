@@ -1,5 +1,7 @@
 /**SCHOOL EMAILS**/
 /**
+// create school table
+
 INSERT INTO schools (name) VALUES ('Abilene Christian University (acu.edu)');
 INSERT INTO schools (name) VALUES ('Adelphi University (adelphi.edu)');
 INSERT INTO schools (name) VALUES ('Agnes Scott College (scottlan.edu)');

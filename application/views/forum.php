@@ -51,7 +51,7 @@ jQuery.noConflict();
 	
 <!--This manages the posting feature -->
 <div class="container">
-	<?php echo form_open_multipart( 'Forum');?>
+	<?php echo form_open_multipart('Forum');?>
 	<?php echo validation_errors(); ?>
 
 
@@ -156,7 +156,7 @@ jQuery.noConflict();
 				<div class="row">
 					<div class="col s12 m2 l2 blue-grey lighten-5">
 						<div align="center" style="padding-top:17px;">
-							<img class="circle responsive-img" src="files/profile_picture/<?php echo $pic; ?>">
+							<img class="circle responsive-img" src="files/profile_picture/<?php echo $row->profile_picture; ?>">
 						</div>
 						
 						<h5><b><center class="flow-text"><?php echo " " . $row->firstname . " " . $row->lastname;?></center></b></h5>

@@ -5,12 +5,9 @@ class Login_model extends CI_Model
 {
 /* CONSTRUCTOR
 ****************************************************************************/
-   function __construct()
-   {
-      parent::__construct();
-   }
+   function __construct() { parent::__construct(); }
 
-/* VERIFY LOGIN
+/* VERIFY LOGIN - callback() for login.valid_login()
 ****************************************************************************/
    public function verify_login($email,$password){
       $query = $this->db->query(

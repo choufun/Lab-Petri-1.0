@@ -50,7 +50,7 @@ class Profile extends CI_Controller
    public function get_files()
    {
       $result = "";
-      $directory = "files/uploads";
+      $directory = "/var/www/html/files/uploads";
 
       $directory_result = scandir($directory);
       if (sizeof($directory_result) <= 2)
@@ -111,7 +111,7 @@ class Profile extends CI_Controller
                               <embed src="'.$file.'" type="application/pdf" width="100%" height="100%">
                                  <div align="right">
                                     <strong>
-                                       <a class="light-blue-text" href="files/uploads/'.$file.'" target="_blank">
+                                       <a class="light-blue-text" href="/files/uploads/'.$file.'" target="_blank">
                                           View
                                        </a>
                                     </strong>
@@ -170,7 +170,7 @@ class Profile extends CI_Controller
 ************************************************************************************/
 	public function do_upload_pic()
 	{
-      $config['upload_path'] = './../var/www/html/files/profile_picture';
+      $config['upload_path'] = './files/profile_picture';
       $config['allowed_types'] = 'jpg|png|jpeg';
       $config['max_size']	= '1000';
       $config['max_width']  = '10240';
@@ -195,12 +195,13 @@ class Profile extends CI_Controller
 ************************************************************************************/
 	public function do_upload()
 	{
-      $config['upload_path'] = './../var/www/html/files/uploads';
-      $config['allowed_types'] = 'jpg|png|jpeg|pdf';
+      $config['upload_path'] = './files/uploads/';
+      $config['allowed_types'] = 'pdf';
       $config['max_size']	= '1000';
       $config['max_width']  = '1024';
       $config['max_height']  = '768';
 
+      //$this->load->helper('file');
       $this->load->library('upload', $config);
 
       if ( !$this->upload->do_upload())
@@ -231,7 +232,7 @@ class Profile extends CI_Controller
 ************************************************************************************/
    public function delete_file($file)
    {
-      $path='files/uploads/'.$file;
+      $path='/files/uploads/'.$file;
       if (!unlink($path))
       {
          echo ("Error deleting ".$file.".");
