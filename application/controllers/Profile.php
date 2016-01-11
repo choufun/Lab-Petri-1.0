@@ -17,7 +17,17 @@ class Profile extends CI_Controller
       $this->load->model('profile_model');
       $this->profile_model->load_major();
       $this->profile_model->load_university();
-      $this->profile_model->load_pictures();
+      //$this->profile_model->load_pictures();
+      $this->profile_model->load_phone_number();
+      $this->profile_model->load_minor();
+      $this->profile_model->load_degree();
+      $this->profile_model->load_linkedin_account();
+      $this->profile_model->load_certifications();
+      //$this->profile_model->load_work_position(),
+      //$this->profile_model->load_work_company(),
+      //$this->profile_model->load_work_location(),
+      //$this->profile_model->load_work_details(),
+      //$this->profile_model->load_work_reference(),
       $this->load->helper(array('form', 'url'));
       //$this->load->helper('simple_html_dom');
    }
@@ -25,13 +35,24 @@ class Profile extends CI_Controller
 /* INDEX
 ************************************************************************************/
    public function index()
-   {      
+   {
+      /* SET PROFILE FIELDS
+      ******************************************************************************/
       $data = array(
-         'major' => $this->profile_model->get_major(),
          'university' => $this->profile_model->get_university(),
          'files' => $this->get_files(),
          'profile_picture' => $this->profile_model->get_profile_picture(),
-         /*'pictures' => $this->list_pictures(),*/
+         'degree' => $this->profile_model->get_degree(),
+         'major' => $this->profile_model->get_major(),
+         'minor' => $this->profile_model->get_minor(),
+         'certifications' => $this->profile_model->get_certifications(),
+         'phone' => $this->profile_model->get_phone_number(),
+         'linkedin' => $this->profile_model->get_linkedin_account(),
+         //'position' => $this->profile_model->get_work_position(),
+         //'company' => $this->profile_model->get_work_company(),
+         //'location' => $this->profile_model->get_work_location(),
+         //'details' => $this->profile_model->get_work_details(),
+         //'reference' => $this->profile_model->get_work_reference(),
          'error' => $this->error
       );
       
@@ -149,22 +170,6 @@ class Profile extends CI_Controller
       }
       return $result;
    }
-   
-/* LIST PICTURES
-************************************************************************************/
-/*   public function list_pictures()
-   {
-      $result = $this->profile_model->get_pictures();
-      $pictures = "";
-      foreach ($result as $row)
-      {
-         $pictures.='<img class="col s3" src="files/profile_picture/'.$row->filename.'"
-                      height="40" width="40">';
-      }
-      
-      return $pictures;
-   }
-*/
 	
 /* DO UPLOAD PROFILE PICTURE
 ************************************************************************************/

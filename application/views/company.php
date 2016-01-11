@@ -271,11 +271,8 @@ pitches, Kevin can be found online playing League of Legends or hiking with his 
          <div class="container-fluid" >
             <h5 class="grey-text text-lighten-4 text-border"><strong>Connect with Us</strong></h5>
             <ul>
-               <li><a class="white-text" href="http://www.facebook.com/labpetri">Facebook</a></li>
-               <li><a class="white-text" href="#!">LinkedIn</a></li>
-               <li><a class="white-text" href="#!">Instagram</a></li>
-               <li><a class="white-text" href="#!">Twitter</a></li>
-               <li><a class="white-text" href="#!">Google+</a></li>
+               <li><a class="white-text" href="http://www.facebook.com/labpetri"><img src="../../assets/icons/fb.png"></a></li>
+              
                <!--<li><a class="white-text" href="mailto:grow@labpetri.com">Email Us</a></li>-->
             </ul>
          </div>

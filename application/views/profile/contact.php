@@ -12,7 +12,7 @@
       <div class="container-fluid">
          <h5>
             <strong class="blue-text text-darken-2">Email: </strong>
-            <small><span><?php echo $this->session->email;?></span></small>
+            <small><span><?php echo $this->session->email; ?></span></small>
          </h5>
       </div>
    </div>
@@ -20,7 +20,7 @@
       <div class="container-fluid">
          <h5>
             <strong class="blue-text text-darken-2">Phone: </strong>
-            <small><span></span></small>
+            <small><span><?php echo $phone; ?></span></small>
          </h5>
       </div>
    </div>
@@ -28,7 +28,7 @@
       <div class="container-fluid">
          <h5>
             <strong class="blue-text text-darken-2">LinkedIn: </strong>
-            <small><span></span></small>
+            <small><span><?php echo $linkedin; ?></span></small>
          </h5>
       </div>
    </div>
@@ -68,7 +68,7 @@
 
                <div class="row">
                   <div class="input-field">
-                     <input name="phone" type="text" class="validate" placeholder="(xxx) - xxx - xxxx">
+                     <input name="phone" type="text" class="validate" placeholder="<?php echo $phone; ?>">
                      <label for="phone">
                         <strong class="blue-text">Phone: </strong>
                      </label>
@@ -77,7 +77,8 @@
 
                <div class="row">
                   <div class="input-field">
-                     <input name="linkedin" type="text" class="validate" placeholder="www.linkedin.com/in/<username>">
+                     <!-- <input name="linkedin" type="text" class="validate" placeholder="www.linkedin.com/in/<username>"> -->
+                     <input name="linkedin" type="text" class="validate" placeholder="<?php echo $linkedin; ?>">
                      <label for="linkedin">
                         <strong class="blue-text">LinkedIn: </strong>
                      </label>

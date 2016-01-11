@@ -1,8 +1,5 @@
-USE labpetri_com
+USE labpetri
 /*******************************************************/
-DESCRIBE schools;
-	
-DESCRIBE ci_sessions;
 
 DESCRIBE posts;
 

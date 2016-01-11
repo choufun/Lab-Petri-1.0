@@ -25,6 +25,9 @@ class Login extends CI_Controller
 ************************************************************************************/
    public function index()
    {
+      
+/* PROCESS USER DATA
+************************************************************************************/
       /******************************************************************************
       - LOGIN FORM
       ******************************************************************************/
@@ -91,17 +94,17 @@ class Login extends CI_Controller
 ************************************************************************************/    
    public function register()
    {       
-      $data = array (
-         'firstname' => $this->input->post('firstname'),
-         'lastname'=> $this->input->post('lastname'),
-         'email'=> $this->input->post('email'),
-         'password'=>$this->input->post('password'),
-         'school'=>$this->input->post('university'),
-         'major'=>$this->input->post('major')
+      $user_data = array (
+         'firstname'=> $this->input->post('firstname'),
+         'lastname' => $this->input->post('lastname'),
+         'email'    => $this->input->post('email'),
+         'password' => $this->input->post('password')
       );
-      $this->register_model->register($data);
+      $this->register_model->register($user_data);
    }
-
+   
+/* VERIFCATION CALLBACKS
+************************************************************************************/
 /* VERIFY SCHOOL
 ************************************************************************************/
    public function verify_school($university)

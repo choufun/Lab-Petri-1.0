@@ -3,69 +3,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Forum_model extends CI_Model
 {
+   /* CONSTRUCTOR
+   ****************************************************************************/
    public function __construct()
    {
       parent::__construct();
    }
    
-/* GET PROFILE PICTURE
-************************************************************************************/
-   public function get_profile_picture()
+   /* INSERT POST
+   ****************************************************************************/
+   public function insert_post($data)
    {
-      $this->db->where('user_id', $this->session->user_id);
-      $this->db->where('default_picture', 1);
-      $query = $this->db->get('profile_picture');
+      $this->db->insert('posts',$data);
       
-      if ($query->num_rows() == 1)
-      {
-         return $query->row('filename');
-      }
-      else
-      {
-         return "no default profile picture";
-      }
+      $this->db->where('title', $data['title']);
+      $query = $this->db->get('posts');
+      
+      $update = array(
+        'comment_id' => $query->row('post_id').".".$query->row('user_id')
+      );
+      $this->db->where('post_id', $query->row('post_id'));
+      $this->db->update('posts', $update);
    }
- /**********************************************************************************/
    
-   public function load_forum()
+   public function get_posts()
    {
-      $query = $this->db->query("SELECT * FROM  posts 
-				 INNER JOIN profile_picture ON posts.user_id = profile_picture.user_id
-				 INNER JOIN users ON posts.user_id=users.user_id;");
+      $query = $this->db->get('posts');
       return $query->result();
    }
-
-	public function load_forum_post($post_id)
+   
+   /* GET PROFILE PICTURE
+   ****************************************************************************/
+   public function get_profile_picture($user_id)
    {
-      $query = $this->db->query("SELECT * FROM  posts INNER JOIN users ON posts.user_id=users.user_id WHERE posts.post_id=" . $post_id." LIMIT 1;");
-      return $query->row();
+      $this->db->where('user_id', $user_id);
+      $this->db->where('default_picture', 1);
+      $query = $this->db->get('profile_picture');
+
+      if ($query->num_rows() == 1) { return $query->row('filename'); }
+      else { return "default.png"; }      
    }
-	
-	public function post($data){
-		$this->db->set('month','MONTHNAME(NOW())',FALSE);
-      	$this->db->set('day', 'DAY(NOW())',FALSE);
-      	$this->db->set('yr', 'YEAR(NOW())',FALSE);
-      	$this->db->set('initial_time', 'CURRENT_TIME', FALSE);
-		$this->db->insert('posts', $data);
-	}
-	
-	public function comment($data){
-		$this->db->insert('comment_data', $data);
-	}
-	
-	public function load_comments($post_id){
-		return $this->db->query("SELECT * FROM comment_data INNER JOIN users ON comment_data.user_id=users.user_id WHERE post_id=" . $post_id.";");
-	}
-	
-	public function reply($data){
-		$this->db->insert('reply_to_comment', $data);
-	}
-	
-	public function load_replies($post_id){
-		return $this->db->query("SELECT * FROM reply_to_comment 
-									INNER JOIN users ON reply_to_comment.user_id=users.user_id 
-									INNER JOIN comment_data ON reply_to_comment.comment_id=comment_data.comment_id
-									WHERE comment_data.post_id=" . $post_id.";");
-	}
 }
 ?>

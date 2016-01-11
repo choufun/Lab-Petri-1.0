@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+<!-- PROFILE DISPLAY
+--------------------------------------------------------------------------------------------->
 <div id="education_show">
    <div class="row">
       <div class="container-fluid">
@@ -10,15 +12,16 @@
       <div class="container-fluid">
          <h5 class="blue-text text-darken-2">
             <strong>University: </strong>
-            <small><span class="black-text"><?php echo $university;?></span></small>
+            <small><span class="black-text"><?php echo $university; ?></span></small>
          </h5>
       </div>
    </div>
    <div class="row">
       <div class="container-fluid">
          <h5 class="blue-text text-darken-2">
+            <!-- <strong>Degree:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong> -->
             <strong>Degree: </strong>
-            <small><span class="black-text"></span></small>
+            <small><span class="black-text"><?php echo $degree; ?></span></small>
          </h5>
       </div>
    </div>
@@ -34,7 +37,7 @@
       <div class="container-fluid">
          <h5 class="blue-text text-darken-2">
             <strong>Minor: </strong>
-            <small><span class="black-text"></span></small>
+            <small><span class="black-text"></span><?php echo $minor;?></small>
          </h5>
       </div>
    </div>
@@ -42,7 +45,7 @@
       <div class="container-fluid">
          <h5 class="blue-text text-darken-2">
             <strong>Certifications: </strong>
-            <small><span class="black-text"></span></small>
+            <small><span class="black-text"></span><?php echo $certifications;?></small>
          </h5>
       </div>
    </div>
@@ -79,10 +82,9 @@
                      </label>
                   </div>
                </div>
-
                <div class="row">
                   <div class="input-field">
-                     <input name="degree" type="text" class="validate" placeholder="<?php echo $major;?>">
+                     <input name="degree" type="text" class="validate" placeholder="<?php echo $degree;?>">
                      <label for="degree">
                         <strong class="blue-text">Degree: </strong>
                      </label>
@@ -91,41 +93,41 @@
 
                <div class="row">
                   <div class="input-field">
-                     <input name="major" type="text" class="validate" placeholder="">
+                     <input name="major" type="text" class="validate" placeholder="<?php echo $major;?>">
                      <label for="major">
                         <strong class="blue-text">Major: </strong>
                      </label>
                   </div>
                </div>
-               
                <div class="row">
                   <div class="input-field">
-                     <input name="minor" type="text" class="validate" placeholder="">
+                     <input name="minor" type="text" class="validate" placeholder="<?php echo $minor;?>">
                      <label for="minor">
                         <strong class="blue-text">Minor: </strong>
                      </label>
                   </div>
-               </div>
-               
+               </div>               
                <div class="row">
                   <div class="input-field">
-                     <input name="certifications" type="text" class="validate" placeholder="">
+                     <input name="certifications" type="text" class="validate" placeholder="<?php echo $certifications;?>">
                      <label for="certifications">
                         <strong class="blue-text">Certifications: </strong>
                      </label>
                   </div>
                </div>
-
                <input type="hidden" name="login" value="education">
-
                <div class="row" align="right"> 
                   <button class="front btn waves-effect blue darken-1" type="submit" name="action">
                      <strong>Save Changes</strong>
                   </button>
-               </div>
-               
+               </div>               
                <div class="register_adj" align="right">
-                  <a class="reg_log" onclick="return show('education_show','education_edit');">Cancel</a>
+                  <!-- <a class="reg_log" onclick="return show('education_show','education_edit');">Cancel</a> -->
+                  <button class="btn waves-effect blue darken-1 reg_log" onclick="return show('education_show','education_edit');">
+                     <strong>
+                        Cancel
+                     </strong>
+                  </button>
                </div>
                
             </div>

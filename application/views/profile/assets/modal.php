@@ -2,21 +2,19 @@
 <!-- MY PROFILE PICTURE
 ----------------------------------------------------------------------->
 <div id="profile_picture" class="modal">
+   <div align="center" id="edit_profile_picture" class="modal-content">
+      <a class="modal-action modal-close waves-effect btn-flat black-text">
+         (x)
+      </a>
+   </div>
    <div class="modal-content">
       <div class="card card-border">
          <div align="center" class="blue white-text">
-            <div class="profile">
-               <a class="right modal-action modal-close waves-effect btn-flat white-text">
-                  x
-               </a>
-               <center>
-                  <!-- <img class="image" src="assets/profile_pic/profile.jpg" alt="Profile Picture"> -->
-                  <img class="image" src="/files/profile_picture/<?php echo $profile_picture; ?>"
-                       alt="Profile Picture">
-               </center>
-               <span class="title">
-                  <h4>Profile Picture</h4>
-               </span>
+            <div class="row" id="profile-padding">
+               <div align="center" class="container-fluid">
+                  <img class="responsive-img z-depth-2" src="files/profile_picture/<?php echo $profile_picture; ?>"
+                       id="profile-image">
+               </div>
             </div>
             <div class="divider"></div>
             <div class="divider"></div>
@@ -25,7 +23,7 @@
          </div>
          <div align="center" class="content col s12 m6">
             <h5>
-               <strong>Change Picture:</strong>
+               <strong>Change Profile Picture:</strong>
             </h5>
             <h6 class="index-content">
                <?php echo $error;?>

@@ -18,7 +18,59 @@ class Register_model extends CI_Model
 ****************************************************************************/
 /* REGISTER USER
 ****************************************************************************/ 
-   public function register($data) { $this->db->insert('users',$data); }
+   public function register($data)
+   {
+      $user_id;
+      
+      /* INSERT USER DATA AND CREATE USER ID
+      **********************************************************************/
+      $this->db->insert('users',$data);
+      
+      /* RETRIEVE USER ID
+      **********************************************************************/
+      $this->db->where('firstname', $this->input->post('firstname'));
+      $this->db->where('lastname', $this->input->post('lastname'));
+      $query = $this->db->get('users');
+      
+      if ($query->num_rows() > 0)
+      {
+         $user_id = $query->row('user_id');
+      }
+      
+      /* INSERT USER EDUCATION RECORD
+      **********************************************************************/
+      $user_education_record = array (
+         'user_id' => $user_id,
+         'university' => $this->input->post('university'),
+         'degree' => 'Bachelor of Science',
+         'major' => $this->input->post('major'),
+         'minor' => 'N/A',
+         'certifications' => 'N/A'
+      );
+      $this->db->insert('education_records', $user_education_record);
+      
+      /* INSERT USER CONTACT INFORMATION
+      **********************************************************************/
+      $user_contact_information = array (
+         'user_id' => $user_id,
+         'email' => $this->input->post('email'),
+         'phone' => '(xxx) - xxx - xxxx',
+         'linkedin' => 'N/A'
+      );
+      $this->db->insert('contact_informations', $user_contact_information);
+      
+      /* INSERT USER WORK EXPERIENCE
+      **********************************************************************/
+      $user_work_experience = array (
+         'user_id' => $user_id,
+         'position' => 'N/A',
+         'company' => 'N/A',
+         'location' => 'N/A',
+         'details' => 'N/A',
+         'reference' => 'N/A'
+      );
+      $this->db->insert('work_experiences', $user_work_experience);
+   }
 
 /****************************************************************************
 - VERIFYING EMAIL INPUT
@@ -82,9 +134,7 @@ class Register_model extends CI_Model
          foreach ($query->result() as $row)
          {
             $this->options.= '
-               <option value="'.$row->major.'">'
-                  .$row->major.
-               '</option>/n
+               <option value="'.$row->major.'">'.$row->major.'</option>/n
             ';
          }
       }

@@ -1,3 +1,58 @@
+/* PROFILE PROPERTIES
+*****************************************************************************/
+#card-border
+{
+	border: 2px solid #cfd8dc;
+}
+
+#profile-padding
+{
+   padding-top: 25px;
+}
+
+#profile-image
+{
+   border-radius: 50%;
+   border: 3px solid white;
+   width: 200px;
+   height: 200px;
+}
+
+#username
+{
+   text-shadow: 2px 2px 4px #212121;
+}
+
+.icon-border
+{
+   padding-top: 25px;
+   margin-top: -50px;
+   padding-right: 35px;
+}
+
+.icon-inner-border
+{
+   border: 1px solid;
+}
+
+.content-border
+{
+   margin-left: 25px;
+   margin-right: 25px;
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+
+._link
+{
+   background: none;
+   border: none;
+   font-size: 1em;
+   margin: 0;
+   padding: 0;
+   outline: none;
+}
+
 /* FORM PROPERTIES
 *****************************************************************************/
 
@@ -20,4 +75,30 @@
 { 
    color: #000000;
    font-weight: bold;
+}
+
+/* MODAL PROPERTIES
+*****************************************************************************/
+#edit_profile_picture
+{
+   margin-top: -20px;
+   margin-bottom: -60px;
+}
+
+/* SECTION PROPERTIES
+*****************************************************************************/
+
+#education_show
+{
+   margin-left: 10px;
+}
+
+#contact_show
+{
+   margin-left: 10px;
+}
+
+#summary_show
+{
+   margin-left: 10px;
 }
