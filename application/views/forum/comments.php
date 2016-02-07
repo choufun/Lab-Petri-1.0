@@ -39,7 +39,7 @@ else
                            <?php echo $comment->comments; ?>
                         </div>
                      </div>
-                     <?php include 'application/views/forum/subcomments.php';?>
+                     <?php //include 'application/views/forum/subcomments.php';?>
                   </div>
                </div>
             </div>

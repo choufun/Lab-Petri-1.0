@@ -59,7 +59,11 @@ class Quicksort
    ****************************************************************************/
    public function get_stack() { return $this->stack; }
    
-   /* UNSET STACK
+   /* GET LAST ELEMENT
+   ****************************************************************************/
+   public function get_last_element() { return $this->stack[count($this->stack)-1]; }
+   
+   /* UNSET STACK : EMPTIES STACK
    ****************************************************************************/
    public function free_stack()
    {

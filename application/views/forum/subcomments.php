@@ -6,6 +6,7 @@
 $show = $comment->comment_id.$comment->order_id.'_show';
 $edit = $comment->comment_id.$comment->order_id.'_edit';
 ?>
+
 <!-- HEADER
 -------------------------------------------------------------------->
 <div id="<?php echo $show; ?>">

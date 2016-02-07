@@ -85,9 +85,12 @@ class Forum_model extends CI_Model
       *************************************************************************/
       if ($data['type'] == 'new_subcomment')
       {
+         $order_id = $this->get_last_subcomment_order_id($data['comment_id']);
+         
          $new_comment = array(
                'comment_id' => $data['comment_id'],
-               'order_id' => strval(floatval($data['order_id']) + 0.1),
+               //'order_id' => strval(floatval($data['order_id']) + 0.1),
+               'order_id' => strval(floatval($order_id) + 0.1),
                'comments' => $data['comments']
          );
          $this->db->set('month','MONTHNAME(NOW())',FALSE);
@@ -98,17 +101,23 @@ class Forum_model extends CI_Model
       }
    }
    
-   /****************************************************************************
-      DEBUGGING PURPOSES
+   /* DEBUGGING PURPOSES
    ****************************************************************************/
+   public function get_ids() { return $query = $this->get_order_ids('4.1'); }
    
-   public function get_ids()
+   /* GET LAST SUBCOMMENT ORDER ID
+   ****************************************************************************/
+   public function get_last_subcomment_order_id($comment_id)
    {
-      return $query = $this->get_order_ids('4.1');
-      //$query = $this->db->query("SELECT order_id FROM comments WHERE comment_id = 1.1;");
-      //return $query->result();
+      $this->db->select('order_id');
+      $this->db->where('comment_id', $comment_id);
+      $query = $this->db->get('comments');
+
+      $this->quicksort->_sort($query->result());
+      $stack = $this->quicksort->get_stack();
+      $this->quicksort->free_stack();
+      return $stack[count($stack)-1];
    }
-   
    
    /* GET POST COMMENTS : QUICKSORT : RETURN SORTED STACK
    ****************************************************************************/
@@ -117,13 +126,11 @@ class Forum_model extends CI_Model
       $this->db->select('order_id');
       $this->db->where('comment_id', $comment_id);
       $query = $this->db->get('comments');
-      
-      //$this->load->library('quicksort', $query->result());
+
       $this->quicksort->_sort($query->result());
       $stack = $this->quicksort->get_stack();
       $this->quicksort->free_stack();
       return $stack;
-      //return $this->quicksort->get_stack();
    }
    
    /* GET COMMENT INFORMATION
@@ -153,10 +160,7 @@ class Forum_model extends CI_Model
             $sorted_order_ids = $this->get_order_ids($comment_id);
             return $sorted_order_ids;
          }
-         else
-         {
-            if ($query->row('comments') == NULL) { return NULL; }
-         }
+         else { if ($query->row('comments') == NULL) { return NULL; } }
       }
    }
    
