@@ -9,10 +9,7 @@ class Peer_model extends CI_Model
    
 /* CONSTRUCTOR
 ************************************************************************************/
-   public function __construct()
-   {
-      parent:: __construct();
-   }
+   public function __construct() { parent:: __construct(); }
    
 /* GET USERS
 ************************************************************************************/
@@ -23,8 +20,6 @@ class Peer_model extends CI_Model
    public function load_users()
    {      
       $query = $this->db->get('users');
-      //$this->users = $query->result();
-      $result = $query->result();
-      $this->users = $result;
+      $this->users = $query->result();
    }
 }

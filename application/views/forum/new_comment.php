@@ -1,6 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<?php if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE)) { ?>
+<?php
+if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
+{ ?>
 <div class="row">
    <div class="col s5 m5 l5">
       <?php echo form_open_multipart('Forum');?>
@@ -22,4 +24,5 @@
       </form>
    </div>
 </div>
-<?php } ?>
+<?php
+} ?>

@@ -10,8 +10,10 @@ class Quicksort
    
    /* CONSTRUCTOR
    ****************************************************************************/
-   public function __construct($ids)
-   {            
+   public function __construct() { ; }
+   
+   public function _sort($ids)
+   {
       foreach($ids as $id) { array_push($this->stack, $id->order_id); }
       $this->quicksort(0, count($this->stack)-1);
    }
@@ -59,5 +61,9 @@ class Quicksort
    
    /* UNSET STACK
    ****************************************************************************/
-   public function free_stack() { $stack = array(); }
+   public function free_stack()
+   {
+      unset($this->stack);
+      $this->stack = array();
+   }
 }
