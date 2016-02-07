@@ -45,7 +45,7 @@
                   
                   <div class="col s12 right-align">
                      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
+                        <i class="material-icons right">mode_edit</i>
                      </button>
                   </div>
                </div>

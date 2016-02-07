@@ -109,11 +109,23 @@ CREATE TABLE IF NOT EXISTS posts (
    post_id INT(11) NOT NULL AUTO_INCREMENT,
    user_id INT(11) NOT NULL,
    title VARCHAR(255) NOT NULL,
-   abstract TEXT,
+   abstract TEXT NOT NULL,
    month VARCHAR(9) NOT NULL,
    day INT(2) NOT NULL,
    yr  INT(4) NOT NULL,
    initial_time VARCHAR(8) NOT NULL,
    comment_id VARCHAR(255) NOT NULL,
    PRIMARY KEY (post_id)
+) ENGINE = MYISAM;
+
+/* COMMENTS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS comments (
+   comment_id VARCHAR(255) NOT NULL,
+   order_id VARCHAR(255)NOT NULL,
+   comments TEXT,
+   month VARCHAR(9),
+   day INT(2),
+   yr  INT(4),
+   initial_time VARCHAR(8)
 ) ENGINE = MYISAM;

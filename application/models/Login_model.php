@@ -11,7 +11,7 @@ class Login_model extends CI_Model
 ****************************************************************************/
    public function verify_login($email,$password){
       $query = $this->db->query(
-         "SELECT * FROM  `users` WHERE email =  '".$email."' AND PASSWORD =  '".$password."';"
+         "SELECT * FROM `users` WHERE email = '".$email."' AND PASSWORD = '".$password."';"
       );
 
       if ($query->num_rows() == 1)

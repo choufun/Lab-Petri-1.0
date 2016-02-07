@@ -2,7 +2,8 @@
 <?php
 
 class Forum extends CI_Controller
-{   
+{
+   
    /* CONSTRUCTOR
    ****************************************************************************/
    public function __construct()
@@ -16,10 +17,7 @@ class Forum extends CI_Controller
    /* FORUM PAGE
    ****************************************************************************/
    public function index()
-   {
-      //$ids = array('1.2','1.1');
-      //$this->load->library('comment', $ids);
-      
+   {      
       /* NEW POST FORM VALIDATIONS
       *************************************************************************/
       if ($this->input->post('new_post') == 'new_post')
@@ -28,11 +26,18 @@ class Forum extends CI_Controller
          $this->form_validation->set_rules('abstract','abstract','trim|required');
       }
       
-      /* COMMENT FORM VALIDATIONS
+      /* NEW COMMENT FORM VALIDATIONS
       *************************************************************************/
-      if ($this->input->post('comment') == 'comment')
+      if ($this->input->post('new_comment') == 'new_comment')
       {
-         continue;
+         $this->form_validation->set_rules('comments','comments','trim|required');
+      }
+      
+      /* NEW SUBCOMMENT FORM VALIDATIONS
+      *************************************************************************/
+      if ($this->input->post('new_subcomment') == 'new_subcomment')
+      {
+         $this->form_validation->set_rules('subcomments','subcomments','trim|required');
       }
       
       /* RUN FORM
@@ -40,7 +45,8 @@ class Forum extends CI_Controller
       if ($this->form_validation->run() === FALSE)
       {
          $data = array(
-            'posts' => $this->forum_model->get_posts()
+            'posts' => $this->forum_model->get_posts(),
+            //'ids' => $this->forum_model->get_ids(),
          );
          $this->load->view('templates/header');
          $this->load->view('forum', $data);
@@ -48,25 +54,48 @@ class Forum extends CI_Controller
       }
       else
       {
-         $this->post();
-         $data = array(
-            'posts' => $this->forum_model->get_posts()
-         );
-         $this->load->view('templates/header');
-         $this->load->view('forum', $data);
-         $this->load->view('templates/footer');
+         if ($this->input->post('new_post') == 'new_post') { $this->creates_post(); }
+         if ($this->input->post('new_comment') == 'new_comment') { $this->creates_comment(); }
+         if ($this->input->post('new_subcomment') == 'new_subcomment') { $this->creates_subcomment(); }
+         
+         redirect('');
       }
+   }   
+
+   /* SUBCOMMENT CALLBACK
+   ****************************************************************************/
+   public function creates_subcomment()
+   {
+      $data = array(
+         'type' => $this->input->post('new_subcomment'),
+         'comment_id' => $this->input->post('comment_id'),
+         'comments' => $this->input->post('subcomments'),
+         'order_id' => $this->input->post('order_id'),
+      );
+      $this->forum_model->insert_comment($data);
+   }
+   
+   /* COMMENT CALLBACK
+   ****************************************************************************/
+   public function creates_comment()
+   {
+      $data = array(
+         'type' => $this->input->post('new_comment'),
+         'comment_id' => $this->input->post('comment_id'),
+         'comments' => $this->input->post('comments'),
+      );
+      $this->forum_model->insert_comment($data);
    }
    
    /* POST CALLBACK
    ****************************************************************************/
-   public function post()
+   public function creates_post()
    {
       $data = array(
          'user_id' => $this->session->user_id,
          'title' => $this->input->post('title'),
          'abstract' => $this->input->post('abstract'),
-         'comment_id' => '0'
+         'comment_id' => '0.0'
       );
       $this->db->set('month','MONTHNAME(NOW())',FALSE);
       $this->db->set('day', 'DAY(NOW())',FALSE);
