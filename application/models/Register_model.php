@@ -15,8 +15,7 @@ class Register_model extends CI_Model
 
 /****************************************************************************
 - REGISTRATION - callback() for login.register()
-****************************************************************************/
-/* REGISTER USER
+  REGISTER USER
 ****************************************************************************/ 
    public function register($data)
    {
@@ -28,54 +27,49 @@ class Register_model extends CI_Model
       
       /* RETRIEVE USER ID
       **********************************************************************/
-      $this->db->where('firstname', $this->input->post('firstname'));
-      $this->db->where('lastname', $this->input->post('lastname'));
+      //$this->db->where('firstname', $this->input->post('firstname'));
+      //$this->db->where('lastname', $this->input->post('lastname'));
+      //$this->db->where('email', $this->input->post('email'));
+      $this->db->where('firstname', $data['firstname']);
+      $this->db->where('lastname', $data['lastname']);
+      $this->db->where('email', $data['email']);
+      
       $query = $this->db->get('users');
       
-      if ($query->num_rows() > 0)
-      {
-         $user_id = $query->row('user_id');
-      }
+      if ($query->num_rows() > 0) { $user_id = $query->row('user_id'); }
       
       /* INSERT USER EDUCATION RECORD
       **********************************************************************/
-      $user_education_record = array (
+      $user_education = array (
          'user_id' => $user_id,
          'university' => $this->input->post('university'),
-         'degree' => 'Bachelor of Science',
          'major' => $this->input->post('major'),
          'minor' => 'N/A',
          'certifications' => 'N/A'
       );
-      $this->db->insert('education_records', $user_education_record);
+      $this->db->insert('education', $user_education);
       
       /* INSERT USER CONTACT INFORMATION
       **********************************************************************/
-      $user_contact_information = array (
+      $user_contact = array (
          'user_id' => $user_id,
          'email' => $this->input->post('email'),
          'phone' => '(xxx) - xxx - xxxx',
          'linkedin' => 'N/A'
       );
-      $this->db->insert('contact_informations', $user_contact_information);
+      $this->db->insert('contact', $user_contact);
       
-      /* INSERT USER WORK EXPERIENCE
+      /* CREATE USER FILESYSTEM
       **********************************************************************/
-      $user_work_experience = array (
-         'user_id' => $user_id,
-         'position' => 'N/A',
-         'company' => 'N/A',
-         'location' => 'N/A',
-         'details' => 'N/A',
-         'reference' => 'N/A'
-      );
-      $this->db->insert('work_experiences', $user_work_experience);
+      mkdir("/var/www/html/users/".$user_id, 0777, TRUE);
+      mkdir("/var/www/html/users/".$user_id."/research", 0777, TRUE);
+      mkdir("/var/www/html/users/".$user_id."/pictures", 0777, TRUE);
+      mkdir("/var/www/html/users/".$user_id."/connections", 0777, TRUE);
    }
 
 /****************************************************************************
 - VERIFYING EMAIL INPUT
-****************************************************************************/
-/* GET EMAIL EXTENSION
+  GET EMAIL EXTENSION
 ****************************************************************************/ 
    private function email_extension($email)
    {
@@ -119,8 +113,7 @@ class Register_model extends CI_Model
    
 /****************************************************************************
 - UNIVERSITY MAJOR OPTIONS
-****************************************************************************/
-/* GET MAJORS
+  GET MAJORS
 ****************************************************************************/
    public function get_majors() { return $this->options; }
 /* LOAD MAJORS
@@ -142,8 +135,7 @@ class Register_model extends CI_Model
 
 /****************************************************************************
 - UNIVERSITY OPTIONS
-****************************************************************************/
-/* GET SCHOOLS
+  GET SCHOOLS
 ****************************************************************************/
    public function get_schools() { return $this->schools; }
 /* REMOVE EXTENSION
@@ -157,6 +149,7 @@ class Register_model extends CI_Model
       }
       return substr($school, 0, $i-1);
    }
+   
 /* LOAD SCHOOLS
 ****************************************************************************/
    public function load_schools()
@@ -177,8 +170,7 @@ class Register_model extends CI_Model
 
 /****************************************************************************
 - MATCHING EMAIL AND SCHOOL
-****************************************************************************/
-/* GET UNIVERSITY EXTENSION
+  GET UNIVERSITY EXTENSION
 ****************************************************************************/ 
    private function extension($school)
    {
@@ -203,8 +195,7 @@ class Register_model extends CI_Model
 
 /****************************************************************************
 - USERNAME
-****************************************************************************/
-/* IS USERNAME UNIQUE
+  IS USERNAME UNIQUE
 ****************************************************************************/
    public function username_unique($email)
    {

@@ -8,16 +8,9 @@ class Profile_model extends CI_Model
    private $major;
    private $university;
    private $pictures;
-   private $degree;
    private $minor;
-   private $certifications;
    private $phone_number;
    private $linkedin_account;
-   //private $work_position;
-   //private $work_company;
-   //private $work_location;
-   //private $work_details;
-   //private $work_reference;
 
 /* CONSTRUCTOR
 ************************************************************************************/
@@ -31,7 +24,7 @@ class Profile_model extends CI_Model
    {
       $this->db->select('phone');
       $this->db->where('user_id', $this->session->user_id);
-      $query = $this->db->get('contact_informations');
+      $query = $this->db->get('contact');
       
       if ($query->num_rows() == 1)
       {  
@@ -52,7 +45,7 @@ class Profile_model extends CI_Model
    {
       $this->db->select('linkedin');
       $this->db->where('user_id', $this->session->user_id);
-      $query = $this->db->get('contact_informations');
+      $query = $this->db->get('contact');
       
       if ($query->num_rows() == 1)
       {  
@@ -64,26 +57,6 @@ class Profile_model extends CI_Model
 /* GET LINKEDIN ACCOUNT
 ************************************************************************************/
    public function get_linkedin_account() { return $this->linkedin_account; }
-   
-/* GET WORK POSITION
-************************************************************************************/
-   //public function get_work_position() { return $this->work_position; }
-
-/* GET WORK COMPANY
-************************************************************************************/
-   //public function get_work_company() { return $this->work_company; }
-   
-/* GET WORK LOCATION
-************************************************************************************/
-   //public function get_work_location() { return $this->work_location; }
-   
-/* GET WORK DETAILS
-************************************************************************************/
-   //public function get_work_details() { return $this->work_details; }
-   
-/* GET WORK REFERENCE
-************************************************************************************/
-   //public function get_work_reference() { return $this->work_reference; }
 
 /* RESEARCH FILES
 ************************************************************************************/
@@ -93,17 +66,14 @@ class Profile_model extends CI_Model
    {
       //$this->db->where('user_id', $this->session->user_id);
       $this->db->where('filename', $file);
-      $query = $this->db->get('files');
+      $query = $this->db->get('research_files');
       
-      if ($query->num_rows() >= 1)
-      {
-         return;
-      }
+      if ($query->num_rows() >= 1) { return; }
       else
       {
          $this->db->set('filename', $file);
          $this->db->set('user_id', $this->session->user_id);
-         $this->db->insert('files');
+         $this->db->insert('research_files');
       }
    }
 /* HAS USER FILE
@@ -111,7 +81,7 @@ class Profile_model extends CI_Model
    public function has_userfile()
    {
       $this->db->where('user_id', $this->session->user_id);
-      $query = $this->db->get('files');
+      $query = $this->db->get('research_files');
       
       if ($query->num_rows() >= 1) return TRUE;
       else return TRUE;
@@ -122,7 +92,7 @@ class Profile_model extends CI_Model
    public function is_userfile($filename)
    {
       $this->db->where('filename', $filename);
-      $query = $this->db->get('files');
+      $query = $this->db->get('research_files');
       
       if ($query->num_rows() >= 1)
       {
@@ -136,23 +106,34 @@ class Profile_model extends CI_Model
    public function delete_filename($file)
    {
       $this->db->where('filename', $file);
-      $this->db->delete('files');
-   }        
+      $this->db->delete('research_files');
+   }
 
 /* USER UNIVERSITY
 ************************************************************************************/
+/* REMOVE EXTENSION
+****************************************************************************/
+   private function remove_extension($school)
+   {
+      $i;
+      for ($i = (strlen($school)-1); $i >= 0; $i--)
+      {
+         if ($school[$i] == '(') break;
+      }
+      return substr($school, 0, $i-1);
+   }
 /* LOAD UNIVERSITY
 ************************************************************************************/
    public function load_university()
    {
       $this->db->select('university');
       $this->db->where('user_id', $this->session->user_id);
-      $query = $this->db->get('education_records');
+      $query = $this->db->get('education');
       
       if ($query->num_rows() == 1)
       {  
          if ($query->row('university') == NULL) $this->university = "No Specified University";
-         else $this->university = $query->row('university');
+         else $this->university = $this->remove_extension($query->row('university'));
       }
       else { $this->university = "No Specified University"; }
    }
@@ -168,7 +149,7 @@ class Profile_model extends CI_Model
    {
       $this->db->select('degree');
       $this->db->where('user_id', $this->session->user_id);
-      $query = $this->db->get('education_records');
+      $query = $this->db->get('education');
       
       if ($query->num_rows() == 1)
       {  
@@ -177,9 +158,6 @@ class Profile_model extends CI_Model
       }
       else { $this->degree = "No Specified Degree"; }
    }
-/* GET DEGREE
-************************************************************************************/
-   public function get_degree() { return $this->degree; }
    
 /* USER MAJOR
 ************************************************************************************/
@@ -189,7 +167,7 @@ class Profile_model extends CI_Model
    {
       $this->db->select('major');
       $this->db->where('user_id', $this->session->user_id);
-      $query = $this->db->get('education_records');
+      $query = $this->db->get('education');
       
       if ($query->num_rows() == 1)
       {  
@@ -210,7 +188,7 @@ class Profile_model extends CI_Model
    {
       $this->db->select('minor');
       $this->db->where('user_id', $this->session->user_id);
-      $query = $this->db->get('education_records');
+      $query = $this->db->get('education');
       
       if ($query->num_rows() == 1)
       {  
@@ -223,27 +201,6 @@ class Profile_model extends CI_Model
 ************************************************************************************/
    public function get_minor() { return $this->minor; }
 
-/* USER CERTIFICATIONS
-************************************************************************************/
-/* LOAD CERTIFICATIONS
-************************************************************************************/
-   public function load_certifications()
-   {
-      $this->db->select('certifications');
-      $this->db->where('user_id', $this->session->user_id);
-      $query = $this->db->get('education_records');
-      
-      if ($query->num_rows() == 1)
-      {  
-         if ($query->row('certifications') == NULL) $this->certifications = "No Specified Certifications";
-         else $this->certifications = $query->row('certifications');
-      }
-      else { $this->certifications = "No Specified Certifications"; }
-   }
-/* GET CERTIFICATIONS
-************************************************************************************/
-   public function get_certifications() { return $this->certifications; }
-   
 /* PROFILE PICTURE
 ************************************************************************************/
 /* INSERT PROFILE PICTURE

@@ -33,7 +33,8 @@ class Forum_model extends CI_Model
       *************************************************************************/
       $comment = array (
          'comment_id' => $query->row('post_id').".".$query->row('user_id'),
-         'order_id' => "0.0"
+         'order_id' => "0.0",
+         'user_id' => $this->session->user_id,
       );
       $this->db->set('month','MONTHNAME(NOW())',FALSE);
       $this->db->set('day', 'DAY(NOW())',FALSE);
@@ -71,6 +72,7 @@ class Forum_model extends CI_Model
             $new_comment = array(
                'comment_id' => $data['comment_id'],
                'order_id' => strval(intval($last_order_id) + 1.0),
+               'user_id' => $this->session->user_id,
                'comments' => $data['comments'],
             );
             $this->db->set('month','MONTHNAME(NOW())',FALSE);
@@ -85,12 +87,13 @@ class Forum_model extends CI_Model
       *************************************************************************/
       if ($data['type'] == 'new_subcomment')
       {
-         $order_id = $this->get_last_subcomment_order_id($data['comment_id']);
+         $order_id = $this->get_last_subcomment_order_id($data['comment_id'], $data['order_id']);
          
          $new_comment = array(
                'comment_id' => $data['comment_id'],
                //'order_id' => strval(floatval($data['order_id']) + 0.1),
                'order_id' => strval(floatval($order_id) + 0.1),
+               'user_id' => $this->session->user_id,
                'comments' => $data['comments']
          );
          $this->db->set('month','MONTHNAME(NOW())',FALSE);
@@ -105,18 +108,42 @@ class Forum_model extends CI_Model
    ****************************************************************************/
    public function get_ids() { return $query = $this->get_order_ids('4.1'); }
    
-   /* GET LAST SUBCOMMENT ORDER ID
+   /* GET NUMBER OF COMMENTS
    ****************************************************************************/
-   public function get_last_subcomment_order_id($comment_id)
+   public function get_num_comments($comment_id)
    {
+      $this->db->where('comment_id', $comment_id);
+      $query = $this->db->get('comments');
+      return count($query->result());
+   }
+   
+   /* GET LAST SUBCOMMENT ORDER_ID
+   ****************************************************************************/
+   public function get_last_subcomment_order_id($comment_id, $order_id)
+   {
+      /* GET ALL COMMENT_ID ORDER_IDS
+      *************************************************************************/
       $this->db->select('order_id');
       $this->db->where('comment_id', $comment_id);
       $query = $this->db->get('comments');
 
+      /* SORT AND LIST ALL COMMENT_ID ORDER_IDS
+      *************************************************************************/
       $this->quicksort->_sort($query->result());
       $stack = $this->quicksort->get_stack();
       $this->quicksort->free_stack();
-      return $stack[count($stack)-1];
+      
+      /* IDENTIFY SUBCOMMENT LOCATION
+      *************************************************************************/
+      $temp = (intval($order_id)+1);
+      $new_order_id = NULL;
+      for ($i = 0; $i <= count($stack)-1; ++$i)
+      {
+         if ($temp == $stack[$i]) { $new_order_id = $stack[$i-1]; }
+      }
+      
+      if (is_null($new_order_id)) { return $stack[count($stack)-1]; }
+      else { return $new_order_id; }     
    }
    
    /* GET POST COMMENTS : QUICKSORT : RETURN SORTED STACK
@@ -160,8 +187,34 @@ class Forum_model extends CI_Model
             $sorted_order_ids = $this->get_order_ids($comment_id);
             return $sorted_order_ids;
          }
-         else { if ($query->row('comments') == NULL) { return NULL; } }
+         else
+         {
+            if ($query->row('comments') == NULL) { return NULL; }
+            else
+            {
+               $sorted_order_ids = $this->get_order_ids($comment_id);
+               return $sorted_order_ids;
+            }
+         }
       }
+   }
+   
+   /* GET TOPICS
+   ****************************************************************************/   
+   public function get_topics()
+   {      
+      $query = $this->db->get('majors');
+      
+      if ($query->num_rows() > 0)
+      {
+         $options = array();
+         foreach ($query->result() as $row)
+         {
+            array_push($options,'<option value="'.$row->major.'">'.$row->major.'</option>/n');
+         }
+         return $options;
+      }
+      else { return NULL; }
    }
    
    /* GET POSTS
@@ -169,8 +222,12 @@ class Forum_model extends CI_Model
    public function get_posts()
    {
       $query = $this->db->get('posts');
-      return $query->result();
+      return array_reverse($query->result());
    }
+   
+   /* GET TIME
+   ****************************************************************************/
+   public function get_time($time) { return substr(strval($time), 0, -3); }
    
    /* GET PROFILE PICTURE
    ****************************************************************************/

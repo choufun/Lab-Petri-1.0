@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE)) { ?>
-<?php echo form_open_multipart('Forum');?>
+<?php echo form_open_multipart('Forum', array('id' => 'new_forum_post'));?>
 <?php echo validation_errors(); ?>
 
    <ul class="collapsible popout" data-collapsible="accordion">
@@ -9,7 +9,7 @@
          <!-- HEADER
          -------------------------------------------------------------------->
          <div class="collapsible-header hoverable z-depth-0">
-            <i class="material-icons">mode_edit</i> What's Your Research?
+            <i class="material-icons green-text">mode_edit</i>What's your research?
          </div>
          
          <!-- BODY
@@ -20,12 +20,24 @@
                   
                   <div class="input-field col s12">
                      <input name="title" type="text" class="validate">
-                     <label class="blue-text" for="title"s>Title:</label>
+                     <label class="blue-text" for="title">Title:</label>
                   </div>
                   
                   <div class="input-field col s12">
-                     <textarea name="abstract" type="text" class="materialize-textarea" length="2500"></textarea>
+                     <textarea name="abstract" type="text" class="materialize-textarea"></textarea>
                      <label class="blue-text" for="abstract">Abstract:</label>
+                  </div>
+                  
+                  <div class="input-field col s8">
+                     <label class="blue-text" for="topic">Topic:</label><br><br>
+                     <select class="browser-default" name="topic">
+                        <option selected disabled>-- Please Select One --</option>
+                        <?php
+                           $topics = $this->forum_model->get_topics();
+                           if ($topics == NULL) {;}
+                           else { foreach($topics as $topic) { echo $topic; } }
+                        ?>
+                     </select><br>
                   </div>
                   
                   <!--
@@ -53,7 +65,7 @@
          </div>
       </li>
    </ul>
-</form>
+<?php echo form_close(); ?>
 <?php } else { ?>
    <div class="card">
       <div align="center" class="card-content">

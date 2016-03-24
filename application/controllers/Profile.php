@@ -17,17 +17,9 @@ class Profile extends CI_Controller
       $this->load->model('profile_model');
       $this->profile_model->load_major();
       $this->profile_model->load_university();
-      //$this->profile_model->load_pictures();
       $this->profile_model->load_phone_number();
       $this->profile_model->load_minor();
-      $this->profile_model->load_degree();
       $this->profile_model->load_linkedin_account();
-      $this->profile_model->load_certifications();
-      //$this->profile_model->load_work_position(),
-      //$this->profile_model->load_work_company(),
-      //$this->profile_model->load_work_location(),
-      //$this->profile_model->load_work_details(),
-      //$this->profile_model->load_work_reference(),
       $this->load->helper(array('form', 'url'));
       //$this->load->helper('simple_html_dom');
    }
@@ -42,17 +34,10 @@ class Profile extends CI_Controller
          'university' => $this->profile_model->get_university(),
          'files' => $this->get_files(),
          'profile_picture' => $this->profile_model->get_profile_picture(),
-         'degree' => $this->profile_model->get_degree(),
          'major' => $this->profile_model->get_major(),
          'minor' => $this->profile_model->get_minor(),
-         'certifications' => $this->profile_model->get_certifications(),
          'phone' => $this->profile_model->get_phone_number(),
          'linkedin' => $this->profile_model->get_linkedin_account(),
-         //'position' => $this->profile_model->get_work_position(),
-         //'company' => $this->profile_model->get_work_company(),
-         //'location' => $this->profile_model->get_work_location(),
-         //'details' => $this->profile_model->get_work_details(),
-         //'reference' => $this->profile_model->get_work_reference(),
          'error' => $this->error
       );
       
@@ -71,7 +56,17 @@ class Profile extends CI_Controller
    public function get_files()
    {
       $result = "";
-      $directory = "/var/www/html/files/uploads";
+      //$directory = "/var/www/html/files/uploads";
+      $directory;
+      
+      if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
+      {
+         $directory = "/var/www/html/users/".$this->session->user_id."/research";
+      }
+      else
+      {
+         $directory = "/var/www/html/users/research";
+      }
 
       $directory_result = scandir($directory);
       if (sizeof($directory_result) <= 2)
@@ -97,7 +92,7 @@ class Profile extends CI_Controller
                      ';
          }
          else
-         {
+         {            
             $result.='<ul>';
             foreach ($directory_result as $file)
             {
@@ -113,59 +108,37 @@ class Profile extends CI_Controller
                if ($this->profile_model->is_userfile($this->filename))
                {
                   $result.='
-                     <li>
-                        <div id="'.$this->filename.'" class="card card-border">
+                     <li class="col s12 m6 l4">
+                        <div id="'.$this->filename.'" class="card card-border z-depth-2">
                            <div class="card-content">
-                              <span class="card-title activator">
-                                 <h5 class="blue-text text-darken-2">
-                                    <strong>
-                                       <span class="title grey-text text-darken-2">
-                                          <!-- <i class="material-icons">subject</i> -->
-                                          File: 
+                              <h5 class="card-title grey-text text-darken-2">
+                                 <strong>
+                                    <small>
+                                       <span class="blue-text text-darken-2">
+                                          File:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                        </span>
-                                    </strong>
-                                    <strong>'.$this->remove_extension($file).'</strong>
-                                    <i class="material-icons right light-blue-text">import_export</i>
-                                 </h5>
-                              </span>
-                              <!--<object data="'.$file.'" type="application/pdf" width="100%" height="100%">-->
+                                          '.$this->remove_extension($file).'
+                                    </small>
+                                 </strong>
+                              </h5>
                               <embed src="'.$file.'" type="application/pdf" width="100%" height="100%">
-                                 <div align="right">
-                                    <strong>
-                                       <a class="light-blue-text" href="/files/uploads/'.$file.'" target="_blank">
-                                          View
-                                       </a>
-                                    </strong>
-                                    <strong>
-                                       <script type="text/javascript">
-                                          delete_link();
-                                       </script>
-                                    </strong>
+                                 <div align="right">                                 
+                                    <strong class="green-text">
+                                       <a class="green-text"
+                                          href="/users/'.$this->session->user_id.'/research/'.$file.'"
+                                          target="_blank">View</a>
+                                       <script type="text/javascript">delete_link();</script>
+                                    </strong>                                 
                                  </div>
                               </embed>
-                              <!--</object>-->
-                           </div>
-                           <div class="card-reveal">
-                              <span class="card-title activator blue-text text-darken-2">
-                                 <h5 class="blue-text text-darken-2">
-                                    <strong>'.$this->remove_extension($file).'</strong>
-                                    <i class="material-icons right">close</i>
-                                 </h5>
-                              </span>
-                              <h6>
-                                 <strong>Abstract:</strong>
-                              </h6>
-                              <h6>
-                                 <small>This is a sample test.</small>
-                              </h6>
                            </div>
                         </div>
                      </li>
                   ';
-                  $result.='</ul>';
                }
-               else { continue; } 
+               else { continue; }
             }
+            $result.='</ul>';
          }
       }
       return $result;
@@ -175,7 +148,7 @@ class Profile extends CI_Controller
 ************************************************************************************/
 	public function do_upload_pic()
 	{
-      $config['upload_path'] = './files/profile_picture';
+      $config['upload_path'] = './users/'.$this->session->user_id.'/pictures/';
       $config['allowed_types'] = 'jpg|png|jpeg';
       $config['max_size']	= '1000';
       $config['max_width']  = '10240';
@@ -194,13 +167,13 @@ class Profile extends CI_Controller
          $this->profile_model->insert_profile_picture($this->upload->data('file_name'));
          redirect("profile");
       }
-	}
+    }
    
 /* DO UPLOAD
 ************************************************************************************/
-	public function do_upload()
-	{
-      $config['upload_path'] = './files/uploads/';
+   public function do_upload()
+   {
+      $config['upload_path'] = './users/'.$this->session->user_id.'/research/';
       $config['allowed_types'] = 'pdf';
       $config['max_size']	= '1000';
       $config['max_width']  = '1024';
@@ -222,7 +195,7 @@ class Profile extends CI_Controller
          /* $this->session->set_userdata('data', $this->upload->data('file_name'));*/
          redirect("profile");
       }
-	}
+   }
    
 /* DELETE
 ************************************************************************************/
@@ -230,22 +203,17 @@ class Profile extends CI_Controller
    {
       $file = $this->remove_url($this->input->post('action'));
       $this->profile_model->delete_filename($file);
-      $this->delete_file($file);
+      $this->delete_file($this->session->user_id, $file);
    }
    
 /* DELETE FILE
 ************************************************************************************/
-   public function delete_file($file)
+   public function delete_file($user_id, $file)
    {
-      $path='/files/uploads/'.$file;
-      if (!unlink($path))
-      {
-         echo ("Error deleting ".$file.".");
-      }
-      else
-      {
-         redirect('profile');
-      }
+      //$path='./files/uploads/'.$file;
+      $path='./users/'.$user_id.'/research/'.$file;
+      if (!unlink($path)) { echo ("Error deleting ".$file."."); }
+      else { redirect('profile'); }
    }
    
 /* REMOVE EXTENSION (filename) : returns substring
@@ -253,10 +221,7 @@ class Profile extends CI_Controller
    public function remove_extension($file)
    {
       $i;
-      for ($i = (strlen($file)-1); $i >= 0; $i--)
-      {
-         if ($file[$i] == '.') break;
-      }
+      for ($i = (strlen($file)-1); $i >= 0; $i--) { if ($file[$i] == '.') break; }
       return substr($file, 0, $i);
    }
    
@@ -265,10 +230,7 @@ class Profile extends CI_Controller
    public function remove_url($file)
    {
       $i;
-      for ($i = (strlen($file)-1); $i >= 0; $i--)
-      {
-         if ($file[$i] == '/') break;
-      }
+      for ($i = (strlen($file)-1); $i >= 0; $i--) { if ($file[$i] == '/') break; }
       return substr($file, $i+1, strlen($file)-1);
    }
 }

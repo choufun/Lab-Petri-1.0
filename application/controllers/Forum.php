@@ -95,7 +95,8 @@ class Forum extends CI_Controller
          'user_id' => $this->session->user_id,
          'title' => $this->input->post('title'),
          'abstract' => $this->input->post('abstract'),
-         'comment_id' => '0.0'
+         'topic' => $this->input->post('topic'),
+         'comment_id' => '0.0',
       );
       $this->db->set('month','MONTHNAME(NOW())',FALSE);
       $this->db->set('day', 'DAY(NOW())',FALSE);

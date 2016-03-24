@@ -9,9 +9,46 @@
       width: 75px;
       height: 75px;
    }
+   #profile-image_2
+   {
+      border-radius: 50%;
+      border: 3px solid white;
+      width: 50px;
+      height: 50px;
+   }
+   #profile-image_3
+   {
+      border-radius: 50%;
+      border: 3px solid white;
+      width: 40px;
+      height: 40px;
+   }
 </style>
 
-<div class="container-fluid">
+<!-- JAVASCRIPT
+--------------------------------------------------------------------------------------------->
+<script type="text/javascript">
+/*
+   $(document).ready(function(){
+      
+      $('form#new_forum_post').on("submit", function(event){
+         
+         event.preventDefault();
+         
+         $.ajax({
+            url: "<?php// echo base_url()?>/Forum",
+            type: "POST",
+            data: $(this).serialize(),
+            success: function(data){ $('.result').html(data); }
+         });
+         
+      });
+      
+   });
+   */
+</script>
+
+<div class="container-fluid grey lighten-4">
    <?php
    /*
       print_r($ids);
@@ -31,6 +68,8 @@
       </div>
    </div>
    
+   <div class="result"></div>
+   
    <!-- LIST OF POSTS
    ----------------------------------------------------------------------------------------->
    <div class="row">
@@ -42,11 +81,20 @@
 
 <!-- JAVASCRIPT
 --------------------------------------------------------------------------------------------->
-<script type="text/javascript">   
+<script type="text/javascript">
+   
    function show(current, hidden)
    {
       document.getElementById(current).style.display='block';
       document.getElementById(hidden).style.display='none';
       return false;
    }
+
+   function toggle(comments)
+   {
+      var all = document.getElementById(comments);
+      if ( all.style.display != 'none' ) { all.style.display = 'none'; }
+      else { all.style.display = ''; }
+      return false;
+   }  
 </script>

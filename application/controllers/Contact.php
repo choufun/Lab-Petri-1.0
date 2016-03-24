@@ -32,7 +32,8 @@ class Contact extends CI_Controller {
             $this->load->view('templates/footer');
         
         }
-        else{
+        else
+        {
             $this->load->view('templates/header');
             $this->load->view('contact');
             $this->load->view('templates/footer');

@@ -9,7 +9,7 @@
        ------------------------------------------------------------------------------------>
        <div class="row">
           <div class="container-fluid">
-             <div class="col s12 m6 l6 offset-l3">
+             <div class="col s12 m12 l6 offset-l3">
                 <div align="center" id="section-1">
                    <h2 class="grey-text text-lighten-3 hide-on-small-and-down">
                       <strong>Welcome to Lab Petri</strong>
@@ -26,7 +26,7 @@
        ------------------------------------------------------------------------------------>
        <div class="row">
           <div class="container-fluid">
-             <div class="col s12 m6 l6 offset-l3">
+             <div class="col s12 m12 l6 offset-l3">
                 <div align="center" id="section-2">
                    <h5 class="blue-text text-darken-3">
                       <strong>Where Creativity and Innovations Grow</strong>
@@ -40,29 +40,37 @@
        ------------------------------------------------------------------------------------>
        <div class="row">
           <div class="container-fluid">
-             <div class="col s12 m6 l6 offset-l3">
+             <div class="col s12 m12 l6 offset-l3">
                 <div align="center" id="get-started">
                    
                    <!-- BUTTONS
-                   ------------------------------------------------------------------------>           
-                   <a href="login" id="get-started-border"
-                      class="btn-large waves-effect green darken-1 z-depth-5 get-started-border">
-                      <strong class="yellow-text text-lighten-4 hide-on-small-and-down">
-                         Let's Get Started
-                      </strong>
-                      <small class="yellow-text text-lighten-4 hide-on-med-and-up">
-                         Let's Get Started
-                      </small>
-                   </a>
-                   <a href="forum" id="get-started-border"
-                      class="btn-large waves-effect green darken-1 z-depth-5 get-started-border">
-                      <strong class="yellow-text text-lighten-4 hide-on-small-and-down">
-                         Start My Research
-                      </strong>
-                      <small class="yellow-text text-lighten-4 hide-on-med-and-up">
-                         Start My Research
-                      </small>
-                   </a>
+                   ------------------------------------------------------------------------> 
+                   <div class="col s12 m6">
+                      <div class="row">
+                         <a href="login" id="get-started-border"
+                            class="btn-large waves-effect green darken-1 z-depth-5 get-started-border">
+                            <strong class="yellow-text text-lighten-4 hide-on-small-and-down">
+                               Let's Get Started
+                            </strong>
+                            <small class="yellow-text text-lighten-4 hide-on-med-and-up">
+                               Let's Get Started
+                            </small>
+                         </a>
+                      </div>
+                   </div>
+                   <div class="col s12 m6">
+                      <div class="row">
+                         <a href="forum" id="get-started-border"
+                            class="btn-large waves-effect green darken-1 z-depth-5 get-started-border">
+                            <strong class="yellow-text text-lighten-4 hide-on-small-and-down">
+                               Start My Research
+                            </strong>
+                            <small class="yellow-text text-lighten-4 hide-on-med-and-up">
+                               Start My Research
+                            </small>
+                         </a>
+                      </div>
+                   </div>
                 </div>
              </div>
           </div>
@@ -78,7 +86,7 @@
       
       <!-- THUMBNAIL 1
       ------------------------------------------------------------------------------------>
-      <div class="col s12 m4">
+      <div class="col s12 m12 l4">
          <div class="row">
             <div class="container-fluid">
                <img class="responsive-img z-depth-3 circle"
@@ -103,7 +111,7 @@
       
       <!-- THUMBNAIL 2
       ------------------------------------------------------------------------------------>
-      <div class="col s12 m4">
+      <div class="col s12 m12 l4">
          <div class="row">
             <div class="container-fluid">
                <img class="responsive-img z-depth-3 circle"
@@ -128,7 +136,7 @@
       
       <!-- THUMBNAIL 3
       ------------------------------------------------------------------------------------>
-      <div class="col s12 m4">
+      <div class="col s12 m12 l4">
          <div class="row">
             <div class="container-fluid">
                <img class="responsive-img z-depth-3 circle"
@@ -161,7 +169,7 @@
 
       <!-- FOOTER 1
       ---------------------------------------------------------------------------------->
-      <div class="col s12 m6">
+      <div class="col s12 m12 l6">
          <div class="container-fluid">
             <h5 class="grey-text text-lighten-4 text-border"><strong>Mission Statement:</strong></h5>
             <p class="white-text footer-body" align="justify">
@@ -180,7 +188,7 @@
 
       <!-- FOOTER 2
       ---------------------------------------------------------------------------------->
-      <div class="col s12 m3">
+      <div class="col s12 m6 l3">
          <div class="container-fluid" >
             <h5 class="grey-text text-lighten-4 text-border"><strong>Resources</strong></h5>
             <ul>
@@ -194,7 +202,7 @@
 
       <!-- FOOTER 3
       ---------------------------------------------------------------------------------->
-      <div class="col s12 m3">
+      <div class="col s12 m6 l3">
          <div class="container-fluid" >
             <h5 class="grey-text text-lighten-4 text-border"><strong>Connect with Us</strong></h5>
             <ul>

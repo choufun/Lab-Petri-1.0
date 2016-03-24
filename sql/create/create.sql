@@ -1,11 +1,7 @@
-/* CREATE
-*********************************************************************/
-
 /* USE   
 *********************************************************************/
 USE labpetri
 
-/* PROFILE ************************************************************/
 /* USERS
 *********************************************************************/
 CREATE TABLE IF NOT EXISTS users (
@@ -28,10 +24,9 @@ CREATE TABLE IF NOT EXISTS profile_picture (
 
 /* EDUCATION RECORD
 ***********************************************************************/
-CREATE TABLE IF NOT EXISTS education_records (
+CREATE TABLE IF NOT EXISTS education (
    user_id INT(11) NOT NULL,
    university VARCHAR(255) NOT NULL,
-   degree VARCHAR(255) NOT NULL,
    major VARCHAR(255) NOT NULL,
    minor VARCHAR(255) NOT NULL,
    certifications VARCHAR(255) NOT NULL,
@@ -40,7 +35,7 @@ CREATE TABLE IF NOT EXISTS education_records (
 
 /* CONTACT INFORMATION
 ***********************************************************************/
-CREATE TABLE IF NOT EXISTS contact_informations (
+CREATE TABLE IF NOT EXISTS contact (
    user_id INT(11) NOT NULL,
    email VARCHAR(255) NOT NULL,
    phone VARCHAR(255) NOT NULL,
@@ -48,34 +43,11 @@ CREATE TABLE IF NOT EXISTS contact_informations (
    PRIMARY KEY (user_id)
 ) ENGINE = MYISAM;
 
-/* WORK EXPERIENCE
-***********************************************************************/
-CREATE TABLE IF NOT EXISTS work_experiences (
-   user_id INT(11) NOT NULL,
-   position VARCHAR(255) NOT NULL,
-   company VARCHAR(255) NOT NULL,
-   location VARCHAR(255) NOT NULL,
-   details VARCHAR(255) NOT NULL,
-   reference VARCHAR(255) NOT NULL,
-   PRIMARY KEY (user_id)
-) ENGINE = MYISAM;
-
-/* RESEARCH PROFILE
-***********************************************************************/
-CREATE TABLE IF NOT EXISTS lab_notebook (
-   user_id INT(11) NOT NULL,
-   goal VARCHAR(255) NOT NULL,
-   interest VARCHAR(255) NOT NULL,
-   expertise VARCHAR(255) NOT NULL,
-   PRIMARY KEY (user_id)
-) ENGINE = MYISAM;
-
 /* FILES
 ***********************************************************************/
 CREATE TABLE IF NOT EXISTS research_files (
    user_id int(11) NOT NULL,
-   filename varchar(255) NOT NULL,
-   PRIMARY KEY (user_id)
+   filename varchar(255) NOT NULL
 ) ENGINE = MYISAM;
 
 /* LOGIN, REGISTRATION  ***********************************************/
@@ -110,6 +82,7 @@ CREATE TABLE IF NOT EXISTS posts (
    user_id INT(11) NOT NULL,
    title VARCHAR(255) NOT NULL,
    abstract TEXT NOT NULL,
+   topic VARCHAR(255) NOT NULL,
    month VARCHAR(9) NOT NULL,
    day INT(2) NOT NULL,
    yr  INT(4) NOT NULL,
@@ -123,6 +96,7 @@ CREATE TABLE IF NOT EXISTS posts (
 CREATE TABLE IF NOT EXISTS comments (
    comment_id VARCHAR(255) NOT NULL,
    order_id VARCHAR(255)NOT NULL,
+   user_id INT(11) NOT NULL,
    comments TEXT,
    month VARCHAR(9),
    day INT(2),

@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- CARD
 --------------------------------------------------------------------------------------------->      
-      <div align="center" class="col s12 m6 l6 offset-l3">
+      <div align="center" class="col s12 m10 l8 offset-m1 offset-l2">
          <div class = "card card-border">
             
 <!-- HEADER LOGO
@@ -62,6 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    {
       document.getElementById(current).style.display='block';
       document.getElementById(hidden).style.display='none';
+      window.scrollTo(0,0);
       return false;
    }
 </script>

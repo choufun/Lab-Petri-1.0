@@ -1,13 +1,11 @@
 /* USE
 *********************************************************************/
-USE labpetri_com
+USE labpetri
+
+/* SHOW TABLES
+*********************************************************************/
+SHOW TABLES;
 
 /* SELECT
 *********************************************************************/
 SELECT * FROM users;
-
-SELECT * FROM posts;
-
-SELECT * FROM majors;
-
-SELECT * FROM schools;
