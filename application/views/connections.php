@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <style>
    #profile-image
    {
@@ -8,6 +9,41 @@
       height: 75px;
    }
 </style>
+
+<!-- AJAX
+----------------------------------------------------------------------------------------->
+<script>
+   
+   $document.ready(function showHint(str) {
+       if (str.length == 0) {
+           document.getElementById("txtHint").innerHTML = "";
+           return;
+       } else {
+           var xmlhttp = new XMLHttpRequest();
+           xmlhttp.onreadystatechange = function() {
+               if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                   document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+               }
+           };
+           xmlhttp.open("GET", "temp.php?q=" + str, true);
+           xmlhttp.send();
+       }
+   });
+   
+</script>
+
+<div class="container">
+   <div class="row">
+      <div class="card">
+         <form>
+            First name: <input type="text" onkeyup="showHint(this.value)">
+         </form>
+      </div>
+   </div>
+   
+   
+   <span id="search_results"></span>
+</div>
 
 <div class="grey lighten-4">
    <div class="container">
