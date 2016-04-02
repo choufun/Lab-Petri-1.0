@@ -4,8 +4,9 @@ foreach($posts as $post)
 {
 ?>
 <div class="row">
+   <a href="post?key=<?php echo $post->post_id; ?>" target="_blank">
    <div class="col s12 m12 l10">
-      <div class="card z-depth-3">
+      <div class="card z-depth-3 hoverable">
          <div class="card-content">
             <h5>
                <img class="responsive-img z-depth-1"
@@ -57,6 +58,7 @@ foreach($posts as $post)
          </div>
       </div>
    </div>
+   </a>
 </div>
 <?php include 'application/views/forum/comments.php';?>
 <?php 

@@ -29,7 +29,7 @@
    ---------------------------------------------------------------------->
    <div class="row">
       <div class="input-field col s12">
-         <label class="green-text active" for='email'> Password: </label>
+         <label class="green-text active" for='password'> Password: </label>
          <input class="blue-text text-darken-2" type="password" name="password">
       </div>
    </div>

@@ -12,8 +12,8 @@
    <div class="row col s12 m10 l8 offset-m1 offset-l2">   
       <div class="row col s12" align="left">
          <div class="input-field">
-            <input type="checkbox" id="undergrad" name="undergrad"/>
-            <label for="undergrad">
+            <input type="checkbox" id="undergrad" name="standing" value="Undergraduate"/>
+            <label for="standing">
                <div class="btn green">Undergraduate</div>
             </label>
          </div>
@@ -21,8 +21,8 @@
 
       <div class="row col s12" align="left">
          <div class="input-field">
-            <input type="checkbox" id="grad" name="grad"/>
-            <label for="grad">
+            <input type="checkbox" id="grad" name="standing" value="Graduate"/>
+            <label for="standing">
                <div class="btn green">Graduate</div>
             </label>
          </div>
@@ -30,8 +30,8 @@
 
       <div class="row col s12" align="left">
          <div class="input-field">
-            <input type="checkbox" id="prof" name="prof"/>
-            <label for="prof">
+            <input type="checkbox" id="prof" name="standing" value="Professor"/>
+            <label for="standing">
                <div class="btn green">Professor</div>
             </label>
          </div>
