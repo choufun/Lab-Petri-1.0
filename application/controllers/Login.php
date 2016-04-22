@@ -44,7 +44,15 @@ class Login extends CI_Controller
       ******************************************************************************/
       if ($this->input->post('register') == 'register')
       {
-         $this->form_validation->set_rules('firstname','First name','trim|required');
+         $required = FALSE;
+         if (
+               ($this->input->post('undergraduate') !== NULL) ||
+               ($this->input->post('graduate')      !== NULL) ||
+               ($this->input->post('professor')     !== NULL)
+            ) { $required = TRUE; }
+         
+         $this->form_validation->set_rules('education', 'Education', $required);
+         $this->form_validation->set_rules('firstnam`e','First name','trim|required');
          $this->form_validation->set_rules('lastname','Last name','trim|required');
          $this->form_validation->set_rules('email','Email','trim|valid_email|callback_verify_email|required');
          $this->form_validation->set_rules('password','password','required|min_length[8]');
@@ -95,7 +103,7 @@ class Login extends CI_Controller
          'firstname'=> $this->input->post('firstname'),
          'lastname' => $this->input->post('lastname'),
          'email'    => $this->input->post('email'),
-         'password' => $this->input->post('password')
+         'password' => $this->input->post('password'),
       );
       $this->register_model->register($user_data);
    }

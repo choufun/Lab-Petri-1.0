@@ -14,7 +14,7 @@
          
          <!-- BODY
          -------------------------------------------------------------------->
-         <div class="collapsible-body hoverable z-depth-5">
+         <div class="collapsible-body hoverable z-depth-5 white">
             <div class="container">
                <div class="row">
                   

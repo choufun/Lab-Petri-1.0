@@ -13,129 +13,66 @@
 <!-- AJAX
 ----------------------------------------------------------------------------------------->
 <script>
-   
-   $document.ready(function showHint(str) {
-       if (str.length == 0) {
-           document.getElementById("txtHint").innerHTML = "";
-           return;
-       } else {
-           var xmlhttp = new XMLHttpRequest();
-           xmlhttp.onreadystatechange = function() {
-               if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                   document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-               }
-           };
-           xmlhttp.open("GET", "temp.php?q=" + str, true);
-           xmlhttp.send();
-       }
+/*   
+   $document.ready(function() {
+      $("#search").click(function()
+      {
+         $.ajax({
+            url: "www.labpetri.com/connections/search",
+            type: "POST",
+            data: "type=article",
+            dataType:"text",
+            success: function(data) { alert("success"); },
+         });
+      });
    });
-   
+*/ 
 </script>
 
-<div class="container">
-   <div class="row">
-      <div class="card">
-         <form>
-            First name: <input type="text" onkeyup="showHint(this.value)">
-         </form>
-      </div>
-   </div>
-   
-   
-   <span id="search_results"></span>
-</div>
+<div class="container-fluid grey lighten-4">
 
-<div class="grey lighten-4">
-   <div class="container">
-      <div class="row" align="center">
-         <form>
-            <div class="input-field col s12 m12 l12">
-               <i class="blue-text small material-icons">search</i>
-               <input class="validate green-text" placeholder="'university' + 'major'" type="text">
-               <label>Search and grow your network!</label>
-            </div>
-         </form>
+<!-- SEARCH BAR
+-------------------------------------------------------------------------------------->
+   <div class="row">
+      <div class="container">
+      <?php echo form_open('Connections');?>
+         <div class="input-field">
+            <input name="search" type="text" class="validate blue-text text-darken-2" placeholder="COMING SOON">
+            <label class="green-text active" for="search">Search</label>
+         </div>   
+      <?php echo form_close();?>
       </div>
    </div>
+   <div align="center" class="row">
+      <span class="red-text">
+         <?php echo validation_errors(); ?>
+      </span>
+   </div>
    
-   
-   <div class="container">
-      <div class="navigation">
-         
-         <!-- UNDERGRADUATES
-         ------------------------------------------------------------------------>
-         <div id="undergraduates">
-            <div class="col s12 m12 l12">
-               <div class="row">
-                  <h3 align="center">Undergraduates</h3>
-               </div>
-            </div>
-            <div class="col s12 m12 l12">
-               <ul class="collapsible" data-collapsible="accordion">
-                  <?php include 'application/views/connections/undergraduates.php';?>
-               </ul>
-            </div>
-         </div>
-         
-         <!-- GRADUATES
-         ------------------------------------------------------------------------>
-         <div id="graduates">
-            <ul class="collection with-header">
-               <li class="collection-header">
-                  <h4>Graduates</h4>
-               </li>
-               <li class="collection-item">
-                  <div>Alvin
-                     <a href="#!" class="secondary-content">
-                        <i class="material-icons">send</i>
-                     </a>
-                  </div>
-               </li>
-               <li class="collection-item">
-                  <div>Alvin
-                     <a href="#!" class="secondary-content">
-                        <i class="material-icons">send</i>
-                     </a>
-                  </div>
-               </li>
-            </ul>
-         </div>
-         
-         <!-- PRPFESSORS
-         ------------------------------------------------------------------------>
-         <div id="professors">
-            <ul class="collection with-header">
-               <li class="collection-header">
-                  <h4>Professors</h4>
-               </li>
-               <li class="collection-item">
-                  <div>Alvin
-                     <a href="#!" class="secondary-content">
-                        <i class="material-icons">send</i>
-                     </a>
-                  </div>
-               </li>
-               <li class="collection-item">
-                  <div>Alvin
-                     <a href="#!" class="secondary-content">
-                        <i class="material-icons">send</i>
-                     </a>
-                  </div>
-               </li>
-            </ul>
-         </div>
-         
-      </div>
+<!-- SEARCH RESULTS
+-------------------------------------------------------------------------------------->   
+   <div class="row">
+      <?php //echo $this->session->flashdata('searches'); ?>
+      <?php print_r($this->session->flashdata('searches')); ?>
       
-   </div>
-   
-   <div class="container">   
-      <div class="connections">
-         <?php //include 'application/views/connections/undergraduates.php';?>
+<!-- IF FLASHDATA IS SET THEN SEARCH NEW ELSE SET DEFAULT SEARCH
+-------------------------------------------------------------------------------------->
+<?php
+   if ($this->session->flashdata('search') !== NULL)
+   { ?>  
+      <div>
+         <?php include 'application/views/connections/search/new.php'; ?>
       </div>
-   </div>
-   <?php //include 'application/views/connections/graduates.php';?>
-   <?php //include 'application/views/connections/professors.php';?>
+<?php
+   }
+   else
+   { ?>
+      <div>
+         <?php include 'application/views/connections/search/default.php'; ?>
+      </div>
+<?php
+   } ?>
+   </div> 
    
 </div>
 
@@ -153,6 +90,8 @@
    
    $(document).ready(function(){
       $('.navigation').slick({
+         arrows: true,
+         dots: true,
          useCSS: true,
          swipe: true,
          draggable: true,
@@ -163,7 +102,7 @@
          responsive: [
          {
             breakpoint: 1024,
-            settings: {
+            settings: { 
                slidesToShow: 1,
                slidesToScroll: 1,
                infinite: true,

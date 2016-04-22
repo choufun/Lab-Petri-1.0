@@ -22,13 +22,38 @@
       );
    }
 </script>
-<div class="container-fluid grey lighten-4">
 
+<!--
+<div class="navbar-fixed" style="opacity: 0.8;">
+   <nav style="background: -moz-linear-gradient(bottom right, #01579b, #e0f7fa);">
+      <div class="nav-wrapper container">
+         <ul class="right">
+            
+            <li class="tab">
+               <a href="#" class="white-text">Profile Picture</a>
+            </li>
+            
+            <li class="tab">
+               <a href="#" class="white-text">My Education</a>
+            </li>
+            
+            <li class="tab ">
+               <a href="#" class="white-text">My Contact</a>
+            </li>
+            
+         </ul>
+      </div>
+   </nav>
+</div>
+-->
+
+<div class="container-fluid grey lighten-4">
+   
    <!-- DEBUGGING PURPOSES
    ----------------------------------------------------------------------------------------->
    <div align="center" class="row"><?php //var_dump($_SESSION);?></div>
    <div class="container col s12 m12 l12">
-      <div class="card" id="card-border">
+      <div class="card">
 
          <!-- PROFILE HEADER
          ----------------------------------------------------------------------------------->
@@ -78,6 +103,11 @@
                </div>
             </div>
          </div>
+         
+         <!-- POST BOARD
+         ----------------------------------------------------------------------->
+         <?php include 'application/views/profile/postboard.php';?>
+
       </div>
    </div>
 </div>

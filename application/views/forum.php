@@ -5,7 +5,7 @@
    #profile-image
    {
       border-radius: 50%;
-      border: 3px solid white;
+      border: 3px solid #fbc02d ;
       width: 75px;
       height: 75px;
    }
@@ -48,7 +48,7 @@
    */
 </script>
 
-<div class="container-fluid grey lighten-4">
+<div class="container-fluid grey lighten-3">
    <?php
    /*
       print_r($ids);

@@ -1,20 +1,49 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
+<?php
+foreach ($undergraduates as $university=>$value)
+{
+   /* DEBUGGING PURPOSES:
+   *************************************************************************/
+   /*
+   print_r($data);
+   echo "<br>";
+   echo "<br>";
+   print_r($university);
+   echo "<br>";
+   echo "<br>";
+   print_r($value);
+   echo "<br>";
+   echo "<br>";
+   foreach($value as $array=>$object)
+   {
+      echo $object->user_id."<br>";
+   }
+   */
+?>
 <li>
-   <div class="collapsible-header">
-      Undergraduates
+   <!-- CAROUSEL HEADER
+   ------------------------------------------------------------------------>
+   <div class="collapsible-header blue-text text-darken-4">
+      <strong><?php echo $this->connections_model->remove_extension($university); ?></strong>
    </div>
+   
+   <!-- CAROUSEL BODY
+   ------------------------------------------------------------------------>
    <div class="collapsible-body">
       <div class="row">
+         <!--<ul style="margin: 0px -2px 0px 0px;">-->
          <ul>
             
 <?php
-foreach ($directory as $user_id)
+/*foreach ($directory as $user_id)
 {
    if ($user_id == "research" || $user_id == "pictures" ||
        $user_id == "." || $user_id == "..") { continue; }           
    else
-   { ?>
+   { */?>
+<?php
+foreach ($value as $array=>$object)
+{ ?>
             <li class="col s12 m6 l4">
                <div class="card hoverable">
                   <div class="card-content">
@@ -22,12 +51,12 @@ foreach ($directory as $user_id)
                         <div class="container-fluid">
                            <div class="col s4 m4 l4">
                               <img class="responsive-img z-depth-1"
-      src="files/profile_picture/<?php echo $this->connections_model->get_profile_picture($user_id); ?>"
+      src="users/<?php echo $object->user_id; ?>/pictures/<?php echo $this->connections_model->get_profile_picture($object->user_id); ?>"
       id="profile-image">&nbsp;
                            </div>
                            <div class="col s8 m8 l8">
                               <div align="center">
-                                 <h5><?php echo $this->connections_model->get_user($user_id); ?></h5>
+                                 <h5><?php echo $this->connections_model->get_user($object->user_id); ?></h5>
                               </div>
                            </div>
                         </div>
@@ -47,9 +76,12 @@ foreach ($directory as $user_id)
                </div>
             </li>
 <?php
-   }
-} ?>
+   /*}
+}*/ ?>
+<?php } ?>
          </ul>
       </div>
    </div>
 </li>
+<?php
+} ?>

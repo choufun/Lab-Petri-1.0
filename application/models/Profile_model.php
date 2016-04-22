@@ -8,7 +8,7 @@ class Profile_model extends CI_Model
    private $major;
    private $university;
    private $pictures;
-   private $minor;
+   private $standing;
    private $phone_number;
    private $linkedin_account;
 
@@ -184,22 +184,22 @@ class Profile_model extends CI_Model
 ************************************************************************************/
 /* LOAD MINOR
 ************************************************************************************/
-   public function load_minor()
+   public function load_standing()
    {
-      $this->db->select('minor');
+      $this->db->select('standing');
       $this->db->where('user_id', $this->session->user_id);
       $query = $this->db->get('education');
       
       if ($query->num_rows() == 1)
       {  
-         if ($query->row('minor') == NULL) $this->minor = "No Specified Minor";
-         else $this->minor = $query->row('minor');
+         if ($query->row('standing') == NULL) $this->minor = "No Specified Standing-ERROR!";
+         else $this->standing = $query->row('standing');
       }
-      else { $this->minor = "No Specified Minor"; }
+      else { $this->standing = "No Specified Standing-ERROR!"; }
    }
 /* GET MINOR
 ************************************************************************************/
-   public function get_minor() { return $this->minor; }
+   public function get_standing() { return $this->standing; }
 
 /* PROFILE PICTURE
 ************************************************************************************/

@@ -18,7 +18,7 @@ class Profile extends CI_Controller
       $this->profile_model->load_major();
       $this->profile_model->load_university();
       $this->profile_model->load_phone_number();
-      $this->profile_model->load_minor();
+      $this->profile_model->load_standing();
       $this->profile_model->load_linkedin_account();
       $this->load->helper(array('form', 'url'));
       //$this->load->helper('simple_html_dom');
@@ -35,9 +35,9 @@ class Profile extends CI_Controller
          'files' => $this->get_files(),
          'profile_picture' => $this->profile_model->get_profile_picture(),
          'major' => $this->profile_model->get_major(),
-         'minor' => $this->profile_model->get_minor(),
          'phone' => $this->profile_model->get_phone_number(),
          'linkedin' => $this->profile_model->get_linkedin_account(),
+         'education' => $this->profile_model->get_standing(),
          'error' => $this->error
       );
       
@@ -67,7 +67,6 @@ class Profile extends CI_Controller
       {
          $directory = "/var/www/html/users/research";
       }
-
       $directory_result = scandir($directory);
       if (sizeof($directory_result) <= 2)
       {

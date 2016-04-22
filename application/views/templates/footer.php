@@ -13,6 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
    </body>
    <footer>
-      <p class="center"> Lab Petri &copy; 2015-<?php echo date("Y"); ?>, All Rights Reserved</p>
+      <!-- <p class="center"> Lab Petri &copy; 2015-<?php echo date("Y"); ?>, All Rights Reserved</p> -->
+      <p class="center"> Lab Petri 2015-<?php echo date("Y"); ?>, All Rights Reserved</p>
    </footer>
 </html>

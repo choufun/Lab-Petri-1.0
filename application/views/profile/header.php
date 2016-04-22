@@ -29,7 +29,7 @@
          <div align="right" class="icon-border row">
             <div class="container-fluid">
                <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
-                  <i class="white-text small material-icons icon-inner-border">subject</i>
+                  <i class="white-text small material-icons icon-inner-border">settings_applications</i>
                </a>
             </div>
          </div>

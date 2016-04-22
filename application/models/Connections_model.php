@@ -9,7 +9,64 @@ class Connections_model extends CI_Model
    
 /* CONSTRUCTOR
 ************************************************************************************/
-   public function __construct() { parent:: __construct(); }
+   public function __construct()
+   {
+      parent:: __construct();
+      $this->load->library('quicksort');
+   }
+   
+
+/* GET REGISTERED UNIVERSITIES
+      - UNDERGRADUATES
+      - GRADUATES
+      - PROFESSORS
+************************************************************************************/
+   public function get_registered_universities($standing)
+   {
+      $query = $this->db->query(
+         "
+            SELECT DISTINCT university
+            FROM education
+            WHERE standing = '".$standing."'
+            ORDER BY university <> 'a',
+            university ASC
+            ;
+         "
+      );
+      return $query->result();
+   }
+
+/* GET REGISTERED USERS
+      - UNDERGRADUATES
+      - GRADUATES
+      - PROFESSORS
+************************************************************************************/
+   public function get_registered_users($university, $standing)
+   {      
+      $query = $this->db->query(
+         "
+            SELECT user_id
+            FROM education
+            WHERE university = '".$university->university."'
+            AND standing = '".$standing."'
+            ;
+         "
+      );
+      
+      return $query->result();
+   }
+   
+/* REMOVES SCHOOL EXTENSION
+************************************************************************************/
+   public function remove_extension($school)
+   {
+      $i;
+      for ($i = (strlen($school)-1); $i >= 0; $i--)
+      {
+         if ($school[$i] == '(') break;
+      }
+      return substr($school, 0, $i-1);
+   }
    
 /* GET USERS
 ************************************************************************************/
@@ -23,8 +80,8 @@ class Connections_model extends CI_Model
       $this->users = $query->result();
    }
    
-   /* GET PROFILE PICTURE
-   ****************************************************************************/
+/* GET PROFILE PICTURE
+************************************************************************************/
    public function get_profile_picture($user_id)
    {
       $this->db->where('user_id', $user_id);

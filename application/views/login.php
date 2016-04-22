@@ -33,12 +33,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- CARD
 --------------------------------------------------------------------------------------------->      
       <div align="center" class="col s12 m10 l8 offset-m1 offset-l2">
-         <div class = "card card-border">
+         
+         <div class="card blue darken-2">
+         <div class = "card card-border" style="margin: 5px 5px;">
             
 <!-- HEADER LOGO
 --------------------------------------------------------------------------------------------->
             <div id="header" class ="card-content blue white-text">
-               <img class="logo2" src="assets/img/Logo.png">
+               <img class="logo2 white z-depth-1" src="assets/img/Logo.png">
             </div>
             <div class="divider"></div><div class="divider"></div>
             <div class="divider"></div><div class="divider"></div>        
@@ -51,6 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 --------------------------------------------------------------------------------------------->
             <?php include 'application/views/login/registration_form.php';?>
          </div>
+         </div>
+         
       </div>
    </div>
 </div>

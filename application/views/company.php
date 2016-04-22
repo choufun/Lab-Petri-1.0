@@ -1,345 +1,252 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<html>
-	<body background="https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=6aadbf5239c8d96bbd93bdb4f836ff4f">
+<style>
+   #profile-image
+   {
+      border-radius: 50%;
+      border: 3px solid #fbc02d ;
+   }
+</style>
 
-	
-<div align="center">
-	<h1 class="black-text" style="padding-top:50px; padding-bottom:px"50;> Hello There! Want to know who we are?	</h1>
-	</div>
-
-		<div align="center">
-	<img style="height: 600px; width: 500px; padding-bottom: 100px"
-			 src="../../assets/img/Logo.png">
-	</div>		
-		
-	
-	
-<div class="row" id="body-border">
-   <div class="container-fluid" align="center">
-      
-		 
-	      <!-- THUMBNAIL 1 our vision
-      ------------------------------------------------------------------------------------>
-      <div class="col s12 m4 l4">
-         <div class="row">
-				<div class="card-panel white">
-            <div class="container-fluid">
-               <img class="responsive-img z-depth-3 circle"
-                    style="height: 200px; width: 200px;"
-                    src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/VQXYE2ZEHC.jpg">
-            </div>
-       			  <div class="row">
-            		<div class="container-fluid">
-               		<h4 class="blue-text text-darken-4"><strong>Our Vision</strong></h4>
-               	<div class="container">
-                  <p align="justify">
-                    Frustrated by the inability to connect with students and professors at other colleges and 
-
-universities, we envisioned a platform where any student of professor could contact each other for 
-
-research development as well as help on existing research. LabPetri is the product of four months of 
-
-hard work and we are excited to share our platform to the world.
-                  </p>
-               	</div>
-            		</div>
-         			</div>
-      		</div>	 
-				</div>
-		 </div>
-      <!-- THUMBNAIL 2 -->
-      <div class="col s12 m4 l4">
-         <div class="row">
-				<div class="card-panel white">
-						<div class="container-fluid">
-              <img class="responsive-img z-depth-3 circle"
-                    style="height: 200px; width: 200px;"
-										src="https://snap-photos.s3.amazonaws.com/img-thumbs/960w/HN6OJPDCXD.jpg"></div>
-    
-            <div class="row">
-               <div class="container-fluid">
-                  <h4 class="blue-text text-darken-4"><strong>Learn and Discover</strong></h4>
-                  <div class="container">
-                     <p align="justify">What if there was a way for students and professionals across the world to get together and create new research? Social media has linked the world together. 
-							Lab Petri is an educational social media platform that is a tool for research development. We aim to bring student researchesers, teachers, and professors together in order to spark innovation!
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
+<div class="container-fluid">
+   <div class="row">
+      <div class="container">
+         <h4 align="left">
+            <!--<img class="responsive-img z-depth-3 circle" style="height: 75px; width: 75px;"
+              src="../../assets/img/Logo.png">
+            <strong class="blue-text text-darken-4">Lab Petri</strong>-->
+         </h4>
       </div>
-		 </div>
-	
-      <!-- THUMBNAIL 3
-      ------------------------------------------------------------------------------------>
-      <div class="col s12 m4 l4">
-         <div class="row">
-				<div class="card-panel white">
-					 <div class="card-fluid">
-						   <img class="responsive-img z-depth-3 circle"
-                    style="height: 200px; width: 200px;"
-										src="../../assets/img/forum.png">
-     
-         <div class="row">
-            <div class="container-fluid">
-               <h4 class="blue-text text-darken-4"><strong>Share and Collaborate</strong></h4>
-               <div class="container">
-                  <p align="justify">
-                    LabPetri is simple. Make an account with your school email address, select your interests, complete your profile and you’re done! Now you’re ready to meet other students and professors who share your academic interests! Want to contribute to the community? Upload your own academic papers! Generate interest in your research! Whether you need help or just an extra set of eyes to go over your ideas, LabPetri is there for your research and academic needs. </p>
-						
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-		</div>
-		 </div>
-	</div>
-   <!------------------------------------------------------------------------------------->
-	</div>  
-		</div>
-		
-		
-		
-<div align="center">
-	<h1 class="black-text" style="padding-top:75px; padding-bottom: 75px";> The Team </h1>
-	</div>		
-		
-		
-	
-<div class="row" id="body-border">
-   <div class="container-fluid" align="center">
-      
-      <!-- THUMBNAIL 1 -->
-      <div class="col s12 m6 l6">
-         <div class="row" style="padding-left: 50px; padding-right:50px">
-				<div class="card-panel deep-purple lighten-5">
-            <div class="container-fluid">
-               <img class="responsive-img z-depth-3 circle"
-                    style="height: 400px; width: 400px;"
-                    src="../../assets/img/steven.jpg">
-            </div>
-       			  <div class="row">
-            		<div class="container-fluid">
-                  <h4 class="blue-text text-darken-4"><strong>Steven Chou</strong></h4>
-                  <div class="container">
-                    <p align="justify" style="padding-left: 50px; padding-right:50px">
-A graduate of UC Santa Cruz, Steven is passionate about computer science. In his free time, 
-
-Steven enjoys pursuing his other passion, art. Steven feels that art helps channel a person’s creativity.
-</p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-		 </div>
-	
-      
-      <!-- THUMBNAIL 2
-      ------------------------------------------------------------------------------------>
-        <div class="col s12 m6 l6">
-         <div class="row" style="padding-left: 50px; padding-right:50px">
-				<div class="card-panel teal lighten-5">
-            <div class="container-fluid">
-               <img class="responsive-img z-depth-3 circle"
-                    style="height: 400px; width: 400px;"
-                    src="../../assets/img/Kevin.jpg">
-            </div>
-       			  <div class="row">
-            		<div class="container-fluid">
-               <h4 class="blue-text text-darken-4"><strong>Kevin Shum</strong></h4>
-               <div class="container">
-                  <p align="justify">
-                     Hailing from Fremont, Kevin loves the outdoors. Whether it is hiking at one of the many state 
-
-parks surrounding the San Francisco Bay, or camping in the Santa Cruz Mountains, Kevin can’t imagine 
-
-calling any other place home. Graduating with a B.S. in Business Administration, Kevin was brought on 
-
-board to oversee the financial side of LabPetri. When he isn’t crunching numbers or crafting sales 
-
-pitches, Kevin can be found online playing League of Legends or hiking with his dog, Jack. 
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-					</div>
-		 </div>
-      
-      <!-- THUMBNAIL 3
-      ------------------------------------------------------------------------------------>
-    <div class="col s12 m6 l6">
-      <div class="row" style="padding-left: 50px; padding-right:50px">
-				<div class="card-panel white">
-            <div class="container-fluid">
-               <img class="responsive-img z-depth-3 circle"
-                    style="height: 400px; width: 400px;"
-                    src="../../assets/img/brian.jpg">
-            </div>
-       			  <div class="row">
-            		<div class="container-fluid">
-               <h4 class="blue-text text-darken-4"><strong>Brian Nguyen</strong></h4>
-               <div class="container">
-                 <p align="justify" style="padding-left: 50px; padding-right:50px">
-                     Collaboration can help solve even the most strenuous problems.
-                     Lab Petri encourages teamwork and aims to have everyone work together.
-                     Start by inviting others to support your research or assisting
-                     ongoing ones and strive to make a difference.
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-			</div>
-		 </div>
-   <!------------------------------------------------------------------------------------->
-		 
-      <!-- THUMBNAIL 4
-      ------------------------------------------------------------------------------------>
-    <div class="col s12 m6 l6">
-        <div class="row" style="padding-left: 50px; padding-right:50px">
-				<div class="card-panel blue lighten-5">
-            <div class="container-fluid">
-               <img class="responsive-img z-depth-3 circle"
-                    style="height: 400px; width: 400px;"
-                    src="../../assets/img/nghia.jpg">
-            </div>
-       			  <div class="row">
-            		<div class="container-fluid">
-               <h4 class="blue-text text-darken-4"><strong>Nghia Nguyen</strong></h4>
-               <div class="container">
-               <p align="justify">
-                     As a biochemistry major graduate. Nghia knows the importance of gaining invaluable laboratory experience prior to entering industry. Even though he has obtained over 2 years of research experience at his institution he understands that research do not come readily and easily. He hope, by participating with the inception and development of LabPetri, he can help fellow students obtain the necessary experience, preparing them for industry, as well as facilitate and incubate new ideas and innovations.
-                  </p>
-               </div>
-            </div>
-         </div>
-      </div>
-   <!------------------------------------------------------------------------------------->
    </div>
 </div>
-	</div>
-	</div>
+
+<div class="container">
+   <div class="row">
+      
+      <div class="col s12 m12 l12">
+         <div class="card z-depth-1 yellow darken-2">
+            <div class="card" style="margin: 5px 5px;">
+               <div class="card-content">
+
+                  <h5 class="blue-text text-darken-4">
+                     <strong>Mission Statement:</strong>
+                  </h5>
+                  <div class="container-fluid">
+
+                     Lab Petri's mission is to create opportunities for professors and students to collaborate on their research.
+                     We set out to create a platform that could connect students to projects that they are passionate about and help
+                     research institutions recruit these same passionate individuals.
+                     <br> <br>
+                     We hope to influence the way that research in academia is done in such a way that will accelerate our users educational
+                     and professonal goals. We want to provide students with a way to find undergraduate research opportunities so that they
+                     become better doctors, scientists, and engineers in the future. 
+
+                 </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="col s12 m12 l12">
+         <div class="card z-depth-1 yellow darken-2">
+            <div class="card" style="margin: 5px 5px;">
+               <div class="card-content">
+                  <h5 class="blue-text text-darken-4">
+                     <strong>For Research:</strong>
+                  </h5>
+                  <div class="container-fluid">
+                     Lab Petri aims to improve how research is conducted in academia by making it more accessible for students and allowing for
+                     a more collaborative environment. Laboratories at Universities can share their research interdepartmentally or even between
+                     individual Unversities so as to help researchers with their own projects and inspire new research. Lab Petri facilitates the
+                     sharing of ideas and discoveries between users. We hope to change the way research is conducted by introducing a platform on
+                     which students and professors can collaborate and collectively advance their research.
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="col s12 m12 l12">
+         <div class="card z-depth-1 yellow darken-2">
+            <div class="card" style="margin: 5px 5px;">
+               <div class="card-content">
+                  <h5 class="blue-text text-darken-4">
+                     <strong>For Students:</strong>
+                  </h5>
+                  <div class="container-fluid">
+                     Research is a hands-on experience where the potential for the development of problem solving skills is limitless.
+                     Students need more exposure to research to learn how to solve real problems in the world. Graduate programs are
+                     extremely competitive and often require students to have prior research experience during their undergraduate careers.
+                     Finding a suitable research project from a student perspective may be daunting and, in order to get the most out of one's project,
+                     it is important to find one that suits you and that you have deep interest in. Lab Petri can help Students find resaerch projects
+                     that interest them and connect with professors or other points of contact so that they can get involved.
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="col s12 m12 l12">
+         <div class="card z-depth-1 yellow darken-2">
+            <div class="card" style="margin: 5px 5px;">
+               <div class="card-content">
+                  <h5 class="blue-text text-darken-4">
+                     <strong>For Professors:</strong>
+                  </h5>      
+                  <div class="container-fluid">
+                     Professors and research institutions, more often than not, have no platform on which they can share their research with other labs
+                     (whether they be within their universities or across the country) or find lab assistants that may be best suited for their projects.
+                     Conferences and email correspondence are some of the only ways that universities and other research institutions can share and potentially
+                     collaborate to help advance their research. Lab Petri aims to bridge gaps by being a medium through which students, professors, and
+                     research institutions can communicate with one another in a centralized manner. 
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="container-fluid">
+      
+      <div class="row" align="center">
+         <h5 class="blue-text text-darken-4"><strong>Board of Directors</strong></h5>
+      </div>
+      
+      <div class="row">
+         
+         <div class="col s12 m4 l4">
+            <div class="card z-depth-1 hoverable blue darken-1">
+               <div class="card" style="margin: 5px 5px;">
+                  <div class="card-content">
+                     <div align="center">              
+                        <img class="responsive-img z-depth-3 circle" style="height: 200px; width: 200px;"
+                             src="../../assets/img/steven.jpg"
+                             id="profile-image">
+                     </div>
+                     <h5 class="blue-text text-darken-4" align="center">
+                        <strong>Steven Chou</strong>
+                        <br>
+                        <small><small>CTO - Co-Foudner - Lead Engineer</small></small>
+                     </h5>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col s12 m4 l4">
+            <div class="card z-depth-1 hoverable blue darken-1">
+               <div class="card" style="margin: 5px 5px;">
+                  <div class="card-content">                             
+                     <div align="center">
+                        <img class="responsive-img z-depth-3 circle" style="height: 200px; width: 200px;"
+                             src="../../assets/img/nghia.jpg"
+                             id="profile-image">
+                     </div>
+                     <h5 class="blue-text text-darken-4" align="center">
+                        <strong>Nghia Nguyen</strong>
+                        <br>
+                        <small><small>CEO - Co-Foudner - Chairman</small></small>
+                     </h5>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col s12 m4 l4">
+            <div class="card z-depth-1 hoverable blue darken-1">
+               <div class="card" style="margin: 5px 5px;">
+                  <div class="card-content">
+                     <div align="center">
+                        <img class="responsive-img z-depth-3 circle" style="height: 200px; width: 200px;"
+                             src="../../assets/img/Kevin.jpg"
+                             id="profile-image">
+                     </div>
+                     <h5 class="blue-text text-darken-4" align="center">
+                        <strong>Kevin Shum</strong>
+                        <br>
+                        <small><small>CFO - Co-Foudner - Finance Director</small></small>
+                     </h5>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="col s12 m4 l4">
+            <div class="card z-depth-1 hoverable blue darken-1">
+               <div class="card" style="margin: 5px 5px;">
+                  <div class="card-content">
+                     <div align="center">
+                        <img class="responsive-img z-depth-3 circle" style="height: 200px; width: 200px;"
+                             src="../../assets/img/Alok.jpg"
+                             id="profile-image">
+                     </div>
+                     <h5 class="blue-text text-darken-4" align="center">
+                        <strong>Alok Bhatt</strong>
+                        <br>
+                        <small><small>CMO - Technical Writer</small></small>
+                     </h5>
+                  </div>
+               </div>
+            </div>
+         </div>
+        
+         <div class="col s12 m4 l4">
+            <div class="card z-depth-1 hoverable blue darken-1">
+               <div class="card" style="margin: 5px 5px;">
+                  <div class="card-content">
+                     <div align="center">
+                        <img class="responsive-img z-depth-3 circle" style="height: 200px; width: 200px;"
+                             src="../../assets/img/brian.jpg"
+                             id="profile-image">
+                     </div>
+                     <h5 class="blue-text text-darken-4" align="center">
+                        <strong>Brian Nguyen</strong>
+                        <br>
+                        <small><small>CIO - Software Engineer</small></small>
+                     </h5>
+                  </div>
+               </div>
+            </div>
+        </div>
+         
+      </div>
+   </div>
+</div>
+
 
 <!-- FOOTER
 ------------------------------------------------------------------------------------------->
 <div class="row blue darken-3 z-depth-1" id="footer-1">
    <div class="container-fluid" id="footer-border">
-
       <!-- FOOTER 1
       ---------------------------------------------------------------------------------->
-      <div class="col s12 m6">
-         <div class="container-fluid">
-            <h5 class="grey-text text-lighten-4 text-border"><strong>Help Lab Petri Grow!</strong></h5>
-            <h5>
-							<p class="white-text footer-body" align="justify">
-               <!-- LabPetri is a start up based in Fremont, California.-->
-               Please use our Amazon affiliate link! Everytime you buy something off of Amazon.com we get a little kickback that will really help us out with server cost and food for our interns!
-               <!--
-               Our mission is simple: connect the world's professionals to make them more productive and successful.
-               When you join LinkedIn, you get access to people, jobs, news, updates, and insights that help you be great at what you do.
-               -->
-            </p>	
-					 </h5>
-         </div>
-      </div>
-
       <!-- FOOTER 2
       ---------------------------------------------------------------------------------->
-      <div class="col s12 m3">
+      <div class="col s12 m6 l6">
          <div class="container-fluid" >
-            <h5 class="grey-text text-lighten-4 text-border"><strong>Contact</strong></h5>
+            <h5 class="grey-text text-lighten-4 text-border"><strong>Resources</strong></h5>
             <ul>
-							
-               <li><a class="white-text" href="#!">Drop us a line!</a></li>
-               <li><a class="white-text" href="#!">Phone: (812) 610-1001</a></li>
-               <li><a class="white-text" href="#!">Email: Labpetri.com@gmail.com</a></li>
-               <li><a class="white-text" href="#!"></a></li>
-               <li><a class="white-text" href="#!"></a></li>
+               <li><a class="white-text" href="#!">News</a></li>
+               <li><a class="white-text" href="#!">Career</a></li>
+               <li><a class="white-text" href="#!">Policy</a></li>
+               <li><a class="white-text" href="#!">FAQs</a></li>
             </ul>
          </div>
       </div>
-
       <!-- FOOTER 3
       ---------------------------------------------------------------------------------->
-      <div class="col s12 m3">
+      <div class="col s12 m6 l6">
          <div class="container-fluid" >
             <h5 class="grey-text text-lighten-4 text-border"><strong>Connect with Us</strong></h5>
             <ul>
-               <li><a class="white-text" href="http://www.facebook.com/labpetri"><img src="../../assets/icons/fb.png"></a></li>
-              
+               <li><a class="white-text" href="http://www.facebook.com/labpetri">Facebook</a></li>
+               <li><a class="white-text" href="#!">LinkedIn</a></li>
+               <li><a class="white-text" href="#!">Instagram</a></li>
+               <li><a class="white-text" href="#!">Twitter</a></li>
+               <li><a class="white-text" href="#!">Google+</a></li>
                <!--<li><a class="white-text" href="mailto:grow@labpetri.com">Email Us</a></li>-->
             </ul>
          </div>
       </div>
    </div>
 </div>
-<!--	
-A hub where creativity and innovation grows!
-
-	Where Ideas Are Made, Improved, and Grow!
-	
-	Connections to academic experts can be made to 
-	
-
-Intro
-
-What if there was a way students and professionals across the world to get together and create 
-
-new research? Social media has linked the world together. Here at LabPetri we are an educational social 
-
-media platform that is a tool for research development. We aim to bring together student researchers, 
-
-teachers and professors in order to create more research and opportunities to benefit the next 
-
-Founders Introduction
-
-Frustrated by the inability to connect with students and professors at other colleges and 
-
-universities, we envisioned a platform where any student of professor could contact each other for 
-
-research development as well as help on existing research. LabPetri is the product of four months of 
-
-hard work and we are excited to share our platform to the world.
-
-How does LabPetri work?
-
-LabPetri is simple. Make an account with your school email address, select your interests, 
-
-complete your profile and you’re done! Now you’re ready to meet other students and professors who 
-
-share your academic interests! Want to contribute to the community? Upload your own academic 
-
-papers! Generate interest in your research! Whether you need help or just an extra set of eyes to go 
-
-over your ideas, LabPetri is there for your research and academic needs. 
-
-Steven Chou
-
-A graduate of UC Santa Cruz, Steven is passionate about computer science. In his free time, 
-
-Steven enjoys pursuing his other passion, art. Steven feels that art helps channel a person’s creativity 
-
-Kevin Shum
-
-Hailing from Fremont, Kevin loves the outdoors. Whether it is hiking at one of the many state 
-
-parks surrounding the San Francisco Bay, or camping in the Santa Cruz Mountains, Kevin can’t imagine 
-
-calling any other place home. Graduating with a B.S. in Business Administration, Kevin was brought on 
-
-board to oversee the financial side of LabPetri. When he isn’t crunching numbers or crafting sales 
-
-pitches, Kevin can be found online playing League of Legends or hiking with his dog, <Jack class=""></Jack>
-	
-Help Lab Petri Grow!
-	Donate button
--->
-	
-</body>
-</html>

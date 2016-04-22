@@ -49,10 +49,10 @@
          <div class="row blue-text text-darken-2">
             <h5>
                <small>
-                  <strong>Minor:&nbsp;</strong>
+                  <strong>Standing:&nbsp;</strong>
                   <span class="grey-text text-darken-3">
                      <small>
-                        <strong><?php echo $minor;?></strong>
+                        <strong><?php echo $education;?></strong>
                      </small>
                   </span>
                </small>

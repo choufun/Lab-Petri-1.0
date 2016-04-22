@@ -28,7 +28,7 @@
 
 <!-- BODY
 --------------------------------------------------------------------------------------------->
-<body class="avoid-fout page-blue">
+<body class="avoid-fout page-blue grey lighten-3">
    <div class="navbar-fixed">
 
 <!-- NAV
@@ -43,7 +43,16 @@
             ------------------------------------------------------------------------------------>
             <a id="logo-container" href="/" class="brand-logo">
                <img class="logo" align="left" src="assets/img/Logo.png" alt="logo" height="50" width="50">
-               <strong>Lab Petri</strong>
+         <?php if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
+               { ?>
+                  <strong>Petri Dish</strong>
+         <?php }
+               else
+               { ?>
+                  <strong>Lab Petri</strong>
+               <?php
+               } ?>
+               
             </a>
 
             <!-- DESKTOP : LAPTOP
@@ -65,6 +74,12 @@
                            <a href="connections">Connections</a>
                         </li>
                         <li class="tab">
+                           <a href="#comingsoon">News</a>
+                        </li>
+                        <li class="tab">
+                           <a href="#comingsoon">Support Us</a>
+                        </li>
+                        <li class="tab">
                            <a href="login/logout">Logout</a>
                         </li>
                      ';
@@ -77,10 +92,16 @@
                      echo
                      '
                         <li class="tab">
+                           <a href="company">About Us</a>
+                        </li>
+                        <li class="tab">
+                           <a href="#comingsoon">News</a>
+                        </li>
+                        <li class="tab">
                            <a href="forum">Petri Dish</a>
                         </li>
                         <li class="tab">
-                           <a href="company">Company</a>
+                           <a href="#comingsoon">Support Us</a>
                         </li>
                         <li class="tab">
                            <a href="login">Login</a>
@@ -109,6 +130,12 @@
                            <a href="connections">Connections</a>
                         </li>
                         <li class="tab">
+                           <a href="#comingsoon">News</a>
+                        </li>
+                        <li class="tab">
+                           <a href="#comingsoon">Support Us</a>
+                        </li>
+                        <li class="tab">
                            <a href="login/logout">Logout</a>
                         </li>
                      ';
@@ -121,10 +148,16 @@
                      echo
                      '
                         <li class="tab">
+                           <a href="company">About Us</a>
+                        </li>
+                        <li class="tab">
+                           <a href="#comingsoon">News</a>
+                        </li>
+                        <li class="tab">
                            <a href="forum">Petri Dish</a>
                         </li>
                         <li class="tab">
-                           <a href="company">Company</a>
+                           <a href="#comingsoon">Support Us</a>
                         </li>
                         <li class="tab">
                            <a href="login">Login</a>

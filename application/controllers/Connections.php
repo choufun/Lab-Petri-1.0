@@ -1,35 +1,114 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-/* PEER CONTROLLER
+/* CONNECTIONS CONTROLLER
 ************************************************************************************/
 class Connections extends CI_Controller
 {
+   private $undergraduates = array();
+   private $graduates = array();
+   private $professors = array();
+   
    function __construct()
    {
       parent:: __construct();
       $this->load->model('connections_model');
+      $this->load->helper(array('form', 'url'));
+      $this->load->library('form_validation'); 
       $this->connections_model->load_users();
+      $this->load->library('binarysearch');
    }
 
+/* INDEX
+************************************************************************************/
    public function index()
    {
-      $data = array(
-         'users' => $this->connections_model->get_users(),
-         'directory' => $this->load_directory(),
-      );
-      $this->load->view('templates/header');
-      $this->load->view('connections', $data);
-      $this->load->view('templates/footer');
+      $this->form_validation->set_rules('search', 'Search', 'callback_search_check');
+      
+      if ($this->form_validation->run() === FALSE)
+      {
+         $this->default_search();
+         
+         $data = array(
+            'undergraduates' => $this->undergraduates,
+            'graduates' => $this->graduates,
+            'professors' => $this->professors,
+         );
+         
+         $this->load->view('templates/header');
+         $this->load->view('connections', $data);
+         $this->load->view('templates/footer'); 
+      }
+      else
+      {
+         $results = $this->new_search();
+         // CALL SEARCH ENGINE
+         
+         $this->session->set_flashdata('search', array('HI' => 'BYE', 'This' => 'Works'));
+         //$this->session->set_flashdata('search', $results);
+         redirect('connections');
+      }
    }
    
-   public function load_directory()
+/* SEARCH
+************************************************************************************/
+   public function search_check($search)
    {
-      $path = "/var/www/html/users";
-      $directory = scandir($path);
+      if ($search == NULL || !(isset($search)))
+      {
+         $this->form_validation->set_message('search_check', 'Search is empty.');
+         return FALSE;
+      }
+      else { return TRUE; }
+   }
+   
+/* DEFAULT SEARCH
+************************************************************************************/
+   public function default_search()
+   {
+      $data = array();
+      $undergraduates = "undergraduate";
+      $graduates = "graduate";
+      $professors = "professor";
       
-      if (sizeof($directory) <= 2) { return "No Users"; }
-      else { return $directory; }
+      /* SET UNDERGRADUATES
+      ******************************************************************************/
+      $u_data = $this->connections_model->get_registered_universities($undergraduates);
+      foreach($u_data as $university)
+      {
+         $data[$university->university] =
+            $this->connections_model->get_registered_users($university, $undergraduates);
+      }
+      $this->undergraduates = $data;
+      
+      /* SET GRADUATES
+      ******************************************************************************/
+      $u_data = $this->connections_model->get_registered_universities($graduates);
+      $data = array();
+      foreach($u_data as $university)
+      {
+         $data[$university->university] =
+            $this->connections_model->get_registered_users($university, $graduates);
+      }
+      $this->graduates = $data;
+      
+      /* SET PROFESSORS
+      ******************************************************************************/
+      $u_data = $this->connections_model->get_registered_universities($professors);
+      $data = array();
+      foreach($u_data as $university)
+      {
+         $data[$university->university] =
+            $this->connections_model->get_registered_users($university, $professors);
+      }
+      $this->professors = $data;
+   }
+
+/* NEW SEARCH
+************************************************************************************/
+   public function new_search()
+   {  
+      return $this;
    }
 }
 ?>

@@ -44,8 +44,7 @@ class Register_model extends CI_Model
          'user_id' => $user_id,
          'university' => $this->input->post('university'),
          'major' => $this->input->post('major'),
-         'minor' => 'N/A',
-         'certifications' => 'N/A'
+         'standing' => $this->standing(),
       );
       $this->db->insert('education', $user_education);
       
@@ -65,6 +64,13 @@ class Register_model extends CI_Model
       mkdir("/var/www/html/users/".$user_id."/research", 0777, TRUE);
       mkdir("/var/www/html/users/".$user_id."/pictures", 0777, TRUE);
       mkdir("/var/www/html/users/".$user_id."/connections", 0777, TRUE);
+   }
+   
+   private function standing()
+   {
+      if ($this->input->post('undergraduate') !== NULL) { return $this->input->post('undergraduate'); }
+      if ($this->input->post('graduate') !== NULL) { return $this->input->post('graduate'); }
+      if ($this->input->post('professor') !== NULL) { return $this->input->post('professor'); }
    }
 
 /****************************************************************************
