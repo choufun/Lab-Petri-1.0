@@ -6,14 +6,14 @@ foreach($posts as $post)
 <div class="row">
    
    <!--<div class="card z-depth-1 hoverable" style="background: rgba(30,136,229,1);"> -->
-   <div class="card z-depth-1 hoverable blue darken-1">
+   <div class="card z-depth-1 hoverable blue darken-2">
       
 <?php //if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE)) { ?>
       <a href="post?key=<?php echo $post->post_id; ?>" target="_blank">
 <?php //} ?>
       
       <div class="col s12 m12 l12">
-         <div class="card z-depth-3" style="margin: 10px 0px;">
+         <div class="card z-depth-3" style="margin: 7px -3px;">
             <div class="card-content" style="margin: 0px 5px;">
                <h5>
                   <img class="responsive-img z-depth-1"

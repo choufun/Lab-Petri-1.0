@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div align="center" class="col s12 m10 l8 offset-m1 offset-l2">
          
          <div class="card blue darken-2">
-         <div class = "card card-border" style="margin: 5px 5px;">
+         <div class = "card card-border" style="margin: 8px 8px;">
             
 <!-- HEADER LOGO
 --------------------------------------------------------------------------------------------->

@@ -13,7 +13,7 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
          <div class="row">
             <div align="center" class="row">
                <h5 class="blue-text text-darken-2">
-                  <strong>Post Board</strong>
+                  <strong>Bookmarks</strong>
                </h5>
             </div>
          </div>

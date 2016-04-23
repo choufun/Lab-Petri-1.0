@@ -7,7 +7,7 @@
    }
 </style>
 
-<div class="card z-depth-2">
+<div class="card z-depth-2" style="margin: 5px 5px;">
 
 <!-- PROFILE DISPLAY
 --------------------------------------------------------------------------------------------->

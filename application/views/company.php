@@ -109,13 +109,13 @@
    <div class="container-fluid">
       
       <div class="row" align="center">
-         <h5 class="blue-text text-darken-4"><strong>Board of Directors</strong></h5>
+         <h5 class="blue-text text-darken-4"><strong>The Crew</strong></h5>
       </div>
       
       <div class="row">
          
          <div class="col s12 m4 l4">
-            <div class="card z-depth-1 hoverable blue darken-1">
+            <div class="card z-depth-1 hoverable blue darken-2">
                <div class="card" style="margin: 5px 5px;">
                   <div class="card-content">
                      <div align="center">              
@@ -126,7 +126,7 @@
                      <h5 class="blue-text text-darken-4" align="center">
                         <strong>Steven Chou</strong>
                         <br>
-                        <small><small>CTO - Co-Foudner - Lead Engineer</small></small>
+                        <small><small>Co-Founder - CTO - Lead Engineer</small></small>
                      </h5>
                   </div>
                </div>
@@ -134,7 +134,7 @@
          </div>
 
          <div class="col s12 m4 l4">
-            <div class="card z-depth-1 hoverable blue darken-1">
+            <div class="card z-depth-1 hoverable blue darken-2">
                <div class="card" style="margin: 5px 5px;">
                   <div class="card-content">                             
                      <div align="center">
@@ -145,7 +145,7 @@
                      <h5 class="blue-text text-darken-4" align="center">
                         <strong>Nghia Nguyen</strong>
                         <br>
-                        <small><small>CEO - Co-Foudner - Chairman</small></small>
+                        <small><small>Co-Founder - CEO - Chairman</small></small>
                      </h5>
                   </div>
                </div>
@@ -153,7 +153,7 @@
          </div>
 
          <div class="col s12 m4 l4">
-            <div class="card z-depth-1 hoverable blue darken-1">
+            <div class="card z-depth-1 hoverable blue darken-2">
                <div class="card" style="margin: 5px 5px;">
                   <div class="card-content">
                      <div align="center">
@@ -164,7 +164,7 @@
                      <h5 class="blue-text text-darken-4" align="center">
                         <strong>Kevin Shum</strong>
                         <br>
-                        <small><small>CFO - Co-Foudner - Finance Director</small></small>
+                        <small><small>Co-Founder - CFO - Finance Director</small></small>
                      </h5>
                   </div>
                </div>
@@ -172,7 +172,7 @@
          </div>
 
          <div class="col s12 m4 l4">
-            <div class="card z-depth-1 hoverable blue darken-1">
+            <div class="card z-depth-1 hoverable blue darken-2">
                <div class="card" style="margin: 5px 5px;">
                   <div class="card-content">
                      <div align="center">
@@ -183,7 +183,7 @@
                      <h5 class="blue-text text-darken-4" align="center">
                         <strong>Alok Bhatt</strong>
                         <br>
-                        <small><small>CMO - Technical Writer</small></small>
+                        <small><small>CCO - Content Manager</small></small>
                      </h5>
                   </div>
                </div>
@@ -191,7 +191,7 @@
          </div>
         
          <div class="col s12 m4 l4">
-            <div class="card z-depth-1 hoverable blue darken-1">
+            <div class="card z-depth-1 hoverable blue darken-2">
                <div class="card" style="margin: 5px 5px;">
                   <div class="card-content">
                      <div align="center">
@@ -202,7 +202,7 @@
                      <h5 class="blue-text text-darken-4" align="center">
                         <strong>Brian Nguyen</strong>
                         <br>
-                        <small><small>CIO - Software Engineer</small></small>
+                        <small><small>Software Engineer</small></small>
                      </h5>
                   </div>
                </div>
