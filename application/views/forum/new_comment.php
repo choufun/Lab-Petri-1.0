@@ -21,7 +21,7 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                <i class="material-icons right">mode_edit</i>
             </button>
          </div>
-      </form>
+      <?php echo form_close(); ?>
    </div>
 </div>
 <?php

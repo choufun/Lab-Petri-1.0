@@ -24,21 +24,18 @@ class Forum extends CI_Controller
       {
          $this->form_validation->set_rules('title','title','trim|required');
          $this->form_validation->set_rules('abstract','abstract','trim|required');
+         $this->form_validation->set_rules('post_file','post_file','callback_do_upload');
       }
       
       /* NEW COMMENT FORM VALIDATIONS
       *************************************************************************/
       if ($this->input->post('new_comment') == 'new_comment')
-      {
-         $this->form_validation->set_rules('comments','comments','trim|required');
-      }
+      { $this->form_validation->set_rules('comments','comments','trim|required'); }
       
       /* NEW SUBCOMMENT FORM VALIDATIONS
       *************************************************************************/
       if ($this->input->post('new_subcomment') == 'new_subcomment')
-      {
-         $this->form_validation->set_rules('subcomments','subcomments','trim|required');
-      }
+      { $this->form_validation->set_rules('subcomments','subcomments','trim|required'); }
       
       /* RUN FORM
       *************************************************************************/
@@ -104,6 +101,44 @@ class Forum extends CI_Controller
       $this->db->set('initial_time', 'CURRENT_TIME', FALSE);
       
       $this->forum_model->insert_post($data);
+   }
+   
+   /* ADD BOOKMARK
+   ****************************************************************************/
+   public function add_bookmark()
+   {
+      $data = array(
+         'post_id' => $this->input->get('id'),
+         'user_id' => $this->session->user_id,
+      );      
+      $this->forum_model->bookmarks($data);      
+      redirect('');
+   }
+   
+   /* DO UPLOAD
+   ****************************************************************************/
+   public function do_upload()
+   {
+      $config['upload_path'] = './users/'.$this->session->user_id.'/research/';
+      $config['allowed_types'] = 'pdf';
+      $config['max_size']	= '1000';
+      $config['max_width']  = '1024';
+      $config['max_height']  = '768';
+
+      //$this->load->helper('file');
+      $this->load->library('upload', $config);
+
+      if ( !$this->upload->do_upload('post_file'))
+      {
+         $error = array('error' => $this->upload->display_errors());
+         return FALSE;
+      }
+      else
+      {
+         $data = array('upload_data' => $this->upload->data());
+         $this->forum_model->insert_research_file($this->upload->data('file_name'));
+         return TRUE;
+      }
    }
 }
 ?>

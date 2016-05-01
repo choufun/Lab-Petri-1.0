@@ -28,7 +28,8 @@
 
 <!-- BODY
 --------------------------------------------------------------------------------------------->
-<body class="avoid-fout page-blue grey lighten-3">
+<body class="avoid-fout page-blue white">
+<!--<body class="avoid-fout page-blue grey lighten-3">-->
    <div class="navbar-fixed">
 
 <!-- NAV
@@ -73,12 +74,16 @@
                         <li class="tab">
                            <a href="connections">Connections</a>
                         </li>
+                        <!--
                         <li class="tab">
                            <a href="#comingsoon">News</a>
                         </li>
+                        -->
+                        <!--
                         <li class="tab">
                            <a href="#comingsoon">Support Us</a>
                         </li>
+                        -->
                         <li class="tab">
                            <a href="login/logout">Logout</a>
                         </li>
@@ -94,15 +99,19 @@
                         <li class="tab">
                            <a href="company">About Us</a>
                         </li>
+                        <!--
                         <li class="tab">
                            <a href="#comingsoon">News</a>
                         </li>
+                        -->
                         <li class="tab">
                            <a href="forum">Petri Dish</a>
                         </li>
+                        <!--
                         <li class="tab">
                            <a href="#comingsoon">Support Us</a>
                         </li>
+                        -->
                         <li class="tab">
                            <a href="login">Login</a>
                         </li>
@@ -129,12 +138,16 @@
                         <li class="tab">
                            <a href="connections">Connections</a>
                         </li>
+                        <!--
                         <li class="tab">
                            <a href="#comingsoon">News</a>
                         </li>
+                        -->
+                        <!--
                         <li class="tab">
                            <a href="#comingsoon">Support Us</a>
                         </li>
+                        -->
                         <li class="tab">
                            <a href="login/logout">Logout</a>
                         </li>
@@ -150,15 +163,19 @@
                         <li class="tab">
                            <a href="company">About Us</a>
                         </li>
+                        <!--
                         <li class="tab">
                            <a href="#comingsoon">News</a>
                         </li>
+                        -->
                         <li class="tab">
                            <a href="forum">Petri Dish</a>
                         </li>
+                        <!--
                         <li class="tab">
                            <a href="#comingsoon">Support Us</a>
                         </li>
+                        -->
                         <li class="tab">
                            <a href="login">Login</a>
                         </li>

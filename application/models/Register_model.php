@@ -64,6 +64,7 @@ class Register_model extends CI_Model
       mkdir("/var/www/html/users/".$user_id."/research", 0777, TRUE);
       mkdir("/var/www/html/users/".$user_id."/pictures", 0777, TRUE);
       mkdir("/var/www/html/users/".$user_id."/connections", 0777, TRUE);
+      mkdir("/var/www/html/users/".$user_id."/attachments", 0777, TRUE);
    }
    
    private function standing()

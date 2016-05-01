@@ -14,10 +14,7 @@
    <div id="education_show">
       <div align="center" class="row">
          <h5>
-            <strong>Education</strong>&nbsp;
-            <a class="reg_log" onclick="return show('education_edit','education_show');">
-               <span><i class="grey-text small material-icons icon-inner-border">edit</i></span>
-            </a>
+            <strong>Education</strong>
          </h5>
       </div>
 

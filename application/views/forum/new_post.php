@@ -25,7 +25,7 @@
                   
                   <div class="input-field col s12">
                      <textarea name="abstract" type="text" class="materialize-textarea"></textarea>
-                     <label class="blue-text" for="abstract">Abstract:</label>
+                     <label class="blue-text" for="abstract">Description:</label>
                   </div>
                   
                   <div class="input-field col s8">
@@ -41,18 +41,30 @@
                   </div>
                   
                   <!--
-                  <div class="input-field file-field col s12 l9">
-                     <div class="file-field input-field">
-                        <div class="btn">
-                           <span>File</span>
-                           <input type="file" name="research_paper" multiple>
-                        </div>
-                        <div class="file-path-wrapper">
-                           <input name="filepaths" class="validate" type="text">
+                  <div class="container-fluid">
+                     <div class="col s8">
+                        <div class="row">
+                           <?php echo form_open_multipart('forum/do_upload');?>
+                              <input type="file" name="userfile" />
+                              <input type="submit" value="Upload" />                          
+                           <?php echo form_close(); ?>
                         </div>
                      </div>
                   </div>
                   -->
+
+                  
+                  <div class="file-field input-field col s8">
+                     <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="post_file">
+                     </div>
+                     
+                     <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                     </div>
+                  </div>
+                  
                   <input type="hidden" name="new_post" value="new_post">
                   
                   <div class="col s12 right-align">

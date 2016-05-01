@@ -14,12 +14,16 @@ class Profile extends CI_Controller
    function __construct()
    {
       parent:: __construct();
+      
       $this->load->model('profile_model');
       $this->profile_model->load_major();
       $this->profile_model->load_university();
       $this->profile_model->load_phone_number();
       $this->profile_model->load_standing();
-      $this->profile_model->load_linkedin_account();
+      $this->profile_model->load_linkedin_account();      
+      $this->profile_model->load_posts();
+      $this->profile_model->load_bookmarks();
+      
       $this->load->helper(array('form', 'url'));
       //$this->load->helper('simple_html_dom');
    }
@@ -38,6 +42,8 @@ class Profile extends CI_Controller
          'phone' => $this->profile_model->get_phone_number(),
          'linkedin' => $this->profile_model->get_linkedin_account(),
          'education' => $this->profile_model->get_standing(),
+         'posts' => $this->profile_model->get_posts(),
+         'bookmarks' => $this->profile_model->get_bookmarks(),
          'error' => $this->error
       );
       
@@ -103,12 +109,15 @@ class Profile extends CI_Controller
                   $this->filename = $file;
                   $this->profile_model->upload_filename($file);
                }
-
+               
                if ($this->profile_model->is_userfile($this->filename))
                {
                   $result.='
                      <li class="col s12 m6 l4">
-                        <div id="'.$this->filename.'" class="card card-border z-depth-2">
+                        <div class="card z-depth-1 hoverable blue darken-2">
+                        <div id="'.$this->filename.'"
+                             class="card card-border z-depth-3"
+                             style="margin: 5px 5px;">
                            <div class="card-content">
                               <h5 class="card-title grey-text text-darken-2">
                                  <strong>
@@ -131,6 +140,7 @@ class Profile extends CI_Controller
                                  </div>
                               </embed>
                            </div>
+                        </div>
                         </div>
                      </li>
                   ';

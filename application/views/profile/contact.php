@@ -15,10 +15,7 @@
       <div align="center" class="row">
          <div class="container-fluid">
             <h5>
-               <strong>Contact</strong>&nbsp;
-               <a class="reg_log" onclick="return show('contact_edit','contact_show');">
-                  <span><i class="grey-text small material-icons icon-inner-border">edit</i></span>
-               </a>
+               <strong>Contact</strong>
             </h5>
          </div>
       </div>

@@ -47,6 +47,10 @@
 </div>
 -->
 
+<?php 
+if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
+{
+?>
 <div class="container-fluid grey lighten-4">
    
    <!-- DEBUGGING PURPOSES
@@ -56,7 +60,7 @@
    
    <div class="container col s12 m12 l12">
       <div class="card z-depth-1 blue darken-2">
-         <div class="card z-depth-2" style="margin: 7px 7px;">
+         <div class="card z-depth-2" style="margin: 5px 5px;">
 
             <!-- PROFILE HEADER
             ----------------------------------------------------------------------------------->
@@ -123,6 +127,13 @@
       </div>
    </div>
 </div>
+<?php
+}
+else
+{
+   redirect('');
+}
+?>
 
 <!-- JAVASCRIPT
 -------------------------------------------------------------------------------------------->

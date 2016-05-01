@@ -29,20 +29,16 @@
 */ 
 </script>
 
+<?php 
+if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
+{
+?>
 <div class="container-fluid grey lighten-4">
 
 <!-- SEARCH BAR
 -------------------------------------------------------------------------------------->
-   <div class="row">
-      <div class="container">
-      <?php echo form_open('Connections');?>
-         <div class="input-field">
-            <input name="search" type="text" class="validate blue-text text-darken-2" placeholder="COMING SOON">
-            <label class="green-text active" for="search">Search</label>
-         </div>   
-      <?php echo form_close();?>
-      </div>
-   </div>
+   <div><?php //include 'application/views/connections/search/bar.php'; ?></div>
+   
    <div align="center" class="row">
       <span class="red-text">
          <?php echo validation_errors(); ?>
@@ -52,29 +48,27 @@
 <!-- SEARCH RESULTS
 -------------------------------------------------------------------------------------->   
    <div class="row">
-      <?php //echo $this->session->flashdata('searches'); ?>
-      <?php print_r($this->session->flashdata('searches')); ?>
+<?php //echo $this->session->flashdata('searches'); ?>
+<?php print_r($this->session->flashdata('searches')); ?>
       
 <!-- IF FLASHDATA IS SET THEN SEARCH NEW ELSE SET DEFAULT SEARCH
 -------------------------------------------------------------------------------------->
 <?php
    if ($this->session->flashdata('search') !== NULL)
    { ?>  
-      <div>
-         <?php include 'application/views/connections/search/new.php'; ?>
-      </div>
+      <div><?php //include 'application/views/connections/search/new.php'; ?></div>
 <?php
    }
-   else
-   { ?>
-      <div>
-         <?php include 'application/views/connections/search/default.php'; ?>
-      </div>
+   else 
+   { ?> <div><?php include 'application/views/connections/search/default.php'; ?></div>
 <?php
    } ?>
-   </div> 
-   
+   </div>   
 </div>
+<?php
+}
+else { redirect(''); }
+?>
 
 <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

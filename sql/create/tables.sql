@@ -45,8 +45,9 @@ CREATE TABLE IF NOT EXISTS contact (
 /* RESEARCH FILES
 ***********************************************************************/
 CREATE TABLE IF NOT EXISTS research_files (
-   user_id int(11) NOT NULL,
-   filename varchar(255) NOT NULL
+   post_id INT(11),
+   user_id INT(11) NOT NULL,
+   filename VARCHAR(255) NOT NULL
 ) ENGINE = MYISAM;
 
 /* LOGIN, REGISTRATION  ***********************************************/
@@ -101,4 +102,30 @@ CREATE TABLE IF NOT EXISTS comments (
    day INT(2),
    yr  INT(4),
    initial_time VARCHAR(8)
+) ENGINE = MYISAM;
+
+/* BOOKMARKS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS bookmarks (
+   bookmark_id INT(11) NOT NULL AUTO_INCREMENT,
+   user_id INT(11) NOT NULL,
+   post_id INT(11) NOT NULL,
+   PRIMARY KEY(bookmark_id)
+) ENGINE = MYISAM;
+
+/* FRIEND LISTS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS post_views (
+   post_id INT(11) NOT NULL,
+   views INT(11) NOT NULL,
+   ip_address VARCHAR(255),
+   PRIMARY KEY(post_id)
+) ENGINE = MYISAM;
+
+/* FRIEND LISTS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS friends (
+   user_id INT(11) NOT NULL,
+   friend_id INT(11) NOT NULL,
+   PRIMARY KEY(user_id)
 ) ENGINE = MYISAM;

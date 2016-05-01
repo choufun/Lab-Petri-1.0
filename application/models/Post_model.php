@@ -11,6 +11,15 @@ class Post_model extends CI_Model
       parent:: __construct();
    }
    
+/* INCREMENT POST VIEWS
+****************************************************************************/
+   public function increment_post_views()
+   {
+      $this->db->set('views', '`views`+1', FALSE);
+      $this->db->where('post_id', $this->input->get('key'));
+      $this->db->update('post_views');
+   }
+   
 /* GET POST
 ************************************************************************************/
    public function get_post($post_id)

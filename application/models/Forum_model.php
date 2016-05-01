@@ -11,23 +11,49 @@ class Forum_model extends CI_Model
       $this->load->library('quicksort');
    }
    
+   /* INSERT BOOKMARKS
+   ****************************************************************************/
+   public function bookmarks($data)
+   {
+      $this->db->insert('bookmarks', $data);
+   }
+   
    /* INSERT POST
    ****************************************************************************/
    public function insert_post($data)
    {
+      $post_id;
+      
       /* CREATES EMPTY POST
       *************************************************************************/
       $this->db->insert('posts',$data);
       
-      /* UPDATES POST : POST_ID
+      /* UPDATES POST : POST_ID : UPDATES RESEARCH FILES : POST_ID
+         INCREMENT POST VIEW
       *************************************************************************/
       $this->db->where('title', $data['title']);
       $query = $this->db->get('posts');
+      
+      $post_id = $query->row('post_id');
+      
       $update = array(
         'comment_id' => $query->row('post_id').".".$query->row('user_id')
       );
       $this->db->where('post_id', $query->row('post_id'));
       $this->db->update('posts', $update);
+      
+      $update = array (
+         'post_id' => $post_id,
+      );
+      $this->db->where('post_id');
+      $this->db->where('user_id', $data['user_id']);
+      $this->db->update('research_files', $update);
+      
+      $post_view_data = array(
+         'post_id' => $post_id,
+         'views' => 0,
+      );
+      $this->db->insert('post_views', $post_view_data);
       
       /* CREATES FIRST EMPTY COMMENT
       *************************************************************************/
@@ -114,7 +140,8 @@ class Forum_model extends CI_Model
    {
       $this->db->where('comment_id', $comment_id);
       $query = $this->db->get('comments');
-      return count($query->result());
+      if ($query->row('comment') == NULL) { return 0; }
+      else { return count($query->result()); }
    }
    
    /* GET LAST SUBCOMMENT ORDER_ID
@@ -250,6 +277,40 @@ class Forum_model extends CI_Model
       if (intval(substr($order_id, -((count($order_id)-1)-($i+1)))) == 0) { $type = "comment"; }
       else { $type = "subcomment"; }
       return $type;
+   }
+   
+   /* GET NUMBER OF POST VIEWS
+   ****************************************************************************/
+   public function get_num_views($post_id)
+   {
+      $this->db->where('post_id', $post_id);
+      $query = $this->db->get('post_views');
+      return $query->row('views');
+   }
+   
+   /* INCREMENT POST VIEWS
+   ****************************************************************************/
+   public function increment_post_views()
+   {
+      $post_id = $this->input->get('id');
+      $this->db->where('post_id', $post_id);
+      $query = $this->db->get('post_views');
+      
+      $data = array('views' => ($query->row('views')+1));
+      $this->db->where('post_id', $post_id);
+      $this->db->update('post_views', $data);
+   }
+   
+   /* INSERT RESEARCH FILE
+   ****************************************************************************/
+   public function insert_research_file($filename, $post_id)
+   {
+      $data = array(
+         'post_id' => $post_id,
+         'user_id' => $this->session->user_id,
+         'filename' => $filename,
+      );      
+      $this->db->insert('research_files', $data);
    }
 }
 ?>

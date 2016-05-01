@@ -35,24 +35,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div align="center" class="col s12 m10 l8 offset-m1 offset-l2">
          
          <div class="card blue darken-2">
-         <div class = "card card-border" style="margin: 8px 8px;">
-            
-<!-- HEADER LOGO
---------------------------------------------------------------------------------------------->
-            <div id="header" class ="card-content blue white-text">
-               <img class="logo2 white z-depth-1" src="assets/img/Logo.png">
+            <div class = "card card-border" style="margin: 6px 6px;">
+
+   <!-- HEADER LOGO
+   --------------------------------------------------------------------------------------------->
+               <div id="header" class ="card-content blue white-text">
+                  <img class="logo2 white z-depth-1" src="assets/img/Logo.png">
+               </div>
+               
+               <div class="divider"></div><div class="divider"></div>
+               <div class="divider"></div><div class="divider"></div>        
+
+   <!-- LOGIN
+   --------------------------------------------------------------------------------------------->
+               <?php include 'application/views/login/login_form.php';?>
+
+   <!-- REGISTER
+   --------------------------------------------------------------------------------------------->
+               <?php include 'application/views/login/registration_form.php';?>
             </div>
-            <div class="divider"></div><div class="divider"></div>
-            <div class="divider"></div><div class="divider"></div>        
-
-<!-- LOGIN
---------------------------------------------------------------------------------------------->
-            <?php include 'application/views/login/login_form.php';?>
-
-<!-- REGISTER
---------------------------------------------------------------------------------------------->
-            <?php include 'application/views/login/registration_form.php';?>
-         </div>
          </div>
          
       </div>

@@ -11,10 +11,52 @@ class Profile_model extends CI_Model
    private $standing;
    private $phone_number;
    private $linkedin_account;
+   private $posts;
+   private $bookmarks;
 
 /* CONSTRUCTOR
 ************************************************************************************/
    public function __construct() { parent:: __construct(); }
+   
+/* GET BOOKMARK TITLE
+************************************************************************************/
+   public function get_bookmark_title($post_id)
+   {
+      $this->db->where('post_id', $post_id);
+      $query = $this->db->get('posts');
+      return $query->row('title');
+   }
+   
+/* LOAD BOOKMARKS
+************************************************************************************/
+   public function load_bookmarks()
+   {
+      $this->db->where('user_id', $this->session->user_id);
+      $query = $this->db->get('bookmarks');
+      
+      if ($query->num_rows() > 0) { $this->bookmarks = $query->result(); }
+      else { $this->bookmarks = NULL; }
+   }
+   
+/* GET BOOKMARKS
+************************************************************************************/
+   public function get_bookmarks() { return $this->bookmarks; }
+   
+   
+/* LOAD POSTS
+************************************************************************************/
+   public function load_posts()
+   {
+      $this->db->where('user_id', $this->session->user_id);
+      $query = $this->db->get('posts');
+      
+      if ($query->num_rows() > 0) { $this->posts = $query->result(); }
+      else { $this->posts = NULL; }
+   }
+   
+/* GET POSTS
+************************************************************************************/
+   public function get_posts() { return $this->posts; }
 
 /* USER PHONE NUMBER
 ************************************************************************************/

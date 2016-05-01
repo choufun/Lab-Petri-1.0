@@ -52,7 +52,7 @@ class Login extends CI_Controller
             ) { $required = TRUE; }
          
          $this->form_validation->set_rules('education', 'Education', $required);
-         $this->form_validation->set_rules('firstnam`e','First name','trim|required');
+         $this->form_validation->set_rules('firstname','First name','trim|required');
          $this->form_validation->set_rules('lastname','Last name','trim|required');
          $this->form_validation->set_rules('email','Email','trim|valid_email|callback_verify_email|required');
          $this->form_validation->set_rules('password','password','required|min_length[8]');

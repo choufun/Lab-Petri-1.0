@@ -1,7 +1,4 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<?php $post = $this->post_model->get_post($_GET['key']); ?>
-<?php $comments = $this->post_model->get_comments($post->comment_id); ?>
-
 <link href="assets/css/profile.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 <style>
@@ -15,7 +12,12 @@
     }
 */
 </style>
-
+<?php
+if ($this->input->get('key') !== NULL)
+{
+?>
+<?php $post = $this->post_model->get_post($_GET['key']); ?>
+<?php $comments = $this->post_model->get_comments($post->comment_id); ?>
 <div class="container">
    <div class="row">
    
@@ -23,7 +25,7 @@
       <div class="card blue darken-2">
 
          <div class="col s12 m12 l12">  
-            <div class="card z-depth-3" style="margin: 7px -3px;">
+            <div class="card z-depth-3" style="margin: 6px -4px;">
 
                <div class="card-content" style="margin: 0px 0px;">
                   <div class="container-fluid" align="center">
@@ -60,7 +62,7 @@
                <div class="card-content">
                   
                   <div class="row">
-                  <div class="col s4 m4 l4 offset-s8 offset-m8 offset-l8 blue-text" align="center">
+                  <div class="col s4 m4 l4 offset-s8 offset-m8 offset-l8 grey-text text-darken-3" align="center">
                      <small><i class="small material-icons">library_add</i></small>
                      <a onclick="return toggle('comments.<?php echo $post->comment_id; ?>');">
                         <span class="blue-text text-darken-2">Bookmark</span>
@@ -108,6 +110,14 @@
       </div>
    <?php
       }
-   } ?>
+   }
+ ?>
    </div>
 </div>
+<?php
+}
+else
+{
+   redirect('');
+}
+?>
