@@ -31,6 +31,7 @@ INSERT INTO university_extensions (extension) VALUES ('csuci.edu: California Sta
 INSERT INTO university_extensions (extension) VALUES ('csuchico.edu: California State University, Chico');
 INSERT INTO university_extensions (extension) VALUES ('csudh.edu: California State University, Dominguez Hills');
 INSERT INTO university_extensions (extension) VALUES ('csueastbay.edu: California State University, East Bay');
+INSERT INTO university_extensions (extension) VALUES ('horizon.csueastbay.edu: California State University, East Bay (horizon)');
 INSERT INTO university_extensions (extension) VALUES ('csufresno.edu: California State University, Fresno');
 INSERT INTO university_extensions (extension) VALUES ('fullerton.edu: California State University, Fullerton');
 INSERT INTO university_extensions (extension) VALUES ('csulb.edu: California State University, Long Beach');

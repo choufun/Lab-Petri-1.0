@@ -10,6 +10,14 @@ class Forum_model extends CI_Model
       parent::__construct();
       $this->load->library('quicksort');
    }
+  
+   public function user_name($user_id)
+   {
+      $this->db->where('user_id', $user_id);
+      $query = $this->db->get('users');
+      $name = $query->row('firstname')." ".$query->row('lastname');      
+      return $name;
+   }
    
    /* INSERT BOOKMARKS
    ****************************************************************************/

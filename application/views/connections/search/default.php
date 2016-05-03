@@ -1,10 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="card">
-
    <!-- NAVIGATION
    --------------------------------------------------------------------------->
    <div class="navigation">
-      
+      <button type="button" class="slick-prev blue center">Previous</button>
+<button type="button" class="slick-next blue center">Previous</button>
       <!-- UNDERGRADUATES
       ------------------------------------------------------------------------>
       <div id="undergraduates">

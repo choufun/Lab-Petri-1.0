@@ -52,7 +52,7 @@ foreach($posts as $post)
                   &nbsp;&nbsp;&nbsp;&nbsp;<strong><?php echo $post->title; ?></strong>
                </h4>
                <!-- DATE & TIME -->
-               <h6 class="grey-text text-darken-2">&nbsp;&nbsp;Steven Chou posted on           
+               <h6 class="grey-text text-darken-2">&nbsp;&nbsp;<?php echo $this->forum_model->user_name($post->user_id); ?> posted on           
                   <?php echo $post->month." ".$post->day.", ".$post->yr; ?>&nbsp;at&nbsp;<?php echo $this->forum_model->get_time($post->initial_time); ?>.
                </h6>
                <h6 class="grey-text text-darken-2 right">
@@ -62,7 +62,7 @@ foreach($posts as $post)
             <!-- TOP SECTION
                  MOBILE
             ----------------------------------------------------->
-            <div class="card-content hide-on-med-and-up">
+            <div class="card-content hide-on-large-only">
                <div class="row" align="center">                  
                   <!-- IMAGE-->
                   <div class="col s12 m12 l12">
@@ -114,7 +114,7 @@ foreach($posts as $post)
             <!-- MID SECTION
                  MOBILE
             ----------------------------------------------------->
-            <div class="card-content hide-on-med-and-up">
+            <div class="card-content hide-on-large-only">
                <div class="row container-fluid">
                   <div class="col s12 m12 l12">
                      <h6 class="blue-text text-darken-5">
@@ -160,7 +160,7 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                         <small class="grey-text text-darken-2">
                            <i class="small material-icons">comment</i>
                         </small>
-                        <a onclick="return toggle('comments.<?php echo $post->comment_id; ?>');">
+                        <a class="active" onclick="return toggle('comments.<?php echo $post->comment_id; ?>');">
                            <h5>                              
                               <span class="grey-text text-darken-2">
                                  <small>
@@ -177,15 +177,15 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
             <!-- BOTTOM SECTION
                  MOBILE
             ----------------------------------------------------->
-            <div class="card-content hide-on-med-and-up">
+            <div class="card-content hide-on-large-only">
                <div class="container-fluid">
                   <div class="row" align="center">                     
                      <!-- BOOKMARK : FUNCTION -->
                      <div class="col s6 m6 l6">
                         <h6 class="grey-text text-darken-2">
                            <i class="small material-icons">add</i>
-                           <a href="forum/add_bookmark?id=<?php echo $post->post_id; ?>">           
-                              Bookmark
+                           <a href="forum/add_bookmark?id=<?php echo $post->post_id; ?>">
+                              <span class="grey-text text-darken-2">Bookmark</span>
                            </a>
                         </h6>
                      </div>
@@ -193,9 +193,11 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                      <div class="col s6 m6 l6">
                         <h6 class="grey-text text-darken-2">
                            <i class="small material-icons">comment</i>
-                           <a onclick="return toggle('comments.<?php echo $post->comment_id; ?>');">                              
-                              <?php echo $this->forum_model->get_num_comments($post->comment_id); ?>
-                              :&nbsp;Comments
+                           <a onclick="return toggle('comments.<?php echo $post->comment_id; ?>');">
+                              <span class="grey-text text-darken-2">
+                                 <?php echo $this->forum_model->get_num_comments($post->comment_id); ?>
+                                 :&nbsp;Comments
+                              </span>
                            </a>
                         </h6>
                      </div>

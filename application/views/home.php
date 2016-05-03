@@ -62,7 +62,7 @@
       </div>      
       <!-- MOBILE SCREEN
       ----------------------------------------------------------------------------->
-      <div class="container-fluid blue hide-on-med-and-up white-text" id="mobile-container">
+      <div class="container-fluid blue hide-on-large-only white-text" id="mobile-container">
          <div class="row">
             <h3>
                Lab Petri
@@ -78,20 +78,20 @@
             </h6>
          </div>
          <div class="row">
-            <div class="row" align="right">
+            <div class="row" align="center">
                <a href="http://www.labpetri.org/company"
                   class="white-text col s4 m4 l4 offset-s8 offset-m8 offset-l8">
                   About Us
                </a>
             </div>
-            <div class="row" align="right">
-               <a class="white-text blue lighten-1 waves-effect waves-light btn col s4 m4 l4 offset-s4 offset-m8 offset-l8"
+            <div class="row" align="center">
+               <a class="white-text blue lighten-1 waves-effect waves-light btn col s4 m4 l4 offset-s4 offset-m4 offset-l4"
                   href="forum">
                   Petri Dish
                </a>
             </div>         
             <div>                
-               <a class="white-text blue lighten-1 waves-effect waves-light btn col s4 m4 l4 offset-s4 offset-m8 offset-l8"
+               <a class="white-text blue lighten-1 waves-effect waves-light btn col s4 m4 l4 offset-s4 offset-m4 offset-l4"
                   href="login">
                   Login
                </a>

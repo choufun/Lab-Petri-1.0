@@ -28,7 +28,7 @@
 
 <!-- BODY
 --------------------------------------------------------------------------------------------->
-<body class="avoid-fout page-blue white">
+<body class="avoid-fout page-blue grey lighten-4">
 <!--<body class="avoid-fout page-blue grey lighten-3">-->
    <div class="navbar-fixed">
 
@@ -69,7 +69,7 @@
                      '
                         <li class="tab">
                            <!--<a href="profile">'.$this->session->firstname.' '.$this->session->lastname.'</a>-->
-                           <a href="profile">My Labwork</a>
+                           <a href="profile">Profile</a>
                         </li>
                         <li class="tab">
                            <a href="connections">Connections</a>
@@ -133,7 +133,7 @@
                      '
                         <li class="tab">
                            <!--<a href="profile">'.$this->session->firstname.' '.$this->session->lastname.'</a>-->
-                           <a href="profile">My Labwork</a>
+                           <a href="profile">Profile</a>
                         </li>
                         <li class="tab">
                            <a href="connections">Connections</a>

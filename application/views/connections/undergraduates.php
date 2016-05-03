@@ -63,13 +63,13 @@ foreach ($value as $array=>$object)
                      </div>
                      <div class="row">
                         <div class="col s4 m4 l4">
-                           <a class="green-text" href="/profile" target="_blank">Prospect</a>
+                           <a class="green-text" href="/profile" target="_blank">View</a>
                         </div>
                         <div class="col s4 m4 l4">
                            <a class="green-text" href="/profile" target="_blank">Contact</a>
                         </div>
                         <div class="col s4 m4 l4">
-                           <a class="green-text" href="/profile" target="_blank">Associate</a>
+                           <a class="green-text" href="/profile" target="_blank">Connect</a>
                         </div>
                      </div>
                   </div>

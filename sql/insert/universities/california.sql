@@ -31,6 +31,7 @@ INSERT INTO universities (university) VALUES ('California State University, Chan
 INSERT INTO universities (university) VALUES ('California State University, Chico (csuchico.edu)');
 INSERT INTO universities (university) VALUES ('California State University, Dominguez Hills (csudh.edu)');
 INSERT INTO universities (university) VALUES ('California State University, East Bay (csueastbay.edu)');
+INSERT INTO universities (university) VALUES ('California State University, East Bay(horizon) (horizon.csueastbay.edu)');
 INSERT INTO universities (university) VALUES ('California State University, Fresno (csufresno.edu)');
 INSERT INTO universities (university) VALUES ('California State University, Fullerton (fullerton.edu)');
 INSERT INTO universities (university) VALUES ('California State University, Long Beach (csulb.edu)');

@@ -10,24 +10,7 @@
    }
 </style>
 
-<!-- AJAX
------------------------------------------------------------------------------------------>
-<script>
-/*   
-   $document.ready(function() {
-      $("#search").click(function()
-      {
-         $.ajax({
-            url: "www.labpetri.com/connections/search",
-            type: "POST",
-            data: "type=article",
-            dataType:"text",
-            success: function(data) { alert("success"); },
-         });
-      });
-   });
-*/ 
-</script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
 
 <?php 
 if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
@@ -60,7 +43,8 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
 <?php
    }
    else 
-   { ?> <div><?php include 'application/views/connections/search/default.php'; ?></div>
+   { ?>
+     <div><?php include 'application/views/connections/search/default.php'; ?></div>
 <?php
    } ?>
    </div>   
@@ -84,7 +68,6 @@ else { redirect(''); }
    
    $(document).ready(function(){
       $('.navigation').slick({
-         arrows: true,
          dots: true,
          useCSS: true,
          swipe: true,

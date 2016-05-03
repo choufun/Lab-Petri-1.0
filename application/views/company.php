@@ -170,7 +170,7 @@ div.vertical-divider .column:not(:first-child):after, .vertical-divider .columns
       <div class="col s12 m12 l12">
          <div class="card z-depth-0 blue">
             <div class="card" style="margin: 2px 2px;">
-               
+               <!--
                <div class="card-content">
                   <h4 class="blue-text text-darken-4">
                      <strong>About Us:</strong>
@@ -182,7 +182,8 @@ div.vertical-divider .column:not(:first-child):after, .vertical-divider .columns
                      and professors to find good fits for their labs.
                   </div>
                </div>               
-               <div class="divider"></div><div class="divider"></div>               
+               <div class="divider"></div><div class="divider"></div>
+               -->
                <div class="card-content">
                   <h4 class="blue-text text-darken-4">
                      <strong>Mission Statement:</strong>
@@ -190,8 +191,8 @@ div.vertical-divider .column:not(:first-child):after, .vertical-divider .columns
                   <div class="container-fluid flow-text grey-text text-darken-4" style="margin: 45px;">
                      Lab Petri's mission is to create opportunities for professors and students to collaborate on their research.                     
                      <br><br>
-                     As passionate, research professionals, we believe the collaboration will not only help aid discoveries, but
-                     also advance career goals.
+                    We aim to have this collaboration result in students achieving their career goals and in professors advancing their research. 
+										
                      <!--
                      <br> <br>
                      Students that find research opportunities through Lab Petri are provided 
@@ -213,8 +214,8 @@ div.vertical-divider .column:not(:first-child):after, .vertical-divider .columns
                      <strong>Supporting Research Projects:</strong>
                   </h4>                 
                   <div class="container-fluid flow-text grey-text text-darken-4" style="margin: 45px;">                   
-                     Lab Petri can help research labs be easily reached interdepartmentally or even between individual universities
-                     so as to help researchers with their own projects and inspire new research in an interactive environment.
+                     Lab Petri can help staff research projects interdepartmentally or even between individual universities
+                     so as to help researchers with their own projects and inspire new research in a collaborative environment.
                   </div>                
                </div>               
                <div class="divider"></div><div class="divider"></div>               
@@ -223,19 +224,23 @@ div.vertical-divider .column:not(:first-child):after, .vertical-divider .columns
                      <strong>Why?</strong>
                   </h4>
                   <h4 class="blue-text text-darken-4">
-                     <strong>Student Career Goals:</strong>
+                     <strong>Student Career Goals</strong>
                   </h4>
                   <div class="container-fluid flow-text grey-text text-darken-4" style="margin: 45px;"> 
-                     Research is a hands-on learning experience where the potential for the development of problem solving skills is limitless
-                     and career advancements.
+                     Research is a hands-on learning experience where the potential for the development of problem solving skills is limitless. Students need to 
+										do research in order to be competitive in their graduate school admissions and in the job market. 
+              
                      <br><br>
                      <h5>Benefits:</h5>
                      <ul class="blue-text text-darken-1"><li>Real Work Experience</li></ul>
+										Exposure to research is important for students as it can help them learn more about their own career interests and passions
+										and improve their capacity to work collaboratively. Undergraduate Students to research to learn how to solve real problems in the world. Graduate programs and job hunting
+                     are extremely competitive. Finding research using Lab Petri 
                      <ul class="blue-text text-darken-1"><li>Connections</li></ul>
-                     Students need more exposure to research to learn how to solve real problems in the world. Graduate programs and job hunting
-                     are extremely competitive. They often require students to have prior work or research experience during their undergraduate careers.
-                     Thus, finding a suitable research project from a student perspective can be daunting and, in order to get the most out of one's
-                     project is to find a professor that shares the same passion and interest.
+                    Lab Petri can help connect students with professors. 
+										Finding a suitable research project from a student perspective can be daunting and, in order to get the most out of one's
+                     project, students need to be connected with professors and be aware of whether their research interests them. Making connections with professors is
+										an integral part of finding research and getting those crucial recommendation letters. 
                      <br><br>
                      Lab Petri can help students find interesting research projects to gain real work experience and build meaningful connections.                     
                   </div>
@@ -243,18 +248,19 @@ div.vertical-divider .column:not(:first-child):after, .vertical-divider .columns
                <div class="divider"></div><div class="divider"></div>
                <div class="card-content">
                   <h4 class="blue-text text-darken-4">
-                     <strong>Opening Professor Opportunities:</strong>
+                     <strong> Professors Expanding Their Research</strong>
                   </h4>      
                   <div class="container-fluid flow-text grey-text text-darken-4" style="margin: 45px;">
-                     Research is not only open to giving valuable work experience and graduate school preparations, it can save resources and leverage
-                     oppportunities, such as expanding research heights and promoting presence.
+                     Lab Petri is not only helping students by connecting them to research, but is helping professors by saving them resources by promoting presence
+										and providing student stipends.
                      <br><br>
                      <h5>Benefits:</h5>
-                     <ul class="blue-text text-darken-1"><li>Resources</li></ul>
-                     <ul class="blue-text text-darken-1"><li>Mentorship</li></ul>
-                     <ul class="blue-text text-darken-1"><li>Progression and New Discoveries</li></ul>
-                     <ul class="blue-text text-darken-1"><li>Presence and Research Expansion</li></ul>
-                     Professors can have the chance to mentor the younger generation and pass down the hardwork and new discoveries from their research.
+                     <ul class="blue-text text-darken-1"><li>Saving Money</li></ul>
+										When a student finds research through Lab Petri, they will sign a contract with the company board and be given funds through which they can be compensated for their work. 
+										Professors that hire these students will be able to save money, of which they already have too little, and therefore save resources.
+                     <ul class="blue-text text-darken-1"><li>Mentoring Students</li></ul>
+										With the right level of scrutiny, professors will have the opportunity to mentor students who will work passionately in their labs such that 
+										the goals of their research can be met.
                      
                   </div>
                </div>
