@@ -43,7 +43,9 @@ foreach ($undergraduates as $university=>$value)
    { */?>
 <?php
 foreach ($value as $array=>$object)
-{ ?>
+{ 
+    if ($object->user_id !== $this->session->user_id)
+    { ?>
             <li class="col s12 m6 l4">
                <div class="card hoverable">
                   <div class="card-content">
@@ -62,20 +64,31 @@ foreach ($value as $array=>$object)
                         </div>
                      </div>
                      <div class="row">
-                        <div class="col s4 m4 l4">
+                        <div class="col s4 m4 l4 offset-s4 offset-m4 offset-l4">
                            <a class="green-text" href="/profile" target="_blank">View</a>
                         </div>
                         <div class="col s4 m4 l4">
-                           <a class="green-text" href="/profile" target="_blank">Contact</a>
-                        </div>
-                        <div class="col s4 m4 l4">
-                           <a class="green-text" href="/profile" target="_blank">Connect</a>
+                  <?php if ($this->connections_model->get_status($object->user_id) === "pending")
+                        { ?>
+                           <h6 class="grey-text">Pending</h6>
+                  <?php }
+                        elseif ($this->connections_model->get_status($object->user_id) === "accepted")
+                        { ?>
+                           <a href="message?id=<?php echo $object->user_id;?>">Message</a>
+                  <?php }
+                        else
+                        { ?>                        
+                           <a class="green-text" href="connections/connect?id=<?php echo $object->user_id;?>">
+                              Connect
+                           </a>
+                  <?php } ?>
                         </div>
                      </div>
                   </div>
                </div>
             </li>
 <?php
+         }
    /*}
 }*/ ?>
 <?php } ?>

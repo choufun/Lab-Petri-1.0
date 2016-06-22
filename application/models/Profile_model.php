@@ -18,6 +18,22 @@ class Profile_model extends CI_Model
 ************************************************************************************/
    public function __construct() { parent:: __construct(); }
    
+/* UPDATE CONTACTS
+************************************************************************************/
+   public function update_contacts($data)
+   {
+      $this->db->where('user_id', $data['user_id']);
+      $this->db->update('contact', $data);
+   }
+
+/* UPDATE EDUCATION
+************************************************************************************/
+   public function update_education($data)
+   {
+      $this->db->where('user_id', $data['user_id']);
+      $this->db->update('education', $data);  
+   }
+   
 /* GET BOOKMARK TITLE
 ************************************************************************************/
    public function get_bookmark_title($post_id)
@@ -40,8 +56,7 @@ class Profile_model extends CI_Model
    
 /* GET BOOKMARKS
 ************************************************************************************/
-   public function get_bookmarks() { return $this->bookmarks; }
-   
+   public function get_bookmarks() { return $this->bookmarks; }   
    
 /* LOAD POSTS
 ************************************************************************************/
@@ -75,6 +90,7 @@ class Profile_model extends CI_Model
       }
       else { $this->phone_number = "No Specified Phone Number"; }
    }
+   
 /* GET PHONE NUMBER
 ************************************************************************************/
    public function get_phone_number() { return $this->phone_number; }

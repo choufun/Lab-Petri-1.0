@@ -47,3 +47,17 @@ INSERT INTO universities (university) VALUES ('San Diego State University (sdsu.
 INSERT INTO universities (university) VALUES ('San Francisco State University (sfsu.edu)');
 INSERT INTO universities (university) VALUES ('San Jose State University (sjsu.edu)');
 INSERT INTO universities (university) VALUES ('Sonoma State University (sonoma.edu)');
+
+/* CALIFORNIA CITY COLLEGE
+*********************************************************************/
+INSERT INTO universities (university) VALUES ('Ohlone College (ohlone.edu)');
+INSERT INTO universities (university) VALUES ('Chabot College (chabotcollege.edu)');
+INSERT INTO universities (university) VALUES ('De Anza College (deanza.edu)');
+INSERT INTO universities (university) VALUES ('Evergreen College (evc.edu)');
+INSERT INTO universities (university) VALUES ('Foothill College (fhda.edu)');
+INSERT INTO universities (university) VALUES ('Gavilan College (gavilan.edu)');
+INSERT INTO universities (university) VALUES ('Las Positas College (laspositascollege.edu)');
+INSERT INTO universities (university) VALUES ('San Francisco City College (ccsf.edu)');
+INSERT INTO universities (university) VALUES ('San Jose City College (sjcc.edu)');
+INSERT INTO universities (university) VALUES ('Santa Monica College (smc.edu)');
+INSERT INTO universities (university) VALUES ('East Los Angeles College (elac.edu)');

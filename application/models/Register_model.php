@@ -11,7 +11,10 @@ class Register_model extends CI_Model
 
 /* CONSTRUCTOR
 ****************************************************************************/ 
-   public function __construct() { parent::__construct(); }
+   public function __construct()
+   {
+      parent::__construct();
+   }
 
 /****************************************************************************
 - REGISTRATION - callback() for login.register()
@@ -27,9 +30,6 @@ class Register_model extends CI_Model
       
       /* RETRIEVE USER ID
       **********************************************************************/
-      //$this->db->where('firstname', $this->input->post('firstname'));
-      //$this->db->where('lastname', $this->input->post('lastname'));
-      //$this->db->where('email', $this->input->post('email'));
       $this->db->where('firstname', $data['firstname']);
       $this->db->where('lastname', $data['lastname']);
       $this->db->where('email', $data['email']);
@@ -53,10 +53,19 @@ class Register_model extends CI_Model
       $user_contact = array (
          'user_id' => $user_id,
          'email' => $this->input->post('email'),
-         'phone' => '(xxx) - xxx - xxxx',
-         'linkedin' => 'N/A'
+         'phone' => 'Add your number.',
+         'linkedin' => 'Add your link'
       );
+      
       $this->db->insert('contact', $user_contact);
+      
+      /* RECORD ACTIVITY
+      **********************************************************************/
+      $activity_data = array(
+         'user_id' => $user_id,
+         'type' => "registration",
+      );
+      $this->record_activity($activity_data);
       
       /* CREATE USER FILESYSTEM
       **********************************************************************/
@@ -66,7 +75,9 @@ class Register_model extends CI_Model
       mkdir("/var/www/html/users/".$user_id."/connections", 0777, TRUE);
       mkdir("/var/www/html/users/".$user_id."/attachments", 0777, TRUE);
    }
-   
+
+/* STANDING
+****************************************************************************/ 
    private function standing()
    {
       if ($this->input->post('undergraduate') !== NULL) { return $this->input->post('undergraduate'); }
@@ -200,19 +211,45 @@ class Register_model extends CI_Model
       else { return FALSE; }
    }
 
-/****************************************************************************
-- USERNAME
-  IS USERNAME UNIQUE
-****************************************************************************/
+/* USERNAME
+   IS USERNAME UNIQUE
+*********************************************************************************/
    public function username_unique($email)
    {
       $this->db->where('email', $email);
       $query = $this->db->get('users');
       
-      if ($query->num_rows() == 0)
-         return TRUE;
-      else
-         return FALSE;
+      if ($query->num_rows() == 0) return TRUE;
+      else return FALSE;
+   }
+   
+/* GET USER FIRSTNAME AND LASTNAME
+**********************************************************************************/
+   public function get_username($user_id)
+   {
+      $this->db->where('user_id', $user_id);
+      $query = $this->db->get('users');
+      $name = $query->row('firstname')." ".$query->row('lastname');      
+      return $name;
+   }
+   
+/* RECORD ACTIVITY
+********************************************************************************/
+   public function record_activity($data)
+   {                  
+      $activity = $this->get_username($data['user_id'])." is now part of Lab Petri community.";
+
+      $activity_data = array (
+         'user_id' => $data['user_id'],
+         'type' => $data['type'],
+         'activity' => $activity,
+      );      
+      $this->db->set('month','MONTHNAME(NOW())',FALSE);
+      $this->db->set('day', 'DAY(NOW())',FALSE);
+      $this->db->set('yr', 'YEAR(NOW())',FALSE);
+      $this->db->set('time', 'CURRENT_TIME', FALSE);
+
+      $this->db->insert('activities', $activity_data);
    }
 }
 ?>

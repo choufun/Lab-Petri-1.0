@@ -11,9 +11,18 @@ class Company extends CI_Controller
    
    public function index()
    {
-      $this->load->view('templates/header');
-      $this->load->view('company');
-      $this->load->view('templates/footer');
+      if ($this->input->get('id') === NULL)
+      {
+         $this->load->view('templates/header');
+         $this->load->view('company');
+         $this->load->view('templates/footer');
+      }
+      elseif ($this->input->get('id') === 'privacy')
+      {
+         $this->load->view('templates/header');
+         $this->load->view('company/privacy');
+         $this->load->view('templates/footer');
+      }
 	}
 }
 ?>

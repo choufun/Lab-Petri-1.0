@@ -11,6 +11,8 @@ class Forum_model extends CI_Model
       $this->load->library('quicksort');
    }
   
+   /* USERNAME
+   ****************************************************************************/
    public function user_name($user_id)
    {
       $this->db->where('user_id', $user_id);
@@ -75,6 +77,15 @@ class Forum_model extends CI_Model
       $this->db->set('yr', 'YEAR(NOW())',FALSE);
       $this->db->set('initial_time', 'CURRENT_TIME', FALSE);
       $this->db->insert('comments', $comment);
+      
+      /* RECORD ACTIVITY
+      **********************************************************************/
+      $activity_data = array(
+         'user_id' => $this->session->user_id,
+         'type' => "forum_post",
+         'post_title' => $data['title'],
+      );
+      $this->record_activity($activity_data);
    }
    
    /* INSERT COMMENT
@@ -148,7 +159,12 @@ class Forum_model extends CI_Model
    {
       $this->db->where('comment_id', $comment_id);
       $query = $this->db->get('comments');
-      if ($query->row('comment') == NULL) { return 0; }
+     
+      if ($query->num_rows() < 2)
+      {
+         if ($query->row('comments') == NULL) { return 0;}
+         else { return 1;}
+      }
       else { return count($query->result()); }
    }
    
@@ -175,8 +191,7 @@ class Forum_model extends CI_Model
       for ($i = 0; $i <= count($stack)-1; ++$i)
       {
          if ($temp == $stack[$i]) { $new_order_id = $stack[$i-1]; }
-      }
-      
+      }      
       if (is_null($new_order_id)) { return $stack[count($stack)-1]; }
       else { return $new_order_id; }     
    }
@@ -304,7 +319,7 @@ class Forum_model extends CI_Model
       $this->db->where('post_id', $post_id);
       $query = $this->db->get('post_views');
       
-      $data = array('views' => ($query->row('views')+1));
+      $data = array ('views' => ($query->row('views')+1));
       $this->db->where('post_id', $post_id);
       $this->db->update('post_views', $data);
    }
@@ -313,12 +328,31 @@ class Forum_model extends CI_Model
    ****************************************************************************/
    public function insert_research_file($filename, $post_id)
    {
-      $data = array(
+      $data = array (
          'post_id' => $post_id,
          'user_id' => $this->session->user_id,
          'filename' => $filename,
       );      
       $this->db->insert('research_files', $data);
+   }
+   
+   /* RECORD ACTIVITY
+   *****************************************************************************/
+   public function record_activity($data)
+   {                  
+      $activity = $this->user_name($data['user_id'])." posted a new research in the Petri Dish, ".$data['post_title'].".";
+   
+      $activity_data = array (
+         'user_id' => $data['user_id'],
+         'type' => $data['type'],
+         'activity' => $activity,
+      );      
+      $this->db->set('month','MONTHNAME(NOW())',FALSE);
+      $this->db->set('day', 'DAY(NOW())',FALSE);
+      $this->db->set('yr', 'YEAR(NOW())',FALSE);
+      $this->db->set('time', 'CURRENT_TIME', FALSE);
+
+      $this->db->insert('activities', $activity_data);
    }
 }
 ?>

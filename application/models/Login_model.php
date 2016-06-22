@@ -4,7 +4,7 @@ class Login_model extends CI_Model
 {
 /* CONSTRUCTOR
 ****************************************************************************/
-   function __construct() { parent::__construct(); }
+   public function __construct() { parent::__construct(); }
 
 /* VERIFY LOGIN - callback() for login.valid_login()
 ****************************************************************************/

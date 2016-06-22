@@ -13,8 +13,7 @@ class Connections_model extends CI_Model
    {
       parent:: __construct();
       $this->load->library('quicksort');
-   }
-   
+   }   
 
 /* GET REGISTERED UNIVERSITIES
       - UNDERGRADUATES
@@ -34,6 +33,59 @@ class Connections_model extends CI_Model
          "
       );
       return $query->result();
+   }
+  
+   public function accepts_request($user_id, $friend_id)
+   {
+      $data = array('status' => "accepted");      
+      $this->db->where('user_id', $user_id);
+      $this->db->where('friend_id', $friend_id);
+      $this->db->where('status', "pending");      
+      $this->db->update('friends', $data);
+      
+      $data2 = array(
+         'user_id' => $friend_id,
+         'friend_id' => $user_id,
+         'status' => "accepted",
+      );
+      $this->db->insert('friends', $data2);
+   }
+  
+/* SET SET PENDING STATUS
+************************************************************************************/
+   public function pending_status($data)
+   {
+      $this->db->insert('friends', $data);
+   }
+
+/* GET CONNECTION PENDING
+************************************************************************************/
+   public function get_pending_status($user_id)
+   {
+      $this->db->where('friend_id', $user_id);
+      $query = $this->db->get('friends');
+      return $query->row('status');
+   }
+   
+/* LOAD PENDING
+************************************************************************************/
+   public function load_pendings()
+   {
+      $this->db->where('friend_id', $this->session->user_id);
+      $this->db->where('status', "pending");
+      $query = $this->db->get('friends');
+      
+      if ($query->num_rows() > 0) { return $query->result(); }
+      else { return NULL; }
+   }
+
+/* GET CONNECTION STATUS
+************************************************************************************/
+   public function get_status($user_id)
+   {
+      $this->db->where('friend_id', $user_id);
+      $query = $this->db->get('friends');
+      return $query->row('status');
    }
 
 /* GET REGISTERED USERS

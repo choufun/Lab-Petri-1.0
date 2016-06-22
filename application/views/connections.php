@@ -5,8 +5,8 @@
    {
       border-radius: 50%;
       border: 3px solid white;
-      width: 75px;
-      height: 75px;
+      width: 100px;
+      height: 100px;
    }
 </style>
 
@@ -47,7 +47,37 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
      <div><?php include 'application/views/connections/search/default.php'; ?></div>
 <?php
    } ?>
-   </div>   
+   </div>
+   <div class="row">
+      <h3 class="blue-text text-darken-4" align="center">
+         <strong>Pending Notifications:</strong>
+      
+<?php if ($pendings !== NULL)
+      { 
+         foreach ($pendings as $pending)
+         { ?>
+            <div class="container">
+               <div class="card col s12 m12 l12">
+                  <div class="card-content">
+                     <div class="row">
+                        <div class="col s6 m6 l6">
+                           <?php echo $this->connections_model->get_user($pending->user_id); ?>
+                        </div>
+                        <div class="col s3 m3 l3">
+                           <a href="connections/accept?id=<?php echo $pending->user_id;?>&id2=<?php echo $pending->friend_id;?>">
+                              Accept
+                           </a>
+                        </div>
+                        <div class="col s3 m3 l3">
+                           <a href="#">Decline</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+   <?php }
+      } ?>
+   </div>
 </div>
 <?php
 }
@@ -58,8 +88,7 @@ else { redirect(''); }
 <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
 
-<script type="text/javascript">
-   
+<script type="text/javascript">   
    $(document).ready(function(){
       $('.collapsible').collapsible({
          accordion : false
@@ -100,7 +129,6 @@ else { redirect(''); }
             }
          }
          ]
-      });   
-   });
-   
+      });
+   });   
 </script>

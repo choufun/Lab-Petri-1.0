@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- DEBUGGING PURPOSES
 --------------------------------------------------------------------------------------------->
-<center> <?php //var_dump($_SESSION);?> </center>
+<center><?php //var_dump($_SESSION);?></center>
 
 <!-- PRELOADER : BAR
 --------------------------------------------------------------------------------------------->
@@ -33,29 +33,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- CARD
 --------------------------------------------------------------------------------------------->      
       <div align="center" class="col s12 m10 l8 offset-m1 offset-l2">
-         
          <div class="card blue darken-2">
-            <div class = "card card-border" style="margin: 6px 6px;">
+            <div class = "card card-border hoverable" style="margin: 2px 2px;">
 
-   <!-- HEADER LOGO
-   --------------------------------------------------------------------------------------------->
+<!-- HEADER LOGO
+--------------------------------------------------------------------------------------------->
                <div id="header" class ="card-content blue white-text">
                   <img class="logo2 white z-depth-1" src="assets/img/Logo.png">
-               </div>
-               
-               <div class="divider"></div><div class="divider"></div>
-               <div class="divider"></div><div class="divider"></div>        
+               </div>               
+               <div class="divider"></div><div class="divider"></div>       
 
-   <!-- LOGIN
-   --------------------------------------------------------------------------------------------->
+<!-- LOGIN FORM
+--------------------------------------------------------------------------------------------->
                <?php include 'application/views/login/login_form.php';?>
 
-   <!-- REGISTER
-   --------------------------------------------------------------------------------------------->
+<!-- REGISTER FORM
+--------------------------------------------------------------------------------------------->
                <?php include 'application/views/login/registration_form.php';?>
-            </div>
+            </div>         
          </div>
-         
       </div>
    </div>
 </div>

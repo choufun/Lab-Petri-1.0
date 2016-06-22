@@ -5,7 +5,6 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
 {
 ?>
 <div class="divider"></div><div class="divider"></div>
-<div class="divider"></div><div class="divider"></div>
 
 <div class="card-content">
    <div class="container-fluid">
@@ -26,7 +25,7 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
    ?>    <a href="post?key=<?php echo $post->post_id; ?>" target="_blank">
             <div class="card z-depth-1 hoverable blue darken-2">      
                <div class="col s12 m12 l12">
-                  <div class="card z-depth-3" style="margin: 5px 5px;">
+                  <div class="card z-depth-3" style="margin: 2px 2px;">
                      <div class="card-content" style="margin: 0px 5px;">
                         <h5>
                            <small>
@@ -44,7 +43,6 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                         </h6>
                      </div>
 
-                     <div class="divider"></div><div class="divider"></div>
                      <div class="divider"></div><div class="divider"></div>
 
                      <div class="card-content" style="margin: 0px 5px;">
@@ -66,8 +64,7 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                      </div>
 
                      <div class="divider"></div><div class="divider"></div>
-                     <div class="divider"></div><div class="divider"></div>
-
+                     
                      <div class="card-content">
                         <div class="container-fluid">
                            <div class="row" align="center">

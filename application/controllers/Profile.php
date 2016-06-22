@@ -13,8 +13,7 @@ class Profile extends CI_Controller
 ************************************************************************************/
    function __construct()
    {
-      parent:: __construct();
-      
+      parent:: __construct();      
       $this->load->model('profile_model');
       $this->profile_model->load_major();
       $this->profile_model->load_university();
@@ -22,9 +21,9 @@ class Profile extends CI_Controller
       $this->profile_model->load_standing();
       $this->profile_model->load_linkedin_account();      
       $this->profile_model->load_posts();
-      $this->profile_model->load_bookmarks();
-      
+      $this->profile_model->load_bookmarks();      
       $this->load->helper(array('form', 'url'));
+      $this->load->library('form_validation');
       //$this->load->helper('simple_html_dom');
    }
    
@@ -45,11 +44,47 @@ class Profile extends CI_Controller
          'posts' => $this->profile_model->get_posts(),
          'bookmarks' => $this->profile_model->get_bookmarks(),
          'error' => $this->error
-      );
-      
+      );      
       $this->load->view('templates/header');
       $this->load->view('profile', $data);
       $this->load->view('templates/footer');
+   }
+	
+	public function update()
+	{      
+      if ($this->input->post('contacts') == 'contacts')
+      {
+         // FORM VALIDATION
+         $this->form_validation->set_rules('email','email','trim|required');
+         $this->form_validation->set_rules('phone','phone','trim|required');
+         $this->form_validation->set_rules('linkedin','linkedin','trim|required');
+         
+         $data = array(
+            'user_id' => $this->session->user_id,
+            'email' => $this->input->post('email'),
+            'phone' => $this->input->post('phone'),
+            'linkedin' => $this->input->post('linkedin'),
+         );
+         
+         $this->profile_model->update_contacts($data);
+      }
+      if ($this->input->post('education') == 'education')
+      {
+         //FORM VALIDATION
+         $this->form_validation->set_rules('university','university','trim|required');
+         $this->form_validation->set_rules('major','major','trim|required');
+         $this->form_validation->set_rules('standing','standing','trim|required');
+         
+         $data = array(
+            'user_id' => $this->session->user_id,
+            'university' => $this->input->post('university'),
+            'major' => $this->input->post('major'),
+            'standing' => $this->input->post('standing'),
+         );
+         
+         $this->profile_model->update_education($data);
+      }
+      redirect('profile');
    }
    
 /* GET FILES

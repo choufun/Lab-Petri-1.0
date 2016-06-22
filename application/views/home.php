@@ -1,7 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!DOCTYPE html>
+<html>
    <head>
-
+     <meta name="google-site-verification" 
+           content="slSKWp74kPFZdOKueCWQVvzgv1LXPo-utMadfKm1YOI" />
    <!-- LOGO : TITLE
    --------------------------------------------------------------------------------------------->
       <title>Lab Petri</title>
@@ -17,6 +19,15 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
       -->
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-77852248-1', 'auto');
+        ga('send', 'pageview');
+      </script>
    </head>
 
 <style>
@@ -44,9 +55,14 @@
                <h5>Find Research, Build Connections</h5>                  
                <div class="divider"></div>                  
                <h6 class="white-text">
-               <div id="section-1" class="col s4 m4 l4">Help Us Grow<strong id="section-2">It's Free</strong>!</div>
+               <div id="section-1" class="col s4 m4 l4">
+                  <a href="https://www.labpetri.org/support"
+                     class="white-text">
+                     Help Us Grow
+                  </a>
+                  <strong id="section-2">It's Free!</strong></div>
                <div class="col s4 m4 l4 offset-s4 offset-m4 offset-l4" align="right">
-                  <a href="http://www.labpetri.org/company" class="white-text" align="right">About Us</a>
+                  <a href="company" class="white-text" align="right">About Us</a>
                </div>
             </h6>
          </div>               
@@ -73,13 +89,18 @@
             </h6>
             <div class="divider"></div>
             <h6 class="white-text">
-               <div id="section-1" class="col s4 m4 l4">Help Us Grow</div>
-               <div><strong>It's Free</strong>!</div>               
+               <div id="section-1" class="col s4 m4 l4">
+                  <a href="https://www.labpetri.org/company"
+                     class="white-text">
+                     Help Us Grow
+                  </a>
+               </div>
+               <div><strong>It's Free!</strong></div>               
             </h6>
          </div>
          <div class="row">
             <div class="row" align="center">
-               <a href="http://www.labpetri.org/company"
+               <a href="company"
                   class="white-text col s4 m4 l4 offset-s8 offset-m8 offset-l8">
                   About Us
                </a>
@@ -97,6 +118,6 @@
                </a>
             </div>
          </div>
-      </div>   
+      </div> 
    </body>
 </html>

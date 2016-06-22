@@ -18,7 +18,8 @@ class Login extends CI_Controller
       $this->register_model->load_majors();
       $this->register_model->load_schools();
       $this->load->helper(array('form', 'url'));
-      $this->load->library('form_validation'); 
+      $this->load->library('form_validation');
+      $this->load->library('email');
    }
    
 /* INDEX PAGE
@@ -45,8 +46,7 @@ class Login extends CI_Controller
       if ($this->input->post('register') == 'register')
       {
          $required = FALSE;
-         if (
-               ($this->input->post('undergraduate') !== NULL) ||
+         if (  ($this->input->post('undergraduate') !== NULL) ||
                ($this->input->post('graduate')      !== NULL) ||
                ($this->input->post('professor')     !== NULL)
             ) { $required = TRUE; }
@@ -90,9 +90,41 @@ class Login extends CI_Controller
          {
             $this->register();
             $this->login_model->login_user($this->input->post('email'));
+            $this->send_mail($this->input->post('email'));
             redirect('');
          }
       }
+   }
+   
+/* SEND MAIL
+****************************************************************************/
+   public function send_mail($email)
+   {      
+      $config['mailtype'] = 'html';
+      $config['charset'] = 'utf-8';
+      $config['protocol'] = 'smtp';
+      $config['smtp_host'] = 'ssl://smtp.mailgun.org';
+      $config['smtp_port'] = 465;
+      $config['smtp_user'] = 'admin@labpetri.org';
+      $config['smtp_pass'] = '510labpeetree';
+      $config['smtp_timeout'] = '4';
+      $config['crlf'] = '\n';
+      $config['newline'] = '\r\n';
+      $this->email->initialize($config);
+      
+      $this->email->from('contact@labpetri.org');
+      //$this->email->from('labpetri.org@gmail.com');
+      $this->email->to($email);
+      $this->email->subject('Welcome to Lab Petri');
+      
+      $data = array(
+         'user' => $this->input->post('firstname')." ".$this->input->post('lastname'),
+      );      
+      $body = $this->load->view('templates/emails/welcome', $data, TRUE);
+      $this->email->message($body);
+
+      if($this->email->send()) { return; }
+      else { return show_error($this->email->print_debugger()); }      
    }
    
 /* REGISTER USER : LOADS DATA
@@ -100,8 +132,8 @@ class Login extends CI_Controller
    public function register()
    {       
       $user_data = array (
-         'firstname'=> $this->input->post('firstname'),
-         'lastname' => $this->input->post('lastname'),
+         'firstname'=> ucfirst($this->input->post('firstname')),
+         'lastname' => ucfirst($this->input->post('lastname')),
          'email'    => $this->input->post('email'),
          'password' => $this->input->post('password'),
       );
@@ -145,7 +177,8 @@ class Login extends CI_Controller
          $this->form_validation->set_message('verify_email',
          '<center>
             This user is already registered.
-          </center><br>');
+          </center>
+          <br>');
          return FALSE;
       }
       else { return TRUE; }

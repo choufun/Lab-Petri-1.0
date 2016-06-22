@@ -1,6 +1,5 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
 /* CONNECTIONS CONTROLLER
 ************************************************************************************/
 class Connections extends CI_Controller
@@ -8,6 +7,7 @@ class Connections extends CI_Controller
    private $undergraduates = array();
    private $graduates = array();
    private $professors = array();
+   private $pendings;
    
    function __construct()
    {
@@ -16,6 +16,7 @@ class Connections extends CI_Controller
       $this->load->helper(array('form', 'url'));
       $this->load->library('form_validation'); 
       $this->connections_model->load_users();
+      $this->pendings = $this->connections_model->load_pendings();
       $this->load->library('binarysearch');
    }
 
@@ -33,6 +34,7 @@ class Connections extends CI_Controller
             'undergraduates' => $this->undergraduates,
             'graduates' => $this->graduates,
             'professors' => $this->professors,
+            'pendings' => $this->pendings,
          );
          
          $this->load->view('templates/header');
@@ -41,13 +43,42 @@ class Connections extends CI_Controller
       }
       else
       {
-         $results = $this->new_search();
+         $results = $this->new_search(); 
          // CALL SEARCH ENGINE
          
          $this->session->set_flashdata('search', array('HI' => 'BYE', 'This' => 'Works'));
          //$this->session->set_flashdata('search', $results);
          redirect('connections');
       }
+   }
+   
+/* ACCEPT
+************************************************************************************/
+   public function accept()
+   {
+      /*
+      $data = array (
+         $user_id = $this->input->get('id');
+         $friend_id = $this->input->get('id2');
+      );
+      */
+      $user_id = $this->input->get('id');
+      $friend_id = $this->input->get('id2');
+      $this->connections_model->accepts_request($user_id, $friend_id);
+      redirect('connections');
+   }
+
+/* CONNECT
+************************************************************************************/
+   public function connect()
+   {
+      $data = array (
+         'user_id' => $this->session->user_id,
+         'friend_id' => $this->input->get('id'),
+         'status' => "pending",
+      );
+      $this->connections_model->pending_status($data);
+      redirect('connections');
    }
    
 /* SEARCH

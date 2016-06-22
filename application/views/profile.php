@@ -3,6 +3,16 @@
 <!-- CSS
 --------------------------------------------------------------------------------------------->
 <link href="assets/css/profile.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<style>
+   #contact_border
+   {
+      padding-left: 25px;
+   }
+   #education_border
+   {
+      padding-left: 25px;
+   }
+</style>
 
 <script>   
 /* DELETE LINK
@@ -23,30 +33,6 @@
    }
 </script>
 
-<!--
-<div class="navbar-fixed" style="opacity: 0.8;">
-   <nav style="background: -moz-linear-gradient(bottom right, #01579b, #e0f7fa);">
-      <div class="nav-wrapper container">
-         <ul class="right">
-            
-            <li class="tab">
-               <a href="#" class="white-text">Profile Picture</a>
-            </li>
-            
-            <li class="tab">
-               <a href="#" class="white-text">My Education</a>
-            </li>
-            
-            <li class="tab ">
-               <a href="#" class="white-text">My Contact</a>
-            </li>
-            
-         </ul>
-      </div>
-   </nav>
-</div>
--->
-
 <?php 
 if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
 {
@@ -55,12 +41,11 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
    
    <!-- DEBUGGING PURPOSES
    ----------------------------------------------------------------------------------------->
-   <div align="center" class="row"><?php //var_dump($_SESSION);?></div>
-   
+   <div align="center" class="row"><?php //var_dump($_SESSION);?></div>   
    
    <div class="container col s12 m12 l12">
       <div class="card z-depth-1 blue darken-2">
-         <div class="card z-depth-2" style="margin: 5px 5px;">
+         <div class="card z-depth-2" style="margin: 2px 2px;">
 
             <!-- PROFILE HEADER
             ----------------------------------------------------------------------------------->
@@ -84,7 +69,14 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                   <div class="col s12 m12 l6">
                      <div class="card yellow darken-2 z-depth-1">
                         <div class="container-fluid">
-                           <?php include 'application/views/profile/education.php';?>
+                           <div class="card z-depth-2" style="margin: 2px 2px;">
+                              <div align="center" class="row">                              
+                                 <h5><strong>Education</strong></h5>
+                              </div>
+                              <div id="education_border">
+                                 <?php include 'application/views/profile/education.php';?>
+                              </div>
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -94,13 +86,19 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                   <div class="col s12 m12 l6">
                      <div class="card yellow darken-2 z-depth-1">
                         <div class="container-fluid">
-                           <?php include 'application/views/profile/contact.php';?>
+                           <div class="card z-depth-2" style="margin: 2px 2px;">
+                              <div align="center" class="row">
+                                 <h5><strong>Contact</strong></h5>
+                              </div>
+                              <div id="contact_border">
+                                 <?php include 'application/views/profile/contact.php';?>
+                              </div>
+                           </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-            <div class="divider"></div><div class="divider"></div>
             <div class="divider"></div><div class="divider"></div>
             <div class="card-content">
                <div class="col s12 m12 l12">

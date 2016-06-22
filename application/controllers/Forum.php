@@ -131,7 +131,8 @@ class Forum extends CI_Controller
       if ( !$this->upload->do_upload('post_file'))
       {
          $error = array('error' => $this->upload->display_errors());
-         return FALSE;
+         //return FALSE;
+         return TRUE;
       }
       else
       {

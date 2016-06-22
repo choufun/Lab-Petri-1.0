@@ -7,7 +7,7 @@
     </div>
    
    <!-- LIST POSTS -->   
-    <?php include 'application/views/forum/posts.php';?>  
+   <?php include 'application/views/forum/posts.php';?>  
 </div>
 
 <!-- JAVASCRIPT

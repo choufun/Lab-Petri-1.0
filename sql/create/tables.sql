@@ -50,7 +50,6 @@ CREATE TABLE IF NOT EXISTS research_files (
    filename VARCHAR(255) NOT NULL
 ) ENGINE = MYISAM;
 
-/* LOGIN, REGISTRATION  ***********************************************/
 /* MAJORS
 *********************************************************************/
 CREATE TABLE IF NOT EXISTS majors (
@@ -113,7 +112,7 @@ CREATE TABLE IF NOT EXISTS bookmarks (
    PRIMARY KEY(bookmark_id)
 ) ENGINE = MYISAM;
 
-/* FRIEND LISTS
+/* POST VIEWS
 *********************************************************************/
 CREATE TABLE IF NOT EXISTS post_views (
    post_id INT(11) NOT NULL,
@@ -127,5 +126,42 @@ CREATE TABLE IF NOT EXISTS post_views (
 CREATE TABLE IF NOT EXISTS friends (
    user_id INT(11) NOT NULL,
    friend_id INT(11) NOT NULL,
-   PRIMARY KEY(user_id)
+   status VARCHAR(8) NOT NULL
 ) ENGINE = MYISAM;
+
+/* MESSAGES
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS messages (
+   group_id TEXT NOT NULL,
+   order_id INT(11) NOT NULL,
+   user_id INT(11) NOT NULL,
+   message TEXT NOT NULL
+) ENGINE = MYISAM;
+
+/* ACTIVITIES
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS activities (
+   user_id INT(11) NOT NULL,
+   type VARCHAR(255) NOT NULL,
+   month VARCHAR(9) NOT NULL,
+   day INT(2) NOT NULL,
+   yr  INT(4) NOT NULL,
+   time VARCHAR(8) NOT NULL,
+   activity TEXT NOT NULL
+) ENGINE = MYISAM;
+
+/* ISSUES
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS issues (
+   issue_id VARCHAR(255) NOT NULL,
+   user_id INT(11) NOT NULL
+) ENGINE = MYISAM;
+
+/* TEST
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS test (
+   message TEXT NOT NULL
+) ENGINE = MYISAM;
+
+
+

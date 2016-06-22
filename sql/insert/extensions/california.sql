@@ -47,3 +47,17 @@ INSERT INTO university_extensions (extension) VALUES ('sdsu.edu: San Diego State
 INSERT INTO university_extensions (extension) VALUES ('sfsu.edu: San Francisco State University');
 INSERT INTO university_extensions (extension) VALUES ('sjsu.edu: San Jose State University');
 INSERT INTO university_extensions (extension) VALUES ('sonoma.edu: Sonoma State University');
+
+/* CALIFORNIA CITY COLLEGE
+*********************************************************************/
+INSERT INTO university_extensions (extension) VALUES ('ohlone.edu: Ohlone College');
+INSERT INTO university_extensions (extension) VALUES ('chabotcollege.edu: Chabot College');
+INSERT INTO university_extensions (extension) VALUES ('deanza.edu: De Anza College');
+INSERT INTO university_extensions (extension) VALUES ('evc.edu: Evergreen College');
+INSERT INTO university_extensions (extension) VALUES ('fhda.edu: Foothill College');
+INSERT INTO university_extensions (extension) VALUES ('gavilan.edu Gavilan College');
+INSERT INTO university_extensions (extension) VALUES ('laspositascollege.edu: Las Positas College');
+INSERT INTO university_extensions (extension) VALUES ('ccsf.edu: San Francisco City College');
+INSERT INTO university_extensions (extension) VALUES ('sjcc.edu: San Jose City College');
+INSERT INTO university_extensions (extension) VALUES ('smc.edu: Santa Monica College');
+INSERT INTO university_extensions (extension) VALUES ('elac.edu: East Los Angeles College');
