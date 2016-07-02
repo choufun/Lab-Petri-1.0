@@ -1,99 +1,122 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <?php
 /* PROFILE CONTROLLER
-************************************************************************************/
+****************************************************************************/
 class Profile extends CI_Controller
 {
 /* FIELD
-************************************************************************************/
+****************************************************************************/
    private $error = '';
    private $filename;
    
 /* CONSTRUCTOR
-************************************************************************************/
+****************************************************************************/
    function __construct()
    {
       parent:: __construct();      
       $this->load->model('profile_model');
-      $this->profile_model->load_major();
-      $this->profile_model->load_university();
-      $this->profile_model->load_phone_number();
-      $this->profile_model->load_standing();
-      $this->profile_model->load_linkedin_account();      
-      $this->profile_model->load_posts();
-      $this->profile_model->load_bookmarks();      
+      $this->profile_model->set_profile();
       $this->load->helper(array('form', 'url'));
       $this->load->library('form_validation');
       //$this->load->helper('simple_html_dom');
    }
    
 /* INDEX
-************************************************************************************/
+****************************************************************************/
    public function index()
    {
-      /* SET PROFILE FIELDS
-      ******************************************************************************/
-      $data = array(
-         'university' => $this->profile_model->get_university(),
-         'files' => $this->get_files(),
-         'profile_picture' => $this->profile_model->get_profile_picture(),
-         'major' => $this->profile_model->get_major(),
-         'phone' => $this->profile_model->get_phone_number(),
-         'linkedin' => $this->profile_model->get_linkedin_account(),
-         'education' => $this->profile_model->get_standing(),
-         'posts' => $this->profile_model->get_posts(),
-         'bookmarks' => $this->profile_model->get_bookmarks(),
-         'error' => $this->error
-      );      
+      
+/* SET :: profile
+****************************************************************************/    
       $this->load->view('templates/header');
-      $this->load->view('profile', $data);
+      $this->load->view('profile',
+                        array(
+                              'university' => $this->profile_model->get_university(),
+                              'files' => $this->get_files(),
+                              'profile_picture' => $this->profile_model->get_profile_picture(),
+                              'major' => $this->profile_model->get_major(),
+                              'phone' => $this->profile_model->get_phone_number(),
+                              'linkedin' => $this->profile_model->get_linkedin_account(),
+                              'education' => $this->profile_model->get_standing(),
+                              'posts' => $this->profile_model->get_posts(),
+                              'bookmarks' => $this->profile_model->get_bookmarks(),
+                              'error' => $this->error
+                           )
+                       );
       $this->load->view('templates/footer');
    }
-	
+
+/* UPDATE :: contacts or education
+****************************************************************************/
 	public function update()
 	{      
       if ($this->input->post('contacts') == 'contacts')
       {
-         // FORM VALIDATION
+         // CONTACTS FORM VALIDATION
          $this->form_validation->set_rules('email','email','trim|required');
          $this->form_validation->set_rules('phone','phone','trim|required');
-         $this->form_validation->set_rules('linkedin','linkedin','trim|required');
-         
-         $data = array(
-            'user_id' => $this->session->user_id,
-            'email' => $this->input->post('email'),
-            'phone' => $this->input->post('phone'),
-            'linkedin' => $this->input->post('linkedin'),
+         $this->form_validation->set_rules('linkedin','linkedin','trim|required');         
+         $this->profile_model->update_contacts(
+               array(
+                     'user_id' => $this->session->user_id,
+                     'email' => $this->input->post('email'),
+                     'phone' => $this->input->post('phone'),
+                     'linkedin' => $this->input->post('linkedin'),
+               )
          );
-         
-         $this->profile_model->update_contacts($data);
       }
       if ($this->input->post('education') == 'education')
       {
-         //FORM VALIDATION
+         // EDUCATION FORM VALIDATION
          $this->form_validation->set_rules('university','university','trim|required');
          $this->form_validation->set_rules('major','major','trim|required');
-         $this->form_validation->set_rules('standing','standing','trim|required');
-         
-         $data = array(
-            'user_id' => $this->session->user_id,
-            'university' => $this->input->post('university'),
-            'major' => $this->input->post('major'),
-            'standing' => $this->input->post('standing'),
+         $this->form_validation->set_rules('standing','standing','trim|required');         
+         $this->profile_model->update_education(
+               array(
+                     'user_id' => $this->session->user_id,
+                     'university' => $this->input->post('university'),
+                     'major' => $this->input->post('major'),
+                     'standing' => $this->input->post('standing'),
+               )
          );
-         
-         $this->profile_model->update_education($data);
       }
       redirect('profile');
    }
    
-/* GET FILES
-*************************************************************************************
+/* DELETE :: bookmarks
+****************************************************************************/ 
+   public function delete_bookmark()
+   {
+      $this->profile_model->delete_bookmark(
+                  array(
+                     'bookmark_id' => $this->input->post('bookmark'),
+                     'user_id' => $this->session->user_id,
+                  )
+      );
+      redirect('profile');
+   }
+	
+/* DELETE :: posts
+****************************************************************************/
+   public function delete_post()
+   {
+      $this->forum_model->delete_post(
+                  array (
+                     'post_id' => $this->input->post('post'),
+                     'comment_id' => $this->input->post('comment'),
+                     'user_id' => $this->session->user_id,
+                  )
+      );
+      redirect('profile');
+   }
+   
+/* GET :: files
+****************************************************************************
    NOTES:
          Descending Order: scandir($directory,1)
          $result.= '<embed src="assets/pdf/'.$file.'" width="100" height="400"><br>';
          $result.= '<iframe src="assets/pdf/'.$file.'"width="100" height="400"></iframe><br>';
-************************************************************************************/
+****************************************************************************/
    public function get_files()
    {
       $result = "";
@@ -123,13 +146,10 @@ class Profile extends CI_Controller
       {
          if (!($this->profile_model->has_userfile()))
          {
-            $result.='
-                      <h5 align="center">
-                        Starting Building Your Portfolio
-                        <br>
-                        <small><small>~ upload a file ~</small></small>
-                      </h5>
-                     ';
+            $result.='<h5 align="center">
+                        Starting Building Your Portfolio<br>
+                      <small><small>~ upload a file ~</small></small>
+                      </h5>';
          }
          else
          {            
@@ -169,7 +189,9 @@ class Profile extends CI_Controller
                                     <strong class="green-text">
                                        <a class="green-text"
                                           href="/users/'.$this->session->user_id.'/research/'.$file.'"
-                                          target="_blank">View</a>
+                                          target="_blank">
+                                          View
+                                       </a>
                                        <script type="text/javascript">delete_link();</script>
                                     </strong>                                 
                                  </div>
@@ -188,8 +210,8 @@ class Profile extends CI_Controller
       return $result;
    }
 	
-/* DO UPLOAD PROFILE PICTURE
-************************************************************************************/
+/* UPLOAD :: profile picture
+****************************************************************************/
 	public function do_upload_pic()
 	{
       $config['upload_path'] = './users/'.$this->session->user_id.'/pictures/';
@@ -213,8 +235,8 @@ class Profile extends CI_Controller
       }
     }
    
-/* DO UPLOAD
-************************************************************************************/
+/* UPLOAD :: research
+****************************************************************************/
    public function do_upload()
    {
       $config['upload_path'] = './users/'.$this->session->user_id.'/research/';
@@ -241,8 +263,8 @@ class Profile extends CI_Controller
       }
    }
    
-/* DELETE
-************************************************************************************/
+/* DELETE :: files
+****************************************************************************/
    public function delete()
    {
       $file = $this->remove_url($this->input->post('action'));
@@ -251,7 +273,7 @@ class Profile extends CI_Controller
    }
    
 /* DELETE FILE
-************************************************************************************/
+****************************************************************************/
    public function delete_file($user_id, $file)
    {
       //$path='./files/uploads/'.$file;
@@ -261,7 +283,7 @@ class Profile extends CI_Controller
    }
    
 /* REMOVE EXTENSION (filename) : returns substring
-************************************************************************************/
+****************************************************************************/
    public function remove_extension($file)
    {
       $i;
@@ -270,7 +292,7 @@ class Profile extends CI_Controller
    }
    
 /* REMOVE URL (filename) : returns substring (for file delete)
-************************************************************************************/  
+****************************************************************************/  
    public function remove_url($file)
    {
       $i;

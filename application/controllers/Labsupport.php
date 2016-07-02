@@ -6,10 +6,11 @@ class Labsupport extends CI_Controller
    ****************************************************************************/
    public function __construct()
    {
-      parent:: __construct();      
+      parent:: __construct();
       $this->load->library('form_validation');
       $this->load->helper(array('form', 'url'));
       $this->load->library('email');
+      $this->load->helper('string');
       $this->load->model('labsupport_model');
    }
    
@@ -31,7 +32,7 @@ class Labsupport extends CI_Controller
       {
          $this->send_mail($this->input->post('email'));
          $this->send_copy($this->input->post('email')); 
-         redirect('support');
+         redirect('labsupport');
       }
    }
    
@@ -62,7 +63,17 @@ class Labsupport extends CI_Controller
       );      
       $body = $this->load->view('templates/emails/technical_issue', $data, TRUE);
       $this->email->message($body);
-
+      
+      /*
+      INSERTS USER_ID AND ISSUE_ID INTO THE ISSUES DATABASE
+      
+      $this->labsupport_model->insert_issue( 
+         $this->labsupport_model->get_user_id() , 
+         $this->labsupport_model->make_issue() 
+      );
+      
+      */
+      
       if($this->email->send()) { return; }
       else { return show_error($this->email->print_debugger()); }      
    }
@@ -105,16 +116,17 @@ class Labsupport extends CI_Controller
    - user has an account
    
    ****************************************************************************/
-   public function make_issue($email) {
-      /*
-      
-      CHECKLIST
-      1. retrieve user_id from DB using email
-      2. 
-      
-      if($email) { return $issue_id = ; }
-      
-      */
+   
+   
+   public function make_issue() {
+      while(1) {
+         $issue_id = random_string('numeric', 4);
+         if(!$this->labsupport_model->search_issue($issue_id)) {
+            return $issue_id;
+            break;
+         }
+      }  
    }
+   
 }
 ?>

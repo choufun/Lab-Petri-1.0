@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php
 /* CONNECTIONS CONTROLLER
-************************************************************************************/
+****************************************************************************/
 class Connections extends CI_Controller
 {
    private $undergraduates = array();
@@ -21,24 +21,23 @@ class Connections extends CI_Controller
    }
 
 /* INDEX
-************************************************************************************/
+****************************************************************************/
    public function index()
    {
       $this->form_validation->set_rules('search', 'Search', 'callback_search_check');
       
       if ($this->form_validation->run() === FALSE)
       {
-         $this->default_search();
-         
-         $data = array(
-            'undergraduates' => $this->undergraduates,
-            'graduates' => $this->graduates,
-            'professors' => $this->professors,
-            'pendings' => $this->pendings,
-         );
-         
+         $this->default_search();         
          $this->load->view('templates/header');
-         $this->load->view('connections', $data);
+         $this->load->view('connections',
+                              array(
+                                 'undergraduates' => $this->undergraduates,
+                                 'graduates' => $this->graduates,
+                                 'professors' => $this->professors,
+                                 'pendings' => $this->pendings,
+                              )
+                          );
          $this->load->view('templates/footer'); 
       }
       else
@@ -53,7 +52,7 @@ class Connections extends CI_Controller
    }
    
 /* ACCEPT
-************************************************************************************/
+****************************************************************************/
    public function accept()
    {
       /*
@@ -69,7 +68,7 @@ class Connections extends CI_Controller
    }
 
 /* CONNECT
-************************************************************************************/
+****************************************************************************/
    public function connect()
    {
       $data = array (
@@ -82,7 +81,7 @@ class Connections extends CI_Controller
    }
    
 /* SEARCH
-************************************************************************************/
+****************************************************************************/
    public function search_check($search)
    {
       if ($search == NULL || !(isset($search)))
@@ -94,7 +93,7 @@ class Connections extends CI_Controller
    }
    
 /* DEFAULT SEARCH
-************************************************************************************/
+****************************************************************************/
    public function default_search()
    {
       $data = array();
@@ -102,8 +101,8 @@ class Connections extends CI_Controller
       $graduates = "graduate";
       $professors = "professor";
       
-      /* SET UNDERGRADUATES
-      ******************************************************************************/
+/* SET UNDERGRADUATES
+****************************************************************************/
       $u_data = $this->connections_model->get_registered_universities($undergraduates);
       foreach($u_data as $university)
       {
@@ -112,8 +111,8 @@ class Connections extends CI_Controller
       }
       $this->undergraduates = $data;
       
-      /* SET GRADUATES
-      ******************************************************************************/
+/* SET GRADUATES
+****************************************************************************/
       $u_data = $this->connections_model->get_registered_universities($graduates);
       $data = array();
       foreach($u_data as $university)
@@ -123,8 +122,8 @@ class Connections extends CI_Controller
       }
       $this->graduates = $data;
       
-      /* SET PROFESSORS
-      ******************************************************************************/
+/* SET PROFESSORS
+****************************************************************************/
       $u_data = $this->connections_model->get_registered_universities($professors);
       $data = array();
       foreach($u_data as $university)
@@ -136,10 +135,7 @@ class Connections extends CI_Controller
    }
 
 /* NEW SEARCH
-************************************************************************************/
-   public function new_search()
-   {  
-      return $this;
-   }
+****************************************************************************/
+   public function new_search() { return $this; }
 }
 ?>

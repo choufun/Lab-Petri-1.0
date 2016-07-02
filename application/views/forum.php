@@ -1,19 +1,19 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <div class="container-fluid grey lighten-4">   
-   <!-- NEW POST --> 
+   <!-- NEW POST 
+   ----------------------------------------------------------> 
     <div class="container">
        <?php include 'application/views/forum/new_post.php';?>
-    </div>
-   
-   <!-- LIST POSTS -->   
+    </div>   
+   <!-- LIST POSTS 
+   ---------------------------------------------------------->   
    <?php include 'application/views/forum/posts.php';?>  
 </div>
 
 <!-- JAVASCRIPT
 --------------------------------------------------------------------------------------------->
-<script type="text/javascript">
-   
+<script type="text/javascript">   
    function show(current, hidden)
    {
       document.getElementById(current).style.display='block';

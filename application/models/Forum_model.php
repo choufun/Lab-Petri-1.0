@@ -354,5 +354,29 @@ class Forum_model extends CI_Model
 
       $this->db->insert('activities', $activity_data);
    }
+   
+   /* DELETE POST
+   *****************************************************************************/
+   public function delete_post($data)
+   {
+      // DELETE POST
+      $this->db->where('post_id', $data['post_id']);
+      $this->db->where('user_id', $data['user_id']);
+      $this->db->where('comment_id', $data['comment_id']);
+      $this->db->delete('posts');
+      
+      // DELETE POST VIEWS
+      $this->db->where('post_id');
+      $this->db->delete('post_views');
+      
+      // DELETE POST COMMENTS
+      $this->db->where('comment_id', $data['comment_id']);
+      $this->db->where('user_id', $data['user_id']);
+      $this->db->delete('comments');
+      
+      // DELETE POST ACTIVITES
+      //$this->db->where('user_id', $user_id);
+      //$this->db->delete('activities');
+   }
 }
 ?>

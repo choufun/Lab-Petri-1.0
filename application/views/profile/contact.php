@@ -25,8 +25,13 @@
             <small><strong><?php echo $linkedin; ?></strong></small>
          </span>
       </small></h5>
-   </div>   
-   <a class="right" onclick="return show('contact_edit','contact_show');">Edit</a>
+   </div>
+<?php
+   if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
+   { ?>
+      <a class="right" onclick="return show('contact_edit','contact_show');">Edit</a>
+<?php
+   } ?>
 </div>
 <!-- CONTACT EDIT
 ----------------------------------------------------------------------->

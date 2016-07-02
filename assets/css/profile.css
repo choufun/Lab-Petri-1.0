@@ -1,27 +1,18 @@
 /* PROFILE PROPERTIES
 *****************************************************************************/
-#card-border
-{
-   border: 2px solid #cfd8dc;
-}
+#card-border { border: 2px solid #cfd8dc; }
 
-#profile-padding
-{
-   padding-top: 25px;
-}
+#profile-padding { padding-top: 25px; }
 
 #profile-image
 {
    border-radius: 50%;
-   border: 3px solid #fbc02d;
+   border: 1px solid #fbc02d;
    width: 200px;
    height: 200px;
 }
 
-#username
-{
-   text-shadow: 2px 2px 4px #212121;
-}
+#username { text-shadow: 2px 2px 4px #212121; }
 
 .icon-border
 {
@@ -30,10 +21,7 @@
    padding-right: 35px;
 }
 
-.icon-inner-border
-{
-   border: 1px solid;
-}
+.icon-inner-border { border: 1px solid; }
 
 .content-border
 {
@@ -55,7 +43,6 @@
 
 /* FORM PROPERTIES
 *****************************************************************************/
-
 ::-webkit-input-placeholder
 {
    color: #000000;
@@ -88,17 +75,8 @@
 /* SECTION PROPERTIES
 *****************************************************************************/
 
-#education_show
-{
-   margin-left: 10px;
-}
+#education_show { margin-left: 10px; }
 
-#contact_show
-{
-   margin-left: 10px;
-}
+#contact_show { margin-left: 10px; }
 
-#summary_show
-{
-   margin-left: 10px;
-}
+#summary_show { margin-left: 10px; }

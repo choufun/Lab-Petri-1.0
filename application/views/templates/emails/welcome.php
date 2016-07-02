@@ -10,9 +10,21 @@
    </head>
    <body class="avoid-fout page-blue grey lighten-4">
       <p>Welcome <?php echo $user; ?> and thank you for registering at Lab Petri.</p>
+      <p>
+         Your account has been created and below are your login credentials.
+         <br>
+         email: <?php echo $email; ?>
+         password: <?php echo $password; ?>
+         <br>
+         Please click the link below to activate your account.
+         <br>
+         <a href='www.labpetri.org/login/activate_account?email=<?php echo $email; ?>&hash=<?php echo $hash; ?>' target='_blank'>
+            Click here.
+         </a>
+      </p>
       <br>
       <p>
-         Please take some time to answer the questions below and reply with your feedback.
+         Please also take some time to answer the questions below and reply with your feedback.
          <br>
          Thank you.
       </p>

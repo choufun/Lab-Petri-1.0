@@ -1,38 +1,56 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Login_model extends CI_Model
 {
 /* CONSTRUCTOR
 ****************************************************************************/
    public function __construct() { parent::__construct(); }
-
-/* VERIFY LOGIN - callback() for login.valid_login()
+   
+/* VERIFY :: login
 ****************************************************************************/
-   public function verify_login($email,$password){
-      $query = $this->db->query(
-         "SELECT * FROM `users` WHERE email = '".$email."' AND PASSWORD = '".$password."';"
-      );
-
-      if ($query->num_rows() == 1)
-         return true;
-      else
-         return false;
+   public function verify_login($email,$password)
+   {
+      if ($this->db->query("SELECT * FROM `users` WHERE email = '".$email."' AND PASSWORD = '".$password."';")->num_rows() == 1) return TRUE;
+      else return FALSE;
    }
    
-/* LOGIN USER
+/* LOGIN :: user
 ****************************************************************************/
    public function login_user($email)
    {
-      $query = $this->db->query("SELECT * FROM  `users` WHERE email =  '".$email."';");
-      $user = $query->row();
-      $newdata = array(
-         'user_id' => $user->user_id,
-         'email'  => $email,
-         'firstname' => $user->firstname,
-         'lastname'=> $user->lastname,
-         'logged_in' => TRUE
+      $user = $this->db->query("SELECT * FROM  `users` WHERE email =  '".$email."';")->row();
+      $this->session->set_userdata(
+         array(
+            'user_id'   => $user->user_id,
+            'email'     => $email,
+            'firstname' => $user->firstname,
+            'lastname'  => $user->lastname,
+            'logged_in' => TRUE
+         )
       );
-      $this->session->set_userdata($newdata);
+   }
+   
+/* GET :: hash
+****************************************************************************/
+   public function hash($email)
+   {
+      $this->db->where('email', $email);
+      return $this->db->get('users')->row('hash');
+   }
+   
+/* VERIFY :: account
+****************************************************************************/
+   public function account_verification($email)
+   {      
+      $this->db->where('email', $email);
+      if ($this->db->get('users')->row('verified') == 1) return TRUE;
+      else return FALSE;
+   }
+   
+/* ACTIVATE :: account
+****************************************************************************/
+   public function activate_account($email)
+   {      
+      $this->db->where('email', $email);      
+      $this->db->update('users', array('verified' => '1'));
    }
 }
-?>

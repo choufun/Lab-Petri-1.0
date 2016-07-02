@@ -7,7 +7,7 @@
             <?php echo validation_errors(); ?>
          </span>
          
-         <?php echo form_open('Login'); ?>
+         <?php echo form_open('login'); ?>
          
             <!-- EMAIL
             ---------------------------------------------------------------------->
@@ -35,6 +35,7 @@
                   <strong>LOGIN</strong>
                </button>
             </div>
+         
          <?php echo form_close(); ?>
       
          <!-- REGISTER LINK

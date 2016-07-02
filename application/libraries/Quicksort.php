@@ -1,15 +1,13 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
-<?php
-
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 /* Quicksort CLASS
       - quicksorts the nestings of comments for a single Forum post.
-*******************************************************************************/
+****************************************************************************/
 class Quicksort
 {
    private $stack = array();
    
-   /* CONSTRUCTOR
-   ****************************************************************************/
+/* CONSTRUCTOR
+****************************************************************************/
    public function __construct() { ; }
    
    public function _sort($ids)
@@ -18,9 +16,9 @@ class Quicksort
       $this->quicksort(0, count($this->stack)-1);
    }
    
-   /* PARTITION
-         - pushes smallest value to left and largest value to right
-   ****************************************************************************/
+/* PARTITION
+- pushes smallest value to left and largest value to right
+****************************************************************************/
    private function partition($left, $right)
    {
       $i = $left;
@@ -45,8 +43,8 @@ class Quicksort
       return $i;
    }
    
-   /* QUICKSORT
-   ****************************************************************************/
+/* QUICKSORT
+****************************************************************************/
    private function quicksort($left, $right)
    {
       $index = $this->partition($left, $right);
@@ -55,16 +53,16 @@ class Quicksort
       if ($index < $right) $this->quicksort($index, $right);
    }
    
-   /* GET STACK
-   ****************************************************************************/
+/* GET STACK
+****************************************************************************/
    public function get_stack() { return $this->stack; }
    
-   /* GET LAST ELEMENT
-   ****************************************************************************/
+/* GET LAST ELEMENT
+****************************************************************************/
    public function get_last_element() { return $this->stack[count($this->stack)-1]; }
    
-   /* UNSET STACK : EMPTIES STACK
-   ****************************************************************************/
+/* UNSET STACK : EMPTIES STACK
+****************************************************************************/
    public function free_stack()
    {
       unset($this->stack);

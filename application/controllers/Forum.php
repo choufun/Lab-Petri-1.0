@@ -141,5 +141,18 @@ class Forum extends CI_Controller
          return TRUE;
       }
    }
+   
+   /* DELETE POST : function
+   ****************************************************************************/
+   public function delete_post()
+   {
+      $data = array (
+         'post_id' => $this->input->post('post'),
+         'comment_id' => $this->input->post('comment'),
+         'user_id' => $this->session->user_id,
+      );      
+      $this->forum_model->delete_post($data);
+      redirect('forum');
+   }
 }
 ?>

@@ -4,7 +4,7 @@
 if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
 {
 ?>
-<div class="divider"></div><div class="divider"></div>
+<div class="divider"></div>
 
 <div class="card-content">
    <div class="container-fluid">
@@ -19,12 +19,13 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                 
          <div class="card z-depth-1 blue darken-2"> 
             <div class="col s12 m12 l12">
-               <div class="card z-depth-3" style="margin: 2px 2px;">
+               <div class="card z-depth-3" style="margin: 1px 1px;">
         
       <?php if ($bookmarks !== NULL)
             { ?>
          <?php foreach($bookmarks as $bookmark)
                { ?>
+                  
                   <a href="post?key=<?php echo $bookmark->post_id; ?>" target="_blank">
                      <div class="card-content" style="margin: 0px 5px;">
                         <h5 class="active">
@@ -34,10 +35,22 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                               </strong>
                            </small>
                         </h5>
+                  <?php if ($this->session->user_id == $bookmark->user_id)
+                        {
+                           echo form_open('profile/delete_bookmark'); ?>
+                        
+                              <input type="hidden" name="bookmark" value="<?php echo $bookmark->bookmark_id; ?>"/>
+                              <button class="front btn waves-effect blue darken-1" type="submit" name="action">
+                                 <strong>Remove</strong>
+                              </button>
+                        
+                     <?php echo form_close();
+                           
+                        }  ?>
                      </div>
                   </a>
-                     
-                  <div class="divider"></div><div class="divider"></div>             
+                  
+            <?php if ($bookmark !== end($bookmarks)) { ?> <div class="divider"></div> <?php } ?>
          <?php }
             }
             else

@@ -24,7 +24,7 @@ foreach ($professors as $university=>$value)
    <!-- CAROUSEL HEADER
    ------------------------------------------------------------------------>
    <div class="collapsible-header blue-text text-darken-4">
-      <strong><?php echo $this->connections_model->remove_extension($university); ?></strong>
+      <strong><?php echo $university; ?></strong>
    </div>
    
    <!-- CAROUSEL BODY

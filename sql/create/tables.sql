@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS users (
    lastname VARCHAR(255) NOT NULL,
    email VARCHAR(255) NOT NULL,
    password VARCHAR(255) NOT NULL,
+   verified INT(1) NOT NULL DEFAULT '0',
+   hash VARCHAR(32) NOT NULL,
    PRIMARY KEY (user_id), UNIQUE(email)
 ) ENGINE = MYISAM;
 
