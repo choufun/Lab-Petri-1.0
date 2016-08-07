@@ -20,41 +20,11 @@ class Login extends CI_Controller
    }
    
    public function index()
-   {
-      
-/* LOGIN :: form rules
-****************************************************************************/
-      if ($this->input->post('login') == 'login')
+   {      
+      if ($this->input->get('id') == "registration")
       {
-         $this->form_validation->set_rules('email','email','trim|required|valid_email');
-         $this->form_validation->set_rules('password','password','required|callback_login');
-      }
-      
-/* REGISTRATION :: form validations
-****************************************************************************/
-      if ($this->input->post('register') == 'register')
-      {        
-         $required = FALSE;
-         if (($this->input->post('undergraduate') !== NULL) ||
-             ($this->input->post('graduate')      !== NULL) ||
-             ($this->input->post('professor')     !== NULL)) { $required = TRUE; }
-         
-         $this->form_validation->set_rules('education', 'Education', $required);
-         $this->form_validation->set_rules('firstname','First name','trim|required');
-         $this->form_validation->set_rules('lastname','Last name','trim|required');
-         $this->form_validation->set_rules('email','Email','trim|valid_email|callback_verify_email|required');
-         $this->form_validation->set_rules('password','password','required|min_length[8]');
-         $this->form_validation->set_rules('passwordconf','Password Confirmation','required|matches[password]');
-         $this->form_validation->set_rules('university','University','required');
-         $this->form_validation->set_rules('major','Major','required');
-      }
-      
-/* LOGIN REGISTRATION :: failure
-****************************************************************************/
-      if ($this->form_validation->run() === FALSE)
-      {    
          $this->load->view('templates/header');
-         $this->load->view('login',
+         $this->load->view('login/registration',
                               array(
                                  'options' => $this->register_model->get_majors(),
                                  'schools' => $this->register_model->get_schools(),
@@ -64,27 +34,71 @@ class Login extends CI_Controller
       }
       else
       {
-         
-/* REGISTRATION :: success
-****************************************************************************/
-         if ($this->input->post('register') == 'register')
-         {
-            $this->register();            
-            $this->send_mail($this->input->post('email'));
-            redirect('confirmaccount');
-         }
-         
-/* LOGIN :: success
+      
+/* LOGIN :: form rules
 ****************************************************************************/
          if ($this->input->post('login') == 'login')
          {
-            if ($this->login_model->account_verification($this->input->post('email')))
+            $this->form_validation->set_rules('email','email','trim|required|valid_email');
+            $this->form_validation->set_rules('password','password','required|callback_login');
+         }
+
+/* REGISTRATION :: form validations
+****************************************************************************/
+         if ($this->input->post('register') == 'register')
+         {        
+            $required = FALSE;
+            if (($this->input->post('undergraduate') !== NULL) ||
+                ($this->input->post('graduate')      !== NULL) ||
+                ($this->input->post('professor')     !== NULL)) { $required = TRUE; }
+
+            $this->form_validation->set_rules('education', 'Education', $required);
+            $this->form_validation->set_rules('firstname','First name','trim|required');
+            $this->form_validation->set_rules('lastname','Last name','trim|required');
+            $this->form_validation->set_rules('email','Email','trim|valid_email|callback_verify_email|required');
+            $this->form_validation->set_rules('password','password','required|min_length[8]');
+            $this->form_validation->set_rules('passwordconf','Password Confirmation','required|matches[password]');
+            $this->form_validation->set_rules('university','University','required');
+            $this->form_validation->set_rules('major','Major','required');
+         }
+
+/* LOGIN REGISTRATION :: failure
+****************************************************************************/
+         if ($this->form_validation->run() === FALSE)
+         {    
+            $this->load->view('templates/header');
+            $this->load->view('login',
+                                 array(
+                                    'options' => $this->register_model->get_majors(),
+                                    'schools' => $this->register_model->get_schools(),
+                                 )
+                              );
+            $this->load->view('templates/footer');
+         }
+         else
+         {
+
+/* REGISTRATION :: success
+****************************************************************************/
+            if ($this->input->post('register') == 'register')
             {
-               $this->login_model->login_user($this->input->post('email'));
-               redirect('');
+               $this->register();            
+               $this->send_mail($this->input->post('email'));
+               redirect('confirmaccount');
             }
-            else redirect('confirmaccount');
-         }        
+
+/* LOGIN :: success
+****************************************************************************/
+            if ($this->input->post('login') == 'login')
+            {
+               if ($this->login_model->account_verification($this->input->post('email')))
+               {
+                  $this->login_model->login_user($this->input->post('email'));
+                  redirect('');
+               }
+               else redirect('confirmaccount');
+            }        
+         }
       }
    }
    

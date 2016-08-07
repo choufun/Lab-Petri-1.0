@@ -38,7 +38,7 @@
                            <h5 class="blue-text text-darken-4" align="center">
                               <strong>Nghia Nguyen</strong>
                               <br>
-                              <small><small>Co-founder</small></small>
+                              <small><small>Co-founder - Dental Student</small></small>
                            </h5>
                         </div>
                      </div>

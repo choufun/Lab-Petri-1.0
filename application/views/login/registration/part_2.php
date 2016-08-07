@@ -85,9 +85,15 @@
       </a>
    </div>
 
+   <?php if($this->input->get('id') == "registration")
+   { }
+   else
+   { ?>
    <div class="register_adj" align="right">
       <a class="reg_log" onclick="return show('front','back');">
          <strong>Login</strong>
       </a>
    </div>
+   <?php
+   } ?>
 </div>

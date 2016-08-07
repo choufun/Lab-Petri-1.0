@@ -13,19 +13,28 @@ class Login_model extends CI_Model
       else return FALSE;
    }
    
+/* VERIFY :: account
+****************************************************************************/
+   public function account_verification($email)
+   {      
+      $this->db->where('email', $email);
+      if ($this->db->get('users')->row('verified') == 1) return TRUE;
+      else return FALSE;
+   }
+   
 /* LOGIN :: user
 ****************************************************************************/
    public function login_user($email)
    {
       $user = $this->db->query("SELECT * FROM  `users` WHERE email =  '".$email."';")->row();
       $this->session->set_userdata(
-         array(
-            'user_id'   => $user->user_id,
-            'email'     => $email,
-            'firstname' => $user->firstname,
-            'lastname'  => $user->lastname,
-            'logged_in' => TRUE
-         )
+                                    array(
+                                       'user_id'   => $user->user_id,
+                                       'email'     => $email,
+                                       'firstname' => $user->firstname,
+                                       'lastname'  => $user->lastname,
+                                       'logged_in' => TRUE
+                                    )
       );
    }
    
@@ -35,15 +44,6 @@ class Login_model extends CI_Model
    {
       $this->db->where('email', $email);
       return $this->db->get('users')->row('hash');
-   }
-   
-/* VERIFY :: account
-****************************************************************************/
-   public function account_verification($email)
-   {      
-      $this->db->where('email', $email);
-      if ($this->db->get('users')->row('verified') == 1) return TRUE;
-      else return FALSE;
    }
    
 /* ACTIVATE :: account

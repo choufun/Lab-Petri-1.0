@@ -16,7 +16,7 @@ class Help extends CI_Controller
    ****************************************************************************/
    public function index()
    {
-      $this->send_mail('pk.phillipkwong@gmail.com');
+      $this->send_mail();
       $this->load->view('templates/header');
       $this->load->view('help');
       $this->load->view('templates/footer');
@@ -43,13 +43,13 @@ class Help extends CI_Controller
       $this->email->attach($filename);
       */
       
-      $this->email->from('Ragonto@gmail.com');
+      $this->email->from('contact@labpetri.org');
       $this->email->to($email);
       $this->email->subject('Welcome to Lab Petri');
       
       /* FUNCTION WORKS IN VERSION 3.0.6 / NOT WORKING IN VERSION 3.0.2
       
-      $cid = $this->email->attachmet_cid($filename);
+      $cid = $this->email->attachment_cid($filename);
       */
 
       $data = array(

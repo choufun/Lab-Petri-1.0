@@ -81,6 +81,7 @@ CREATE TABLE IF NOT EXISTS university_extensions (
 CREATE TABLE IF NOT EXISTS posts (
    post_id INT(11) NOT NULL AUTO_INCREMENT,
    user_id INT(11) NOT NULL,
+   type INT(1) NOT NULL,
    title VARCHAR(255) NOT NULL,
    abstract TEXT NOT NULL,
    topic VARCHAR(255) NOT NULL,
@@ -158,6 +159,30 @@ CREATE TABLE IF NOT EXISTS issues (
    issue_id VARCHAR(255) NOT NULL,
    user_id INT(11) NOT NULL
 ) ENGINE = MYISAM;
+
+/* NEWS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS news (
+   news_id INT(11) NOT NULL AUTO_INCREMENT,
+   title VARCHAR(255) NOT NULL,
+   description TEXT NOT NULL,
+   url TEXT NOT NULL,
+   month VARCHAR(9) NOT NULL,
+   day INT(2) NOT NULL,
+   yr  INT(4) NOT NULL,
+   time VARCHAR(8) NOT NULL,
+   PRIMARY KEY(news_id)
+) ENGINE = MYISAM;
+
+/* TEAMS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS teams (
+   team_id INT(11) NOT NULL AUTO_INCREMENT,
+   post_id INT(11) NOT NULL,
+   team_members TEXT NOT NULL,
+   PRIMARY KEY(team_id)
+) ENGINE = MYISAM;
+
 
 /* TEST
 *********************************************************************/

@@ -17,7 +17,7 @@ class Post extends CI_Controller
    public function index()
    {      
       $this->load->view('templates/header');
-      $this->load->view('/forum/post');
+      $this->load->view('/petridish/post');
       $this->load->view('templates/footer');
    }
 }

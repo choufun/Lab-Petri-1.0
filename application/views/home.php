@@ -51,30 +51,48 @@
          <!-- <div class="col s12 m12 l12"> -->
          <div class="row">  
             <div class="row white-text col s12 m12 l12">                  
-               <h1>Lab Petri<img class="responsive-img" src="assets/img/Logo.png" height="120" width="120" align="right"></h1>                  
+               <h1>Lab Petri&nbsp;<small class="grey-text">beta 1.0</small><img class="responsive-img" src="assets/img/Logo.png" height="120" width="120" align="right"></h1>                  
                <h5>Find Research, Build Connections</h5>                  
                <div class="divider"></div>                  
                <h6 class="white-text">
-               <div id="section-1" class="col s4 m4 l4">
+               <div id="section-1" class="col s6 m6 l6">
                   <a href="https://www.labpetri.org/support"
                      class="white-text">
-                     Help Us Grow
+                     Promoting STEM Education and Research
                   </a>
-                  <strong id="section-2">It's Free!</strong></div>
-               <div class="col s4 m4 l4 offset-s4 offset-m4 offset-l4" align="right">
+                  <strong id="section-2">Sign Up For Free!</strong></div>
+               <div class="col s3 m3 l3 offset-s3 offset-m3 offset-l3" align="right">
                   <a href="company" class="white-text" align="right">About Us</a>
                </div>
             </h6>
          </div>               
          </div>
          <div class="row">
-            <a class="white-text blue lighten-1 waves-effect waves-light btn col s3 m3 l3 offset-m5 offset-l5" href="forum">
+            
+            <a class="white-text blue lighten-1 waves-effect waves-light btn col s3 m3 l3 offset-m5 offset-l5" href="petridish">
                Petri Dish
             </a>
             <a class="white-text blue lighten-1 waves-effect waves-light btn col s3 m3 l3 offset-m1 offset-l1" href="login">
                Login
             </a>
-         </div>     
+            
+            <!--
+            <a class="white-text blue lighten-1 waves-effect waves-light btn col s3 offset-s1" href="petridish">
+               Petri Dish
+            </a>
+            <a class="white-text blue lighten-1 waves-effect waves-light btn col s3 offset-s1" href="login?id=registration">
+               Sign Up
+            </a>
+            <a class="white-text blue lighten-1 waves-effect waves-light btn col s3 offset-s1" href="login">
+               Login
+            </a>
+            -->
+         </div>
+         <div class="row">
+            <a class="white-text blue lighten-1 waves-effect waves-light btn col s3 offset-s9" href="login?id=registration">
+               <strong>Sign Up</strong>
+            </a>
+         </div>
       </div>      
       <!-- MOBILE SCREEN
       ----------------------------------------------------------------------------->
@@ -107,10 +125,16 @@
             </div>
             <div class="row" align="center">
                <a class="white-text blue lighten-1 waves-effect waves-light btn col s4 m4 l4 offset-s4 offset-m4 offset-l4"
-                  href="forum">
+                  href="petridish">
                   Petri Dish
                </a>
-            </div>         
+            </div>
+            <div class="row" align="center">
+               <a class="white-text blue lighten-1 waves-effect waves-light btn col s4 m4 l4 offset-s4 offset-m4 offset-l4"
+                  href="login?id=registration">
+                  Sign Up
+               </a>
+            </div>
             <div>                
                <a class="white-text blue lighten-1 waves-effect waves-light btn col s4 m4 l4 offset-s4 offset-m4 offset-l4"
                   href="login">
@@ -118,6 +142,25 @@
                </a>
             </div>
          </div>
-      </div> 
+      </div>
+      <script>
+$(document).ready(function(){
+   var keyCodes = [61, 107, 173, 109, 187, 189];
+
+   $(document).keydown(function(event) {   
+      if (event.ctrlKey==true && (keyCodes.indexOf(event.which) != -1)) {
+       alert('disabling zooming'); 
+       event.preventDefault();
+       }
+   });
+
+   $(window).bind('mousewheel DOMMouseScroll', function (event) {
+      if (event.ctrlKey == true) {
+        alert('disabling zooming'); 
+        event.preventDefault();
+      }
+   });
+});
+      </script>
    </body>
 </html>

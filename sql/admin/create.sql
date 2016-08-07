@@ -1,4 +1,9 @@
 USE labpetri;
+
+INSERT INTO users (user_id, firstname, lastname, email, password, verified) VALUES ('0', 'Lab Petri', 'Admin', 'contact@labpetri.org', 'labpeetree', '1');
+INSERT INTO education (user_id, university, major, standing) VALUES ('0', 'Lab Petri', 'Company', 'Admin');
+INSERT INTO contact (user_id, email, phone, linkedin) VALUES ('0', 'contact@labpetri.org', '(510) 996-8028', 'none');
+
 /*
 +-----------------------+
 | Tables_in_labpetri    |
@@ -15,7 +20,7 @@ USE labpetri;
 | users                 |
 +-----------------------+
 */
-
+/*
 SHOW TABLES;
 
 CREATE TABLE IF NOT EXISTS admins (
@@ -28,7 +33,7 @@ CREATE TABLE IF NOT EXISTS admins (
 ) ENGINE = MYISAM;
 
 DESCRIBE admins;
-
+*/
 /*
    ADMINISTRATION ACCOUNTS
    
@@ -36,6 +41,7 @@ DESCRIBE admins;
    VALUES (value1, value2, value3,...)
    
 **************************************************************************************************/
+/*
 INSERT INTO admins (user_id, firstname, lastname, email, password)
 VALUES ('1', 'Steven', 'Chou', 'steven.chou@labpetri.com', '1abyssia');
 
@@ -49,3 +55,4 @@ INSERT INTO admins (user_id, firstname, lastname, email, password)
 VALUES ('4', 'Brian', 'Nguyen', 'brian.nguyen@labpetri.com', 'labpeetree');
 
 SELECT * FROM admins;
+*/

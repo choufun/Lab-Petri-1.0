@@ -8,34 +8,45 @@ class Labcast extends CI_Controller
    function __construct()
    {
       parent:: __construct();
-      $this->load->helper('url');
       $this->load->model('labcast_model');
+      $this->load->helper(array('form', 'url'));
+      $this->load->library('form_validation');
    }
 
 /* INDEX
 ****************************************************************************/
    public function index()
    {
-      /**
-      if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
-      {
-         redirect('forum');
-      }         
+      $this->form_validation->set_rules('title','title','trim|required');
+      $this->form_validation->set_rules('description','description','required');
+      $this->form_validation->set_rules('url','url','required');
+      
+      if ($this->form_validation->run() === FALSE)
+      {          
+         $this->load->view('templates/header');
+         $this->load->view('labcast', array (
+                                              'activities' => $this->labcast_model->collect_activities(),
+                                              'labpetri_news' => $this->labcast_model->collect_news(),
+                                      ));
+         $this->load->view('templates/footer');
+      }
       else
       {
-         //$this->load->view('templates/header');
-         $this->load->view('home');
-         //$this->load->view('templates/footer');
+         
+/* POST :: success
+****************************************************************************/
+         $this->post_news( array(
+                  'title' => $this->input->post('title'),
+                  'description' => $this->input->post('description'),
+                  'url' => $this->input->post('url'),
+         ));
+         redirect('labcast');
       }
-      */
       
-      $data = array(
-         'news' => $this->labcast_model->collect_activities(),
-      );
-      
-      $this->load->view('templates/header');
-      $this->load->view('labcast', $data);
-      $this->load->view('templates/footer');
    }
+   
+/* POST :: news
+****************************************************************************/
+   private function post_news($data) { $this->labcast_model->insert_news($data); }
 }
 ?>

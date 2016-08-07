@@ -14,21 +14,16 @@ class Register_model extends CI_Model
    public function register($data)
    {
       $user_id;
-      
-/* INSERT :: user data
-************************************************************************/
       $this->db->insert('users',$data);
       
-/* GET :: user id
-************************************************************************/
+      // GET :: user id
       $this->db->where('firstname', $data['firstname']);
       $this->db->where('lastname', $data['lastname']);
       $this->db->where('email', $data['email']);
       $query = $this->db->get('users');
       if ($query->num_rows() == 1) $user_id = $query->row('user_id');
       
-/* INSERT :: user education
-****************************************************************************/ 
+      // INSERT :: user education
       $this->db->insert('education', 
                            array (
                               'user_id' => $user_id,
@@ -38,8 +33,7 @@ class Register_model extends CI_Model
                            )
                         );
       
-/* INSERT :: user contact
-****************************************************************************/       
+      // INSERT :: user contact
       $this->db->insert('contact',
                            array (
                               'user_id' => $user_id,
@@ -49,8 +43,7 @@ class Register_model extends CI_Model
                            )
                         );
       
-/* RECORD :: user activity
-****************************************************************************/ 
+      // RECORD :: user activity
       $this->record_activity(
          array(
             'user_id' => $user_id,
@@ -58,8 +51,7 @@ class Register_model extends CI_Model
          )
       );
       
-/* CREATE :: user filesytem
-****************************************************************************/
+      // CREATE :: user filesytem
       mkdir("/var/www/html/users/".$user_id, 0777, TRUE);
       mkdir("/var/www/html/users/".$user_id."/research", 0777, TRUE);
       mkdir("/var/www/html/users/".$user_id."/pictures", 0777, TRUE);
@@ -80,6 +72,19 @@ class Register_model extends CI_Model
 ****************************************************************************/
    public function get_majors() { return $this->options; }
    
+/* GET :: universities
+****************************************************************************/
+   public function get_schools() { return $this->schools; }
+   
+/* GET :: user firstname and lastname
+****************************************************************************/
+   public function get_username($user_id)
+   {
+      $this->db->where('user_id', $user_id);
+      $query = $this->db->get('users');
+      return $query->row('firstname')." ".$query->row('lastname');
+   }
+   
 /* LOAD :: majors
 ****************************************************************************/
    public function load_majors()
@@ -88,10 +93,6 @@ class Register_model extends CI_Model
          foreach ($this->db->get('majors')->result() as $row)
             $this->options.= '<option value="'.$row->major.'">'.$row->major.'</option>';
    }
-
-/* GET :: universities
-****************************************************************************/
-   public function get_schools() { return $this->schools; }
    
 /* LOAD :: universities
 ****************************************************************************/
@@ -109,15 +110,6 @@ class Register_model extends CI_Model
       $this->db->where('email', $email);      
       if ($this->db->get('users')->num_rows() == 0) return TRUE;
       else return FALSE;
-   }
-   
-/* GET :: user firstname and lastname
-****************************************************************************/
-   public function get_username($user_id)
-   {
-      $this->db->where('user_id', $user_id);
-      $query = $this->db->get('users');
-      return $query->row('firstname')." ".$query->row('lastname');
    }
    
 /* RECORD :: activity
