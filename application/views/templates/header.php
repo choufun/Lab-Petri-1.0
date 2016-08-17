@@ -38,7 +38,7 @@
 
 <!-- BODY
 --------------------------------------------------------------------------------------------->
-<body class="avoid-fout page-blue grey lighten-4">
+<body class="avoid-fout blue-grey lighten-5">
 <!--<body class="avoid-fout page-blue grey lighten-3">-->
    <div class="navbar-fixed">
 

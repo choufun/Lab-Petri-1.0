@@ -66,9 +66,7 @@
          
 <!-- new post ------------------------------------------------------------------------>
          <?php // include 'application/views/petridish/job/new_post.php';?>
-         <div align="center">  
-            Coming Soon
-         </div>
+         <div align="center"> Coming Soon </div>
       </div>
 <!-- posts --------------------------------------------------------------------------->   
       <?php // include 'application/views/petridish/job/posts.php';?>

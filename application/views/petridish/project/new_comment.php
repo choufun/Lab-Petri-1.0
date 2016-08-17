@@ -1,16 +1,14 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-<?php
 if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
 { ?>
 <div class="row">
-   <div class="col s5 m5 l5">
-      <?php echo form_open_multipart('Petridish');?>
-      <?php echo validation_errors(); ?>
+   <div class="col s6 offset-s6">
+      <?php echo form_open_multipart('Petridish');
+            echo validation_errors(); ?>
 
          <div class="input-field col s12">
-<textarea name="comments" type="text" class="materialize-textarea" placeholder="Write a comment..."></textarea>
-            <!--<label class="blue-text" for="comment">Comment:</label>-->
+            <textarea name="comments" type="text" class="materialize-textarea" placeholder="Write a comment..."></textarea>
          </div>
       
          <input type="hidden" name="comment_id" value="<?php echo $post->comment_id;?>">

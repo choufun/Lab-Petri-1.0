@@ -9,7 +9,7 @@
          <?php echo form_open('Login'); ?>      
             <!-- PART 1
             -------------------------------------------------------------------------->
-            <?php include 'application/views/login/registration/part_1.php';?>
+            <?php //include 'application/views/login/registration/part_1.php';?>
             <!-- PART 2
             -------------------------------------------------------------------------->
             <?php include 'application/views/login/registration/part_2.php';?>      

@@ -13,6 +13,16 @@
          $("div.progress").fadeIn("slow");
       });
    });
+   
+   
+
+   /*$(document).ready(function(){
+       $('#login_password').keypress(function(e){
+         if(e.keyCode==13)
+         $('#login_button').click();
+       });
+   }); */
+
 </script>
 
 <!-- DEBUGGING PURPOSES
@@ -30,16 +40,16 @@
 
 <!-- CARD
 --------------------------------------------------------------------------------------------->      
-      <div align="center" class="col s12 m10 l8 offset-m1 offset-l2">
-         <div class="card blue darken-2">
-            <div class = "card card-border hoverable" style="margin: 2px 2px;">
+      <div align="center" class="col s12 m10 offset-m1">
+            <div class = "card card-border hoverable">
 
 <!-- HEADER LOGO
 --------------------------------------------------------------------------------------------->
                <div id="header" class ="card-content blue white-text">
-                  <img class="logo2 white z-depth-1" src="assets/img/Logo.png">
+                  <!--<img class="logo2 white z-depth-1" src="assets/img/Logo.png">-->
+                  <img class="logo2" src="assets/img/Logo.png" style="margin-top: -12px;">
                </div>               
-               <div class="divider"></div><div class="divider"></div>       
+               <div class="divider"></div>
 
 <!-- LOGIN FORM
 --------------------------------------------------------------------------------------------->
@@ -48,15 +58,14 @@
 <!-- REGISTER FORM
 --------------------------------------------------------------------------------------------->
                <?php include 'application/views/login/registration_form.php';?>
-            </div>         
-         </div>
+            </div>
       </div>
    </div>
 </div>
 
 <!-- JAVASCRIPT
 --------------------------------------------------------------------------------------------->
-<script type="text/javascript">   
+<script type="text/javascript">
    function show(current, hidden)
    {
       document.getElementById(current).style.display='block';

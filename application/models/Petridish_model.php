@@ -287,7 +287,7 @@ class Petridish_model extends CI_Model
       $this->db->where('default_picture', 1);
       $query = $this->db->get('profile_picture');
       if ($query->num_rows() == 1) { return $query->row('filename'); }
-      else { return "default.png"; }      
+      else { return NULL;} //return "default.png"; }      
    }
    
    /* CHECK COMMENT TYPE

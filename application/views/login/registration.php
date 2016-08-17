@@ -32,14 +32,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!-- CARD
 --------------------------------------------------------------------------------------------->      
-      <div align="center" class="col s12 m10 l8 offset-m1 offset-l2">
-         <div class="card blue darken-2">
-            <div class = "card card-border hoverable" style="margin: 2px 2px;">
+      <div align="center" class="col s12 m10 offset-m1">
+            <div class = "card card-border hoverable">
 
 <!-- HEADER LOGO
 --------------------------------------------------------------------------------------------->
                <div id="header" class ="card-content blue white-text">
-                  <img class="logo2 white z-depth-1" src="assets/img/Logo.png">
+                  <img class="logo2 " src="assets/img/Logo.png" style="margin-top: -12px;">
                </div>               
                <div class="divider"></div>
 
@@ -54,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php echo form_open('Login'); ?>      
                            <!-- PART 1
                            -------------------------------------------------------------------------->
-                           <?php include 'application/views/login/registration/part_1.php';?>
+                           <?php // include 'application/views/login/registration/part_1.php';?>
                            <!-- PART 2
                            -------------------------------------------------------------------------->
                            <?php include 'application/views/login/registration/part_2.php';?>      
@@ -62,8 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      </div>
                   </div>
                </div>
-            </div>         
-         </div>
+            </div> 
       </div>
    </div>
 </div>

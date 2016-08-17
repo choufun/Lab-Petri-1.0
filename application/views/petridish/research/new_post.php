@@ -17,7 +17,19 @@
          -------------------------------------------------------------------->
          <div class="collapsible-body hoverable z-depth-5 white">
             <div class="container-fluid" style="padding: 0px 40px;">                     
-               <div class="row">                  
+               
+               <div class="row">                                                      
+                  
+                  <div class="input-field col s12">
+                     <input name="title" type="text" class="validate">
+                     <label class="blue-text" for="title"><strong>Title:</strong></label>
+                  </div>                  
+                                  
+                  <div class="input-field col s12">
+                     <textarea name="abstract" type="text" class="materialize-textarea"></textarea>
+                     <label class="blue-text" for="abstract"><strong>Description:</strong></label>
+                  </div>      
+                  
                   <div class="input-field col s12">
                      <label class="blue-text" for="topic"><strong>Topic:</strong></label><br><br>
                      <select class="browser-default" name="topic">
@@ -28,16 +40,8 @@
                            else { foreach($topics as $topic) { echo $topic; } }
                         ?>
                      </select><br>
-                  </div>  
-                  <div class="input-field col s12">
-                     <input name="title" type="text" class="validate">
-                     <label class="blue-text" for="title"><strong>Title:</strong></label>
-                  </div>                  
-                                  
-                  <div class="input-field col s12">
-                     <textarea name="abstract" type="text" class="materialize-textarea"></textarea>
-                     <label class="blue-text" for="abstract"><strong>Description:</strong></label>
-                  </div>                 
+                  </div>
+                  
                   <!--
                   <div class="file-field input-field col s8">
                      <div><span class="blue-text">File:</span><input type="file" name="post_file"></div>                     
@@ -52,7 +56,9 @@
                         Submit
                      </button>
                   </div>
+                  
                </div>
+               
             </div>
          </div>
       </li>

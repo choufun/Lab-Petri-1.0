@@ -92,12 +92,30 @@
                            <h5 class="blue-text text-darken-4" align="center">
                               <strong>Alok Bhatt</strong>
                               <br>
-                              <small><small>Marketing Director</small></small>
+                              <small><small>Marketing Specialist</small></small>
                            </h5>
                         </div>
                      </div>
                   </div>
-              </div>    
+              </div>
+              <div class="col s12 m4 l4">
+                  <div class="card z-depth-1 hoverable blue">
+                     <div class="card" style="margin: 1px 1px;">
+                        <div class="card-content">
+                           <div align="center">
+                              <img class="responsive-img z-depth-3 circle" style="height: 200px; width: 200px;"
+                                   src="../../assets/img/neeraj.JPG"
+                                   id="profile-image">
+                           </div>
+                           <h5 class="blue-text text-darken-4" align="center">
+                              <strong>Neeraj Mallampet</strong>
+                              <br>
+                              <small><small>Mobile Developer</small></small>
+                           </h5>
+                        </div>
+                     </div>
+                  </div>
+              </div> 
             </div>
          </div>
       </div>

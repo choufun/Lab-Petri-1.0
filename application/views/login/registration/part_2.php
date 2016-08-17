@@ -1,18 +1,19 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<div id="part_2" style="display:none">
+<!--<div id="part_2" style="display:none">-->
+<div id="part_2">
             
    <!-- FIRST AND LAST NAME
    ---------------------------------------------------------------------->
    <div class="row">
       <div class="input-field col s6">
-         <label class="green-text active" for ='firstname'> First Name: </label>
-         <input class="blue-text text-darken-2" type="text" name="firstname">
+         <label class="green-text factive" for ='firstname'> First Name: </label>
+         <input class="grey-text text-darken-3" type="text" name="firstname">
       </div>
 
       <div class="input-field col s6">
          <label class="green-text active" for ='lastname'> Last Name: </label>
-         <input class="blue-text text-darken-2" type="text" name="lastname">
+         <input class="grey-text text-darken-3" type="text" name="lastname">
       </div>
    </div>
 
@@ -21,7 +22,7 @@
    <div class="row">
       <div class="input-field col s12">
          <label class="green-text active" for ='email'> Email: </label>
-         <input class="blue-text text-darken-2" type="text" name="email">
+         <input class="grey-text text-darken-3" type="text" name="email">
       </div>
    </div>
 
@@ -30,7 +31,7 @@
    <div class="row">
       <div class="input-field col s12">
          <label class="green-text active" for='password'> Password: </label>
-         <input class="blue-text text-darken-2" type="password" name="password">
+         <input class="grey-text text-darken-3" type="password" name="password">
       </div>
    </div>
 
@@ -39,7 +40,7 @@
    <div class="row">
       <div class="input-field col s12">
          <label class="green-text active" for='passwordconf'> Password Confirmation: </label>
-         <input class="blue-text text-darken-2" type="password" name="passwordconf">
+         <input class="grey-text text-darken-3" type="password" name="passwordconf">
       </div>
    </div>
 
@@ -48,7 +49,7 @@
    <div class="row">
       <div class="input-field col s12">
          <label class="green-text active" for="university">University:</label><br>
-         <select name="university" class="browser-default blue-text text-darken-2">
+         <select name="university" class="browser-default grey-text text-darken-3">
             <option selected disabled>-- Please Select One --</option>
             <?php echo $schools;?>
          </select>
@@ -60,40 +61,57 @@
    <div class="row">
       <div class="input-field col s12">
          <label class="green-text active" for="major">Major:</label><br>
-         <select name="major" class="browser-default blue-text text-darken-2">
+         <select name="major" class="browser-default grey-text text-darken-3">
             <option selected disabled>-- Please Select One --</option>
             <?php echo $options;?>
+         </select>   
+      </div>               
+   </div><br>
+   
+   <!-- STANDING
+   ---------------------------------------------------------------------->
+   <div class="row">
+      <div class="input-field col s12">
+         <label class="green-text active" for="major">Account Type:</label><br>
+         <select name="standing" class="browser-default grey-text text-darken-3">
+            <option selected disabled>-- Please Select One --</option>
+            <option value="Undergraduate">Undergraduate</option>
+            <option value="Graduate">Graduate</option>
+            <option value="Professor">Professor</option>
+            <option value="Employer">Employer</option>
          </select>   
       </div>               
    </div>
 
    <input type="hidden" name="register" value="register">
-
-   <!-- REGISTER
-   ---------------------------------------------------------------------->
+   
    <div class="row"> 
-      <button class="back btn waves-effect blue darken-1" type="submit" name="action">
-         <strong>REGISTER</strong>
-      </button>
-   </div>
-
-   <!-- LOGIN LINK
-   ------------------------------------------------------------------------->
-   <div class="register_adj" align="left">
-      <a class="reg_log" onclick="return show('part_1','part_2');">
-         <strong>Back</strong>
-      </a>
-   </div>
-
-   <?php if($this->input->get('id') == "registration")
-   { }
-   else
+<?php
+   if($this->input->get('id') == "registration")
    { ?>
-   <div class="register_adj" align="right">
-      <a class="reg_log" onclick="return show('front','back');">
-         <strong>Login</strong>
-      </a>
-   </div>
-   <?php
+      <div class="row col s12">
+         <button class="btn-large grey lighten-5 grey-text text-darken-3" type="submit" name="action"
+                 style="width:100%; height:100%;">
+            <h5><small>Register</small></h5>
+         </button>
+      </div> 
+<?php
+   }
+else { ?>
+      <div class="row col s12 m6">
+         <button class="btn-large grey lighten-5 grey-text" onclick="return show('front','back');"
+                 style="width:100%; height:100%;">
+                 <h5><small>Back</small></h5>
+         </button>
+      </div>
+      <div class="row col s12 m6">
+         <button class="btn-large grey lighten-5 grey-text text-darken-3" type="submit" name="action"
+                 style="width:100%; height:100%;">
+            <h5><small>Register</small></h5>
+         </button>
+      </div>  
+<?php
    } ?>
+          
+   </div> 
 </div>

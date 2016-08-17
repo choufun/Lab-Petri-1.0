@@ -29,7 +29,8 @@ class Register_model extends CI_Model
                               'user_id' => $user_id,
                               'university' => $this->input->post('university'),
                               'major' => $this->input->post('major'),
-                              'standing' => $this->standing(),
+                              'standing' => $this->input->post('standing'),
+                              //'standing' => $this->standing(),
                            )
                         );
       
