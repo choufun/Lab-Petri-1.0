@@ -13,14 +13,28 @@
    </div>-->
    
       <div class="row col s12 m6">
-         <a href="forum/add_bookmark?id=<?php echo $post->post_id; ?>">
+         <a href="post/add_bookmark?id=<?php echo $post->post_id; ?>">
             <button class="btn-large grey lighten-5 grey-text text-darken-4" onclick="return toggle('comments.<?php echo $post->comment_id; ?>');"
                     style="width:100%; height:100%;">
                <h5><small>Bookmark This Post</small></h5>
             </button>
          </a>
       </div>
+      
       <div class="row col s12 m6">
+         <?php echo form_open('Post/delete_post'); ?>                        
+            <input type="hidden" name="post" value="<?php echo $post->post_id; ?>"/>
+            <input type="hidden" name="comment" value="<?php echo $post->comment_id; ?>"/>
+            <input type="hidden" name="key" value="<?php echo $this->input->get('key'); ?>">
+            <button class="front btn-large grey lighten-5 grey-text" type="submit" name="action"
+                    style="width:100%; height:100%;">
+               <h5><small>Remove My Post</small></h5>
+            </button>
+         <?php echo form_close(); ?>
+      </div>
+      
+      <!--
+      <div class="row col s12 m6">         
          <a href="forum/add_bookmark?id=<?php echo $post->post_id; ?>">
             <button class="btn-large grey lighten-5 blue-text text-darken-2" onclick="return toggle('comments.<?php echo $post->comment_id; ?>');"
                     style="width:100%; height:100%;">
@@ -28,6 +42,7 @@
             </button>
          </a>
       </div>
+      -->
    </div>
 
 </div>

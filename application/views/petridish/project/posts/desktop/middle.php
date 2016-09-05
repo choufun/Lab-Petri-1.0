@@ -9,10 +9,11 @@
       </span>
       <br>
    </h6>
-   <div id="post_show_<?php echo $post->post_id; ?>" class="container-fluid flow-text">
-      <p class="description-container grey-text text-darken-3">
+   <div id="post_show_<?php echo $post->post_id; ?>" class="container-fluid flow-text">       
+      <!--<p class="description-container grey-text text-darken-3">-->
+      <p class="description-container grey-text text-darken-3 truncate">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><strong><?php echo $post->abstract; ?></strong></small>
-      </p>
+      </p><br>
    </div>
 </div>
 

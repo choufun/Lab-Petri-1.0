@@ -1,14 +1,14 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <?php
 
-class Post extends CI_Controller
+class Blogpost extends CI_Controller
 {
    /* CONSTRUCTOR
    ************************************************************************************/
    function __construct()
    {
       parent:: __construct();
-      $this->load->model('post_model');
+      $this->load->model('blogpost_model');
       $this->post_model->increment_post_views();
       $this->load->library('form_validation');
       $this->load->helper(array('form', 'url'));
@@ -31,7 +31,7 @@ class Post extends CI_Controller
       if ($this->form_validation->run() === FALSE)
       {
          $this->load->view('templates/header');
-         $this->load->view('/petridish/post');
+         $this->load->view('/blogpost/blogpost');
          $this->load->view('templates/footer');
       }
       else
@@ -39,7 +39,7 @@ class Post extends CI_Controller
          if ($this->input->post('new_comment')    == 'new_comment')    $this->creates_comment();
          if ($this->input->post('new_subcomment') == 'new_subcomment') $this->creates_subcomment();
          $key = $this->input->post('key');
-         redirect('post?key='.$key);
+         redirect('blogpost?key='.$key);
       }      
    }
    
@@ -51,7 +51,7 @@ class Post extends CI_Controller
                      'post_id' => $this->input->get('id'),
                      'user_id' => $this->session->user_id,
       ));      
-      redirect('');
+      redirect('labcast');
    }
    
 /* DELETE :: post
@@ -64,7 +64,7 @@ class Post extends CI_Controller
                      'user_id' => $this->session->user_id,
       ));
       $key = $this->input->post('key');
-      redirect('petridish');
+      redirect('labcast');
    }
    
    

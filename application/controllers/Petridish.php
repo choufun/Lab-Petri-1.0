@@ -110,6 +110,11 @@ class Petridish extends CI_Controller
                      'topic' => $this->input->post('topic'),
                      'comment_id' => '0.0',
                      'type' => $type,
+                     'major' => $this->input->post('major'),
+                     'gpa' => $this->input->post('gpa'),
+                     'courses' => $this->input->post('courses'),
+                     'extra' => $this->input->post('extra'),
+                     
       ));
    }
    

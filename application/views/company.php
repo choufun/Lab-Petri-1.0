@@ -18,10 +18,14 @@
                   <p>                     
                      <!--Lab Petri is a networking website driven by minorities who have a passion for STEM field research. 
                      Our goal is to not only increase student and professional involvement in the STEM fields but to specifically target underrepresented minorities in the STEM fields.
-                     -->Lab Petri is a networking website for students and professors. Our goal is to help students in STEM majors find research opportunities at their Universities. Our broader goal is to help students from various ethnic, economic, and cultural backgrounds gain access to the same research opportunities as their peers and motivate students to major in the STEM fields. <br></br>
+                     -->Lab Petri is a nonprofit organization and networking website for students currently in or entering the STEM fields. Our goal is to promote the STEM majors and to help students find research opportunities within or outside their Universities. We want to encourage students to pursue and continue their education in science and technology by giving them more opportunities to do concrete work, as well as show them what their education will make them capable of achieving.<br></br>  
+
+Research is an important part of a well-rounded academic experience for an undergraduate student and those who enter research labs, and are published in academic journals as a result, end up with a significant advantage in terms of finding future employment or entering graduate school. We would like research to be a more fundamental aspect of the curriculum of the average student in a STEM major.
+<br></br>
+Lab Petri is under IRS section 501(c)(3). 
  
-Lab Petri is a non-profit organization that exists to provide a service for undergraduate students such that they excel in their fields and become better doctors, engineers, and scientists, who will impact the course of scientific discovery.
-<br><br>
+
+
                      
                     <!--Lab Petri can help students engage with potential employers for opportunities in research.
                      We provide our website as a setting where students, professors, and potential employers can establish working relationships that may

@@ -40,7 +40,7 @@
                <div class="row col s12 m6">
                   <button class="btn-large grey lighten-5 grey-text" onclick="return show('back','front');"
                        style="width:100%; height:100%;">
-                     <h5><small>Register</small></h5>
+                     <h5><small>Sign Up</small></h5>
                   </button>
                </div>
                

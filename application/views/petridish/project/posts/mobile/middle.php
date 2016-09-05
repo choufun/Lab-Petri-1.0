@@ -13,7 +13,7 @@
          </h6>
       </div>
       <div class="col s12 m12 l12">
-         <p class="grey-text text-darken-3">
+         <p class="grey-text text-darken-3 truncate">
             <?php echo $post->abstract; ?>
          </p>
       </div>

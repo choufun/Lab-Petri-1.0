@@ -20,7 +20,7 @@
       </h4>
          <hr>
          <li>
-            <div class="collapsible-header active">Profile Feature</div>
+            <div class="collapsible-header active grey-text text-darken-3">Profile Feature</div>
             <div class="collapsible-body">
                <p>A. Displays profile information <br>
                   B. Generates downloadable resume </p>

@@ -36,15 +36,23 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
          <ul class="tabs">
 
 <!-- TAB :: how to do's
----------------------------------------------------------------------------->
+----------------------------------------------------------------------------
             <li class="tab col s4">
                <a href="#hd-container" class="black-text"><strong>Tutorials</strong></a>
             </li>
-            
+-->            
+
 <!-- TAB :: manual
----------------------------------------------------------------------------->
+----------------------------------------------------------------------------
             <li class="tab col s4">
                <a href="#man-container" class="active black-text"><strong>Manual</strong></a>
+            </li>
+-->
+
+<!-- TAB :: labfacts
+---------------------------------------------------------------------------->
+            <li class="tab col s4">
+               <a href="#fact-container" class="active black-text"><strong>FAQ</strong></a>
             </li>
             
 <!-- TAB :: q and a's
@@ -58,18 +66,28 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
    </div>
 
 <!-- HD-CONTAINER :: how to do's
----------------------------------------------------------------------------->
+----------------------------------------------------------------------------
    <div id="hd-container" class="container">
       <div class="card">
-         <?php include 'application/views/labfaq/how_to_dos.php'; ?>    
+         <php include 'application/views/labfaq/how_to_dos.php'; >    
       </div>
    </div>
+-->
    
 <!-- MAN-CONTAINER :: manual
----------------------------------------------------------------------------->
+----------------------------------------------------------------------------
    <div id="man-container" class="container">
       <div class="card">
-         <?php include 'application/views/labfaq/manual.php'; ?>    
+         <php include 'application/views/labfaq/manual.php'; >    
+      </div>
+   </div>
+-->
+
+<!-- FACT-CONTAINER :: labfacts
+---------------------------------------------------------------------------->
+   <div id="fact-container">
+      <div>
+         <?php include 'application/views/labfaq/labfacts.php'; ?>    
       </div>
    </div>
    

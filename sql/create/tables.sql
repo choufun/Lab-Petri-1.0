@@ -78,6 +78,7 @@ CREATE TABLE IF NOT EXISTS university_extensions (
 
 /* POSTS
 *********************************************************************/
+/*
 CREATE TABLE IF NOT EXISTS posts (
    post_id INT(11) NOT NULL AUTO_INCREMENT,
    user_id INT(11) NOT NULL,
@@ -92,10 +93,60 @@ CREATE TABLE IF NOT EXISTS posts (
    comment_id VARCHAR(255) NOT NULL,
    PRIMARY KEY (post_id)
 ) ENGINE = MYISAM;
+*/
+
+CREATE TABLE IF NOT EXISTS posts (
+   post_id INT(11) NOT NULL AUTO_INCREMENT,
+   user_id INT(11) NOT NULL,
+   title VARCHAR(255) NOT NULL,
+   major VARCHAR(255),
+   abstract TEXT NOT NULL,
+   topic VARCHAR(255) NOT NULL,
+   gpa VARCHAR(3),
+   courses TEXT,
+   extra TEXT,
+   type INT(1) NOT NULL,
+   month VARCHAR(9) NOT NULL,
+   day INT(2) NOT NULL,
+   yr  INT(4) NOT NULL,
+   initial_time VARCHAR(8) NOT NULL,
+   comment_id VARCHAR(255) NOT NULL,
+   PRIMARY KEY (post_id)
+) ENGINE = MYISAM;
+
+/* BLOG POSTS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS blog_posts (
+   post_id INT(11) NOT NULL AUTO_INCREMENT,
+   user_id INT(11) NOT NULL,
+   title VARCHAR(255) NOT NULL,
+   quotes TEXT NOT NULL,
+   blog TEXT NOT NULL,
+   month VARCHAR(9) NOT NULL,
+   day INT(2) NOT NULL,
+   yr  INT(4) NOT NULL,
+   initial_time VARCHAR(8) NOT NULL,
+   comment_id VARCHAR(255) NOT NULL,
+   PRIMARY KEY (post_id)
+) ENGINE = MYISAM;
+
 
 /* COMMENTS
 *********************************************************************/
 CREATE TABLE IF NOT EXISTS comments (
+   comment_id VARCHAR(255) NOT NULL,
+   order_id VARCHAR(255)NOT NULL,
+   user_id INT(11) NOT NULL,
+   comments TEXT,
+   month VARCHAR(9),
+   day INT(2),
+   yr  INT(4),
+   initial_time VARCHAR(8)
+) ENGINE = MYISAM;
+
+/* BLOG COMMENTS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS blog_comments (
    comment_id VARCHAR(255) NOT NULL,
    order_id VARCHAR(255)NOT NULL,
    user_id INT(11) NOT NULL,
@@ -113,6 +164,15 @@ CREATE TABLE IF NOT EXISTS bookmarks (
    user_id INT(11) NOT NULL,
    post_id INT(11) NOT NULL,
    PRIMARY KEY(bookmark_id)
+) ENGINE = MYISAM;
+
+/* POST VIEWS
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS blog_post_views (
+   post_id INT(11) NOT NULL,
+   views INT(11) NOT NULL,
+   ip_address VARCHAR(255),
+   PRIMARY KEY(post_id)
 ) ENGINE = MYISAM;
 
 /* POST VIEWS

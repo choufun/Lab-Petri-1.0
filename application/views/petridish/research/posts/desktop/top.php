@@ -4,13 +4,13 @@
 ----------------------------------------------------->
 <div class="card-content" style="margin: 0px 5px;">
 <?php $picture = $this->petridish_model->get_profile_picture($post->user_id);
-   if ($picture === NULL) { ?>
+      if ($picture === NULL) { ?>
       <i class="large material-icons profile-image black-text">perm_identity</i>
 <?php } else {?>
    <!-- IMAGE -->
    <img class="responsive-img z-depth-1 profile-image"
         src="users/<?php echo $post->user_id; ?>/pictures/<?php echo $picture; ?>">
-   <?php } ?>
+<?php } ?>
    <!-- TITLE -->
    <h4 class="blue-text text-darken-5">
       &nbsp;&nbsp;&nbsp;&nbsp;<strong><?php echo $post->title; ?></strong>

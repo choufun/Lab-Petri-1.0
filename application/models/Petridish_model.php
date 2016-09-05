@@ -1,17 +1,18 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Petridish_model extends CI_Model
-{   
-   /* CONSTRUCTOR
-   ****************************************************************************/
+{
+   
+/* CONSTRUCTOR
+*****************************************************************************/
    public function __construct()
    {
       parent::__construct();
       $this->load->library('quicksort');
    }
   
-   /* USERNAME
-   ****************************************************************************/
+/* USERNAME
+*****************************************************************************/
    public function user_name($user_id)
    {
       $this->db->where('user_id', $user_id);
@@ -20,26 +21,26 @@ class Petridish_model extends CI_Model
       return $name;
    }
    
-   /* INSERT BOOKMARKS
-   ****************************************************************************/
+/* INSERT BOOKMARKS
+*****************************************************************************/
    public function bookmarks($data)
    {
       $this->db->insert('bookmarks', $data);
    }
    
-   /* INSERT POST
-   ****************************************************************************/
+/* INSERT POST
+*****************************************************************************/
    public function insert_post($data)
    {
       $post_id;
       
-      /* CREATES EMPTY POST
-      *************************************************************************/
+/* CREATES EMPTY POST
+*****************************************************************************/
       $this->db->insert('posts',$data);
       
-      /* UPDATES POST : POST_ID : UPDATES RESEARCH FILES : POST_ID
-         INCREMENT POST VIEW
-      *************************************************************************/
+/* UPDATES POST : POST_ID : UPDATES RESEARCH FILES : POST_ID
+   INCREMENT POST VIEW
+*****************************************************************************/
       $this->db->where('title', $data['title']);
       $query = $this->db->get('posts');
       
@@ -57,8 +58,8 @@ class Petridish_model extends CI_Model
                                              'views' => 0,
       ));
       
-      /* CREATES FIRST EMPTY COMMENT
-      *************************************************************************/
+/* CREATES FIRST EMPTY COMMENT
+*****************************************************************************/
       $this->db->set('month','MONTHNAME(NOW())',FALSE);
       $this->db->set('day', 'DAY(NOW())',FALSE);
       $this->db->set('yr', 'YEAR(NOW())',FALSE);
@@ -69,33 +70,34 @@ class Petridish_model extends CI_Model
                                              'user_id' => $this->session->user_id,
       ));
       
-      /* RECORD ACTIVITY
-      **********************************************************************/
+/* RECORD ACTIVITY
+*****************************************************************************/
       $this->record_activity( array(
                                        'user_id' => $this->session->user_id,
                                        'type' => "forum_post",
                                        'post_title' => $data['title'],
       ));
       
-      /* CREATES TEAM
-      **********************************************************************/
+/* CREATES TEAM
+*****************************************************************************/
       $this->creates_team( array(
                                     'post_id' => $post_id,
                                     'team_members' => $this->session->user_id,
       ));
    }
    
-   /* INSERT COMMENT
-   ****************************************************************************/
+/* INSERT COMMENT
+*****************************************************************************/
    public function insert_comment($data)
    {
-      /* GETS POST_ID LAST ORDER_ID
-      *************************************************************************/
+      
+/* GETS POST_ID LAST ORDER_ID
+*****************************************************************************/
       $order_ids = $this->get_order_ids($data['comment_id']); 
       $last_order_id = $order_ids[count($order_ids)-1];
       
-      /* INSERTS NEW COMMENT
-      *************************************************************************/
+/* INSERTS NEW COMMENT
+*****************************************************************************/
       if ($data['type'] == 'new_comment')
       {         
          if($last_order_id == '0.0')
@@ -125,8 +127,8 @@ class Petridish_model extends CI_Model
          }
       }
       
-      /* INSERTS NEW SUBCOMMENT
-      *************************************************************************/
+/* INSERTS NEW SUBCOMMENT
+*****************************************************************************/
       if ($data['type'] == 'new_subcomment')
       {
          $order_id = $this->get_last_subcomment_order_id($data['comment_id'], $data['order_id']);
@@ -146,12 +148,12 @@ class Petridish_model extends CI_Model
       }
    }
    
-   /* DEBUGGING PURPOSES
-   ****************************************************************************/
+/* DEBUGGING PURPOSES
+*****************************************************************************/
    public function get_ids() { return $query = $this->get_order_ids('4.1'); }
    
-   /* GET NUMBER OF COMMENTS
-   ****************************************************************************/
+/* GET NUMBER OF COMMENTS
+*****************************************************************************/
    public function get_num_comments($comment_id)
    {
       $this->db->where('comment_id', $comment_id);
@@ -165,24 +167,25 @@ class Petridish_model extends CI_Model
       else { return count($query->result()); }
    }
    
-   /* GET LAST SUBCOMMENT ORDER_ID
-   ****************************************************************************/
+/* GET LAST SUBCOMMENT ORDER_ID
+*****************************************************************************/
    public function get_last_subcomment_order_id($comment_id, $order_id)
    {
-      /* GET ALL COMMENT_ID ORDER_IDS
-      *************************************************************************/
+      
+/* GET ALL COMMENT_ID ORDER_IDS
+*****************************************************************************/
       $this->db->select('order_id');
       $this->db->where('comment_id', $comment_id);
       $query = $this->db->get('comments');
 
-      /* SORT AND LIST ALL COMMENT_ID ORDER_IDS
-      *************************************************************************/
+/* SORT AND LIST ALL COMMENT_ID ORDER_IDS
+*****************************************************************************/
       $this->quicksort->_sort($query->result());
       $stack = $this->quicksort->get_stack();
       $this->quicksort->free_stack();
       
-      /* IDENTIFY SUBCOMMENT LOCATION
-      *************************************************************************/
+/* IDENTIFY SUBCOMMENT LOCATION
+*****************************************************************************/
       $temp = (intval($order_id)+1);
       $new_order_id = NULL;
       for ($i = 0; $i <= count($stack)-1; ++$i)
@@ -193,8 +196,8 @@ class Petridish_model extends CI_Model
       else { return $new_order_id; }     
    }
    
-   /* GET POST COMMENTS : QUICKSORT : RETURN SORTED STACK
-   ****************************************************************************/
+/* GET POST COMMENTS : QUICKSORT : RETURN SORTED STACK
+*****************************************************************************/
    public function get_order_ids($comment_id)
    {
       $this->db->select('order_id');
@@ -207,8 +210,8 @@ class Petridish_model extends CI_Model
       return $stack;
    }
    
-   /* GET COMMENT INFORMATION
-   ****************************************************************************/
+/* GET COMMENT INFORMATION
+*****************************************************************************/
    public function get_comment_info($comment_id, $order_id)
    {
       $this->db->where('comment_id', $comment_id);
@@ -219,8 +222,8 @@ class Petridish_model extends CI_Model
       else { return NULL; }
    }
    
-   /* GET POST COMMENTS: SORTED ORDER_ID
-   ****************************************************************************/
+/* GET POST COMMENTS: SORTED ORDER_ID
+*****************************************************************************/
    public function get_post_comments($comment_id)
    {
       $this->db->where('comment_id', $comment_id);
@@ -246,8 +249,37 @@ class Petridish_model extends CI_Model
       }
    }
    
-   /* GET TOPICS
-   ****************************************************************************/   
+/* GET GPAS
+*****************************************************************************/   
+   public function get_gpas()
+   {
+      return array(
+         '<option value="2.0">2.0</option>/n',
+         '<option value="2.1">2.1</option>/n',
+         '<option value="2.2">2.2</option>/n',
+         '<option value="2.3">2.3</option>/n',
+         '<option value="2.4">2.4</option>/n',
+         '<option value="2.5">2.5</option>/n',
+         '<option value="2.6">2.6</option>/n',
+         '<option value="2.7">2.7</option>/n',
+         '<option value="2.8">2.8</option>/n',
+         '<option value="2.9">2.9</option>/n',
+         '<option value="3.0">3.0</option>/n',
+         '<option value="3.1">3.1</option>/n',
+         '<option value="3.2">3.2</option>/n',
+         '<option value="3.3">3.3</option>/n',
+         '<option value="3.4">3.4</option>/n',
+         '<option value="3.5">3.5</option>/n',
+         '<option value="3.6">3.6</option>/n',
+         '<option value="3.7">3.7</option>/n',
+         '<option value="3.8">3.8</option>/n',
+         '<option value="3.9">3.9</option>/n',
+         '<option value="4.0">4.0</option>/n',
+      );
+   }
+   
+/* GET TOPICS
+*****************************************************************************/   
    public function get_topics()
    {      
       $query = $this->db->get('majors');
@@ -265,7 +297,7 @@ class Petridish_model extends CI_Model
    }
    
 /* GET :: research | project | job : posts
-****************************************************************************/
+*****************************************************************************/
    public function get_posts($type)
    {
       $this->db->where('type', $type);
@@ -274,13 +306,12 @@ class Petridish_model extends CI_Model
       else return NULL;
    }   
    
-   
-   /* GET TIME
-   ****************************************************************************/
+/* GET TIME
+*****************************************************************************/
    public function get_time($time) { return substr(strval($time), 0, -3); }
    
-   /* GET PROFILE PICTURE
-   ****************************************************************************/
+/* GET PROFILE PICTURE
+*****************************************************************************/
    public function get_profile_picture($user_id)
    {
       $this->db->where('user_id', $user_id);
@@ -290,8 +321,8 @@ class Petridish_model extends CI_Model
       else { return NULL;} //return "default.png"; }      
    }
    
-   /* CHECK COMMENT TYPE
-   ****************************************************************************/
+/* CHECK COMMENT TYPE
+*****************************************************************************/
    public function comment_type($order_id)
    {
       $type;
@@ -302,8 +333,8 @@ class Petridish_model extends CI_Model
       return $type;
    }
    
-   /* GET NUMBER OF POST VIEWS
-   ****************************************************************************/
+/* GET NUMBER OF POST VIEWS
+*****************************************************************************/
    public function get_num_views($post_id)
    {
       $this->db->where('post_id', $post_id);
@@ -311,8 +342,8 @@ class Petridish_model extends CI_Model
       return $query->row('views');
    }
    
-   /* INCREMENT POST VIEWS
-   ****************************************************************************/
+/* INCREMENT POST VIEWS
+*****************************************************************************/
    public function increment_post_views()
    {
       $post_id = $this->input->get('id');
@@ -324,8 +355,8 @@ class Petridish_model extends CI_Model
       $this->db->update('post_views', $data);
    }
    
-   /* INSERT RESEARCH FILE
-   ****************************************************************************/
+/* INSERT RESEARCH FILE
+*****************************************************************************/
    public function insert_research_file($filename, $post_id)
    {
       $data = array (
@@ -336,8 +367,8 @@ class Petridish_model extends CI_Model
       $this->db->insert('research_files', $data);
    }
    
-   /* RECORD ACTIVITY
-   *****************************************************************************/
+/* RECORD ACTIVITY
+*****************************************************************************/
    public function record_activity($data)
    {                   
       $this->db->set('month','MONTHNAME(NOW())',FALSE);
@@ -352,8 +383,8 @@ class Petridish_model extends CI_Model
       ));
    }
    
-   /* DELETE POST
-   *****************************************************************************/
+/* DELETE POST
+*****************************************************************************/
    public function delete_post($data)
    {
       // DELETE POST
@@ -377,7 +408,7 @@ class Petridish_model extends CI_Model
    }
    
 /* GET :: current time
-****************************************************************************/
+*****************************************************************************/
    public function current_time($data)
    {
       $time = explode(":", $data);
@@ -385,7 +416,7 @@ class Petridish_model extends CI_Model
    }
    
 /* CREATES :: team
-****************************************************************************/
+*****************************************************************************/
    public function creates_team($data)
    {
       $this->db->insert('teams', $data);
