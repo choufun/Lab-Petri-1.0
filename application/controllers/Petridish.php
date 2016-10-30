@@ -78,7 +78,7 @@ class Petridish extends CI_Controller
       $this->petridish_model->insert_comment( array (
                      'type' => $this->input->post('new_subcomment'),
                      'comment_id' => $this->input->post('comment_id'),
-                     'comments' => $this->input->post('subcomments'),
+                     'comments' => nl2br($this->input->post('subcomments')),
                      'order_id' => $this->input->post('order_id'),
       ));
    }
@@ -90,7 +90,7 @@ class Petridish extends CI_Controller
       $this->petridish_model->insert_comment( array(
                      'type' => $this->input->post('new_comment'),
                      'comment_id' => $this->input->post('comment_id'),
-                     'comments' => $this->input->post('comments'),
+                     'comments' => nl2br($this->input->post('comments')),
       ));
    }
    
@@ -106,14 +106,14 @@ class Petridish extends CI_Controller
       $this->petridish_model->insert_post( array(
                      'user_id' => $this->session->user_id,
                      'title' => $this->input->post('title'),
-                     'abstract' => $this->input->post('abstract'),
+                     'abstract' => nl2br($this->input->post('abstract')),
                      'topic' => $this->input->post('topic'),
                      'comment_id' => '0.0',
                      'type' => $type,
                      'major' => $this->input->post('major'),
                      'gpa' => $this->input->post('gpa'),
-                     'courses' => $this->input->post('courses'),
-                     'extra' => $this->input->post('extra'),
+                     'courses' => nl2br($this->input->post('courses')),
+                     'extra' => nl2br($this->input->post('extra')),
                      
       ));
    }
@@ -125,6 +125,7 @@ class Petridish extends CI_Controller
       $this->petridish_model->bookmarks( array(
                      'post_id' => $this->input->get('id'),
                      'user_id' => $this->session->user_id,
+                     'type'    => 'petridish',
       ));      
       redirect('');
    }

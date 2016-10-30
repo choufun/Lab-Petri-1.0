@@ -9,7 +9,7 @@ class Blogpost extends CI_Controller
    {
       parent:: __construct();
       $this->load->model('blogpost_model');
-      $this->post_model->increment_post_views();
+      $this->blogpost_model->increment_post_views();
       $this->load->library('form_validation');
       $this->load->helper(array('form', 'url'));
       //$this->load->helper('simple_html_dom');
@@ -31,7 +31,7 @@ class Blogpost extends CI_Controller
       if ($this->form_validation->run() === FALSE)
       {
          $this->load->view('templates/header');
-         $this->load->view('/blogpost/blogpost');
+         $this->load->view('/labcast/blog/post');
          $this->load->view('templates/footer');
       }
       else
@@ -47,24 +47,25 @@ class Blogpost extends CI_Controller
 ****************************************************************************/
    public function add_bookmark()
    {  
-      $this->post_model->bookmarks( array(
+      $this->blogpost_model->bookmarks( array(
                      'post_id' => $this->input->get('id'),
                      'user_id' => $this->session->user_id,
-      ));      
-      redirect('labcast');
+      ));     
+      $key = $this->input->post('key');
+      redirect('blogpost?key='.$key);
    }
    
 /* DELETE :: post
 ****************************************************************************/
    public function delete_post()
    {
-      $this->post_model->delete_post( array(
+      $this->blogpost_model->delete_post( array(
                      'post_id' => $this->input->post('post'),
                      'comment_id' => $this->input->post('comment'),
                      'user_id' => $this->session->user_id,
       ));
       $key = $this->input->post('key');
-      redirect('labcast');
+      redirect('blogpost?key='.$key);
    }
    
    
@@ -72,7 +73,7 @@ class Blogpost extends CI_Controller
 ****************************************************************************/
    public function creates_subcomment()
    {
-      $this->post_model->insert_comment( array (
+      $this->blogpost_model->insert_comment( array (
                      'type' => $this->input->post('new_subcomment'),
                      'comment_id' => $this->input->post('comment_id'),
                      'comments' => $this->input->post('subcomments'),
@@ -84,7 +85,7 @@ class Blogpost extends CI_Controller
 ****************************************************************************/
    public function creates_comment()
    {
-      $this->post_model->insert_comment( array(
+      $this->blogpost_model->insert_comment( array(
                      'type' => $this->input->post('new_comment'),
                      'comment_id' => $this->input->post('comment_id'),
                      'comments' => $this->input->post('comments'),

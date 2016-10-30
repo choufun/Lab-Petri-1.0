@@ -25,52 +25,62 @@ class Labmail extends CI_Controller
          $this->load->view('labmail',
                                  array(
                                     'messages' => $this->labmail_model->get_messages(),
-                                    'friends' => $this->labmail_model->get_friends(),
+                                    'friends' => $this->labmail_model->get_friends_list(),
+                                    'requests' => $this->labmail_model->get_pending_requests(),
+                                    'new_messages' => $this->labmail_model->get_new_message_notifications(),
                                  )
                            );
          $this->load->view('templates/footer');
       }
       else
       {
-         $this->sends_message();
+         $this->send_messages();
+         redirect('labmail?id='.$this->input->post('id'));
       } 
    }
-
-/* AJAX CALL FOR SENDING MESSAGE
+   
+/* SENDS :: message
 ****************************************************************************/
-   public function ajax()
+/*   
+   public function sends_message()
    {
       $this->labmail_model->inserts_message(
-         array(
-               'user_id' => $this->session->user_id,
-               'message' => $this->input->post('message'),
-               'friend_id' => $this->input->post('id'),         
+            array(
+                     'user_id' => $this->session->user_id,
+                     'message' => $this->input->post('message'),
+                     'friend_id' => $this->input->post('id'),         
             )
       );
       
-      echo $this->load->view('labmail/new_message',
-                             array(
-                                    'user_id' => $this->session->user_id,
-                                    'message' => $this->input->post('message'),
-                                    'friend_id' => $this->input->post('id'),         
-                                 ),
-                             TRUE
-                            );
+      $this->labmail_model->set_new_message_notification($this->input->post('id'));
    }
-   
-   
-/* SENDS MESSAGE
-****************************************************************************/   
-   public function sends_message()
-   {  
+*/   
+/* SEND :: ajax messages
+****************************************************************************/
+   public function send_messages()
+   {      
       $this->labmail_model->inserts_message(
             array(
-               'user_id' => $this->session->user_id,
-               'message' => $this->input->post('message'),
-               'friend_id' => $this->input->post('id'),         
+                     'user_id' => $this->session->user_id,
+                     'message' => $this->input->post('message'),
+                     'friend_id' => $this->input->post('id'),         
             )
-      );
-      redirect('labmail?id='.$this->input->post('id'));
+      );      
+      $this->labmail_model->set_new_message_notification($this->input->post('id'));
+      
+      echo '<div class="row">';
+         echo '<div class="col s6 m6 l6 offset-s6 offset-m6 offset-l6" align="right">';
+            echo '<small><strong>'.$this->input->post('message').'</strong></small>';
+         echo '</div>';
+      echo '</div>';
    }
+   
+/* ACCEPTS :: connection
+****************************************************************************/
+   public function accepts()
+   {
+      $this->labmail_model->accepts_pending_request($this->session->user_id, $this->input->get('id'));
+      redirect('labmail');
+   }   
 }
 ?>

@@ -1,5 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<style>   
+<style>
+   
+   .tabs .indicator { background-color: #2196f3; }  
+   
    h1, h2, h3, h4, h5, h6 { display: inline; }
    
    .summary-container { margin: 0px 35px; }
@@ -20,21 +23,22 @@
    .profile-image_2 { border-radius: 50%; width: 75px; height: 75px; }
    
    .mobile-profile-image { border-radius: 50%; width: 75px; height: 75px; }
+   
 </style>
 
 <script>
    
 /* AJAX :: posting blog
-****************************************************************************/
+****************************************************************************/   
    function ajax(){
       $.ajax({
          url: "<?php echo base_url().'labcast/postblog'; ?>",
          type: "POST",
          cache: false,
          data: $('#form').serialize(),
-         success: function(json)
+         success: function(html)
          {
-            $('#blog_post').prepend(json);            
+            $('#blog_post').prepend(html);
          },
          error: function(XMLHttpRequest, status, errorThrown)
          {
@@ -42,6 +46,7 @@
          },
       });
    }
+   
 </script>
 
 <div class="container-fluid">
@@ -50,36 +55,19 @@
    <div class="row">
       <div class="col s12">
          <ul class="tabs">
-<!-- TAB :: news
+<!-- TAB :: news, blogs, community
 ---------------------------------------------------------------------------->
-            <li class="tab col s4"><a href="#news" class="black-text"><strong>News</strong></a></li>            
-<!-- TAB :: Blogs
----------------------------------------------------------------------------->
-            <li class="tab col s4"><a href="#blogs" class="active black-text"><strong>Blogs</strong></a></li>             
-<!-- TAB :: Community
----------------------------------------------------------------------------->
+            <li class="tab col s4"><a href="#news" class="black-text"><strong>News</strong></a></li>
+            <li class="tab col s4"><a href="#blogs" class="active black-text"><strong>Blogs</strong></a></li>
             <li class="tab col s4"><a href="#community" class="black-text"><strong>Community</strong></a></li> 
          </ul>
       </div>
    </div>
-   <div id="news">
-      <div class="card-content"><h4 align="center"><strong>Lab Cast</strong></h4></div>
-      <?php include 'application/views/labcast/admin_new_post.php';?>
-      <?php include 'application/views/labcast/admin_posts.php';?>
-      <?php include 'application/views/labcast/google_news.php';?>
-<!--var_dump(simplexml_load_file('https://www.ed.gov/feed')) -->
-   </div>
    
-   <div id="blogs">
-      <?php include 'application/views/labcast/new_blog_post.php';?>      
-      <?php if ($blog !== NULL) { ?>
-      <?php include 'application/views/labcast/blog_posts.php';?>      
-      <?php } ?>
-   </div>
-   
-   <div id="community">
-      <?php include 'application/views/labcast/community_activities.php';?>
-   </div>      
+   <?php include 'application/views/labcast/news/rssfeed.php';?>
+   <?php include 'application/views/labcast/blog/postboard.php';?>
+   <?php include 'application/views/labcast/community/activityfeed.php';?>
+
 </div>
 
 <!-- JAVASCRIPT ---------------------------------------------------------------------->

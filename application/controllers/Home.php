@@ -11,5 +11,6 @@ class Home extends CI_Controller
    {
       if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE)) redirect('petridish');         
       else $this->load->view('home');
+      //else $this->load->view('home_temp');
    }
 }

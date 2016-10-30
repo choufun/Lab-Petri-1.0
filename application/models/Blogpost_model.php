@@ -18,7 +18,7 @@ class Blogpost_model extends CI_Model
    {
       $this->db->set('views', '`views`+1', FALSE);
       $this->db->where('post_id', $this->input->get('key'));
-      $this->db->update('post_views');
+      $this->db->update('blog_post_views');
    }
    
 /* GET POST
@@ -26,7 +26,7 @@ class Blogpost_model extends CI_Model
    public function get_post($post_id)
    {
       $this->db->where('post_id', $post_id);
-      $query = $this->db->get('posts');
+      $query = $this->db->get('blog_posts');
       return $query->row();
    }
    
@@ -36,7 +36,7 @@ class Blogpost_model extends CI_Model
    {
       $this->db->select('order_id');
       $this->db->where('comment_id', $comment_id);
-      $query = $this->db->get('comments');
+      $query = $this->db->get('blog_comments');
 
       $this->quicksort->_sort($query->result());
       $stack = $this->quicksort->get_stack();
@@ -56,7 +56,7 @@ class Blogpost_model extends CI_Model
    public function get_comments($comment_id)
    {
       $this->db->where('comment_id', $comment_id);
-      $query = $this->db->get('comments');
+      $query = $this->db->get('blog_comments');
       
       if ($query->num_rows() == 0) { return NULL; }
       else
@@ -84,7 +84,7 @@ class Blogpost_model extends CI_Model
    {
       $this->db->where('comment_id', $comment_id);
       $this->db->where('order_id', $order_id);
-      $query = $this->db->get('comments');
+      $query = $this->db->get('blog_comments');
       
       if ($query->num_rows() > 0) { return $query->row(); }
       else { return NULL; }
@@ -118,7 +118,7 @@ class Blogpost_model extends CI_Model
    public function get_num_views($post_id)
    {
       $this->db->where('post_id', $post_id);
-      $query = $this->db->get('post_views');
+      $query = $this->db->get('blog_post_views');
       return $query->row('views');
    }
    
@@ -155,7 +155,7 @@ class Blogpost_model extends CI_Model
             $this->db->where('comment_id', $data['comment_id']);
             $this->db->where('order_id', $last_order_id);
             $this->db->where('comments', NULL);
-            $this->db->update('comments', $new_comment);
+            $this->db->update('blog_comments', $new_comment);
          }
          else
          {
@@ -169,7 +169,7 @@ class Blogpost_model extends CI_Model
             $this->db->set('day', 'DAY(NOW())',FALSE);
             $this->db->set('yr', 'YEAR(NOW())',FALSE);
             $this->db->set('initial_time', 'CURRENT_TIME', FALSE);
-            $this->db->insert('comments', $new_comment);
+            $this->db->insert('blog_comments', $new_comment);
          }
       }
       
@@ -190,7 +190,7 @@ class Blogpost_model extends CI_Model
          $this->db->set('day', 'DAY(NOW())',FALSE);
          $this->db->set('yr', 'YEAR(NOW())',FALSE);
          $this->db->set('initial_time', 'CURRENT_TIME', FALSE);
-         $this->db->insert('comments', $new_comment);
+         $this->db->insert('blog_comments', $new_comment);
       }
    }
    
@@ -203,7 +203,7 @@ class Blogpost_model extends CI_Model
                               'comment_id' => $comment_id,
                               'order_id' => explode('.', $order_id)[0].'.'
       ));
-      $this->quicksort->_sort($this->db->get('comments')->result());
+      $this->quicksort->_sort($this->db->get('blog_comments')->result());
       $stack = $this->quicksort->get_stack();
       $this->quicksort->free_stack();
 
@@ -215,12 +215,13 @@ class Blogpost_model extends CI_Model
 ************************************************************************************/
    public function get_last_subcomment_order_id($comment_id, $order_id)
    {
+      $this->quicksort->free_stack();
       
 /* GET ALL COMMENT_ID ORDER_IDS
 ************************************************************************************/
       $this->db->select('order_id');
       $this->db->where('comment_id', $comment_id);
-      $query = $this->db->get('comments');
+      $query = $this->db->get('blog_comments');
 
 /* SORT AND LIST ALL COMMENT_ID ORDER_IDS
 ************************************************************************************/
@@ -248,16 +249,16 @@ class Blogpost_model extends CI_Model
       $this->db->where('post_id', $data['post_id']);
       $this->db->where('user_id', $data['user_id']);
       $this->db->where('comment_id', $data['comment_id']);
-      $this->db->delete('posts');
+      $this->db->delete('blog_posts');
       
       // DELETE POST VIEWS
       $this->db->where('post_id');
-      $this->db->delete('post_views');
+      $this->db->delete('blog_post_views');
       
       // DELETE POST COMMENTS
       $this->db->where('comment_id', $data['comment_id']);
       $this->db->where('user_id', $data['user_id']);
-      $this->db->delete('comments');
+      $this->db->delete('blog_comments');
       
       // DELETE POST ACTIVITES
       //$this->db->where('user_id', $user_id);

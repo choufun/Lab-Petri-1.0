@@ -35,20 +35,6 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
       <div class="col s12">
          <ul class="tabs">
 
-<!-- TAB :: how to do's
-----------------------------------------------------------------------------
-            <li class="tab col s4">
-               <a href="#hd-container" class="black-text"><strong>Tutorials</strong></a>
-            </li>
--->            
-
-<!-- TAB :: manual
-----------------------------------------------------------------------------
-            <li class="tab col s4">
-               <a href="#man-container" class="active black-text"><strong>Manual</strong></a>
-            </li>
--->
-
 <!-- TAB :: labfacts
 ---------------------------------------------------------------------------->
             <li class="tab col s4">
@@ -58,43 +44,23 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
 <!-- TAB :: q and a's
 ---------------------------------------------------------------------------->
             <li class="tab col s4">
-               <a href="#qa-container" class="black-text"><strong>Q and A's</strong></a>
+               <a href="#qa-container" class="black-text"><strong>Ask a Question</strong></a>
             </li>
             
          </ul>
       </div>
    </div>
-
-<!-- HD-CONTAINER :: how to do's
-----------------------------------------------------------------------------
-   <div id="hd-container" class="container">
-      <div class="card">
-         <php include 'application/views/labfaq/how_to_dos.php'; >    
-      </div>
-   </div>
--->
    
-<!-- MAN-CONTAINER :: manual
-----------------------------------------------------------------------------
-   <div id="man-container" class="container">
-      <div class="card">
-         <php include 'application/views/labfaq/manual.php'; >    
-      </div>
-   </div>
--->
 
-<!-- FACT-CONTAINER :: labfacts
----------------------------------------------------------------------------->
    <div id="fact-container">
-      <div>
-         <?php include 'application/views/labfaq/labfacts.php'; ?>    
-      </div>
+      <?php include 'application/views/labfaq/labfacts.php' ?>
    </div>
    
+
 <!-- QA-CONTAINER :: q and a's
 ---------------------------------------------------------------------------->
-   <div id="qa-container" class="container">
-      <div class="card">
+   <div id="qa-container">
+      <div class="card" style="margin-right:40px; margin-left: 40px;">
          <h4 align="center" class="blue-text text-darken-3 flow-text">
             <strong>Submit Your Question Here</strong>
          </h4>

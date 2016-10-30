@@ -17,8 +17,7 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
       { ?>
          <div class="col s6">
             <a href="petridish/add_bookmark?id=<?php echo $post->post_id; ?>">
-               <button class="btn-large grey lighten-5 grey-text text-darken-4" onclick="return toggle('comments.<?php echo $post->comment_id; ?>');"
-                       style="width:100%; height:100%;">
+               <button class="btn-large grey lighten-5 grey-text text-darken-4" style="width:100%; height:100%;">
                   <h5><small>Bookmark This Post</small></h5>
                </button>
             </a>

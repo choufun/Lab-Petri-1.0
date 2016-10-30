@@ -15,6 +15,10 @@
    <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
    <link href="assets/css/custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
    
+   <style>
+      a:hover { color: #00e5ff; }
+   </style>
+   
    <!-- NEEDS TO BE AT TOP -->
    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -56,11 +60,11 @@
                <img class="logo" align="left" src="assets/img/Logo.png" alt="logo" height="50" width="50">
          <?php if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                { ?>
-                  <strong>Petri Dish</strong>&nbsp;<small class="grey-text">beta 1.0</small>
+                  <strong>Petri Dish</strong>
          <?php }
                else
                { ?>
-                  <strong>Lab Petri</strong>&nbsp;<small class="grey-text">beta 1.0</small>
+                  <strong>Lab Petri</strong>
                <?php
                } ?>
                
@@ -85,7 +89,7 @@
                            <a href="labmail">Lab Mail</a>
                         </li>
                         <li class="tab">
-                           <a href="labteam">Lab Team</a>
+                           <a href="labmate">Lab Mate</a>
                         </li>                        
                         <li class="tab">
                            <a href="labfaq">Lab FAQ</a>
@@ -136,7 +140,7 @@
                            <a href="labmail">Lab Mail</a>
                         </li>
                         <li class="tab">
-                           <a href="labteam">Lab Team</a>
+                           <a href="labmate">Lab Mate</a>
                         </li>
                         <li class="tab">
                            <a href="labfaq">Lab FAQ</a>

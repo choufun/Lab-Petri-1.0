@@ -163,6 +163,7 @@ CREATE TABLE IF NOT EXISTS bookmarks (
    bookmark_id INT(11) NOT NULL AUTO_INCREMENT,
    user_id INT(11) NOT NULL,
    post_id INT(11) NOT NULL,
+   type VARCHAR(255) NOT NULL,
    PRIMARY KEY(bookmark_id)
 ) ENGINE = MYISAM;
 
@@ -189,7 +190,8 @@ CREATE TABLE IF NOT EXISTS post_views (
 CREATE TABLE IF NOT EXISTS friends (
    user_id INT(11) NOT NULL,
    friend_id INT(11) NOT NULL,
-   status VARCHAR(8) NOT NULL
+   status VARCHAR(8) NOT NULL,
+   action VARCHAR(10) NOT NULL
 ) ENGINE = MYISAM;
 
 /* MESSAGES
@@ -199,6 +201,14 @@ CREATE TABLE IF NOT EXISTS messages (
    order_id INT(11) NOT NULL,
    user_id INT(11) NOT NULL,
    message TEXT NOT NULL
+) ENGINE = MYISAM;
+
+/* NOTIFICATIONS :: messages,
+*********************************************************************/
+CREATE TABLE IF NOT EXISTS notifications (
+   user_id INT(11) NOT NULL,
+   friend_id INT(11) NOT NULL,
+   new_messages INT(1) NOT NULL DEFAULT '0'
 ) ENGINE = MYISAM;
 
 /* ACTIVITIES

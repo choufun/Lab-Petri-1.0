@@ -4,19 +4,26 @@
 
 <!-- MESSAGE
 ---------------------------------------------------------------------->
-   <div class="row">
+   <div class="row flow-text">
       <div class="input-field">
-         <input id="message" name="message" type="text" class="validate blue-text text-darken-2"
-                placeholder="Reply here..." autofocus>
-         <label class="green-text active" for="email">My message:</label>
+         <strong>
+            <input id="message" name="message" type="text" class="validate grey-text text-darken-3"
+                   placeholder="Message here..." autofocus>
+         </strong>
       </div>
    </div>
    <input type="hidden" name="id" value="<?php echo $this->input->get('id'); ?>">
 
 <!-- SEND
 ---------------------------------------------------------------------->
-   <div class="row" align="right"> 
-      <!--<button class="btn waves-effect blue darken-1" onclick="return send_message()">SEND</button>-->
-      <button class="btn waves-effect blue darken-1" type="submit">SEND</button>
+   <div class="hide row col s12 m6 offset-m6">
+      
+      <div class="col s12 flow-text" align="center">
+         <button class="btn-large waves-effect grey lighten-5 grey-text text-darken-3" type="button"
+                 style="width:100%; height:100%;" onclick="ajax_send_messages();" id="submit_blog">
+               <h5><span class="grey-text text-darken-3"><small>SEND</small></span></h5>
+         </button>
+      </div> 
+      
    </div>
 <?php echo form_close(); ?>

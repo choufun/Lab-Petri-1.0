@@ -2,7 +2,7 @@
 
 <div class="card-content summary-container">
    <h6 class="blue-text text-darken-5">
-      <span class="grey-text text-darken-1 left">Description:</span>
+      <span class="grey-text text-darken-1 left"><strong>Description</strong></span>
       <span class="right">
          <span class="green-text">Topic:</span>&nbsp;
          <span class="grey-text text-darken-3"><?php echo $post->topic; ?></span>

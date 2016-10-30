@@ -47,6 +47,11 @@ class Labcast_model extends CI_Model
 ************************************************************************************/
    public function insert_blog_post($data)
    {
+      $this->db->set('month','MONTHNAME(NOW())',FALSE);
+      $this->db->set('day', 'DAY(NOW())',FALSE);
+      $this->db->set('yr', 'YEAR(NOW())',FALSE);
+      $this->db->set('initial_time', 'CURRENT_TIME', FALSE);
+      
       $this->db->insert('blog_posts',$data);      
 
       $this->db->where('title', $data['title']);
@@ -127,7 +132,7 @@ class Labcast_model extends CI_Model
       }
    }
    
-/* GET :: blog post
+/* GET :: blog posts
 ************************************************************************************/
    public function get_blog_posts()
    {
@@ -136,6 +141,21 @@ class Labcast_model extends CI_Model
       if ($query->num_rows() > 0) return $query->result();
       else return NULL;
    }
+   
+/* GET :: blog post
+************************************************************************************/
+   public function get_blog_post($title, $quotes, $blog)
+   {
+      $this->db->where('title', $title);
+      $this->db->where('quotes', $quotes);
+      $this->db->where('blog', $blog);
+      $this->db->where('user_id', $this->session->user_id);      
+      $query = $this->db->get('blog_posts');
+      
+      if ($query->num_rows() > 0) return $query->row('post_id');
+      else return NULL;
+   }
+   
    
 /* GET :: profile pictures
 ************************************************************************************/
@@ -146,6 +166,13 @@ class Labcast_model extends CI_Model
       $query = $this->db->get('profile_picture');
       if ($query->num_rows() == 1) { return $query->row('filename'); }
       else { return NULL;} //return "default.png"; }      
+   }   
+
+/* SET :: bookmarks
+*****************************************************************************/
+   public function bookmarks($data)
+   {
+      $this->db->insert('bookmarks', $data);
    }
    
 /* TEST :: testing AJAX

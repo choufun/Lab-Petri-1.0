@@ -21,81 +21,78 @@
    }   
 </style>
 
+<script>
+   /* AJAX :: posting blog
+****************************************************************************/   
+   function ajax_send_messages(){
+      $.ajax({
+         url: "<?php echo base_url().'labmail/send_messages'; ?>",
+         type: "POST",
+         cache: false,
+         data: $('#message_form').serialize(),
+         success: function(html)
+         {
+            $('#new_messages').append(html);
+         },
+         error: function(XMLHttpRequest, status, errorThrown)
+         {
+            alert("STATUS: " + status + "Error: " + errorThrown);
+         },
+      });
+   }
+</script>
+
 <?php
-if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
-{ ?>
+if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE)) { ?>
 <div class="container-fluid">
+   <div class="card">
    
 <!-- MESSAGES
 ----------------------------------------------------------------------->
-   <div class="row">
-      <div class="col s12 m9 l9">
-         <div class="card">
-            <div class="card-content">
-<?php if ($this->input->get('id') !== NULL) { ?>
-               <h5>My Messages:</h5>
-<?php } 
-      else
-      { ?>
-               <h5>My Mail:</h5>
-    <?php } ?>
+      <div class="row">
+         <div class="row col s12 m9 l9">
+            <div class="card-content flow-text grey-text text-darken-3">
+            <?php if ($this->input->get('id') !== NULL) { ?>
+               <h5>My Messages:<a href="labmail"><span style="font-size: 14px;">&nbsp;&nbsp;&nbsp;Back to Inbox</span></a></h5>
+            <?php } else { ?> <h5>My Inbox:</h5> <?php } ?>
             </div>
             <div class="divider"></div>
-            <div class="card-content" id="messages">   
+            <div class="card-content" id="messages">
                
 <!-- PREVIOUS MESSAGES
 ----------------------------------------------------------------------->
                <?php include 'application/views/labmail/messages.php';?>
-               
-<!-- NEW MESSAGES
------------------------------------------------------------------------>
-               <div id="new_messages"></div>
-            </div>
-         </div>      
-      </div>   
+            </div>   
+         </div>
    
 <!-- FRIENDS LIST
 ----------------------------------------------------------------------->
-      <div class="col s12 m3 l3">
-         <div class="card">
-            <div class="card-content">
-               <h5>Connections:</h5>
-            </div>
+         <div class="row col s12 m3 l3">
+            <div class="card-content"><h5>Connections:</h5></div>
             <div class="divider"></div>
-            <div class="card-content" id="friends">
-               <div class="container-fluid">
-                  <?php include 'application/views/labmail/friend_list.php';?>
-               </div>
-            </div>
-         </div>         
+            <div class="card-content container-fluid" id="friends">
+               <?php include 'application/views/labmail/friends_list.php';?>
+            </div>     
+         </div>
       </div>
-   </div>
    
 <!-- MESSAGE FORM
 ----------------------------------------------------------------------->
-<?php
-   if ($this->input->get('id') !== NULL) { ?>
-   <div class="row">
-      <div class="col s8 m8 l8 offset-s2 offset-m2 offset-l2">
-         <?php include 'application/views/labmail/message_form.php';?>
+<?php if ($this->input->get('id') !== NULL) {
+      $this->labmail_model->unset_message_notification(); ?>
+      <div class="row">
+         <div class="col s12 m10 offset-m1">
+            <?php include 'application/views/labmail/message_form.php';?>
+         </div>
       </div>
    </div>
 </div>
 <?php
    }
 }
- else { redirect(''); } ?>
+else { redirect(''); } ?>
 
 <script type="text/javascript">
-<?php /*
-if ($this->input->get('id') !== NULL) { ?>
-   $(document).ready(function(){
-      setTimeout(function(){
-         window.location.reload(1);
-      }, 50000);
-   });
-<?php }
-*/ ?>
   
    // SCROLLS MESSAGES DOWN
    $(document).ready(function()
@@ -103,29 +100,5 @@ if ($this->input->get('id') !== NULL) { ?>
       $('#messages').animate({
       scrollTop: $('#messages').get(0).scrollHeight}, 10);
    });
-   
-   // SEND MESSAGE
-   function send_message()
-   {
-      var site_url = "<?php echo site_url('labmail/ajax'); ?>";
-      $("#new_messages").load(site_url, $("#message_form").serializeArray());
-      return false;
-   }
-   
-/*
-   $(document).ready(function()
-   {
-      $("#submit").click(function(){
-         $.post(
-            'https://wwww.labpetri.org/labmail/ajax',
-            $("#form").serializeArray(),
-            function(resp)
-            {
-               $("#new_messages").append(resp);
-            }
-         );
-      });
-   });
-*/   
    
 </script>
