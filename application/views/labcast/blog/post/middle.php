@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
+<?php
+if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
+{ ?>
 <div class="card-content">
    <div class="row">  
 
@@ -44,5 +46,6 @@
       </div>
       -->
    </div>
-
 </div>
+<?php
+} ?>

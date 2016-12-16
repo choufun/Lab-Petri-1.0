@@ -60,7 +60,8 @@
                <img class="logo" align="left" src="assets/img/Logo.png" alt="logo" height="50" width="50">
          <?php if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                { ?>
-                  <strong>Petri Dish</strong>
+                  <!-- <strong>Petri Dish</strong> -->
+                  <strong>Lab Cast</strong>
          <?php }
                else
                { ?>
@@ -83,13 +84,14 @@
                            <a href="labid">Lab ID</a>
                         </li>
                         <li class="tab">
-                           <a href="labcast">Lab Cast</a>
+                           <!--<a href="labcast">Lab Cast</a>-->
+                           <a href="petridish">Petri Dish</a>
                         </li>                        
                         <li class="tab">
                            <a href="labmail">Lab Mail</a>
                         </li>
                         <li class="tab">
-                           <a href="labmate">Lab Mate</a>
+                           <a href="labmate">Lab Mates</a>
                         </li>                        
                         <li class="tab">
                            <a href="labfaq">Lab FAQ</a>
@@ -134,7 +136,8 @@
                            <a href="labid">Lab ID</a>
                         </li>
                         <li class="tab">
-                           <a href="labcast">Lab Cast</a>
+                           <!--<a href="labcast">Lab Cast</a>-->
+                           <a href="petridish">Petri Dish</a>
                         </li>                        
                         <li class="tab">
                            <a href="labmail">Lab Mail</a>

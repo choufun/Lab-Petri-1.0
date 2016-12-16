@@ -1,21 +1,22 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="card" style="margin-right:40px; margin-left: 40px;">
+<div class="card" style="margin-right:20px; margin-left: 20px;">
    <div class="card-content">
       <div class="row">
-         
-<?php 
-   $i = 0;
+         <span id="blog_post"></span>
+<!-- *******************************************************************************************************
+
+PHILLIP COMMENT:: is the variable '$i' necessary? Try removing '$i' and place the <span id="blog_post"><span/> 
+                  before the foreach loop. **CHANGE IN FUTURE**
+
+******************************************************************************************************** -->
+  <?php
    foreach($blog as $post)
    { ?>
-   <?php if ($i == 0)
-         { ?>
-            <span id="blog_post"></span>
-   <?php } ?>
-         <a href="blogpost?key=<?php echo $post->post_id; ?>" target="_blank">
-            <div class="col s12 m4">
-               <div class="card hoverable">
-                  <div class="card-content">
-                     <div class="row" align="center">
+       <a href="blogpost?key=<?php echo $post->post_id; ?>" target="_blank">
+          <div class="col s12 m6 l4">
+             <div class="card hoverable">
+                <div class="card-content">
+                   <div class="row" align="center">
    <?php $picture = $this->labcast_model->get_profile_picture($post->user_id);
    if ($picture === NULL) { ?>
                         <i class="large material-icons profile-image black-text">perm_identity</i>
@@ -47,7 +48,6 @@
             </div>
          </a>
 <?php
-    $i++;
    }
 ?>
       </div>

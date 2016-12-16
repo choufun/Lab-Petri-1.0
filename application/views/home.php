@@ -14,7 +14,9 @@
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
       -->
       <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-      
+      <style>
+         a:hover { color: #00e5ff; }
+      </style>
       <!--
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>

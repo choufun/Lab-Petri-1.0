@@ -1,24 +1,22 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+<style>
+   .profile-image { border-radius: 50%; width: 75px; height: 75px; }
+   #profile-image
+   {
+      border-radius: 50%;
+      border: 3px solid white;
+      width: 100px;
+      height: 100px;
+   }
+</style>
+
 <?php
 foreach ($professors as $university=>$value)
 {
    /* DEBUGGING PURPOSES:
    *************************************************************************/
-   /*
-   print_r($data);
-   echo "<br>";
-   echo "<br>";
-   print_r($university);
-   echo "<br>";
-   echo "<br>";
-   print_r($value);
-   echo "<br>";
-   echo "<br>";
-   foreach($value as $array=>$object)
-   {
-      echo $object->user_id."<br>";
-   }
-   */
+   /* foreach($value as $array=>$object) { echo $object->user_id."<br>"; } */
 ?>
 <li>
    <!-- CAROUSEL HEADER
@@ -31,54 +29,61 @@ foreach ($professors as $university=>$value)
    ------------------------------------------------------------------------>
    <div class="collapsible-body">
       <div class="row">
-         <!--<ul style="margin: 0px -2px 0px 0px;">-->
          <ul>
-            
-<?php
-/*foreach ($directory as $user_id)
-{
-   if ($user_id == "research" || $user_id == "pictures" ||
-       $user_id == "." || $user_id == "..") { continue; }           
-   else
-   { */?>
-<?php
-foreach ($value as $array=>$object)
-{
-   if ($object->user_id !== $this->session->user_id)
-   { ?>
+<?php foreach ($value as $array=>$object) { 
+         if ($object->user_id !== $this->session->user_id) { ?>
             <li class="col s12 m6 l4">
                <div class="card hoverable">
                   <div class="card-content">
-                     <div class="row">
-                        <div class="container-fluid">
-                           <div class="col s4 m4 l4">
-                              <img class="responsive-img z-depth-1"
-      src="users/<?php echo $object->user_id; ?>/pictures/<?php echo $this->labmate_model->get_profile_picture($object->user_id); ?>"
-      id="profile-image">&nbsp;
+                     <div class="row col s12 m6">
+                           <div class="row" align="center">
+                              <?php $picture = $this->labmate_model->get_profile_picture($object->user_id);
+                                    if ($picture === NULL) { ?>
+                                       <i id="profile-image" class="large material-icons black-text">perm_identity</i>
+                              <?php } else {?>
+                                 <!-- IMAGE -->
+                                 <img id="profile-image" class="profile-image responsive-img z-depth-1" src="users/<?php echo $object->user_id; ?>/pictures/<?php echo $picture; ?>">
+                              <?php } ?>                              
                            </div>
-                           <div class="col s8 m8 l8">
-                              <div align="center">
-                                 <h5><?php echo $this->labmate_model->get_user($object->user_id); ?></h5>
-                              </div>
+                           <div class="row" align="center">
+                              <h5><?php echo $this->labmate_model->get_user($object->user_id); ?></h5>
                            </div>
-                        </div>
                      </div>
-                     <div class="row">
-                        <div class="col s4 m4 l4 offset-s4 offset-m4 offset-l4">
-                           <a class="green-text" href="/profile" target="_blank">View</a>
+                     <div class="row col s12 m6 container-fluid">
+                        <div class="row col s12">
+                           <a class="black-text" href="/labid?view=<?php echo $object->user_id; ?>" target="_blank">
+                              <button class="btn-large grey lighten-5 grey-text text-darken-3" style="width:100%; height:100%;">
+                                 View
+                              </button>
+                           </a>
                         </div>
-                        <div class="col s4 m4 l4">
-                           <a class="green-text" href="/profile" target="_blank">Connect</a>
+                        <div class="row col s12">
+            <?php if ($this->labmate_model->get_status($object->user_id) === "pending") { ?>
+                           <button class="btn-large grey lighten-5 grey-text text-darken-3" style="width:100%; height:100%;" disabled>
+                                 <strong>Requested</strong>
+                           </button>
+            <?php } elseif ($this->labmate_model->get_status($object->user_id) === "accepted") {
+                           $this->labmate_model->unset_message_notification($object->user_id);
+                           ?>
+                           <a class="grey-text text-darken-3" href="labmail?id=<?php echo $object->user_id;?>">
+                              <button class="btn-large grey lighten-5 grey-text text-darken-3" style="width:100%; height:100%;">
+                                 <strong>Message</strong>
+                              </button>
+                           </a>
+            <?php } else { ?>
+                           <a class="" href="labmate/connect?id=<?php echo $object->user_id;?>">
+                              <button class="btn-large grey lighten-5 grey-text text-darken-3" style="width:100%; height:100%;">
+                                 <strong>Connect</strong>
+                              </button>
+                           </a>
+            <?php } ?>
                         </div>
                      </div>
                   </div>
                </div>
             </li>
-<?php
-         }
-   /*}
-}*/ ?>
-<?php } ?>
+      <?php } 
+         } ?>
          </ul>
       </div>
    </div>
