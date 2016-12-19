@@ -37,7 +37,7 @@ foreach ($professors as $university=>$value)
                   <div class="card-content">
                      <div class="row col s12 m6">
                            <div class="row" align="center">
-                              <?php $picture = $this->labmate_model->get_profile_picture($object->user_id);
+                              <?php $picture = $this->labmates_model->get_profile_picture($object->user_id);
                                     if ($picture === NULL) { ?>
                                        <i id="profile-image" class="large material-icons black-text">perm_identity</i>
                               <?php } else {?>
@@ -46,7 +46,7 @@ foreach ($professors as $university=>$value)
                               <?php } ?>                              
                            </div>
                            <div class="row" align="center">
-                              <h5><?php echo $this->labmate_model->get_user($object->user_id); ?></h5>
+                              <h5><?php echo $this->labmates_model->get_user($object->user_id); ?></h5>
                            </div>
                      </div>
                      <div class="row col s12 m6 container-fluid">
@@ -58,12 +58,12 @@ foreach ($professors as $university=>$value)
                            </a>
                         </div>
                         <div class="row col s12">
-            <?php if ($this->labmate_model->get_status($object->user_id) === "pending") { ?>
+            <?php if ($this->labmates_model->get_status($object->user_id) === "pending") { ?>
                            <button class="btn-large grey lighten-5 grey-text text-darken-3" style="width:100%; height:100%;" disabled>
                                  <strong>Requested</strong>
                            </button>
-            <?php } elseif ($this->labmate_model->get_status($object->user_id) === "accepted") {
-                           $this->labmate_model->unset_message_notification($object->user_id);
+            <?php } elseif ($this->labmates_model->get_status($object->user_id) === "accepted") {
+                           $this->labmates_model->unset_message_notification($object->user_id);
                            ?>
                            <a class="grey-text text-darken-3" href="labmail?id=<?php echo $object->user_id;?>">
                               <button class="btn-large grey lighten-5 grey-text text-darken-3" style="width:100%; height:100%;">
@@ -71,7 +71,7 @@ foreach ($professors as $university=>$value)
                               </button>
                            </a>
             <?php } else { ?>
-                           <a class="" href="labmate/connect?id=<?php echo $object->user_id;?>">
+                           <a class="" href="labmates/connect?id=<?php echo $object->user_id;?>">
                               <button class="btn-large grey lighten-5 grey-text text-darken-3" style="width:100%; height:100%;">
                                  <strong>Connect</strong>
                               </button>

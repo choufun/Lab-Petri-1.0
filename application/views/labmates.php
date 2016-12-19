@@ -13,7 +13,7 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE)){ ?>
 <!-- SEARCH RESULTS
 -------------------------------------------------------------------------------------->   
    <div class="row">
-     <div><?php include 'application/views/labmate/search/default.php'; ?></div>
+     <div><?php include 'application/views/labmates/search/default.php'; ?></div>
    </div>
 </div>
 <?php

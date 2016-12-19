@@ -50,3 +50,6 @@
    <?php echo form_close(); ?>
 <?php } ?>
 </div>
+<!-- 
+   <a class="waves-effect waves-light btn" onClick="collapseAll();"><i class="material-icons left">fullscreen_exit</i>Collapse All</a>
+-->

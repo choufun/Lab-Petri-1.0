@@ -28,6 +28,14 @@
 
 <script>
    
+/* AJAX :: closes submission form after submitting
+****************************************************************************/    
+   function collapseAll() {
+      $(".collapsible-header").removeClass(function(){ return "active"; });
+      $(".collapsible").collapsible({accordion: true});
+      $(".collapsible").collapsible({accordion: false});
+   }
+   
 /* AJAX :: posting blog
 ****************************************************************************/   
    function ajax(){
@@ -45,8 +53,10 @@
             alert("STATUS: " + status + "Error: " + errorThrown);
          },
       });
-   }
-   
+      
+      // closes submission form after submitting
+      collapseAll();
+   }   
 </script>
 
 <div class="container-fluid">

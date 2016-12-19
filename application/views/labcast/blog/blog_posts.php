@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<?php //var_dump($blog); ?>
 <div class="card" style="margin-right:20px; margin-left: 20px;">
    <div class="card-content">
       <div class="row">

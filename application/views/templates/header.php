@@ -91,7 +91,7 @@
                            <a href="labmail">Lab Mail</a>
                         </li>
                         <li class="tab">
-                           <a href="labmate">Lab Mates</a>
+                           <a href="labmates">Lab Mates</a>
                         </li>                        
                         <li class="tab">
                            <a href="labfaq">Lab FAQ</a>
@@ -143,7 +143,7 @@
                            <a href="labmail">Lab Mail</a>
                         </li>
                         <li class="tab">
-                           <a href="labmate">Lab Mate</a>
+                           <a href="labmates">Lab Mates</a>
                         </li>
                         <li class="tab">
                            <a href="labfaq">Lab FAQ</a>

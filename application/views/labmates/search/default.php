@@ -23,7 +23,7 @@
                <div class="col s12 m12 l12">
                   <div class="row">
                      <ul class="collapsible" data-collapsible="accordion">
-                        <?php include 'application/views/labmate/search/default/undergraduates.php';?>
+                        <?php include 'application/views/labmates/search/default/undergraduates.php';?>
                      </ul>
                   </div>
                </div>
@@ -49,7 +49,7 @@
                <div class="col s12 m12 l12">
                   <div class="row">
                      <ul class="collapsible" data-collapsible="accordion">
-                        <?php include 'application/views/labmate/search/default/graduates.php';?>
+                        <?php include 'application/views/labmates/search/default/graduates.php';?>
                      </ul>
                   </div>
                </div>
@@ -75,7 +75,7 @@
                <div class="col s12 m12 l12">
                   <div class="row">
                      <ul class="collapsible" data-collapsible="accordion">
-                        <?php include 'application/views/labmate/search/default/professors.php';?>
+                        <?php include 'application/views/labmates/search/default/professors.php';?>
                      </ul>
                   </div>
                </div>
