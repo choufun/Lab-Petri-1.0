@@ -138,7 +138,7 @@ class Labcast_model extends CI_Model
    {
       $query = $this->db->get('blog_posts');
       
-      if ($query->num_rows() > 0) return $query->result();
+      if ($query->num_rows() > 0) return array_reverse($query->result());
       else return NULL;
    }
    

@@ -32,8 +32,7 @@ foreach ($graduates as $university=>$value)
          <ul>
 <?php foreach ($value as $array=>$object) { 
          if ($object->user_id !== $this->session->user_id) { ?>
-            <li class="col s12 m6 l4">
-               <div class="card hoverable">
+            <li class="hoverable col s12 m6 l4">
                   <div class="card-content">
                      <div class="row col s12 m6">
                            <div class="row" align="center">
@@ -80,7 +79,6 @@ foreach ($graduates as $university=>$value)
                         </div>
                      </div>
                   </div>
-               </div>
             </li>
       <?php } 
          } ?>

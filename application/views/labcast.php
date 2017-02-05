@@ -62,8 +62,8 @@
 <div class="container-fluid">
 <!-- Lab Cast :: tabs
 ---------------------------------------------------------------------------->
-   <div class="row">
-      <div class="col s12">
+   <div class="col s12">
+      <div class="row">      
          <ul class="tabs">
 <!-- TAB :: news, blogs, community
 ---------------------------------------------------------------------------->
@@ -103,5 +103,6 @@
       if ( all.style.display != 'none' ) { all.style.display = 'none'; }
       else { all.style.display = ''; }
       return false;
-   }  
+   }
+   
 </script>

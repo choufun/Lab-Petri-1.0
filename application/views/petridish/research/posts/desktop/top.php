@@ -20,6 +20,6 @@
       <?php echo $post->month." ".$post->day.", ".$post->yr; ?>.
    </h6>
    <h6 class="grey-text text-darken-2 right">
-      <?php echo $this->petridish_model->get_num_views($post->post_id); ?>&nbsp;:&nbsp;Views
+      <?php echo $this->petridish_model->get_num_views($post->post_id); ?>&nbsp;Views
    </h6>
 </div>

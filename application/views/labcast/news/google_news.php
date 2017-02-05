@@ -7,7 +7,7 @@
    <div class="divider"></div>
 <?php
 foreach(simplexml_load_file('https://news.google.com/news?cf=all&hl=en&pz=1&ned=us&csid=bd58310c33d988d4&output=rss')->channel->item as $news) { ?>
-   <div class="card-content">
+   <div class="card-content hoverable">
       <div class="flow-text">
          <div class="col s12 m12 l12">
             <div class="row">                  

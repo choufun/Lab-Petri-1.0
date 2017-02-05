@@ -8,7 +8,7 @@
 <?php
    
 foreach(simplexml_load_file('https://rss.sciencedaily.com/science_society/stem_education.xml')->channel->item as $news) { ?>  
-   <div class="card-content">
+   <div class="card-content hoverable">
       <div class="flow-text">
          <div class="col s12 m12 l12">
             <div class="row">                  

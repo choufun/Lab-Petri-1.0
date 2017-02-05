@@ -101,7 +101,7 @@ class Labcast extends CI_Controller
       $picture = $this->labcast_model->get_profile_picture($this->session->user_id);
       
          echo '<a href="blogpost?key='.$post_id.'" target="_blank">
-                  <div class="col s12 m4">
+                  <div class="col s12 m9">
                      <div class="card hoverable">
                         <div class="card-content">
                            <div class="row" align="center">';

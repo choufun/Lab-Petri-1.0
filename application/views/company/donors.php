@@ -12,13 +12,14 @@
                <br><br>
                Please contact us if you, your company, or your foundation is interested in talking with our team further
                to better understand our application and to explore options for investing in our work.
-               <br><Br>
+               <br><br>
+               Lab Petri is a 501(c)(3) nonprofit organization dedicated to promoting STEM education.
             </p>
          </strong>
       </div>
    </div>
    <div class="row">
-      <div class="row col s4">
+      <div class="row center col s4">
          <img class="responsive-img z-depth-3" style="height: 200px; width: 200px;"
               src="../../assets/img/SEIU_Local_521.jpg">
       </div>

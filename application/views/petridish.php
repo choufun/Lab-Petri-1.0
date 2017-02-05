@@ -10,22 +10,19 @@
  
 <!-- PETRI DISH :: tabs
 ---------------------------------------------------------------------------->
-   <div class="row">
-      <div class="col s12">
+   <div class="col s12">
+      <div class="row">
          <ul class="tabs">
-
 <!-- TAB :: research
 ---------------------------------------------------------------------------->
             <li class="tab col s4">
                <a href="#research_opportunities" class="active black-text"><strong>Research</strong></a>
-            </li>
-            
+            </li>            
 <!-- TAB :: projects
 ---------------------------------------------------------------------------->
             <li class="tab col s4">
                <a href="#project_opportunities" class="black-text"><strong>Projects</strong></a>
-            </li> 
-            
+            </li>             
 <!-- TAB :: jobs
 ---------------------------------------------------------------------------->
             <li class="tab col s4">
@@ -49,7 +46,7 @@
    
 <!-- PROJECT :: section -------------------------------------------------------------->
    <div id="project_opportunities">
-      <div class="container">       
+      <div class="container-fluid" style="margin: 0px 40px;">      
          
 <!-- PROJECT :: new post ------------------------------------------------------------->
          <?php include 'application/views/petridish/project/new_post.php';?>
