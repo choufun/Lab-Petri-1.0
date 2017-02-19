@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col s12 m12 l12" style="padding: 10px 100px">
             <div class="row" align="center">
-                <h4 class="blue-text text-darken-3"><strong>Who We Are?</strong></h4>
+                <h4 class="black-text"><strong>Who We Are?</strong></h4>
             </div>
             <div class="row">
                 <div class="hoverable col s12 m12 l4">

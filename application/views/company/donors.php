@@ -2,8 +2,8 @@
 
 <div class="card-content">
     <div class="container-fluid flow-text grey-text text-darken-3" style="margin-left: 250px; margin-right: 250px; padding: 50px 0px">
-        <div class="row">
-            <h4 class="blue-text text-darken-1"><strong>Donors:</strong></h4>
+        <div class="row" align="center">
+            <h4 class="black-text"><strong>Donors:</strong></h4>
         </div>
         <div class="row" style = "font-size: .9em;">
             <strong>

@@ -6,7 +6,7 @@
         <br>
         <h4 class="blue-text text-darken-3" style="font-family:Palatino Linotype;" align="right"><b><i>"Your learning attitude is your working attitude."</i></b></h4>
         <br>
-        <h4>What We Do?</h4>
+        <h4 align="center">What We Do?</h4>
         <br>
         <p class="grey-text text-darken-3" style = "font-size: .9em;" align="justify">
             <strong>

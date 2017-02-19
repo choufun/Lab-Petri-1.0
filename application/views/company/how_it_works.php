@@ -5,7 +5,7 @@
         <br>
         <h4 class="blue-text text-darken-3" style="font-family:Palatino Linotype;" align="right"><b><i>"Never underestimate your capabilities."</i></b></h4>
         <br>
-        <h4><strong>How We Do It?</strong></h4>
+        <h4 align="center"><strong>How We Do It?</strong></h4>
         <br>
         <h4 class="blue-text text-darken-3"><strong>Lab Cast</strong></h4>
 
