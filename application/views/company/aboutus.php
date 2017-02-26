@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <div class="card-content">
-    <div class="container-fluid flow-text grey-text text-darken-3" style="margin-left: 250px; margin-right: 250px;">
+    <div class="container-fluid flow-text grey-text text-darken-3" style="margin-left: 20%; margin-right: 20%;">
         <!--<h3 class="blue-text text-darken-3"><strong>About Us</strong></h3>-->
         <br>
         <h4 class="blue-text text-darken-3" style="font-family:Palatino Linotype;" align="right"><b><i>"Your learning attitude is your working attitude."</i></b></h4>

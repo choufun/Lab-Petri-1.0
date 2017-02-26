@@ -31,7 +31,7 @@ if ($blog_posts !== NULL)
                         </span>
                      </h6>
                   </div>
-                  <div class="container-fluid grey-text text-darken-4">
+                  <div class="container-fluid grey-text text-darken-4" style="padding: 0px 5%;">
                      <small>
                         <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $post->blog;?></strong>
                      </small>
@@ -42,7 +42,7 @@ if ($blog_posts !== NULL)
                         <strong>Quotes</strong>
                      </h6>
                   </div>
-                  <div class="container-fluid grey-text text-darken-4">
+                  <div class="container-fluid grey-text text-darken-4" style="padding: 0px 5%;">
                      <small>
                         <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"<?php echo $post->quotes;?>"</strong>
                      </small>

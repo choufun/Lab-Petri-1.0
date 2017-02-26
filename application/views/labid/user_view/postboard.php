@@ -10,9 +10,7 @@ if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
 
 <div class="card-content">
    <div class="container-fluid">
-      <div class="col s12 m12 l12">
-         
-      
+      <div class="col s12 m12 l12" style="padding: 0px 2%;">
 <?php
    if ($posts !== NULL || $blog_posts !== NULL)
    {  

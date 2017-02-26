@@ -45,7 +45,6 @@
 <body class="avoid-fout blue-grey lighten-5">
 <!--<body class="avoid-fout page-blue grey lighten-3">-->
    <div class="navbar-fixed">
-
 <!-- NAV
 --------------------------------------------------------------------------------------------->
       <nav class="blue darken-1 z-depth-1" role ="navigation">
@@ -53,7 +52,6 @@
             <a href="#" data-activates="mobile-demo" class="button-collapse">
                <i class="material-icons">menu</i>
             </a>
-
             <!-- LOGO
             ------------------------------------------------------------------------------------>
             <a id="logo-container" href="/" class="brand-logo">
@@ -68,61 +66,32 @@
                   <strong>Lab Petri</strong>
                <?php
                } ?>
-               
             </a>
-
             <!-- DESKTOP : LAPTOP
             ------------------------------------------------------------------------------------>
             <ul class="right hide-on-med-and-down">
                <?php
-
                   /* LOGGED IN
                   ******************************************************************************/
                   if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                   { ?>
-                        <li class="tab">
-                           <a href="labid">Lab ID</a>
-                        </li>
-                        <li class="tab">
-                           <!--<a href="labcast">Lab Cast</a>-->
-                           <a href="petridish">Petri Dish</a>
-                        </li>                        
-                        <li class="tab">
-                           <a href="labmail">Lab Mail</a>
-                        </li>
-                        <li class="tab">
-                           <a href="labmates">Lab Mates</a>
-                        </li>                        
-                        <li class="tab">
-                           <a href="labfaq">Lab FAQ</a>
-                        </li>
-                        <li class="tab">
-                           <a href="company">About Us</a>
-                        </li>
-                        <li class="tab">
-                           <a href="login/logout">Logout</a>
-                        </li>
+                        <li class="tab"><a href="labid"><?php echo $_SESSION['firstname'].' '.$_SESSION['lastname'];?></a></li>
+                        <li class="tab"><a href="petridish">Petri Dish</a></li>
+                        <li class="tab"><a href="labmail">Lab Mail</a></li>
+                        <li class="tab"><a href="labmates">Lab Mates</a></li>
+                        <li class="tab"><a href="company">About Us</a></li>
+                        <li class="tab"><a href="login/logout">Logout</a></li>
             <?php }
-
                   /* NOT LOGGED IN
                   ******************************************************************************/
                   else
                   { ?>                  
-                        <li class="tab">
-                           <a href="company">About Us</a>
-                        </li>
-                        <li class="tab">
-                           <a href="labcast">Lab Cast</a>
-                        </li>
-                        <li class="tab">
-                           <a href="petridish">Petri Dish</a>
-                        </li>
-                        <li class="tab">
-                           <a href="login">Login</a>
-                        </li>
+                        <li class="tab"><a href="company">About Us</a></li>
+                        <li class="tab"><a href="labcast">Lab Cast</a></li>
+                        <li class="tab"><a href="petridish">Petri Dish</a></li>
+                        <li class="tab"><a href="login">Login</a></li>
             <?php } ?>             
             </ul>
-
             <!-- MOBILE
             ------------------------------------------------------------------------------------>
             <ul id="mobile-demo" class="side-nav">    
@@ -132,46 +101,21 @@
                   ******************************************************************************/
                   if ((isset($_SESSION['logged_in'])) && ($_SESSION['logged_in']==TRUE))
                   { ?>
-                        <li class="tab">
-                           <a href="labid">Lab ID</a>
-                        </li>
-                        <li class="tab">
-                           <!--<a href="labcast">Lab Cast</a>-->
-                           <a href="petridish">Petri Dish</a>
-                        </li>                        
-                        <li class="tab">
-                           <a href="labmail">Lab Mail</a>
-                        </li>
-                        <li class="tab">
-                           <a href="labmates">Lab Mates</a>
-                        </li>
-                        <li class="tab">
-                           <a href="labfaq">Lab FAQ</a>
-                        </li>
-                        <li class="tab">
-                           <a href="company">About Us</a>
-                        </li>
-                        <li class="tab">
-                           <a href="login/logout">Logout</a>
-                        </li>
+                        <li class="tab"><a href="labid"><?php echo $_SESSION['firstname'].' '.$_SESSION['lastname'];?></a></li>
+                        <li class="tab"><a href="petridish">Petri Dish</a></li>
+                        <li class="tab"><a href="labmail">Lab Mail</a></li>
+                        <li class="tab"><a href="labmates">Lab Mates</a></li>
+                        <li class="tab"><a href="company">About Us</a></li>
+                        <li class="tab"><a href="login/logout">Logout</a></li>
             <?php }
-
                   /* NOT LOGGED IN
                   ******************************************************************************/
                   else
                   { ?>
-                        <li class="tab">
-                           <a href="company">About Us</a>
-                        </li>
-                        <li class="tab">
-                           <a href="labcast">Lab Cast</a>
-                        </li>
-                        <li class="tab">
-                           <a href="petridish">Petri Dish</a>
-                        </li>
-                        <li class="tab">
-                           <a href="login">Login</a>
-                        </li>
+                        <li class="tab"><a href="company">About Us</a></li>
+                        <li class="tab"><a href="labcast">Lab Cast</a></li>
+                        <li class="tab"><a href="petridish">Petri Dish</a></li>
+                        <li class="tab"><a href="login">Login</a></li>
             <?php } ?>               
             </ul>
          </div>

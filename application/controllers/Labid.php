@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <?php
-/* PROFILE CONTROLLER
+/* USER PROFILE CONTROLLER
 ****************************************************************************/
-class Labid extends CI_Controller
+class User extends CI_Controller
 {
    
 /* CONSTRUCTOR
@@ -10,7 +10,7 @@ class Labid extends CI_Controller
    function __construct()
    {
       parent:: __construct();
-      $this->load->model('labid_model');
+      $this->load->model('user_model');
       $this->load->helper(array('form', 'url'));
       $this->load->library('form_validation');
       //$this->load->helper('simple_html_dom');
@@ -20,11 +20,10 @@ class Labid extends CI_Controller
 ****************************************************************************/
    public function index()
    {
-      
 /* VIEW :: profile
 ****************************************************************************/    
       $this->load->view('templates/header');
-      $this->load->view('labid', $this->labid_model->get_profile());
+      $this->load->view('user', $this->user_model->get_profile());
       $this->load->view('templates/footer');
    }
 
@@ -44,14 +43,14 @@ class Labid extends CI_Controller
          $this->form_validation->set_rules('major','major','trim|required');
          $this->form_validation->set_rules('standing','standing','trim|required'); 
 
-         $this->labid_model->update_contacts( array(
+         $this->user_model->update_contacts( array(
                                                       'user_id' => $this->session->user_id,
                                                       'email' => $this->input->post('email'),
                                                       'phone' => $this->input->post('phone'),
                                                       'linkedin' => $this->input->post('linkedin'),
          ));
          
-         $this->labid_model->update_education( array(
+         $this->user_model->update_education( array(
                                                       'user_id' => $this->session->user_id,
                                                       'university' => $this->input->post('university'),
                                                       'major' => $this->input->post('major'),
@@ -73,7 +72,7 @@ class Labid extends CI_Controller
             $this->form_validation->set_rules('courses', 'courses', 'trim|required');
             $this->form_validation->set_rules('extra', 'extra', 'trim|required');
             
-            $this->labid_model->update_petridish( array (
+            $this->user_model->update_petridish( array (
                                                          'title' => $this->input->post('title'),
                                                          'topic' => $this->input->post('topic'),
                                                          'abstract' => nl2br($this->input->post('description')),
@@ -95,7 +94,7 @@ class Labid extends CI_Controller
             $this->form_validation->set_rules('major', 'major', 'trim|required');
             $this->form_validation->set_rules('extra', 'extra', 'trim|required');
             
-            $this->labid_model->update_petridish( array (
+            $this->user_model->update_petridish( array (
                                                          'title' => $this->input->post('title'),
                                                          'topic' => $this->input->post('topic'),
                                                          'abstract' => nl2br($this->input->post('description')),
@@ -114,44 +113,44 @@ class Labid extends CI_Controller
             $this->form_validation->set_rules('quotes', 'quotes', 'trim|required');
          }
          
-         $this->labid_model->update_labcast_blog_post( array (
+         $this->user_model->update_labcast_blog_post( array (
                                                          'title' => $this->input->post('title'),
                                                          'blog' => nl2br($this->input->post('blog')),
                                                          'quotes' => nl2br($this->input->post('quotes')),
                                                 ), $this->input->post('id')
          );
       }
-      redirect('labid');
+      redirect('user');
    }
    
 /* DELETE :: bookmarks
 ****************************************************************************/ 
    public function delete_bookmark()
    {
-      $this->labid_model->delete_bookmark(
+      $this->user_model->delete_bookmark(
                   array(
                      'bookmark_id' => $this->input->post('bookmark'),
                      'user_id' => $this->session->user_id,
                   )
       );
-      redirect('labid');
+      redirect('user');
    }
 	
 /* DELETE :: posts
 ****************************************************************************/
    public function delete_post()
    {
-      $this->labid_model->delete_post(
+      $this->user_model->delete_post(
                   array (
                      'post_id' => $this->input->post('post'),
                      'comment_id' => $this->input->post('comment'),
                      'user_id' => $this->session->user_id,
                   )
       );
-      redirect('labid');
+      redirect('user');
    }
 	
-/* UPLOAD :: profile picture
+/* UPLOAD :: user profile picture
 ****************************************************************************/
 	public function do_upload_pic()
 	{
@@ -166,59 +165,21 @@ class Labid extends CI_Controller
       if ( !$this->upload->do_upload())
       {
          $error = array('error' => $this->upload->display_errors());
-         redirect('labid');         
+         redirect('user');
       }
       else
       {
          $data = array('upload_data' => $this->upload->data());
-         $this->labid_model->insert_profile_picture($this->upload->data('file_name'));
-         redirect('labid');
+         $this->user_model->insert_profile_picture($this->upload->data('file_name'));
+         redirect('user');
       }
 	}
-	
-/* DOWNLOAD :: resume
-****************************************************************************/
-	public function resume()
-	{
-      $this->load->library('pdf');
-      $this->fpdf->SetFont('Arial','B',20);
-	   
-	   // Header, only needs to appear on the first page
-	   $this->fpdf->Image('assets/img/Logo.png',10,6,30);
-
-      // Need method to accomadate the # of characters the person's name may have
-      // 70 total char for full name, so 35 char for first name
-      // If first name = 35 characters, shift 30 cm to the right
-      // This applies to all other variables
-	   $this->fpdf->Cell(120);
-      $this->fpdf->Cell(40,10, $this->session->firstname." ".$this->session->lastname, 0, 1);
-      
-	   $this->fpdf->SetFont('Arial','B',10);
-	   $this->fpdf->Cell(120);
-      $this->fpdf->Cell(40,10, $this->labid_model->get_university(), 0, 1);
-
-      $this->fpdf->Cell(120);
-      $this->fpdf->Cell(40,10, 'Major: '.$this->labid_model->get_major(), 0, 1);
-
-      $this->fpdf->Cell(120);
-      $this->fpdf->Cell(40,10, 'Phone: '.$this->labid_model->get_phone(), 0, 1);
-
-      // Footer, located in the fpdf file under Footer() function
-      // No immediate solution to inherit Footer() and Header() functions from FPDF instance
-
-      $this->fpdf->SetDisplayMode('real', 'continuous');
-      $this->fpdf->Output('D',$this->session->firstname." ".$this->session->lastname.'.pdf','TRUE');
-
-      unset($this->fpdf);
-      unset($this->pdf);
-   }
 	
 /* VIEW :: user profile
 ****************************************************************************/
    public function view_user($user_id)
    {      
-      return $this->labid_model->get_user_profile($user_id);
+      return $this->user_model->get_user_profile($user_id);
    }
-
 }
 ?>

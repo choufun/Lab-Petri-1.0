@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <div class="card-content">
-    <div class="container-fluid flow-text grey-text text-darken-3" style="margin-left: 250px; margin-right: 250px; padding: 50px 0px">
+    <div class="container-fluid flow-text grey-text text-darken-3" style="margin-left: 20%; margin-right: 20%; padding: 50px 0px">
         <div class="row" align="center">
             <h4 class="black-text"><strong>Donors:</strong></h4>
         </div>

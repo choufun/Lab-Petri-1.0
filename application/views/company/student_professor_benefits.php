@@ -11,7 +11,7 @@
             </ul>
         </div>
     </div>
-    <div id="undergraduate" class="flow-text grey-text text-darken-3" style="margin-left: 200px; margin-right: 200px;">
+    <div id="undergraduate" class="flow-text grey-text text-darken-3" style="margin-left: 20%; margin-right: 20%;">
         <h5>Connect with Professors</h5>
         <p>
             Lab Petri aims to connect students and professors to allow students to inquire about open positions in research labs.
@@ -19,7 +19,7 @@
             <br><br>
         </p>
     </div>
-    <div id="graduate" class="flow-text grey-text text-darken-3" style="margin-left: 200px; margin-right: 200px;">
+    <div id="graduate" class="flow-text grey-text text-darken-3" style="margin-left: 20%; margin-right: 20%;">
         <h5>Build Your Resume</h5>
         <p>
             Research is an important part of a well-rounded academic experience for an undergraduate student. Those who enter research labs, and are published in academic journals as a result, end up with a significant advantage in terms of finding future employment or entering graduate school.
@@ -32,7 +32,7 @@
             -->
         </p>
     </div>
-    <div id="professors" class="grey-text text-darken-3" style="margin-left: 200px; margin-right: 200px;">
+    <div id="professors" class="grey-text text-darken-3" style="margin-left: 20%; margin-right: 20%;">
         <h5>Search For Topics That Interest You</h5>
         <p class="flow-text">
             Students can view what other students are researching and can connect with one another to ask questions and collaborate.

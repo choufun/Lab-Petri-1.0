@@ -1,12 +1,14 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<div class="card" style="margin-right:20px; margin-left: 20px;">
+<div class="container-fluid" style="margin: 0px 40px;">
    <div class="card-content">
       <div class="row">
          <span id="blog_post"></span>
 <?php foreach($blog as $post) { ?>       
          <a href="blogpost?key=<?php echo $post->post_id; ?>" target="_blank">
-            <div class="col s12 m6">
-               <div class="card hoverable">
+            <div class="col s12">
+
+               <div class="card z-depth-1 hoverable">
+
                   <div class="card-content">
                      <div class="row" align="left">
 <?php $picture = $this->labcast_model->get_profile_picture($post->user_id);

@@ -13,7 +13,7 @@ if ($posts !== NULL)
       $no_edit = $post->post_id.".no_edit";
 ?>    
       
-      <div class="card z-depth-1 hoverable flow-text">
+      <div class="card white z-depth-1 hoverable flow-text">
 
 <!-- POST DISPLAY
 ------------------------------------------------------------------------>
@@ -27,37 +27,25 @@ if ($posts !== NULL)
                   <div class="grey-text text-darken-1">                          
                      <h6>
                         <strong>Description</strong>
-                        <span class="right black-text">
-                           <strong><?php echo $post->month." ".$post->day.", ".$post->yr; ?></strong>
-                        </span>
+                        <span class="right black-text"><strong><?php echo $post->month." ".$post->day.", ".$post->yr; ?></strong></span>
                      </h6>
-                     <h6>
-                        <span class="right">
-                           <strong><span class="green-text">Topic:</span>&nbsp;<?php echo $post->topic; ?></strong>
-                        </span><br>
-                     </h6>
+                     <h6><span class="right"><strong><span class="green-text">Topic:</span>&nbsp;<?php echo $post->topic; ?></strong></span><br></h6>
                   </div>
-                  <div class="container-fluid grey-text text-darken-4">
-                     <small>
-                        <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $post->abstract;?></strong>
-                     </small>
-                     <br><br>
+                  <div class="container-fluid grey-text text-darken-4" style="padding: 0px 5%;">
+                     <small><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $post->abstract;?></strong></small><br><br>
                   </div>
                   <div class="grey-text text-darken-1">
                      <h6><strong>Requirements:</strong></h6><br>
                   </div>
-                  <div class="row grey-text">
+                  <div class="row grey-text" style="padding: 0px 5%;">
                      <small>
                         <strong>
                            <?php if ($post->type == 0) { ?> 
-                           <div class="row col s12 m4">
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPA&nbsp;:&nbsp;<span class="black-text"><?php echo $post->gpa;?></span>
+                           <div class="row col s12 m4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GPA&nbsp;:&nbsp;<span class="black-text"><?php echo $post->gpa;?></span>
                            </div>
-                           <div class="row col s12 m4">
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Major&nbsp;:&nbsp;<span class="black-text"><?php echo $post->major;?></span>
+                           <div class="row col s12 m4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Major&nbsp;:&nbsp;<span class="black-text"><?php echo $post->major;?></span>
                            </div>
-                           <div class="row col s12 m4">
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Courses&nbsp;:&nbsp;<span class="black-text"><?php echo $post->courses;?></span>
+                           <div class="row col s12 m4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Courses&nbsp;:&nbsp;<span class="black-text"><?php echo $post->courses;?></span>
                            </div>
                            <?php } ?>
                            <?php if ($post->type == 1) { ?>
@@ -71,7 +59,7 @@ if ($posts !== NULL)
                   <div class="grey-text text-darken-1">
                      <h6><strong>Additional Information:</strong></h6><br>
                   </div>
-                  <div class="container-fluid black-text">
+                  <div class="container-fluid black-text" style="padding: 0px 5%;">
                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small><strong><?php echo $post->extra;?></strong></small>
                   </div>
                </div>
