@@ -1,0 +1,27 @@
+/* USER HEADER PROPERTIES
+*****************************************************************************/
+#profile-border { margin: 0px 0px; }
+#profile-padding { padding-top: 25px; padding-bottom: 25px;}
+#profile-image { border-radius: 50%; border: 1px solid #fbc02d; width: 200px; height: 200px; }
+
+/* POST PROPERTIES
+*****************************************************************************/
+a.image-link:focus { outline: 0; }
+#post-border { padding: 0px 2%; }
+.post-section { margin: 0px 5px; }
+.post-padding { padding: 0px 5%; }
+.post-full-padding { width:100%; height:100%; }
+
+/* EDIT PROPERTIES
+*****************************************************************************/
+.edit { display:none; }
+.edit-btn { width:100%; height:100%; }
+
+/* BROWSER FORM PROPERTIES
+*****************************************************************************/
+::-webkit-input-placeholder { color: #000000; font-weight: bold; }
+/* older Firefox*/
+:-moz-placeholder { color: #000000; font-weight: bold; }
+/* Firefox 19+ */
+::-moz-placeholder { color: #000000; font-weight: bold; }
+:-ms-input-placeholder { color: #000000; font-weight: bold; }

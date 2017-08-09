@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<link href="assets/css/profile.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<link href="../../../../assets/css/profile.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 <style>
     /*

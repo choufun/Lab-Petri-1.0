@@ -12,7 +12,7 @@
                 <h4 class="blue-text text-darken-3"><strong>Who We Are?</strong></h4>
             </div>
             <div class="row">
-                <div class="hoverable col s12 m12 l4">
+                <div class="hoverable col s12 m12 l4 offset-l2">
                     <div class="card z-depth-0 hoverable" style="padding: 1px 1px;">
                         <div class="card-content">
                             <div align="center">
@@ -23,11 +23,12 @@
                             <h4 class="blue-text text-darken-4" align="center">
                                 <strong>Steven Chou</strong>
                                 <br>
-                                <small class="black-text"><small>Co-founder - CEO, CTO</small></small>
+                                <small class="black-text"><small>Co-founder - Software Engineer</small></small>
                             </h4>
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="hoverable col s12 m12 l4">
                     <div class="card z-depth-0 hoverable" style="padding: 1px 1px;">
                         <div class="card-content">
@@ -39,12 +40,12 @@
                             <h4 class="blue-text text-darken-4" align="center">
                                 <strong>Nghia Nguyen</strong>
                                 <br>
-                                <!--<small class="black-text"><small>Co-founder - Dental Student</small></small>-->
-                                <small class="black-text"><small>Co-founder - Secretary</small></small>
+                                <small class="black-text"><small>Co-founder</small></small>
                             </h4>
                         </div>
                     </div>
                 </div>
+                -->
                 <div class="hoverable col s12 m12 l4">
                     <div class="card z-depth-0 hoverable" style="padding: 1px 1px;">
                         <div class="card-content">
@@ -56,11 +57,12 @@
                             <h4 class="blue-text text-darken-4" align="center">
                                 <strong>Kevin Shum</strong>
                                 <br>
-                                <small class="black-text"><small>Co-founder - COO, CFO</small></small>
+                                <small class="black-text"><small>Co-founder - Financial Analyst</small></small>
                             </h4>
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="hoverable col s12 m12 l4">
                     <div class="card z-depth-0 hoverable" style="padding: 1px 1px;">
                         <div class="card-content">
@@ -77,6 +79,7 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <div class="hoverable col s12 m12 l4">
                     <div class="card z-depth-0 hoverable" style="padding: 1px 1px;">
                         <div class="card-content">
@@ -88,11 +91,12 @@
                             <h4 class="blue-text text-darken-4" align="center">
                                 <strong>Alok Bhatt</strong>
                                 <br>
-                                <small class="black-text"><small>CMO</small></small>
+                                <small class="black-text"><small>Software Engineer</small></small>
                             </h4>
                         </div>
                     </div>
                 </div>
+                <!--
                 <div class="hoverable col s12 m12 l4">
                     <div class="card z-depth-0 hoverable" style="padding: 1px 1px;">
                         <div class="card-content">
@@ -109,6 +113,7 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <div class="hoverable col s12 m12 l4">
                     <div class="card z-depth-0 hoverable" style="padding: 1px 1px;">
                         <div class="card-content">

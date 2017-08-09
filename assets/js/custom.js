@@ -1,12 +1,3 @@
-/* init.js
-************************************************************************************/
-(function($) {
-   $(function() {
-      $('.button-collapse').sideNav();
-   }); // end of document ready
-})(jQuery); // end of jQuery name space
-
-
 /* SIDE NAV : MODAL
 ************************************************************************************/
 $(document).ready(function() {
@@ -14,14 +5,12 @@ $(document).ready(function() {
    $('.modal-trigger').leanModal();
 });
 
-function close_side_nav()
-{
+function close_side_nav() {
    // forces the side nav to close upon clicking a side nav element
    $('.button-collapse').sideNav('hide');
 }
 
-function open_side_nav()
-{
+function open_side_nav() {
    // forces the side nav to upon upon clicking a side nav element
    $('.button-collapse').sideNav('show');
 }

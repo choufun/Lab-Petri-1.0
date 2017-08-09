@@ -31,7 +31,7 @@ class Post extends CI_Controller
       if ($this->form_validation->run() === FALSE)
       {
          $this->load->view('templates/header');
-         $this->load->view('/petridish/post');
+         $this->load->view('/home/post');
          $this->load->view('templates/footer');
       }
       else

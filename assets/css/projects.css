@@ -1,0 +1,25 @@
+.tabs .indicator { background-color: #2196f3; }
+h1, h2, h3, h4, h5, h6 { display: inline; }
+
+.summary-container { margin: 0px 35px; }
+
+.description-container
+{
+    -o-text-overflow: ellipsis;   /* Opera */
+    text-overflow:    ellipsis;   /* IE, Safari (WebKit) */
+    overflow:hidden;              /* don't show excess chars */
+    white-space:nowrap;           /* force single line */
+    width: 1100px;                /* fixed width */
+}
+
+.post-container { padding: -20px 0px; }
+
+.profile-image { border-radius: 50%; width: 100px; height: 100px; border: 2px solid #bdbdbd; }
+
+.profile-image_2 { border-radius: 50%; width: 75px; height: 75px; }
+
+.mobile-profile-image { border-radius: 50%; width: 75px; height: 75px; }
+
+#desktop_margin { margin-right:130px; margin-left: 130px; }
+
+#mobile_margin { margin-right:20px; margin-left:20px; }

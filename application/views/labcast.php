@@ -59,26 +59,80 @@
    }   
 </script>
 
-<div class="container-fluid">
-<!-- Lab Cast :: tabs
----------------------------------------------------------------------------->
-   <div class="col s12">
-      <div class="row">      
-         <ul class="tabs">
-<!-- TAB :: news, blogs, community
----------------------------------------------------------------------------->
-            <li class="tab col s4"><a href="#news" class="black-text"><strong>News</strong></a></li>
-            <li class="tab col s4"><a href="#blogs" class="active black-text"><strong>Blogs</strong></a></li>
-            <li class="tab col s4"><a href="#community" class="black-text"><strong>Community</strong></a></li> 
-         </ul>
-      </div>
-   </div>
+
+
+<div class="container-fluid blue-grey lighten-5">
+    
+    <div class="fixed-action-btn horizontal">
+        <a class="btn-floating btn-large blue">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul class="blue tabs container-fluid">
+            <li class="tab col s4 btn-flat blue darken-1"><a href="#news" class="white-text"><strong>News</strong></a></li>
+            <li class="tab col s4 btn-flat blue darken-1"><a href="#blogs" class="active white-text"><strong>Blogs</strong></a></li>
+        </ul>
+    </div>
+
+    <div class="row col s12">
+
+        <!--
+        Questions and Answers Section
+        -->
+        <div class="col s9" id="news">
+            <div class="">
+                <div class="container-fluid"><?php //include 'application/views/home/qnas/new_post.php';?></div>
+                <div class="card">
+                    <div class="card-content">
+                        <strong>Questions</strong>
+
+
+
+                    </div>
+                </div>
+            </div>
+           <?php //include 'application/views/home/qnas/questions.php';?>
+        </div>
+        <!--
+        Projects
+        -->
+        <div class="col s9" id="blogs">
+            <div class="">
+                <div class="container-fluid"><?php //include 'application/views/home/qnas/new_post.php';?></div>
+                <div class="card">
+                    <div class="card-content">
+                        <strong>Questions</strong>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid"><?php //include 'application/views/home/projects/new_post.php';?></div>
+           <?php //include 'application/views/home/projects/posts.php';?>
+        </div>
+        <!--
+        Notifications
+        -->
+        <div class="col s3">
+            <div class="card">
+                <div class="card-content">
+                    <div class="row">Notification 1</div>
+                    <div class="row">Notification 2</div>
+                    <div class="row">Notification 3</div>
+                    <div class="row">Notification 4</div>
+                    <div class="row">Notification 5</div>
+                    <div class="row">Notification 6</div>
+                    <div class="row">Notification 7</div>
+                </div>
+            </div>
+        </div>
+    </div>
    
-   <?php include 'application/views/labcast/news/rssfeed.php';?>
-   <?php include 'application/views/labcast/blog/postboard.php';?>
-   <?php include 'application/views/labcast/community/activityfeed.php';?>
+    <?php //include 'application/views/labcast/news/rssfeed.php';?>
+    <?php //include 'application/views/labcast/blog/postboard.php';?>
 
 </div>
+
 
 <!-- JAVASCRIPT ---------------------------------------------------------------------->
 <script type="text/javascript">

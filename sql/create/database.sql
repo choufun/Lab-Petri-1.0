@@ -1,3 +1,2 @@
-/* CREATE LABPETRI DATABASE
-******************************************************/
 CREATE DATABASE labpetri;
+CREATE DATABASE accounts;

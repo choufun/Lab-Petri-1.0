@@ -1,0 +1,28 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<?php
+class Company extends CI_Controller
+{
+   public function __construct()
+   {
+      parent::__construct();
+   }
+   
+   public function index()
+   {
+      if ($this->input->get('id') === NULL)
+      {
+         $this->load->view('templates/header');
+         $this->load->view('company');
+         $this->load->view('templates/footer');
+      }
+      elseif ($this->input->get('id') === 'privacy')
+      {
+         $this->load->view('templates/header');
+         $this->load->view('company/privacy');
+         $this->load->view('templates/footer');
+      }
+	}
+}
+?>
